@@ -17,18 +17,18 @@ class CreateProcessoClienteTable extends Migration
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
             $table->integer('processo_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
             $table->foreign('processo_id')
             ->references('id')
             ->on('processos')
             ->onDelete('cascade');
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
         });
     }
 
