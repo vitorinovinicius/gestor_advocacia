@@ -18,7 +18,8 @@
                 <tr>
                     <th width="50px">#</th>
                     <th width="500px">Vínculos</th>
-                    <th width="500px">Andamento</th>
+                    <th width="500px">Compromissos</th>
+                    <th width="500px">Título</th>
                     <th width="150px">Ações</th>
                 </tr>
             </thead>
@@ -27,7 +28,8 @@
                 <tr>
                     <td>{{$dados->id}}</td>
                     <td><a href="{{route('cadastro.show', [$dados->id])}}">{{$dados->nome}}</a></td>
-                    <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($processo->ultAndamento))}}  @else Não há andamento. @endif</td>
+                    <td>@if(isset($processo->compromisso) > 0){{$processo->compromisso}} @else Não há compromisso. @endif</td>
+                    <td>{{$processo->titulo}}</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning">Editar</a>
                     </td>
