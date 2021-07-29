@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>
         Meus clientes
-        <a href="#" class="btn btn-sm btn-success">
+        <a href="{{route('cadastro.create')}}" class="btn btn-sm btn-success">
             Novo cliente
         </a>
     </h1>
