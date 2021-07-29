@@ -5,9 +5,6 @@
 @section('content_header')
     <h1>
         Meus clientes
-        <a href="#" class="btn btn-sm btn-success">
-            Nova página
-        </a>
     </h1>
 @endsection
 @section('content')

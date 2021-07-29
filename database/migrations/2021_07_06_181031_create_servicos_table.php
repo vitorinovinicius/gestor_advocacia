@@ -15,15 +15,6 @@ class CreateServicosTable extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')
-            ->references('id')
-            ->on('clientes')
-            ->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
             $table->string('pasta', 300);
             $table->text('assunto')->nullable();
             $table->string('contrato')->nullable();
