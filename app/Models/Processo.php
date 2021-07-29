@@ -26,4 +26,9 @@ class Processo extends Model
     {
         return $this->belongsToMany(Cliente::class, 'processo_cliente');
     }
+
+    public function compromisso()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
 }
