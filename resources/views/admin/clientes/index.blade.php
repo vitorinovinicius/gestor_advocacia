@@ -11,7 +11,7 @@
     </h1>
 @endsection
 @section('content')
-<div class="card">
+<div class="card col-12">
     <div class="card-body">
         <table class="table table-hover">
             <thead>

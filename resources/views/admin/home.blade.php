@@ -3,8 +3,15 @@
 @section('title', 'Painel de Controle')
 
 @section('content_header')
-    <h1>Painel de Controle</h1>
+    <h1>
+        Painel de Controle
+        <a href="#" class="btn btn-sm btn-success">
+            Site
+        </a>
+    </h1>
+
 @endsection
+
 
 @section('content')
 <div class="row">

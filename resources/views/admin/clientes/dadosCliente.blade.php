@@ -8,7 +8,7 @@
     </h1>
 @endsection
 @section('content')
-<div class="card container">
+<div class="card col-12">
     <div class="card-body">
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"> Nome completo </label>
@@ -117,30 +117,36 @@
 @if(!empty($cliente->processo->id))
 <div class="container">Nenhum processo encontrado!</div>
 @else
-<div class="card container">
-    <div class="card-body">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th width="50px">#</th>
-                    <th width="500px">Parte contrária</th>
-                    <th width="500px">Andamento</th>
-                    <th width="150px">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($cliente->processo as $dados)
-                <tr>
-                    <td>{{$dados->id}}</td>
-                    <td><a href="{{route('processo.show', [$dados->id])}}">{{$dados->parteContraria}}</a></td>
-                    <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($dados->ultAndamento))}}  @else Não há andamento. @endif</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-warning">Editar</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th width="50px">#</th>
+                                <th width="500px">Processos</th>
+                                <th width="500px">Andamentos</th>
+                                <th width="150px">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($cliente->processo as $dados)
+                            <tr>
+                                <td>{{$dados->id}}</td>
+                                <td><a href="{{route('processo.show', [$dados->id])}}">{{$dados->parteContraria}}</a></td>
+                                <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($dados->ultAndamento))}}  @else Não há andamento. @endif</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning">Editar</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endif
