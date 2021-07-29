@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'Gestor de processos',
+    'title' => 'Pecego e Benfica Advogados Associados',
     'title_prefix' => '',
-    'title_postfix' => ' - GP',
+    'title_postfix' => ' - P&B',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,8 +65,8 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-light',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -146,11 +146,11 @@ return [
     */
 
     'sidebar_mini' => 'md',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => true,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
-    'sidebar_scrollbar_theme' => 'os-theme-light',
+    'sidebar_scrollbar_theme' => 'os-theme-dark',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
     'sidebar_nav_animation_speed' => 1000,
@@ -247,17 +247,17 @@ return [
         [
             'text'        => 'Clientes',
             'url'         => 'painel/cadastro',
-            'icon'        => 'fas fa-newspaper'
+            'icon'        => 'fas fa-users'
         ],
         [
             'text'        => 'Processos',
             'url'         => 'painel/processo',
-            'icon'        => 'fas fa-newspaper'
+            'icon'        => 'fas fa-gavel'
         ],
         [
             'text'        => 'Minhas páginas',
             'url'         => 'painel/paginas',
-            'icon'        => 'fas fa-newspaper'
+            'icon'        => 'fas fa-address-card'
         ],
 
         [
