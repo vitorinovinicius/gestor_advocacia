@@ -15,7 +15,7 @@
                 <p>@if(count($clientes) <= 1) Cliente @else Clientes @endif</p>
             </div>
             <div class="icon">
-                <i class="fas fa-user">
+                <i class=">@if(count($clientes) <= 1) fas fa-user @else fas fa-users @endif">
                 </i>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <p>@if(count($compromissos) <= 1) Compromisso @else Compromissos @endif</p>
             </div>
             <div class="icon">
-                <i class="fas fa-calendar-alt">
+                <i class="fas fa-calendar-check">
                 </i>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <p>@if(count($processos) <= 1) Processo @else Processos @endif</p>
             </div>
             <div class="icon">
-                <i class="fas fa-folder">
+                <i class="fas fa-gavel">
                 </i>
             </div>
         </div>
