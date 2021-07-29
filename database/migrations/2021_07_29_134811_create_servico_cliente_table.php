@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcessoClienteTable extends Migration
+class CreateServicoClienteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateProcessoClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('processo_cliente', function (Blueprint $table) {
+        Schema::create('servico_cliente', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
-            $table->integer('processo_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('servico_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->foreign('processo_id')
+            $table->foreign('servico_id')
             ->references('id')
-            ->on('processos')
+            ->on('servicos')
             ->onDelete('cascade');
             $table->foreign('user_id')
             ->references('id')
@@ -39,6 +39,6 @@ class CreateProcessoClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('processo_cliente');
+        Schema::dropIfExists('servico_cliente');
     }
 }

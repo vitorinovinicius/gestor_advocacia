@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcessoClienteTable extends Migration
+class CreateProfissaoPessoaFisicaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,23 @@ class CreateProcessoClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('processo_cliente', function (Blueprint $table) {
+        Schema::create('profissao_pessoa_fisica', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
-            $table->integer('processo_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('cliente_id')
+            $table->integer('pessoa_fisica_id')->unsigned();
+            $table->integer('profissao_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('pessoa_fisica_id')
             ->references('id')
-            ->on('clientes')
+            ->on('pessoas_fisicas')
             ->onDelete('cascade');
-            $table->foreign('processo_id')
+            $table->foreign('profissao_id')
             ->references('id')
-            ->on('processos')
+            ->on('profissoes')
             ->onDelete('cascade');
             $table->foreign('user_id')
             ->references('id')
-            ->on('users');
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 
@@ -39,6 +40,6 @@ class CreateProcessoClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('processo_cliente');
+        Schema::dropIfExists('profissao_pessoa_fisica');
     }
 }

@@ -22,7 +22,7 @@ class CreateProcessosTable extends Migration
             $table->integer('numProcesso')->nullable();
             $table->date('ultAndamento')->nullable();
             $table->text('compromisso')->nullable();
-            $table->string('instInicial');
+            $table->string('instInicial')->nullable();
             $table->date('dtDistribuicao')->nullable();
             $table->string('advContrario');
             $table->text('titulo');

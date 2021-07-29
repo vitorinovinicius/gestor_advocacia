@@ -26,10 +26,7 @@ class CreatePessoasFisicasTable extends Migration
             ->on('users');
             $table->string('cpf', 15)->unique();
             $table->string('pis', 15)->unique()->nullable();
-            $table->string('profissao', 100);
             $table->enum('sexo', ['M', 'F']);
-            $table->string('estadoCivil', 30);
-            $table->string('tratamento', 30);
             $table->string('numCtps')->unique();
             $table->string('serieCtps');
             $table->string('nacionalidade');
