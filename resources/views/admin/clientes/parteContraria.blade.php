@@ -11,7 +11,7 @@
 @if(!empty($processo->cliente->id))
 <div class="container">Nenhum processo encontrado!</div>
 @else
-<div class="card container">
+<div class="card col-12">
     <div class="card-body">
         <table class="table table-hover">
             <thead>
