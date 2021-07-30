@@ -17,9 +17,9 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th width="50px">#</th>
-                    <th width="500px">Processos</th>
-                    <th width="500px">Pasta</th>
+                    <th width="100px">Ordem</th>
+                    <th width="600px">@if(count($processos) <= 1)Processo @else Processos @endif</th>
+                    <th width="200px">@if(count(['cliente']) <= 1) Cliente @else Clientes @endif</th>
                     <th width="150px">Ações</th>
                 </tr>
             </thead>
@@ -27,8 +27,8 @@
                 @foreach($processos as $processo)
                 <tr>
                     <td>{{$processo->id}}</td>
-                    <td>{{$processo->parteContraria}}</td>
-                    <td><a href="{{route('cadastro.show', [$processo->id])}}">@if(!empty($processo->pasta) > 0){{$processo->pasta}} @else Não há pasta registrada. @endif</a></td>
+                    <td><a href="{{route('processo.show', [$processo->id])}}">{{$processo->parteContraria}}</a></td>
+                    <td>@if(array($processo) > 0){{count($processo->cliente)}} @else Não há clientes registrados. @endif</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', [$processo->id])}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >

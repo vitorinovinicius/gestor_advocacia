@@ -15,12 +15,16 @@
 }
 ::-webkit-scrollbar{
     background-color: white;
-    width: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    width: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: gray;
+    border-radius: 10px;
+}
+
+.card{
     border-radius: 10px;
 }
 
@@ -146,7 +150,7 @@
                                 @foreach($cliente->processo as $dados)
                                 <tr>
                                     <td>{{$dados->id}}</td>
-                                    <td><a href="{{route('processo.show', [$dados->id])}}">{{$dados->parteContraria}}</a></td>
+                                    <td>{{$dados->parteContraria}}</td>
                                     <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($dados->ultAndamento))}}  @else Não há andamento. @endif</td>
                                     <td>
                                         <a href="{{route('processo.show', [$dados->id])}}">{{$dados->pasta}}</a>
