@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>GP</b>CMS',
+    'logo' => '<b>PEB</b><l> Admin</l>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -64,8 +64,8 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_enabled' => false,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-light',
     'usermenu_image' => false,
     'usermenu_desc' => false,
