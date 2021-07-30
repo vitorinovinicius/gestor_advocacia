@@ -19,7 +19,7 @@
                 <tr>
                     <th width="100px">Ordem</th>
                     <th width="600px">@if(count($processos) <= 1)Processo @else Processos @endif</th>
-                    <th width="200px">@if(count(['cliente']) <= 1) Cliente @else Clientes @endif</th>
+                    <th width="200px">Clientes</th>
                     <th width="150px">Ações</th>
                 </tr>
             </thead>
