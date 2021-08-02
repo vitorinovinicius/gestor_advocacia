@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{$cliente->id}}</td>
                     <td><a href="{{route('cadastro.show', [$cliente->id])}}">{{$cliente->nome}}</a></td>
-                    <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}  @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}} @endif</td>
+                    <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}  @else(!empty($cliente->pessoaJuridica->cpf) > 0){{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}} @endif</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', [$cliente->id])}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
