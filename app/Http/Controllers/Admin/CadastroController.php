@@ -28,20 +28,52 @@ class CadastroController extends Controller
             'nome',
             'cpf',
             'pis',
-            'numCtps',
-            'serieCtps',
-            'tituloEleitor',
-            'idtCivil',
-            'dtExpedicao',
-            'orgExpeditor',
-            'nacionalidade',
             'profissao',
             'sexo',
             'estadoCivil',
             'tratamento',
-
+            'numCtps',
+            'serieCtps',
+            'nacionalidade',
+            'codMatricula',
+            'dtNascimento',
+            'tituloEleitor',
+            'idtCivil',
+            'dtExpedicao',
+            'orgExpeditor',
+            'nomeMae'
 
         ]);
+
+        $validador = Validator::make($dados, [
+            'nome' => ['required', 'string', 'max:100'],
+            'cpf' => ['required', 'string', 'max:15', 'unique:pessoas_fisicas'],
+            'pis' => ['required', 'string', 'max:15', 'unique:pessoas_fisicas'],
+            'profissao' => ['required', 'string', 'max'],
+            'sexo' => ['required', 'string', 'max:'],
+            'estadoCivil' => ['required', 'string', 'max:'],
+            'tratamento' => ['required', 'string', 'max:'],
+            'numCtps' => ['required', 'string', 'max:'],
+            'serieCtps' => ['required', 'string', 'max:'],
+            'nacionalidade' => ['required', 'string', 'max:'],
+            'codMatricula' => ['required', 'string', 'max:'],
+            'dtNascimento' => ['required', 'string', 'max:'],
+            'tituloEleitor' => ['required', 'string', 'max:'],
+            'idtCivil'=> ['required', 'string', 'max:'],
+            'dtExpedicao' => ['required', 'string', 'max:'],
+            'orgExpeditor' => ['required', 'string', 'max:'],
+            'nomeMae' => ['required', 'string', 'max:']
+        ]);
+
+        if($validador->fails()){
+            return redirect()->route('cadastro.create')
+                        ->withErrors($validador)
+                        ->withInput();
+        }
+
+
+
+        return redirect()->route('cadastro.index');
     }
 
     public function show($id)
@@ -53,7 +85,7 @@ class CadastroController extends Controller
             ]);
         }
 
-        return redirect()->route('cliente.list');
+        return redirect()->route('cadastro.index');
     }
 
     public function processo($id)
