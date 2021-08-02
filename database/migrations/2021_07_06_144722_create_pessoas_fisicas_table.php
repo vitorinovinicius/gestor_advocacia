@@ -27,16 +27,16 @@ class CreatePessoasFisicasTable extends Migration
             $table->string('cpf', 15)->unique();
             $table->string('pis', 15)->unique()->nullable();
             $table->enum('sexo', ['M', 'F']);
-            $table->string('numCtps')->unique();
-            $table->string('serieCtps');
-            $table->string('nacionalidade');
-            $table->string('codMatricula');
+            $table->string('numCtps', 6)->unique();
+            $table->string('serieCtps', 10);
+            $table->string('nacionalidade', 100);
+            $table->string('codMatricula', 10);
             $table->date('dtNascimento');
-            $table->string('tituloEleitor')->unique();
-            $table->string('idtCivil')->unique();
+            $table->string('tituloEleitor', 16)->unique();
+            $table->string('idtCivil', 10)->unique();
             $table->date('dtExpedicao');
-            $table->string('orgExpeditor');
-            $table->string('nomeMae');
+            $table->string('orgExpeditor', 100);
+            $table->string('nomeMae', 150);
             $table->timestamps();
         });
     }
