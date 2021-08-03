@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cliente;
+use App\Models\PessoaFisica;
+use App\Models\Contato;
+use App\Models\Endereco;
+use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
 {
@@ -24,56 +28,48 @@ class CadastroController extends Controller
 
     public function store(Request $request)
     {
-        $dados = $request->only([
-            'nome',
-            'cpf',
-            'pis',
-            'profissao',
-            'sexo',
-            'estadoCivil',
-            'tratamento',
-            'numCtps',
-            'serieCtps',
-            'nacionalidade',
-            'codMatricula',
-            'dtNascimento',
-            'tituloEleitor',
-            'idtCivil',
-            'dtExpedicao',
-            'orgExpeditor',
-            'nomeMae'
+            $cliente = new Cliente;
+            $cliente->nome = $request->input('nome');
+            $cliente->save();
 
-        ]);
+            $cpf = new PessoaFisica;
+            $cpf->cpf = $request->input('cpf');
+            $cpf->pis = $request->input('pis');
+            $cpf->profissao = $request->input('profissao');
+            $cpf->sexo = $request->input('sexo');
+            $cpf->estadoCivil = $request->input('estadoCivil');
+            $cpf->tratamento = $request->input('tratamento');
+            $cpf->numCtps = $request->input('numCtps');
+            $cpf->serieCtps = $request->input('serieCtps');
+            $cpf->nacionalidade = $request->input('nacionalidade');
+            $cpf->dtNascimento = $request->input('dtNascimento');
+            $cpf->tituloEleitor = $request->input('tituloEleitor');
+            $cpf->idtCivil = $request->input('idtCivil');
+            $cpf->dtExpedicao = $request->input('dtExpedicao');
+            $cpf->orgExpeditor = $request->input('orgExpeditor');
+            $cpf->nomeMae = $request->input('nomeMae');
+            $cpf->cliente()->associate($cliente);
+            $cpf->save();
 
-        $validador = Validator::make($dados, [
-            'nome' => ['required', 'string', 'max:100'],
-            'cpf' => ['required', 'string', 'max:15', 'unique:pessoas_fisicas'],
-            'pis' => ['required', 'string', 'max:15', 'unique:pessoas_fisicas'],
-            'profissao' => ['required', 'string', 'max'],
-            'sexo' => ['required', 'string', 'max:'],
-            'estadoCivil' => ['required', 'string', 'max:'],
-            'tratamento' => ['required', 'string', 'max:'],
-            'numCtps' => ['required', 'string', 'max:'],
-            'serieCtps' => ['required', 'string', 'max:'],
-            'nacionalidade' => ['required', 'string', 'max:'],
-            'codMatricula' => ['required', 'string', 'max:'],
-            'dtNascimento' => ['required', 'string', 'max:'],
-            'tituloEleitor' => ['required', 'string', 'max:'],
-            'idtCivil'=> ['required', 'string', 'max:'],
-            'dtExpedicao' => ['required', 'string', 'max:'],
-            'orgExpeditor' => ['required', 'string', 'max:'],
-            'nomeMae' => ['required', 'string', 'max:']
-        ]);
+            $contato = new Contato;
+            $contato->email =$request->input('email');
+            $contato->telefone =$request->input('telefone');
+            $contato->celular =$request->input('celular');
+            $contato->cliente()->associate($cliente);
+            $contato->save();
 
-        if($validador->fails()){
-            return redirect()->route('cadastro.create')
-                        ->withErrors($validador)
-                        ->withInput();
-        }
+            $endereco = new Endereco;
+            $endereco->logradouro = $request->input('logradouro');
+            $endereco->complemento = $request->input('complemento');
+            $endereco->numEndereco = $request->input('numEndereco');
+            $endereco->bairro = $request->input('bairro');
+            $endereco->cidade = $request->input('cidade');
+            $endereco->uf = $request->input('uf');
+            $endereco->cep = $request->input('cep');
+            $endereco->cliente()->associate($cliente);
+            $endereco->save();
 
-
-
-        return redirect()->route('cadastro.index');
+            return redirect()->route('cadastro.index');
     }
 
     public function show($id)
@@ -88,16 +84,17 @@ class CadastroController extends Controller
         return redirect()->route('cadastro.index');
     }
 
-    public function processo($id)
-    {
-
-    }
-
     public function edit($id)
     {
-        //
-    }
+        $cliente = Cliente::find($id);
+        if($cliente) {
+            return view('admin.clientes.editar', [
+                'cliente' => $cliente
+            ]);
+        }
 
+        return redirect()->route('cadastro.index');
+    }
 
     public function update(Request $request, $id)
     {
@@ -109,6 +106,6 @@ class CadastroController extends Controller
         $cliente = Cliente::all($id);
         $cliente->delete();
 
-        return redirect()->route('cliente.list');
+        return redirect()->route('cadastro.index');
     }
 }
