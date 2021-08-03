@@ -3,15 +3,41 @@
 @section('title', 'Novo cliente ')
 
 @section('content_header')
-    <h1>Novo cliente</h1>
+    <h1>
+        Adicionar cliente
+        <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
+            Voltar
+        </a>
+    </h1>
 @endsection
-@section('content')
+<style>
+    .scroll-me{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    background-color: white;
+    width: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 10px;
+}
 
+.card{
+    border-radius: 10px;
+}
+
+</style>
+@section('content')
 <form action="{{route('cadastro.store')}}" method="post" class="form-horizontal">
         @csrf
     <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
+        <div class="col-6">
+        <label class="col-sm-4 control-label">DADOS PESSOA NATURAL</label>
+            <div class="card scroll-me" style="height: 600px;">
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Nome completo</label>
                     <div class="col-sm-10">
@@ -64,84 +90,154 @@
                 <div class="row">
                     <div class="col-8">
                         <label class="col-sm-4 control-label">Número da CTPS</label>
-                            <div class="col-12">
-                                <input class="form-control form-control" type="text" name="numCtps" >
-                            </div>
-                        <small class="form-text text-muted col-sm-12">Digite os números da CTPS</small>
+                        <div class="col-12">
+                            <input class="form-control form-control" type="text" name="numCtps" >
+                        </div>
                     </div>
                     <div class="col-4">
                         <label class="col-sm-4 control-label">Série</label>
-                            <div class="col-6">
-                                <input class="form-control form-control" type="text" name="serieCtps">
-                            </div>
-                        <small class="form-text text-muted col-sm-6">Número de série</small>
+                        <div class="col-6">
+                            <input class="form-control form-control" type="text" name="serieCtps">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Nacionalidade</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="nacionalidade" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Data de Nascimento</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="dtNascimento" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Titulo de Eleitor</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tituloEleitor" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Identidade Cívil</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="idtCivil" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Data de Expedição</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="dtExpedicao" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Orgão expeditor</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="orgExpeditor" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Nome da mãe</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="nomeMae" class="form-control">
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- FIM DOS DADOS PESSOA NATURAL -->
 
-        <div class="col-sm-6">
-            <div class="card">
+        <div class="col-6">
+        <label class="col-sm-4 control-label">ENDEREÇO E CONTATOS</label>
+            <div class="card scroll-me" style="height: 600px;">
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Nacionalidade</label>
+                        <label class="col-sm-4 control-label">Logradouro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nacionalidade" class="form-control">
+                            <input type="text" name="logradouro" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <label class="col-sm-4 control-label">Complemento</label>
+                            <div class="col-12">
+                                <input class="form-control form-control" type="text" name="complemento" >
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label class="col-sm-6 control-label">Número</label>
+                            <div class="col-5">
+                                <input class="form-control form-control" type="text" name="numEndereco">
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Data de Nascimento</label>
+                        <label class="col-sm-4 control-label">Bairro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="dtNascimento" class="form-control">
+                            <input type="text" name="bairro" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Titulo de Eleitor</label>
+                        <label class="col-sm-4 control-label">Cidade</label>
                         <div class="col-sm-10">
-                            <input type="text" name="tituloEleitor" class="form-control">
+                            <input type="text" name="cidade" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Identidade Cívil</label>
+                        <label class="col-sm-4 control-label">Estado</label>
                         <div class="col-sm-10">
-                            <input type="text" name="idtCivil" class="form-control">
+                            <input type="text" name="uf" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Data de Expedição</label>
+                        <label class="col-sm-4 control-label">CEP</label>
                         <div class="col-sm-10">
-                            <input type="text" name="dtExpedicao" class="form-control">
+                            <input type="text" name="cep" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">E-mail</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="email" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Orgão expeditor</label>
+                        <label class="col-sm-4 control-label">Telefone</label>
                         <div class="col-sm-10">
-                            <input type="text" name="orgExpeditor" class="form-control">
+                            <input type="text" name="telefone" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Nome da mãe</label>
+                        <label class="col-sm-4 control-label">Celular</label>
                         <div class="col-sm-10">
-                            <input type="text" name="nomeMae" class="form-control">
+                            <input type="text" name="celular" class="form-control">
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label"></label>
-                        <div class="col-sm-10">
-                            <input type="submit" value="Cadastrar" class="btn btn-success">
-                        </div>
-                    </div>
+                    </div> <!-- FIM DOS DADOS ENDEREÇO E CONTATOS-->
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label"></label>
+    <div class="col-sm-10">
+        <input type="submit" value="Cadastrar" class="btn btn-success">
+    </div>
+</div>
 </form>
 
 @endsection
