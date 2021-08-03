@@ -67,6 +67,11 @@
                 <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->tituloEleitor,' ', 12, 0),' ', 8, 0), ' ', 4, 0)}}</ol>
             </div>
 
+            <label class="col-sm-2 col-form-label"> Gênero </label>
+            <div class="col-sm-10">
+                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->sexo)}}</ol>
+            </div>
+
             <label class="col-sm-2 col-form-label"> Nacionalidade </label>
             <div class="col-sm-10">
                 <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->nacionalidade)}}</ol>
@@ -104,7 +109,7 @@
 
             <label class="col-sm-2 col-form-label"> Complemento </label>
             <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">@if(!empty($cliente->endereco->complemento) > 0)  S/N  @else {{$cliente->endereco->complemento}} @endif</ol>
+                <ol type="text" readonly class="form-control-plaintext">@if(!empty($cliente->endereco->complemento) < 0)  S/N  @else {{$cliente->endereco->complemento}} @endif</ol>
             </div>
 
             <label class="col-sm-2 col-form-label"> Bairro </label>
