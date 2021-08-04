@@ -6,7 +6,7 @@
     <h1>
         Meus clientes
         <a href="{{route('cadastro.create')}}" class="btn btn-sm btn-success">
-            Novo cliente
+        <i class="fas fa-user-plus"></i> Novo cliente
         </a>
     </h1>
 @endsection
