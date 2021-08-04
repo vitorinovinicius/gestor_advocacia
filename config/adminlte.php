@@ -257,13 +257,13 @@ return [
         [
             'text'        => 'Minhas páginas',
             'url'         => 'painel/paginas',
-            'icon'        => 'fas fa-address-card'
+            'icon'        => 'fas fa-window-restore'
         ],
 
         [
             'text'        => 'Meus usuários',
             'url'         => 'painel/usuarios',
-            'icon'        => 'fas fa-users',
+            'icon'        => 'fas fa-id-card-alt',
             'can'         => 'edita_usuarios'
         ],
         ['header' => 'Configurações'],
@@ -275,7 +275,7 @@ return [
         [
             'text'        => 'Meu perfil',
             'url'        => 'painel/perfil',
-            'icon'        => 'fas fa-fw fa-user',
+            'icon'        => 'fas fa-fw fa-user-tie',
         ]
     ],
 
