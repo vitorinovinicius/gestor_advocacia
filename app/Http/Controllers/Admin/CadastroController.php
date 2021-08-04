@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCadastroRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cliente;
 use App\Models\PessoaFisica;
@@ -26,50 +27,50 @@ class CadastroController extends Controller
         return view('admin.clientes.adicionar');
     }
 
-    public function store(Request $request)
+    public function store(StoreCadastroRequest $request)
     {
-            $cliente = new Cliente;
-            $cliente->nome = $request->input('nome');
-            $cliente->save();
+        $cliente = new Cliente;
+        $cliente->nome = $request->input('nome');
+        $cliente->save();
 
-            $cpf = new PessoaFisica;
-            $cpf->cpf = $request->input('cpf');
-            $cpf->pis = $request->input('pis');
-            $cpf->profissao = $request->input('profissao');
-            $cpf->sexo = $request->input('sexo');
-            $cpf->estadoCivil = $request->input('estadoCivil');
-            $cpf->tratamento = $request->input('tratamento');
-            $cpf->numCtps = $request->input('numCtps');
-            $cpf->serieCtps = $request->input('serieCtps');
-            $cpf->nacionalidade = $request->input('nacionalidade');
-            $cpf->dtNascimento = $request->input('dtNascimento');
-            $cpf->tituloEleitor = $request->input('tituloEleitor');
-            $cpf->idtCivil = $request->input('idtCivil');
-            $cpf->dtExpedicao = $request->input('dtExpedicao');
-            $cpf->orgExpeditor = $request->input('orgExpeditor');
-            $cpf->nomeMae = $request->input('nomeMae');
-            $cpf->cliente()->associate($cliente);
-            $cpf->save();
+        $pf = new PessoaFisica;
+        $pf->cpf = $request->input('pf');
+        $pf->pis = $request->input('pis');
+        $pf->profissao = $request->input('profissao');
+        $pf->sexo = $request->input('sexo');
+        $pf->estadoCivil = $request->input('estadoCivil');
+        $pf->tratamento = $request->input('tratamento');
+        $pf->numCtps = $request->input('numCtps');
+        $pf->serieCtps = $request->input('serieCtps');
+        $pf->nacionalidade = $request->input('nacionalidade');
+        $pf->dtNascimento = $request->input('dtNascimento');
+        $pf->tituloEleitor = $request->input('tituloEleitor');
+        $pf->idtCivil = $request->input('idtCivil');
+        $pf->dtExpedicao = $request->input('dtExpedicao');
+        $pf->orgExpeditor = $request->input('orgExpeditor');
+        $pf->nomeMae = $request->input('nomeMae');
+        $pf->cliente()->associate($cliente);
+        $pf->save();
 
-            $contato = new Contato;
-            $contato->email =$request->input('email');
-            $contato->telefone =$request->input('telefone');
-            $contato->celular =$request->input('celular');
-            $contato->cliente()->associate($cliente);
-            $contato->save();
+        $contato = new Contato;
+        $contato->email =$request->input('email');
+        $contato->telefone =$request->input('telefone');
+        $contato->celular =$request->input('celular');
+        $contato->cliente()->associate($cliente);
+        $contato->save();
 
-            $endereco = new Endereco;
-            $endereco->logradouro = $request->input('logradouro');
-            $endereco->complemento = $request->input('complemento');
-            $endereco->numEndereco = $request->input('numEndereco');
-            $endereco->bairro = $request->input('bairro');
-            $endereco->cidade = $request->input('cidade');
-            $endereco->uf = $request->input('uf');
-            $endereco->cep = $request->input('cep');
-            $endereco->cliente()->associate($cliente);
-            $endereco->save();
+        $endereco = new Endereco;
+        $endereco->logradouro = $request->input('logradouro');
+        $endereco->complemento = $request->input('complemento');
+        $endereco->numEndereco = $request->input('numEndereco');
+        $endereco->bairro = $request->input('bairro');
+        $endereco->cidade = $request->input('cidade');
+        $endereco->uf = $request->input('uf');
+        $endereco->cep = $request->input('cep');
+        $endereco->cliente()->associate($cliente);
+        $endereco->save();
 
-            return redirect()->route('cadastro.index');
+        return redirect()->route('cadastro.index');
     }
 
     public function show($id)
