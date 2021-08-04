@@ -4,33 +4,11 @@
 
 @section('content_header')
 
-    <h1>Novo usuário</h1>
+    <h1>Editar usuário</h1>
 
 @endsection
 
 @section('content')
-
-    @if($errors->any())
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                ×
-            </button>
-            <ul>
-                <h4><i class="icon fas fa-ban"></i> Ocorreu um erro. </h4>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @if(session('warning'))
-    <div class="alert alert-info alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-            ×
-        </button>
-        {{session('warning')}}
-    </div>
-    @endif
     <div class="card col-sm-8">
         <div class="card-body">
             <form action="{{ route('usuarios.update', ['usuario' => $usuario->id])}}" class="form-horizontal" method="POST">
