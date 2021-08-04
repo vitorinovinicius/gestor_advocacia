@@ -6,10 +6,12 @@
     <h1>
         Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
-            Voltar
+        <i class="fas fa-reply"></i> Voltar
         </a>
     </h1>
 @endsection
+
+
 <style>
     .scroll-me{
     overflow-y: auto;
@@ -32,6 +34,11 @@
 
 </style>
 @section('content')
+<?php
+$cep = '25213310';
+$url = "https://viacep.com.br/ws/{$cep}/json/";
+$endereco = json_decode(file_get_contents($url));
+?>
 <form action="{{route('cadastro.store')}}" method="post" class="form-horizontal">
         @csrf
     <div class="row">
@@ -41,14 +48,24 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Nome completo</label>
                     <div class="col-sm-10">
-                        <input type="text" name="nome" class="form-control">
+                        <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror">
+                        @error('nome')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label">CPF</label>
                     <div class="col-sm-10">
-                        <input type="text" name="cpf" class="form-control">
+                    <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror">
+                        @error('cpf')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                     </div>
                 </div>
 
@@ -158,16 +175,23 @@
             <div class="card scroll-me" style="height: 600px;">
                 <div class="card-body">
                     <div class="form-group">
+                        <label class="col-sm-4 control-label">CEP</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="cep" class="form-control" value="{{$endereco->cep}}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="col-sm-4 control-label">Logradouro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="logradouro" class="form-control">
+                            <input type="text" name="logradouro" class="form-control" value="{{$endereco->logradouro}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
                             <label class="col-sm-4 control-label">Complemento</label>
                             <div class="col-12">
-                                <input class="form-control form-control" type="text" name="complemento" >
+                                <input class="form-control form-control" type="text" name="complemento" value="{{$endereco->complemento}}">
                             </div>
                         </div>
                         <div class="col-4">
@@ -181,31 +205,23 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Bairro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="bairro" class="form-control">
+                            <input type="text" name="bairro" class="form-control" value="{{$endereco->bairro}}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Cidade</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cidade" class="form-control">
+                            <input type="text" name="cidade" class="form-control" value="{{$endereco->localidade}}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Estado</label>
                         <div class="col-sm-10">
-                            <input type="text" name="uf" class="form-control">
+                            <input type="text" name="uf" class="form-control" value="{{$endereco->uf}}">
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">CEP</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cep" class="form-control">
-                        </div>
-                    </div>
-
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">E-mail</label>
