@@ -20,7 +20,7 @@
                     <th width="50px">ID</th>
                     <th width="500px">Nome</th>
                     <th>E-mail</th>
-                    <th width="150px">Ações</th>
+                    <th width="200px">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,12 +30,12 @@
                     <td>{{$usuario->name}}</td>
                     <td>{{$usuario->email}}</td>
                     <td>
-                        <a href="{{ route('usuarios.edit', ['usuario' => $usuario->id])}}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{ route('usuarios.edit', ['usuario' => $usuario->id])}}" class="btn btn-sm btn-warning">Editar <i class="fas fa-user-edit"></i></a>
                         @if($loggedId !== $usuario->id)
                         <form class="d-inline" method="POST" action="{{ route('usuarios.destroy', ['usuario' => $usuario->id])}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
                             @method('delete')
                             @csrf
-                            <button class="btn btn-sm btn-danger">Excluir</button>
+                            <button class="btn btn-sm btn-danger">Excluir <i class="fas fa-trash-alt"></i></button>
                         </form>
                         @endif
                     </td>
