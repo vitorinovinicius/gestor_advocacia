@@ -34,11 +34,6 @@
 
 </style>
 @section('content')
-<?php
-$cep = '25213310';
-$url = "https://viacep.com.br/ws/{$cep}/json/";
-$endereco = json_decode(file_get_contents($url));
-?>
 <form action="{{route('cadastro.store')}}" method="post" class="form-horizontal">
         @csrf
     <div class="row">
@@ -177,21 +172,21 @@ $endereco = json_decode(file_get_contents($url));
                     <div class="form-group">
                         <label class="col-sm-4 control-label">CEP</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cep" class="form-control" value="{{$endereco->cep}}">
+                            <input type="text" name="cep" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Logradouro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="logradouro" class="form-control" value="{{$endereco->logradouro}}">
+                            <input type="text" name="logradouro" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
                             <label class="col-sm-4 control-label">Complemento</label>
                             <div class="col-12">
-                                <input class="form-control form-control" type="text" name="complemento" value="{{$endereco->complemento}}">
+                                <input class="form-control form-control" type="text" name="complemento">
                             </div>
                         </div>
                         <div class="col-4">
@@ -205,21 +200,21 @@ $endereco = json_decode(file_get_contents($url));
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Bairro</label>
                         <div class="col-sm-10">
-                            <input type="text" name="bairro" class="form-control" value="{{$endereco->bairro}}">
+                            <input type="text" name="bairro" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Cidade</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cidade" class="form-control" value="{{$endereco->localidade}}">
+                            <input type="text" name="cidade" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Estado</label>
                         <div class="col-sm-10">
-                            <input type="text" name="uf" class="form-control" value="{{$endereco->uf}}">
+                            <input type="text" name="uf" class="form-control">
                         </div>
                     </div>
 
