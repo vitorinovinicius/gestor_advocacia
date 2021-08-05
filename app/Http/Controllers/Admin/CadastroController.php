@@ -10,6 +10,7 @@ use App\Models\Cliente;
 use App\Models\PessoaFisica;
 use App\Models\Contato;
 use App\Models\Endereco;
+use App\Models\PessoaJuridica;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -51,6 +52,15 @@ class CadastroController extends Controller
         $pf->nomeMae = $request->input('nomeMae');
         $pf->cliente()->associate($cliente);
         $pf->save();
+
+        $pj = new PessoaJuridica;
+        $pj->nome_empresa = $request->input('nome_empresa');
+        $pj->numero = $request->input('numero');
+        $pj->inscMunicipal = $request->input('inscMunicipal');
+        $pj->inscEstadual = $request->input('inscEstadual');
+        $pj->codigo = $request->input('codigo');
+        $pj->cliente()->associate($cliente);
+        $pj->save();
 
         $contato = new Contato;
         $contato->email =$request->input('email');
