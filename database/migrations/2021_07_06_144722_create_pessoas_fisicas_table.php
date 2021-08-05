@@ -29,13 +29,11 @@ class CreatePessoasFisicasTable extends Migration
             $table->enum('sexo', ['M', 'F']);
             $table->string('numCtps', 6)->unique();
             $table->string('serieCtps', 10);
-            $table->string('nacionalidade', 100);
             $table->string('codMatricula', 10);
             $table->date('dtNascimento');
             $table->string('tituloEleitor', 16)->unique();
             $table->string('idtCivil', 10)->unique();
             $table->date('dtExpedicao');
-            $table->string('orgExpeditor', 100);
             $table->string('nomeMae', 150);
             $table->timestamps();
         });
