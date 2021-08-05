@@ -1,0 +1,181 @@
+﻿id;tipo
+1;Administração
+2;Administração Pública
+3;Agronegócios e Agropecuária
+4;Ciências Aeronáuticas
+5;Ciências Atuariais
+6;Ciências Contábeis
+7;Ciências Econômicas
+8;Comércio Exterior
+9;Defesa e Gestão Estratégica Internacional
+10;Gastronomia
+11;Gestão Comercial
+12;Gestão de Recursos Humanos
+13;Gestão de Segurança Privada
+14;Gestão de Seguros
+15;Gestão de Turismo
+16;Gestão Financeira
+17;Gestão Pública
+18;Hotelaria
+19;Logística
+20;Marketing
+21;Negócios Imobiliários
+22;Pilotagem profissional de aeronaves
+23;Processos Gerenciais
+24;Segurança Pública
+25;Turismo
+26;Animação
+27;Arquitetura e Urbanismo
+28;Artes Visuais
+29;Comunicação das Artes do Corpo
+30;Conservação e Restauro
+31;Dança
+32;Design
+33;Design de Games
+34;Design de Interiores
+35;Design de Moda
+36;Fotografia
+37;História da Arte
+38;Jogos Digitais
+39;Luteria
+40;Música
+41;Produção Cênica
+42;Produção Fonográfica
+43;Teatro
+44;Arqueologia
+45;Ciências do Consumo
+46;Ciências Humanas
+47;Ciências Sociais
+48;Cooperativismo
+49;Direito
+50;Escrita Criativa
+51;Estudos de Gênero e Diversidade
+52;Filosofia
+53;Geografia
+54;Gestão de Cooperativas
+55;História
+56;Letras
+57;Libras
+58;Linguística
+59;Museologia
+60;Pedagogia
+61;Psicopedagogia
+62;Relações Internacionais
+63;Serviço Social
+64;Serviços Judiciários e Notariais
+65;Teologia
+66;Tradutor e Intérprete
+67;Arquivologia
+68;Biblioteconomia
+69;Cinema e Audiovisual
+70;Comunicação em Mídias Digitais
+71;Comunicação Institucional
+72;Comunicação Organizacional
+73;Educomunicação
+74;Estudos de Mídia
+75;Eventos
+76;Gestão da Informação
+77;Jornalismo
+78;Produção Audiovisual
+79;Produção Cultural
+80;Produção Editorial
+81;Produção Multimídia
+82;Produção Publicitária
+83;Publicidade e Propaganda
+84;Rádio, TV e Internet
+85;Relações Públicas
+86;Secretariado
+87;Secretariado Executivo
+88;Biomedicina
+89;Educação Física
+90;Enfermagem
+91;Esporte
+92;Estética e Cosmética
+93;Farmácia
+94;Fisioterapia
+95;Fonoaudiologia
+96;Gerontologia
+97;Gestão Desportiva e de Lazer
+98;Gestão em Saúde
+99;Gestão Hospitalar
+100;Medicina
+101;Musicoterapia
+102;Naturologia
+103;Nutrição
+104;Obstetrícia
+105;Odontologia
+106;Oftálmica
+107;Optometria
+108;Psicologia
+109;Quiropraxia
+110;Radiologia
+111;Saúde Coletiva
+112;Terapia Ocupacional
+113;Agrimensura
+114;Aquicultura
+115;Automação Industrial
+116;Construção Civil
+117;Construção Naval
+118;Eletrônica Industrial
+119;Eletrotécnica Industrial
+120;Energias Renováveis
+121;Engenharia Acústica
+122;Engenharia Aeronáutica
+123;Engenharia Agrícola
+124;Engenharia Ambiental e Sanitária
+125;Engenharia Biomédica
+126;Engenharia Bioquímica, de Bioprocessos e Biotecnologia
+127;Engenharia Cartográfica e de Agrimensura
+128;Engenharia Civil
+129;Engenharia da Computação
+130;Engenharia de Alimentos
+131;Engenharia de Biossistemas
+132;Engenharia de Controle e Automação
+133;Engenharia de Energia
+134;Engenharia de Inovação
+135;Engenharia de Materiais
+136;Engenharia de Minas
+137;Engenharia de Pesca
+138;Engenharia de Petróleo
+139;Engenharia de Produção
+140;Engenharia de Segurança no Trabalho
+141;Engenharia de Sistemas
+142;Engenharia de Software
+143;Engenharia de Telecomunicações
+144;Engenharia de Transporte e da Mobilidade
+145;Engenharia Elétrica
+146;Engenharia Eletrônica
+147;Engenharia Física
+148;Engenharia Florestal
+149;Engenharia Hídrica
+150;Engenharia Industrial Madeireira
+151;Engenharia Mecânica
+152;Engenharia Mecatrônica
+153;Engenharia Metalúrgica
+154;Engenharia Naval
+155;Engenharia Nuclear
+156;Engenharia Química
+157;Engenharia Têxtil
+158;Fabricação Mecânica
+159;Geoprocessamento
+160;Gestão da Produção Industrial
+161;Gestão da Qualidade
+162;Irrigação e Drenagem
+163;Manutenção de aeronaves
+164;Manutenção Industrial
+165;Materiais
+166;Mecatrônica Industrial
+167;Mineração
+168;Papel e Celulose
+169;Petróleo e Gás
+170;Processos Metalúrgicos
+171;Processos Químicos
+172;Produção Têxtil
+173;Saneamento Ambiental
+174;Segurança no Trabalho
+175;Silvicultura
+176;Sistemas Biomédicos
+177;Sistemas de Telecomunicações
+178;Sistemas Elétricos
+179;Sistemas Embarcados
+180;Transporte

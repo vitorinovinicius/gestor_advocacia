@@ -1,0 +1,16 @@
+﻿id;tipo
+1;Administrativa
+2;Ambiental
+3;Cível
+4;Constitucional
+5;Consumidor
+6;Criminal
+7;Eleitoral
+8;Empresarial
+9;Falimentar
+10;Família
+11;Penal
+12;Previdênciária
+13;Sucessões
+14;Trabalhista
+15;Tributária

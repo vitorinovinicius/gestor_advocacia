@@ -1,0 +1,65 @@
+﻿id;tipo
+1;Administrativa
+2;Adjudicação compulsória
+3;Alimentos
+4;Alvará judicial
+5;Anulatória
+6;Arrolamento
+7;Cautelar de afastamento do lar
+8;Cautelar de afastamento de bens
+9;Civil pública
+10;Criminal
+11;Cobrança
+12;Cobrança c/ c indenizatória
+13;Cobrança c/ c pedido de resolução contratual
+14;Cobrança de dif. de correção monetária do FGTS
+15;Cobrança por prestação de serviços
+16;Consignação em pagamento c/ c indenizatória po danos morais
+17;Cumprimento
+18;Declaratória
+19;Desapropriação
+20;Desarquivamento
+21;Despejo
+22;Despejo c/ c cobrança
+23;Execução
+24;Guarda
+25;Indenização 
+26;Indenização por danos materiais e morais
+27;Indenização po danos morais
+28;Insolvência Civil
+29;Inventário
+30;Investigação Judicial Eleitoral
+31;Liminar
+32;Modificação de Cláusula Eleitoral
+33;Obrigação de Fazer
+34;Obrigação de não fazer
+35;Oferecimento de alimentos
+36;Ordinária
+37;Partilha de bens
+38;Penal
+39;Prestação de serviços
+40;Previdenciária
+41;Produção antecipada de provas
+42;Reconhecimento de União Estável
+43;Registro de Testamento
+44;Regresso
+45;Regulamentação de vistas
+46;Reintegração de posse
+47;Renovatória
+48;Reparação de Danos
+49;Repetição Indébito
+50;Resolução Contratual
+51;Responsabilidade Civil
+52;Rescisória
+53;Ressarcimento por Danos Morais
+54;Restituição de Imposto de Renda
+55;Retificação de Registro Cívil
+56;Revisão Contratual
+57;Revisão de Alimentos
+58;Rito Ordinário
+59;Separação Litigiosa
+60;Separação Consensual
+61;Suprimento
+62;Sustação de Protesto
+63;Trabalhista
+64;Usucapião

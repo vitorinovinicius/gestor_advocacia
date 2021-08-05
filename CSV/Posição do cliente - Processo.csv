@@ -1,0 +1,25 @@
+﻿id;tipo
+1;Réu
+2;Requerente
+3;Requerido
+4;Terceiro interessado
+5;Reclamante
+6;Reclamado
+7;Assistente
+8;Suscitante
+9;Suscitado
+10;Excipiente
+11;Excepto
+12;Denunciante
+13;Denunciado
+14;Autuado
+15;Arrematante
+16;Arrematado
+17;Inventariante
+18;Inventariado
+19;Locador
+20;Locatário
+21;Notificado
+22;Notificante
+23;Representante
+24;Representado

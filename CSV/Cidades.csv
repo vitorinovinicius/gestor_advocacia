@@ -1,0 +1,925 @@
+﻿id;AC;AL;AM;AP;BA;CE;DF;ES;GO;MA;MG;MS;MT;PA;PR;PB;PE;PI;RJ;RN;RS;RO;RR;SC;SP;SE;TO
+1;Acrelândia;Água Branca;Alvarães;Serra do Navio;Abaíra;Abaiara;Brasília;Afonso Cláudio;Abadia de Goiás;Açailândia;Abadia Dos Dourados;Água Clara;Acorizal;Abaetetuba;Abatiá;Água Branca;Abreu e Lima;Acauã;Angra Dos Reis;Acari;Aceguá;Alta Floresta D´oeste;Amajari;Abdon Batista;Adamantina;Amparo de São Francisco;Abreulândia
+2;Assis Brasil;Anadia;Amaturá;Amapá;Abaré;Acarapé;;Águia Branca;Abadiânia;Afonso Cunha;Abaeté;Alcinópolis;Água Boa;Abel Figueiredo;Adrianópolis;Aguiar;Afogados da Ingazeira;Agricolândia;Aperibé;Açu;Água Santa;Ariquemes;Alto Alegre;Abelardo Luz;Adolfo;Aquidabã;Aguiarnópolis
+3;Brasiléia;Arapiraca;Anamã;Pedra Branca do Amapari;Acajutiba;Acaraú;;Água Doce do Norte;Acreúna;Água Doce do Maranhão;Abre Campo;Amambaí;Alta Floresta;Acará;Agudos do Sul;Alagoa Grande;Afrânio;Água Branca;Araruama;Afonso Bezerra;Agudo;Cabixi;Boa Vista;Agrolândia;Aguaí;Aracaju;Aliança do Tocantins
+4;Bujari;Atalaia;Anori;Calçoene;Adustina;Acopiara;;Alegre;Adelândia;Alcântara;Acaiaca;Anastácio;Alto Araguaia;Afuá;Almirante Tamandaré;Alagoa Nova;Agrestina;Alagoinha do Piauí;Areal;Água Nova;Ajuricaba;Cacoal;Bonfim;Agronômica;Águas da Prata;Arauá;Almas
+5;Capixaba;Barra de Santo Antônio;Apuí;Cutias;Água Fria;Aiuaba;;Alfredo Chaves;Água Fria de Goiás;Aldeias Altas;Açucena;Anaurilândia;Alto Boa Vista;Água Azul do Norte;Altamira do Paraná;Alagoinha;Água Preta;Alegrete do Piauí;Armação Dos Búzios;Alexandria;Alecrim;Cerejeiras;Cantá;Água Doce;Águas de Lindóia;Areia Branca;Alvorada
+6;Cruzeiro do Sul;Barra de São Miguel;Atalaia do Norte;Ferreira Gomes;Érico Cardoso;Alcântaras;;Alto Rio Novo;Água Limpa;Altamira do Maranhão;Água Boa;Angélica;Alto Garças;Alenquer;Altônia;Alcantil;Águas Belas;Alto Longá;Arraial do Cabo;Almino Afonso;Alegrete;Colorado do Oeste;Caracaraí;Águas de Chapecó;Águas de Santa Bárbara;Barra Dos Coqueiros;Ananás
+7;Epitaciolândia;Batalha;Autazes;Itaubal;Aiquara;Altaneira;;Anchieta;Águas Lindas de Goiás;Alto Alegre do Maranhão;Água Comprida;Antônio João;Alto Paraguai;Almeirim;Alto Paraná;Algodão de Jandaíra;Alagoinha;Altos;Barra do Piraí;Alto do Rodrigues;Alegria;Corumbiara;Caroebe;Águas Frias;Águas de São Pedro;Boquim;Angico
+8;Feijó;Belém;Barcelos;Laranjal do Jari;Alagoinhas;Alto Santo;;Apiacá;Alexânia;Alto Alegre do Pindaré;Aguanil;Aparecida do Taboado;Alto Taquari;Altamira;Alto Piquiri;Alhandra;Aliança;Alvorada do Gurguéia;Barra Mansa;Angicos;Almirante Tamandaré do Sul;Costa Marques;Iracema;Águas Mornas;Agudos;Brejo Grande;Aparecida do Rio Negro
+9;Jordão;Belo Monte;Barreirinha;Macapá;Alcobaça;Amontada;;Aracruz;Aloândia;Alto Parnaíba;Águas Formosas;Aquidauana;Apiacás;Anajás;Alvorada do Sul;São João do Rio do Peixe;Altinho;Amarante;Belford Roxo;Antônio Martins;Alpestre;Espigão D´oeste;Mucajaí;Alfredo Wagner;Alambari;Campo do Brito;Aragominas
+10;Mâncio Lima;Boca da Mata;Benjamin Constant;Mazagão;Almadina;Antonina do Norte;;Atilio Vivacqua;Alto Horizonte;Amapá do Maranhão;Águas Vermelhas;Aral Moreira;Araguaiana;Ananindeua;Amaporã;Amparo;Amaraji;Angical do Piauí;Bom Jardim;Apodi;Alto Alegre;Guajará-mirim;Normandia;Alto Bela Vista;Alfredo Marcondes;Canhoba;Araguacema
+11;Manoel Urbano;Branquinha;Beruri;Oiapoque;Amargosa;Apuiarés;;Baixo Guandu;Alto Paraíso de Goiás;Amarante do Maranhão;Aimorés;Bandeirantes;Araguainha;Anapu;Ampére;Aparecida;Angelim;Anísio de Abreu;Bom Jesus do Itabapoana;Areia Branca;Alto Feliz;Jaru;Pacaraima;Anchieta;Altair;Canindé de São Francisco;Araguaçu
+12;Marechal Thaumaturgo;Cacimbinhas;Boa Vista do Ramos;Porto Grande;Amélia Rodrigues;Aquiraz;;Barra de São Francisco;Alvorada do Norte;Anajatuba;Aiuruoca;Bataguassu;Araputanga;Augusto Corrêa;Anahy;Araçagi;Araçoiaba;Antônio Almeida;Cabo Frio;Arês;Alvorada;Ji-paraná;Rorainópolis;Angelina;Altinópolis;Capela;Araguaína
+13;Plácido de Castro;Cajueiro;Boca do Acre;Pracuúba;América Dourada;Aracati;;Boa Esperança;Amaralina;Anapurus;Alagoa;Batayporã;Arenápolis;Aurora do Pará;Andirá;Arara;Araripina;Aroazes;Cachoeiras de Macacu;Augusto Severo;Amaral Ferrador;Machadinho D´oeste;São João da Baliza;Anita Garibaldi;Alto Alegre;Carira;Araguanã
+14;Porto Acre;Campestre;Borba;Santana;Anagé;Aracoiaba;;Bom Jesus do Norte;Americano do Brasil;Apicum-açu;Albertina;Bela Vista;Aripuanã;Aveiro;Ângulo;Araruna;Arcoverde;Aroeiras do Itaim;Cambuci;Baía Formosa;Ametista do Sul;Nova Brasilândia D´oeste;São Luiz;Anitápolis;Alumínio;Carmópolis;Araguatins
+15;Porto Walter;Campo Alegre;Caapiranga;Tartarugalzinho;Andaraí;Ararendá;;Brejetuba;Amorinópolis;Araguanã;Além Paraíba;Bodoquena;Barão de Melgaço;Bagre;Antonina;Areia;Barra de Guabiraba;Arraial;Carapebus;Baraúna;André da Rocha;Ouro Preto do Oeste;Uiramutã;Antônio Carlos;Álvares Florence;Cedro de São João;Arapoema
+16;Rio Branco;Campo Grande;Canutama;Vitória do Jari;Andorinha;Araripe;;Cachoeiro de Itapemirim;Anápolis;Araioses;Alfenas;Bonito;Barra do Bugres;Baião;Antônio Olinto;Areia de Baraúnas;Barreiros;Assunção do Piauí;Comendador Levy Gasparian;Barcelona;Anta Gorda;Pimenta Bueno;;Apiúna;Álvares Machado;Cristinápolis;Arraias
+17;Rodrigues Alves;Canapi;Carauari;;Angical;Aratuba;;Cariacica;Anhanguera;Arame;Alfredo Vasconcelos;Brasilândia;Barra do Garças;Bannach;Apucarana;Areial;Belém de Maria;Avelino Lopes;Campos Dos Goytacazes;Bento Fernandes;Antônio Prado;Porto Velho;;Arabutã;Álvaro de Carvalho;Cumbe;Augustinópolis
+18;Santa Rosa do Purus;Capela;Careiro;;Anguera;Arneiroz;;Castelo;Anicuns;Arari;Almenara;Caarapó;Bom Jesus do Araguaia;Barcarena;Arapongas;Aroeiras;Belém de São Francisco;Baixa Grande do Ribeiro;Cantagalo;Bodó;Arambaré;Presidente Médici;;Araquari;Alvinlândia;Divina Pastora;Aurora do Tocantins
+19;Senador Guiomard;Carneiros;Careiro da Várzea;;Antas;Assaré;;Colatina;Aparecida de Goiânia;Axixá;Alpercata;Camapuã;Brasnorte;Belém;Arapoti;Assunção;Belo Jardim;Barra D´alcântara;Cardoso Moreira;Bom Jesus;Araricá;Rio Crespo;;Araranguá;Americana;Estância;Axixá do Tocantins
+20;Sena Madureira;Chã Preta;Coari;;Antônio Cardoso;Aurora;;Conceição da Barra;Aparecida do Rio Doce;Bacabal;Alpinópolis;Campo Grande;Cáceres;Belterra;Arapuã;Baía da Traição;Betânia;Barras;Carmo;Brejinho;Aratiba;Rolim de Moura;;Armazém;Américo Brasiliense;Feira Nova;Babaçulândia
+21;Tarauacá;Coité do Nóia;Codajás;;Antônio Gonçalves;Baixio;;Conceição do Castelo;Aporé;Bacabeira;Alterosa;Caracol;Campinápolis;Benevides;Araruna;Bananeiras;Bezerros;Barreiras do Piauí;Casimiro de Abreu;Caiçara do Norte;Arroio do Meio;Santa Luzia D´oeste;;Arroio Trinta;Américo de Campos;Frei Paulo;Bandeirantes do Tocantins
+22;Xapuri;Colônia Leopoldina;Eirunepé;;Aporá;Banabuiú;;Divino de São Lourenço;Araçu;Bacuri;Alto Caparaó;Cassilândia;Campo Novo do Parecis;Bom Jesus do Tocantins;Araucária;Baraúna;Bodocó;Barro Duro;Conceição de Macabu;Caiçara do Rio do Vento;Arroio do Sal;Vilhena;;Arvoredo;Amparo;Gararu;Barra do Ouro
+23;;Coqueiro Seco;Envira;;Apuarema;Barbalha;;Domingos Martins;Aragarças;Bacurituba;Alto Rio Doce;Chapadão do Sul;Campo Verde;Bonito;Ariranha do Ivaí;Barra de Santana;Bom Conselho;Batalha;Cordeiro;Caicó;Arroio do Padre;São Miguel do Guaporé;;Ascurra;Analândia;General Maynard;Barrolândia
+24;;Coruripe;Fonte Boa;;Aracatu;Barreira;;Dores do Rio Preto;Aragoiânia;Balsas;Alvarenga;Corguinho;Campos de Júlio;Bragança;Assaí;Barra de Santa Rosa;Bom Jardim;Bela Vista do Piauí;Duas Barras;Campo Redondo;Arroio Dos Ratos;Nova Mamoré;;Atalanta;Andradina;Gracho Cardoso;Bernardo Sayão
+25;;Craíbas;Guajará;;Araças;Barro;;Ecoporanga;Araguapaz;Barão de Grajaú;Alvinópolis;Coronel Sapucaia;Canabrava do Norte;Brasil Novo;Assis Chateaubriand;Barra de São Miguel;Bonito;Belém do Piauí;Duque de Caxias;Canguaretama;Arroio do Tigre;Alvorada D´oeste;;Aurora;Angatuba;Ilha Das Flores;Bom Jesus do Tocantins
+26;;Delmiro Gouveia;Humaitá;;Araci;Barroquinha;;Fundão;Arenópolis;Barra do Corda;Alvorada de Minas;Corumbá;Canarana;Brejo Grande do Araguaia;Astorga;Bayeux;Brejão;Beneditinos;Engenheiro Paulo de Frontin;Caraúbas;Arroio Grande;Alto Alegre Dos Parecis;;Balneário Arroio do Silva;Anhembi;Indiaroba;Brasilândia do Tocantins
+27;;Dois Riachos;Ipixuna;;Aramari;Baturité;;Governador Lindenberg;Aruanã;Barreirinhas;Amparo do Serra;Costa Rica;Carlinda;Breu Branco;Atalaia;Belém;Brejinho;Bertolínia;Guapimirim;Carnaúba Dos Dantas;Arvorezinha;Alto Paraíso;;Balneário Camboriú;Anhumas;Itabaiana;Brejinho de Nazaré
+28;;Estrela de Alagoas;Iranduba;;Arataca;Beberibe;;Guaçuí;Aurilândia;Belágua;Andradas;Coxim;Castanheira;Breves;Balsa Nova;Belém do Brejo do Cruz;Brejo da Madre de Deus;Betânia do Piauí;Iguaba Grande;Carnaubais;Augusto Pestana;Buritis;;Balneário Barra do Sul;Aparecida;Itabaianinha;Buriti do Tocantins
+29;;Feira Grande;Itacoatiara;;Aratuípe;Bela Cruz;;Guarapari;Avelinópolis;Bela Vista do Maranhão;Cachoeira de Pajeú;Deodápolis;Chapada Dos Guimarães;Bujaru;Bandeirantes;Bernardino Batista;Buenos Aires;Boa Hora;Itaboraí;Ceará-mirim;Áurea;Novo Horizonte do Oeste;;Balneário Gaivota;Aparecida D´oeste;Itabi;Cachoeirinha
+30;;Feliz Deserto;Itamarati;;Aurelino Leal;Boa Viagem;;Ibatiba;Baliza;Benedito Leite;Andrelândia;Dois Irmãos do Buriti;Cláudia;Cachoeira do Piriá;Barbosa Ferraz;Boa Ventura;Buíque;Bocaina;Itaguaí;Cerro Corá;Bagé;Cacaulândia;;Bandeirante;Apiaí;Itaporanga D´ajuda;Campos Lindos
+31;;Flexeiras;Itapiranga;;Baianópolis;Brejo Santo;;Ibiraçu;Barro Alto;Bequimão;Angelândia;Douradina;Cocalinho;Cachoeira do Arari;Barracão;Boa Vista;Cabo de Santo Agostinho;Bom Jesus;Italva;Coronel Ezequiel;Balneário Pinhal;Campo Novo de Rondônia;;Barra Bonita;Araçariguama;Japaratuba;Cariri do Tocantins
+32;;Girau do Ponciano;Japurá;;Baixa Grande;Camocim;;Ibitirama;Bela Vista de Goiás;Bernardo do Mearim;Antônio Carlos;Dourados;Colíder;Cametá;Barra do Jacaré;Bom Jesus;Cabrobó;Bom Princípio do Piauí;Itaocara;Coronel João Pessoa;Barão;Candeias do Jamari;;Barra Velha;Araçatuba;Japoatã;Carmolândia
+33;;Ibateguara;Juruá;;Banzaê;Campos Sales;;Iconha;Bom Jardim de Goiás;Boa Vista do Gurupi;Antônio Dias;Eldorado;Colniza;Canaã Dos Carajás;Bela Vista da Caroba;Bom Sucesso;Cachoeirinha;Bonfim do Piauí;Itaperuna;Cruzeta;Barão de Cotegipe;Castanheiras;;Bela Vista do Toldo;Araçoiaba da Serra;Lagarto;Carrasco Bonito
+34;;Igaci;Jutaí;;Barra;Canindé;;Irupi;Bom Jesus de Goiás;Bom Jardim;Antônio Prado de Minas;Fátima do Sul;Comodoro;Capanema;Bela Vista do Paraíso;Bonito de Santa fé;Caetés;Boqueirão do Piauí;Itatiaia;Currais Novos;Barão do Triunfo;Chupinguaia;;Belmonte;Aramina;Laranjeiras;Caseara
+35;;Igreja Nova;Lábrea;;Barra da Estiva;Capistrano;;Itaguaçu;Bonfinópolis;Bom Jesus Das Selvas;Araçaí;Figueirão;Confresa;Capitão Poço;Bituruna;Boqueirão;Calçado;Brasileira;Japeri;Doutor Severiano;Barracão;Cujubim;;Benedito Novo;Arandu;Macambira;Centenário
+36;;Inhapi;Manacapuru;;Barra do Choça;Caridade;;Itapemirim;Bonópolis;Bom Lugar;Aracitaba;Glória de Dourados;Conquista D´oeste;Castanhal;Boa Esperança;Igaracy;Calumbi;Brejo do Piauí;Laje do Muriaé;Parnamirim;Barra do Guarita;Governador Jorge Teixeira;;Biguaçu;Arapeí;Malhada Dos Bois;Chapada de Areia
+37;;Jacaré Dos Homens;Manaquiri;;Barra do Mendes;Cariré;;Itarana;Brazabrantes;Brejo;Araçuaí;Guia Lopes da Laguna;Cotriguaçu;Chaves;Boa Esperança do Iguaçu;Borborema;Camaragibe;Buriti Dos Lopes;Macaé;Encanto;Barra do Quaraí;Itapuã do Oeste;;Blumenau;Araraquara;Malhador;Chapada da Natividade
+38;;Jacuípe;Manaus;;Barra do Rocha;Caririaçu;;Iúna;Britânia;Brejo de Areia;Araguari;Iguatemi;Cuiabá;Colares;Boa Ventura de São Roque;Brejo do Cruz;Camocim de São Félix;Buriti Dos Montes;Macuco;Equador;Barra do Ribeiro;Ministro Andreazza;;Bocaina do Sul;Araras;Maruim;Colinas do Tocantins
+39;;Japaratinga;Manicoré;;Barreiras;Cariús;;Jaguaré;Buriti Alegre;Buriti;Arantina;Inocência;Curvelândia;Conceição do Araguaia;Boa Vista da Aparecida;Brejo Dos Santos;Camutanga;Cabeceiras do Piauí;Magé;Espírito Santo;Barra do Rio Azul;Mirante da Serra;;Bombinhas;Arco-íris;Moita Bonita;Combinado
+40;;Jaramataia;Maraã;;Barro Alto;Carnaubal;;Jerônimo Monteiro;Buriti de Goiás;Buriti Bravo;Araponga;Itaporã;Denise;Concórdia do Pará;Bocaiúva do Sul;Caaporã;Canhotinho;Cajazeiras do Piauí;Mangaratiba;Extremoz;Barra Funda;Monte Negro;;Bom Jardim da Serra;Arealva;Monte Alegre de Sergipe;Conceição do Tocantins
+41;;Jequiá da Praia;Maués;;Barrocas;Cascavel;;João Neiva;Buritinópolis;Buriticupu;Araporã;Itaquiraí;Diamantino;Cumaru do Norte;Bom Jesus do Sul;Cabaceiras;Capoeiras;Cajueiro da Praia;Maricá;Felipe Guerra;Barros Cassal;Nova União;;Bom Jesus;Areias;Muribeca;Couto de Magalhães
+42;;Joaquim Gomes;Nhamundá;;Governador Lomanto Júnior;Catarina;;Laranja da Terra;Cabeceiras;Buritirana;Arapuá;Ivinhema;Dom Aquino;Curionópolis;Bom Sucesso;Cabedelo;Carnaíba;Caldeirão Grande do Piauí;Mendes;Fernando Pedroza;Benjamin Constant do Sul;Parecis;;Bom Jesus do Oeste;Areiópolis;Neópolis;Cristalândia
+43;;Jundiá;Nova Olinda do Norte;;Belmonte;Catunda;;Linhares;Cachoeira Alta;Cachoeira Grande;Araújos;Japorã;Feliz Natal;Curralinho;Bom Sucesso do Sul;Cachoeira Dos Índios;Carnaubeira da Penha;Campinas do Piauí;Mesquita;Florânia;Bento Gonçalves;Pimenteiras do Oeste;;Bom Retiro;Ariranha;Nossa Senhora Aparecida;Crixás do Tocantins
+44;;Junqueiro;Novo Airão;;Belo Campo;Caucaia;;Mantenópolis;Cachoeira de Goiás;Cajapió;Araxá;Jaraguari;Figueirópolis D´oeste;Curuá;Borrazópolis;Cacimba de Areia;Carpina;Campo Alegre do Fidalgo;Miguel Pereira;Francisco Dantas;Boa Vista Das Missões;Primavera de Rondônia;;Botuverá;Artur Nogueira;Nossa Senhora da Glória;Darcinópolis
+45;;Lagoa da Canoa;Novo Aripuanã;;Biritinga;Cedro;;Marataízes;Cachoeira Dourada;Cajari;Arceburgo;Jardim;Gaúcha do Norte;Curuçá;Braganey;Cacimba de Dentro;Caruaru;Campo Grande do Piauí;Miracema;Frutuoso Gomes;Boa Vista do Buricá;São Felipe D´oeste;;Braço do Norte;Arujá;Nossa Senhora Das Dores;Dianópolis
+46;;Limoeiro de Anadia;Parintins;;Boa Nova;Chaval;;Marechal Floriano;Caçu;Campestre do Maranhão;Arcos;Jateí;General Carneiro;Dom Eliseu;Brasilândia do Sul;Cacimbas;Casinhas;Campo Largo do Piauí;Natividade;Galinhos;Boa Vista do Cadeado;São Francisco do Guaporé;;Braço do Trombudo;Aspásia;Nossa Senhora de Lourdes;Divinópolis do Tocantins
+47;;Maceió;Pauini;;Boa Vista do Tupim;Choró;;Marilândia;Caiapônia;Cândido Mendes;Areado;Juti;Glória D´oeste;Eldorado Dos Carajás;Cafeara;Caiçara;Catende;Campo Maior;Nilópolis;Goianinha;Boa Vista do Incra;Seringueiras;;Brunópolis;Assis;Nossa Senhora do Socorro;Dois Irmãos do Tocantins
+48;;Major Isidoro;Presidente Figueiredo;;Bom Jesus da Lapa;Chorozinho;;Mimoso do Sul;Caldas Novas;Cantanhede;Argirita;Ladário;Guarantã do Norte;Faro;Cafelândia;Cajazeiras;Cedro;Canavieira;Niterói;Governador Dix-sept Rosado;Boa Vista do Sul;Teixeirópolis;;Brusque;Atibaia;Pacatuba;Dueré
+49;;Maragogi;Rio Preto da Eva;;Bom Jesus da Serra;Coreaú;;Montanha;Caldazinha;Capinzal do Norte;Aricanduva;Laguna Carapã;Guiratinga;Floresta do Araguaia;Cafezal do Sul;Cajazeirinhas;Chã de Alegria;Canto do Buriti;Nova Friburgo;Grossos;Bom Jesus;Theobroma;;Caçador;Auriflama;Pedra Mole;Esperantina
+50;;Maravilha;Santa Isabel do Rio Negro;;Boninal;Crateús;;Mucurici;Campestre de Goiás;Carolina;Arinos;Maracaju;Indiavaí;Garrafão do Norte;Califórnia;Caldas Brandão;Chã Grande;Capitão de Campos;Nova Iguaçu;Guamaré;Bom Princípio;Urupá;;Caibi;Avaí;Pedrinhas;Fátima
+51;;Marechal Deodoro;Santo Antônio do Içá;;Bonito;Crato;;Muniz Freire;Campinaçu;Carutapera;Astolfo Dutra;Miranda;Ipiranga do Norte;Goianésia do Pará;Cambará;Camalaú;Condado;Capitão Gervásio Oliveira;Paracambi;Ielmo Marinho;Bom Progresso;Vale do Anari;;Calmon;Avanhandava;Pinhão;Figueirópolis
+52;;Maribondo;São Gabriel da Cachoeira;;Boquira;Croatá;;Muqui;Campinorte;Caxias;Ataléia;Mundo Novo;Itanhangá;Gurupá;Cambé;Campina Grande;Correntes;Caracol;Paraíba do Sul;Ipanguaçu;Bom Retiro do Sul;Vale do Paraíso;;Camboriú;Avaré;Pirambu;Filadélfia
+53;;Mar Vermelho;São Paulo de Olivença;;Botuporã;Cruz;;Nova Venécia;Campo Alegre de Goiás;Cedral;Augusto de Lima;Naviraí;Itaúba;Igarapé-açu;Cambira;Capim;Cortês;Caraúbas do Piauí;Parati;Ipueira;Boqueirão do Leão;;;Capão Alto;Bady Bassitt;Poço Redondo;Formoso do Araguaia
+54;;Mata Grande;São Sebastião do Uatumã;;Brejões;Deputado Irapuan Pinheiro;;Pancas;Campo Limpo de Goiás;Central do Maranhão;Baependi;Nioaque;Itiquira;Igarapé-miri;Campina da Lagoa;Caraúbas;Cumaru;Caridade do Piauí;Paty do Alferes;Itajá;Bossoroca;;;Campo Alegre;Balbinos;Poço Verde;Fortaleza do Tabocão
+55;;Matriz de Camaragibe;Silves;;Brejolândia;Ererê;;Pedro Canário;Campos Belos;Centro do Guilherme;Baldim;Nova Alvorada do Sul;Jaciara;Inhangapi;Campina do Simão;Carrapateira;Cupira;Castelo do Piauí;Petrópolis;Itaú;Bozano;;;Campo Belo do Sul;Bálsamo;Porto da Folha;Goianorte
+56;;Messias;Tabatinga;;Brotas de Macaúbas;Eusébio;;Pinheiros;Campos Verdes;Centro Novo do Maranhão;Bambuí;Nova Andradina;Jangada;Ipixuna do Pará;Campina Grande do Sul;Casserengue;Custódia;Caxingó;Pinheiral;Jaçanã;Braga;;;Campo Erê;Bananal;Propriá;Goiatins
+57;;Minador do Negrão;Tapauá;;Brumado;Farias Brito;;Piúma;Carmo do Rio Verde;Chapadinha;Bandeira;Novo Horizonte do Sul;Jauru;Irituia;Campo Bonito;Catingueira;Dormentes;Cocal;Piraí;Jandaíra;Brochier;;;Campos Novos;Barão de Antonina;Riachão do Dantas;Guaraí
+58;;Monteirópolis;Tefé;;Buerarema;Forquilha;;Ponto Belo;Castelândia;Cidelândia;Bandeira do Sul;Paraíso das Águas;Juara;Itaituba;Campo do Tenente;Catolé do Rocha;Escada;Cocal de Telha;Porciúncula;Janduís;Butiá;;;Canelinha;Barbosa;Riachuelo;Gurupi
+59;;Murici;Tonantins;;Buritirama;Fortaleza;;Presidente Kennedy;Catalão;Codó;Barão de Cocais;Paranaíba;Juína;Itupiranga;Campo Largo;Caturité;Exu;Cocal Dos Alves;Porto Real;Januário Cicco;Caçapava do Sul;;;Canoinhas;Bariri;Ribeirópolis;Ipueiras
+60;;Novo Lino;Uarini;;Caatiba;Fortim;;Rio Bananal;Caturaí;Coelho Neto;Barão de Monte Alto;Paranhos;Juruena;Jacareacanga;Campo Magro;Conceição;Feira Nova;Coivaras;Quatis;Japi;Cacequi;;;Capinzal;Barra Bonita;Rosário do Catete;Itacajá
+61;;Olho D´água Das Flores;Urucará;;Cabaceiras do Paraguaçu;Frecheirinha;;Rio Novo do Sul;Cavalcante;Colinas;Barbacena;Pedro Gomes;Juscimeira;Jacundá;Campo Mourão;Condado;Fernando de Noronha;Colônia do Gurguéia;Queimados;Jardim de Angicos;Cachoeira do Sul;;;Capivari de Baixo;Barra do Chapéu;Salgado;Itaguatins
+62;;Olho D´água do Casado;Urucurituba;;Cachoeira;General Sampaio;;Santa Leopoldina;Ceres;Conceição do Lago-açu;Barra Longa;Ponta Porã;Lambari D´oeste;Juruti;Cândido de Abreu;Conde;Ferreiros;Colônia do Piauí;Quissamã;Jardim de Piranhas;Cachoeirinha;;;Catanduvas;Barra do Turvo;Santa Luzia do Itanhy;Itapiratins
+63;;Olho D´água Grande;;;Caculé;Graça;;Santa Maria de Jetibá;Cezarina;Coroatá;Barroso;Porto Murtinho;Lucas do Rio Verde;Limoeiro do Ajuru;Candói;Congo;Flores;Conceição do Canindé;Resende;Jardim do Seridó;Cacique Doble;;;Caxambu do Sul;Barretos;Santana do São Francisco;Itaporã do Tocantins
+64;;Olivença;;;Caém;Granja;;Santa Teresa;Chapadão do Céu;Cururupu;Bela Vista de Minas;Ribas do Rio Pardo;Luciára;Mãe do Rio;Cantagalo;Coremas;Floresta;Coronel José Dias;Rio Bonito;João Câmara;Caibaté;;;Celso Ramos;Barrinha;Santa Rosa de Lima;Jaú do Tocantins
+65;;Ouro Branco;;;Caetanos;Granjeiro;;São Domingos do Norte;Cidade Ocidental;Davinópolis;Belmiro Braga;Rio Brilhante;Vila Bela da Santíssima Trindade;Magalhães Barata;Capanema;Coxixola;Frei Miguelinho;Corrente;Rio Claro;João Dias;Caiçara;;;Cerro Negro;Barueri;Santo Amaro Das Brotas;Juarina
+66;;Palestina;;;Caetité;Groaíras;;São Gabriel da Palha;Cocalzinho de Goiás;Dom Pedro;Belo Horizonte;Rio Negro;Marcelândia;Marabá;Capitão Leônidas Marques;Cruz do Espírito Santo;Gameleira;Cristalândia do Piauí;Rio Das Flores;José da Penha;Camaquã;;;Chapadão do Lageado;Bastos;São Cristóvão;Lagoa da Confusão
+67;;Palmeira Dos Índios;;;Cafarnaum;Guaiúba;;São José do Calçado;Colinas do Sul;Duque Bacelar;Belo Oriente;Rio Verde de Mato Grosso;Matupá;Maracanã;Carambeí;Cubati;Garanhuns;Cristino Castro;Rio Das Ostras;Jucurutu;Camargo;;;Chapecó;Batatais;São Domingos;Lagoa do Tocantins
+68;;Pão de Açúcar;;;Cairu;Guaraciaba do Norte;;São Mateus;Córrego do Ouro;Esperantinópolis;Belo Vale;Rochedo;Mirassol D´oeste;Marapanim;Carlópolis;Cuité;Glória do Goitá;Curimatá;Rio de Janeiro;Jundiá;Cambará do Sul;;;Cocal do Sul;Bauru;São Francisco;Lajeado
+69;;Pariconha;;;Caldeirão Grande;Guaramiranga;;São Roque do Canaã;Corumbá de Goiás;Estreito;Berilo;Santa Rita do Pardo;Nobres;Marituba;Cascavel;Cuitegi;Goiana;Currais;Santa Maria Madalena;Lagoa D´anta;Campestre da Serra;;;Concórdia;Bebedouro;São Miguel do Aleixo;Lavandeira
+70;;Paripueira;;;Camacan;Hidrolândia;;Serra;Corumbaíba;Feira Nova do Maranhão;Bertópolis;São Gabriel do Oeste;Nortelândia;Medicilândia;Castro;Cuité de Mamanguape;Granito;Curralinhos;Santo Antônio de Pádua;Lagoa de Pedras;Campina Das Missões;;;Cordilheira Alta;Bento de Abreu;Simão Dias;Lizarda
+71;;Passo de Camaragibe;;;Camaçari;Horizonte;;Sooretama;Cristalina;Fernando Falcão;Berizal;Sete Quedas;Nossa Senhora do Livramento;Melgaço;Catanduvas;Curral de Cima;Gravatá;Curral Novo do Piauí;São Francisco de Itabapoana;Lagoa de Velhos;Campinas do Sul;;;Coronel Freitas;Bernardino de Campos;Siriri;Luzinópolis
+72;;Paulo Jacinto;;;Camamu;Ibaretama;;Vargem Alta;Cristianópolis;Formosa da Serra Negra;Betim;Selvíria;Nova Bandeirantes;Mocajuba;Centenário do Sul;Curral Velho;Iati;Demerval Lobão;São Fidélis;Lagoa Nova;Campo Bom;;;Coronel Martins;Bertioga;Telha;Marianópolis do Tocantins
+73;;Penedo;;;Campo Alegre de Lourdes;Ibiapina;;Venda Nova do Imigrante;Crixás;Fortaleza Dos Nogueiras;Bias Fortes;Sidrolândia;Nova Nazaré;Moju;Cerro Azul;Damião;Ibimirim;Dirceu Arcoverde;São Gonçalo;Lagoa Salgada;Campo Novo;;;Corupá;Bilac;Tobias Barreto;Mateiros
+74;;Piaçabuçu;;;Campo Formoso;Ibicuitinga;;Viana;Cromínia;Fortuna;Bicas;Sonora;Nova Lacerda;Mojuí dos Campos;Céu Azul;Desterro;Ibirajuba;Dom Expedito Lopes;São João da Barra;Lajes;Campos Borges;;;Correia Pinto;Birigui;Tomar do Geru;Maurilândia do Tocantins
+75;;Pilar;;;Canápolis;Icapuí;;Vila Pavão;Cumari;Godofredo Viana;Biquinhas;Tacuru;Nova Santa Helena;Monte Alegre;Chopinzinho;Vista Serrana;Igarassu;Domingos Mourão;São João de Meriti;Lajes Pintadas;Candelária;;;Criciúma;Biritiba-mirim;Umbaúba;Miracema do Tocantins
+76;;Pindoba;;;Canarana;Icó;;Vila Valério;Damianópolis;Gonçalves Dias;Boa Esperança;Taquarussu;Nova Brasilândia;Muaná;Cianorte;Diamante;Iguaraci;Dom Inocêncio;São José de Ubá;Lucrécia;Cândido Godói;;;Cunha Porã;Boa Esperança do Sul;;Miranorte
+77;;Piranhas;;;Canavieiras;Iguatu;;Vila Velha;Damolândia;Governador Archer;Bocaina de Minas;Terenos;Nova Canaã do Norte;Nova Esperança do Piriá;Cidade Gaúcha;Dona Inês;Inajá;Elesbão Veloso;São José do Vale do Rio Preto;Luís Gomes;Candiota;;;Cunhataí;Bocaina;;Monte do Carmo
+78;;Poço Das Trincheiras;;;Candeal;Independência;;Vitória;Davinópolis;Governador Edison Lobão;Bocaiúva;Três Lagoas;Nova Mutum;Nova Ipixuna;Clevelândia;Duas Estradas;Ingazeira;Eliseu Martins;São Pedro da Aldeia;Macaíba;Canela;;;Curitibanos;Bofete;;Monte Santo do Tocantins
+79;;Porto Calvo;;;Candeias;Ipaporanga;;;Diorama;Governador Eugênio Barros;Bom Despacho;Vicentina;Nova Olímpia;Nova Timboteua;Colombo;Emas;Ipojuca;Esperantina;São Sebastião do Alto;Macau;Canguçu;;;Descanso;Boituva;;Palmeiras do Tocantins
+80;;Porto de Pedras;;;Candiba;Ipaumirim;;;Doverlândia;Governador Luiz Rocha;Bom Jardim de Minas;;Nova Ubiratã;Novo Progresso;Colorado;Esperança;Ipubi;Fartura do Piauí;Sapucaia;Major Sales;Canoas;;;Dionísio Cerqueira;Bom Jesus Dos Perdões;;Muricilândia
+81;;Porto Real do Colégio;;;Cândido Sales;Ipu;;;Edealina;Governador Newton Bello;Bom Jesus da Penha;;Nova Xavantina;Novo Repartimento;Congonhinhas;Fagundes;Itacuruba;Flores do Piauí;Saquarema;Marcelino Vieira;Canudos do Vale;;;Dona Emma;Bom Sucesso de Itararé;;Natividade
+82;;Quebrangulo;;;Cansanção;Ipueiras;;;Edéia;Governador Nunes Freire;Bom Jesus do Amparo;;Novo Mundo;Óbidos;Conselheiro Mairinck;Frei Martinho;Itaíba;Floresta do Piauí;Seropédica;Martins;Capão Bonito do Sul;;;Doutor Pedrinho;Borá;;Nazaré
+83;;Rio Largo;;;Canudos;Iracema;;;Estrela do Norte;Graça Aranha;Bom Jesus do Galho;;Novo Horizonte do Norte;Oeiras do Pará;Contenda;Gado Bravo;Ilha de Itamaracá;Floriano;Silva Jardim;Maxaranguape;Capão da Canoa;;;Entre Rios;Boracéia;;Nova Olinda
+84;;Roteiro;;;Capela do Alto Alegre;Irauçuba;;;Faina;Grajaú;Bom Repouso;;Novo São Joaquim;Oriximiná;Corbélia;Guarabira;Itambé;Francinópolis;Sumidouro;Messias Targino;Capão do Cipó;;;Ermo;Borborema;;Nova Rosalândia
+85;;Santa Luzia do Norte;;;Capim Grosso;Itaiçaba;;;Fazenda Nova;Guimarães;Bom Sucesso;;Paranaíta;Ourém;Cornélio Procópio;Gurinhém;Itapetim;Francisco Ayres;Tanguá;Montanhas;Capão do Leão;;;Erval Velho;Borebi;;Novo Acordo
+86;;Santana do Ipanema;;;Caraíbas;Itaitinga;;;Firminópolis;Humberto de Campos;Bonfim;;Paranatinga;Ourilândia do Norte;Coronel Domingos Soares;Gurjão;Itapissuma;Francisco Macedo;Teresópolis;Monte Alegre;Capivari do Sul;;;Faxinal Dos Guedes;Botucatu;;Novo Alegre
+87;;Santana do Mundaú;;;Caravelas;Itapagé;;;Flores de Goiás;Icatu;Bonfinópolis de Minas;;Novo Santo Antônio;Pacajá;Coronel Vivida;Ibiara;Itaquitinga;Francisco Santos;Trajano de Morais;Monte Das Gameleiras;Capela de Santana;;;Flor do Sertão;Bragança Paulista;;Novo Jardim
+88;;São Brás;;;Cardeal da Silva;Itapipoca;;;Formosa;Igarapé do Meio;Bonito de Minas;;Pedra Preta;Palestina do Pará;Corumbataí do Sul;Imaculada;Jaboatão Dos Guararapes;Fronteiras;Três Rios;Mossoró;Capitão;;;Florianópolis;Braúna;;Oliveira de Fátima
+89;;São José da Laje;;;Carinhanha;Itapiúna;;;Formoso;Igarapé Grande;Borda da Mata;;Peixoto de Azevedo;Paragominas;Cruzeiro do Iguaçu;Ingá;Jaqueira;Geminiano;Valença;Natal;Carazinho;;;Formosa do Sul;Brejo Alegre;;Palmeirante
+90;;São José da Tapera;;;Casa Nova;Itarema;;;Gameleira de Goiás;Imperatriz;Botelhos;;Planalto da Serra;Parauapebas;Cruzeiro do Oeste;Itabaiana;Jataúba;Gilbués;Varre-sai;Nísia Floresta;Caraá;;;Forquilhinha;Brodowski;;Palmeirópolis
+91;;São Luís do Quitunde;;;Castro Alves;Itatira;;;Divinópolis de Goiás;Itaipava do Grajaú;Botumirim;;Poconé;Pau D´arco;Cruzeiro do Sul;Itaporanga;Jatobá;Guadalupe;Vassouras;Nova Cruz;Carlos Barbosa;;;Fraiburgo;Brotas;;Paraíso do Tocantins
+92;;São Miguel Dos Campos;;;Catolândia;Jaguaretama;;;Goianápolis;Itapecuru Mirim;Brasilândia de Minas;;Pontal do Araguaia;Peixe-boi;Cruz Machado;Itapororoca;João Alfredo;Guaribas;Volta Redonda;Olho-d´água do Borges;Carlos Gomes;;;Frei Rogério;Buri;;Paranã
+93;;São Miguel Dos Milagres;;;Catu;Jaguaribara;;;Goiandira;Itinga do Maranhão;Brasília de Minas;;Ponte Branca;Piçarra;Cruzmaltina;Itatuba;Joaquim Nabuco;Hugo Napoleão;;Ouro Branco;Casca;;;Galvão;Buritama;;Pau D´arco
+94;;São Sebastião;;;Caturama;Jaguaribe;;;Goianésia;Jatobá;Brás Pires;;Pontes e Lacerda;Placas;Curitiba;Jacaraú;Jucati;Ilha Grande;;Paraná;Caseiros;;;Garopaba;Buritizal;;Pedro Afonso
+95;;Satuba;;;Central;Jaguaruana;;;Goiânia;Jenipapo Dos Vieiras;Braúnas;;Porto Alegre do Norte;Ponta de Pedras;Curiúva;Jericó;Jupi;Inhuma;;Paraú;Catuípe;;;Garuva;Cabrália Paulista;;Peixe
+96;;Senador Rui Palmeira;;;Chorrochó;Jardim;;;Goianira;João Lisboa;Brasópolis;;Porto Dos Gaúchos;Portel;Diamante do Norte;João Pessoa;Jurema;Ipiranga do Piauí;;Parazinho;Caxias do Sul;;;Gaspar;Cabreúva;;Pequizeiro
+97;;Tanque D´arca;;;Cícero Dantas;Jati;;;Goiás;Joselândia;Brumadinho;;Porto Esperidião;Porto de Moz;Diamante do Sul;Juarez Távora;Lagoa do Carro;Isaías Coelho;;Parelhas;Centenário;;;Governador Celso Ramos;Caçapava;;Colméia
+98;;Taquarana;;;Cipó;Jijoca de Jericoacoara;;;Goiatuba;Junco do Maranhão;Bueno Brandão;;Porto Estrela;Prainha;Diamante D´oeste;Juazeirinho;Lagoa do Itaenga;Itainópolis;;Rio do Fogo;Cerrito;;;Grão Pará;Cachoeira Paulista;;Pindorama do Tocantins
+99;;Teotônio Vilela;;;Coaraci;Juazeiro do Norte;;;Gouvelândia;Lago da Pedra;Buenópolis;;Poxoréo;Primavera;Dois Vizinhos;Junco do Seridó;Lagoa do Ouro;Itaueira;;Passa e Fica;Cerro Branco;;;Gravatal;Caconde;;Piraquê
+100;;Traipu;;;Cocos;Jucás;;;Guapó;Lago do Junco;Bugre;;Primavera do Leste;Quatipuru;Douradina;Juripiranga;Lagoa Dos Gatos;Jacobina do Piauí;;Passagem;Cerro Grande;;;Guabiruba;Cafelândia;;Pium
+101;;União Dos Palmares;;;Conceição da Feira;Lavras da Mangabeira;;;Guaraíta;Lago Verde;Buritis;;Querência;Redenção;Doutor Camargo;Juru;Lagoa Grande;Jaicós;;Patu;Cerro Grande do Sul;;;Guaraciaba;Caiabu;;Ponte Alta do Bom Jesus
+102;;Viçosa;;;Conceição do Almeida;Limoeiro do Norte;;;Guarani de Goiás;Lagoa do Mato;Buritizeiro;;São José Dos Quatro Marcos;Rio Maria;Enéas Marques;Lagoa;Lajedo;Jardim do Mulato;;Santa Maria;Cerro Largo;;;Guaramirim;Caieiras;;Ponte Alta do Tocantins
+103;;;;;Conceição do Coité;Madalena;;;Guarinos;Lago Dos Rodrigues;Cabeceira Grande;;Reserva do Cabaçal;Rondon do Pará;Engenheiro Beltrão;Lagoa de Dentro;Limoeiro;Jatobá do Piauí;;Pau Dos Ferros;Chapada;;;Guarujá do Sul;Caiuá;;Porto Alegre do Tocantins
+104;;;;;Conceição do Jacuípe;Maracanaú;;;Heitoraí;Lagoa Grande do Maranhão;Cabo Verde;;Ribeirão Cascalheira;Rurópolis;Esperança Nova;Lagoa Seca;Macaparana;Jerumenha;;Pedra Grande;Charqueadas;;;Guatambú;Cajamar;;Porto Nacional
+105;;;;;Conde;Maranguape;;;Hidrolândia;Lajeado Novo;Cachoeira da Prata;;Ribeirãozinho;Salinópolis;Entre Rios do Oeste;Lastro;Machados;João Costa;;Pedra Preta;Charrua;;;Herval D´oeste;Cajati;;Praia Norte
+106;;;;;Condeúba;Marco;;;Hidrolina;Lima Campos;Cachoeira de Minas;;Rio Branco;Salvaterra;Espigão Alto do Iguaçu;Livramento;Manari;Joaquim Pires;;Pedro Avelino;Chiapetta;;;Ibiam;Cajobi;;Presidente Kennedy
+107;;;;;Contendas do Sincorá;Martinópole;;;Iaciara;Loreto;Cachoeira Dourada;;Santa Carmem;Santa Bárbara do Pará;Farol;Logradouro;Maraial;Joca Marques;;Pedro Velho;Chuí;;;Ibicaré;Cajuru;;Pugmil
+108;;;;;Coração de Maria;Massapê;;;Inaciolândia;Luís Domingues;Caetanópolis;;Santo Afonso;Santa Cruz do Arari;Faxinal;Lucena;Mirandiba;José de Freitas;;Pendências;Chuvisca;;;Ibirama;Campina do Monte Alegre;;Recursolândia
+109;;;;;Cordeiros;Mauriti;;;Indiara;Magalhães de Almeida;Caeté;;São José do Povo;Santa Isabel do Pará;Fazenda Rio Grande;Mãe D´água;Moreno;Juazeiro do Piauí;;Pilões;Cidreira;;;Içara;Campinas;;Riachinho
+110;;;;;Coribe;Meruoca;;;Inhumas;Maracaçumé;Caiana;;São José do Rio Claro;Santa Luzia do Pará;Fênix;Malta;Nazaré da Mata;Júlio Borges;;Poço Branco;Ciríaco;;;Ilhota;Campo Limpo Paulista;;Rio da Conceição
+111;;;;;Coronel João sá;Milagres;;;Ipameri;Marajá do Sena;Cajuri;;São José do Xingu;Santa Maria Das Barreiras;Fernandes Pinheiro;Mamanguape;Olinda;Jurema;;Portalegre;Colinas;;;Imaruí;Campos do Jordão;;Rio Dos Bois
+112;;;;;Correntina;Milhã;;;Ipiranga de Goiás;Maranhãozinho;Caldas;;São Pedro da Cipa;Santa Maria do Pará;Figueira;Manaíra;Orobó;Lagoinha do Piauí;;Porto do Mangue;Colorado;;;Imbituba;Campos Novos Paulista;;Rio Sono
+113;;;;;Cotegipe;Miraíma;;;Iporá;Mata Roma;Camacho;;Rondolândia;Santana do Araguaia;Floraí;Marcação;Orocó;Lagoa Alegre;;Presidente Juscelino;Condor;;;Imbuia;Cananéia;;Sampaio
+114;;;;;Cravolândia;Missão Velha;;;Israelândia;Matinha;Camanducaia;;Rondonópolis;Santarém;Flor da Serra do Sul;Mari;Ouricuri;Lagoa do Barro do Piauí;;Pureza;Constantina;;;Indaial;Canas;;Sandolândia
+115;;;;;Crisópolis;Mombaça;;;Itaberaí;Matões;Cambuí;;Rosário Oeste;Santarém Novo;Floresta;Marizópolis;Palmares;Lagoa de São Francisco;;Rafael Fernandes;Coqueiro Baixo;;;Iomerê;Cândido Mota;;Santa fé do Araguaia
+116;;;;;Cristópolis;Monsenhor Tabosa;;;Itaguari;Matões do Norte;Cambuquira;;Santa Cruz do Xingu;Santo Antônio do Tauá;Florestópolis;Massaranduba;Palmeirina;Lagoa do Piauí;;Rafael Godeiro;Coqueiros do Sul;;;Ipira;Cândido Rodrigues;;Santa Maria do Tocantins
+117;;;;;Cruz Das Almas;Morada Nova;;;Itaguaru;Milagres do Maranhão;Campanário;;Salto do Céu;São Caetano de Odivelas;Flórida;Mataraca;Panelas;Lagoa do Sítio;;Riacho da Cruz;Coronel Barros;;;Iporã do Oeste;Canitar;;Santa Rita do Tocantins
+118;;;;;Curaçá;Moraújo;;;Itajá;Mirador;Campanha;;Santa Rita do Trivelato;São Domingos do Araguaia;Formosa do Oeste;Matinhas;Paranatama;Landri Sales;;Riacho de Santana;Coronel Bicaco;;;Ipuaçu;Capão Bonito;;Santa Rosa do Tocantins
+119;;;;;Dário Meira;Morrinhos;;;Itapaci;Miranda do Norte;Campestre;;Santa Terezinha;São Domingos do Capim;Foz do Iguaçu;Mato Grosso;Parnamirim;Luís Correia;;Riachuelo;Coronel Pilar;;;Ipumirim;Capela do Alto;;Santa Tereza do Tocantins
+120;;;;;Dias D´ávila;Mucambo;;;Itapirapuã;Mirinzal;Campina Verde;;Santo Antônio do Leste;São Félix do Xingu;Francisco Alves;Maturéia;Passira;Luzilândia;;Rodolfo Fernandes;Cotiporã;;;Iraceminha;Capivari;;Santa Terezinha do Tocantins
+121;;;;;Dom Basílio;Mulungu;;;Itapuranga;Monção;Campo Azul;;Santo Antônio do Leverger;São Francisco do Pará;Francisco Beltrão;Mogeiro;Paudalho;Madeiro;;Tibau;Coxilha;;;Irani;Caraguatatuba;;São Bento do Tocantins
+122;;;;;Dom Macedo Costa;Nova Olinda;;;Itarumã;Montes Altos;Campo Belo;;São Félix do Araguaia;São Geraldo do Araguaia;Foz do Jordão;Montadas;Paulista;Manoel Emídio;;Ruy Barbosa;Crissiumal;;;Irati;Carapicuíba;;São Félix do Tocantins
+123;;;;;Elísio Medrado;Nova Russas;;;Itauçu;Morros;Campo do Meio;;Sapezal;São João da Ponta;General Carneiro;Monte Horebe;Pedra;Marcolândia;;Santa Cruz;Cristal;;;Irineópolis;Cardoso;;São Miguel do Tocantins
+124;;;;;Encruzilhada;Novo Oriente;;;Itumbiara;Nina Rodrigues;Campo Florido;;Serra Nova Dourada;São João de Pirabas;Godoy Moreira;Monteiro;Pesqueira;Marcos Parente;;Santana do Matos;Cristal do Sul;;;Itá;Casa Branca;;São Salvador do Tocantins
+125;;;;;Entre Rios;Ocara;;;Ivolândia;Nova Colinas;Campos Altos;;Sinop;São João do Araguaia;Goioerê;Mulungu;Petrolândia;Massapê do Piauí;;Santana do Seridó;Cruz Alta;;;Itaiópolis;Cássia Dos Coqueiros;;São Sebastião do Tocantins
+126;;;;;Esplanada;Orós;;;Jandaia;Nova Iorque;Campos Gerais;;Sorriso;São Miguel do Guamá;Goioxim;Natuba;Petrolina;Matias Olímpio;;Santo Antônio;Cruzaltense;;;Itajaí;Castilho;;São Valério da Natividade
+127;;;;;Euclides da Cunha;Pacajus;;;Jaraguá;Nova Olinda do Maranhão;Canaã;;Tabaporã;São Sebastião da Boa Vista;Grandes Rios;Nazarezinho;Poção;Miguel Alves;;São Bento do Norte;Cruzeiro do Sul;;;Itapema;Catanduva;;Silvanópolis
+128;;;;;Eunápolis;Pacatuba;;;Jataí;Olho D´água Das Cunhãs;Canápolis;;Tangará da Serra;Sapucaia;Guaíra;Nova Floresta;Pombos;Miguel Leão;;São Bento do Trairí;David Canabarro;;;Itapiranga;Catiguá;;Sítio Novo do Tocantins
+129;;;;;Fátima;Pacoti;;;Jaupaci;Olinda Nova do Maranhão;Cana Verde;;Tapurah;Senador José Porfírio;Guairaçá;Nova Olinda;Primavera;Milton Brandão;;São Fernando;Derrubadas;;;Itapoá;Cedral;;Sucupira
+130;;;;;Feira da Mata;Pacujá;;;Jesúpolis;Paço do Lumiar;Candeias;;Terra Nova do Norte;Soure;Guamiranga;Nova Palmeira;Quipapá;Monsenhor Gil;;São Francisco do Oeste;Dezesseis de Novembro;;;Ituporanga;Cerqueira César;;Taguatinga
+131;;;;;Feira de Santana;Palhano;;;Joviânia;Palmeirândia;Cantagalo;;Tesouro;Tailândia;Guapirama;Olho D´água;Quixaba;Monsenhor Hipólito;;São Gonçalo do Amarante;Dilermando de Aguiar;;;Jaborá;Cerquilho;;Taipas do Tocantins
+132;;;;;Filadélfia;Palmácia;;;Jussara;Paraibano;Caparaó;;Torixoréu;Terra Alta;Guaporema;Olivedos;Recife;Monte Alegre do Piauí;;São João do Sabugi;Dois Irmãos;;;Jacinto Machado;Cesário Lange;;Talismã
+133;;;;;Firmino Alves;Paracuru;;;Lagoa Santa;Parnarama;Capela Nova;;União do Sul;Terra Santa;Guaraci;Ouro Velho;Riacho Das Almas;Morro Cabeça no Tempo;;São José de Mipibu;Dois Irmãos Das Missões;;;Jaguaruna;Charqueada;;Palmas
+134;;;;;Floresta Azul;Paraipaba;;;Leopoldo de Bulhões;Passagem Franca;Capelinha;;Vale de São Domingos;Tomé-açu;Guaraniaçu;Parari;Ribeirão;Morro do Chapéu do Piauí;;São José do Campestre;Dois Lajeados;;;Jaraguá do Sul;Clementina;;Tocantínia
+135;;;;;Formosa do Rio Preto;Parambu;;;Luziânia;Pastos Bons;Capetinga;;Várzea Grande;Tracuateua;Guarapuava;Passagem;Rio Formoso;Murici Dos Portelas;;São José do Seridó;Dom Feliciano;;;Jardinópolis;Colina;;Tocantinópolis
+136;;;;;Gandu;Paramoti;;;Mairipotaba;Paulino Neves;Capim Branco;;Vera;Trairão;Guaraqueçaba;Patos;Sairé;Nazaré do Piauí;;São Miguel;Dom Pedro de Alcântara;;;Joaçaba;Colômbia;;Tupirama
+137;;;;;Gavião;Pedra Branca;;;Mambaí;Paulo Ramos;Capinópolis;;Vila Rica;Tucumã;Guaratuba;Paulista;Salgadinho;Nazária;;São Miguel do Gostoso;Dom Pedrito;;;Joinville;Conchal;;Tupiratins
+138;;;;;Gentio do Ouro;Penaforte;;;Mara Rosa;Pedreiras;Capitão Andrade;;Nova Guarita;Tucuruí;Honório Serpa;Pedra Branca;Salgueiro;Nossa Senhora de Nazaré;;São Paulo do Potengi;Dona Francisca;;;José Boiteux;Conchas;;Wanderlândia
+139;;;;;Glória;Pentecoste;;;Marzagão;Pedro do Rosário;Capitão Enéas;;Nova Marilândia;Ulianópolis;Ibaiti;Pedra Lavrada;Saloá;Nossa Senhora Dos Remédios;;São Pedro;Doutor Maurício Cardoso;;;Jupiá;Cordeirópolis;;Xambioá
+140;;;;;Gongogi;Pereiro;;;Matrinchã;Penalva;Capitólio;;Nova Maringá;Uruará;Ibema;Pedras de Fogo;Sanharó;Novo Oriente do Piauí;;São Rafael;Doutor Ricardo;;;Lacerdópolis;Coroados;;
+141;;;;;Governador Mangabeira;Pindoretama;;;Maurilândia;Peri Mirim;Caputira;;Nova Monte Verde;Vigia;Ibiporã;Piancó;Santa Cruz;Novo Santo Antônio;;São Tomé;Eldorado do Sul;;;Lages;Coronel Macedo;;
+142;;;;;Guajeru;Piquet Carneiro;;;Mimoso de Goiás;Peritoró;Caraí;;;Viseu;Icaraíma;Picuí;Santa Cruz da Baixa Verde;Oeiras;;São Vicente;Encantado;;;Laguna;Corumbataí;;
+143;;;;;Guanambi;Pires Ferreira;;;Minaçu;Pindaré-mirim;Caranaíba;;;Vitória do Xingu;Iguaraçu;Pilar;Santa Cruz do Capibaribe;Olho D´água do Piauí;;Senador Elói de Souza;Encruzilhada do Sul;;;Lajeado Grande;Cosmópolis;;
+144;;;;;Guaratinga;Poranga;;;Mineiros;Pinheiro;Carandaí;;;Xinguara;Iguatu;Pilões;Santa Filomena;Padre Marcos;;Senador Georgino Avelino;Engenho Velho;;;Laurentino;Cosmorama;;
+145;;;;;Heliópolis;Porteiras;;;Moiporá;Pio Xii;Carangola;;;;Imbaú;Pilõezinhos;Santa Maria da Boa Vista;Paes Landim;;Serra de São Bento;Entre-ijuís;;;Lauro Muller;Cotia;;
+146;;;;;Iaçu;Potengi;;;Monte Alegre de Goiás;Pirapemas;Caratinga;;;;Imbituva;Pirpirituba;Santa Maria do Cambucá;Pajeú do Piauí;;Serra do Mel;Entre Rios do Sul;;;Lebon Régis;Cravinhos;;
+147;;;;;Ibiassucê;Potiretama;;;Montes Claros de Goiás;Poção de Pedras;Carbonita;;;;Inácio Martins;Pitimbu;Santa Terezinha;Palmeira do Piauí;;Serra Negra do Norte;Erebango;;;Leoberto Leal;Cristais Paulista;;
+148;;;;;Ibicaraí;Quiterianópolis;;;Montividiu;Porto Franco;Careaçu;;;;Inajá;Pocinhos;São Benedito do Sul;Palmeirais;;Serrinha;Erechim;;;Lindóia do Sul;Cruzália;;
+149;;;;;Ibicoara;Quixadá;;;Montividiu do Norte;Porto Rico do Maranhão;Carlos Chagas;;;;Indianópolis;Poço Dantas;São Bento do Una;Paquetá;;Serrinha Dos Pintos;Ernestina;;;Lontras;Cruzeiro;;
+150;;;;;Ibicuí;Quixelô;;;Morrinhos;Presidente Dutra;Carmésia;;;;Ipiranga;Poço de José de Moura;São Caitano;Parnaguá;;Severiano Melo;Herval;;;Luiz Alves;Cubatão;;
+151;;;;;Ibipeba;Quixeramobim;;;Morro Agudo de Goiás;Presidente Juscelino;Carmo da Cachoeira;;;;Iporã;Pombal;São João;Parnaíba;;Sítio Novo;Erval Grande;;;Luzerna;Cunha;;
+152;;;;;Ibipitanga;Quixeré;;;Mossâmedes;Presidente Médici;Carmo da Mata;;;;Iracema do Oeste;Prata;São Joaquim do Monte;Passagem Franca do Piauí;;Taboleiro Grande;Erval Seco;;;Macieira;Descalvado;;
+153;;;;;Ibiquera;Redenção;;;Mozarlândia;Presidente Sarney;Carmo de Minas;;;;Irati;Princesa Isabel;São José da Coroa Grande;Patos do Piauí;;Taipu;Esmeralda;;;Mafra;Diadema;;
+154;;;;;Ibirapitanga;Reriutaba;;;Mundo Novo;Presidente Vargas;Carmo do Cajuru;;;;Iretama;Puxinanã;São José do Belmonte;Pau D´arco do Piauí;;Tangará;Esperança do Sul;;;Major Gercino;Dirce Reis;;
+155;;;;;Ibirapuã;Russas;;;Mutunópolis;Primeira Cruz;Carmo do Paranaíba;;;;Itaguajé;Queimadas;São José do Egito;Paulistana;;Tenente Ananias;Espumoso;;;Major Vieira;Divinolândia;;
+156;;;;;Ibirataia;Saboeiro;;;Nazário;Raposa;Carmo do Rio Claro;;;;Itaipulândia;Quixabá;São Lourenço da Mata;Pavussu;;Tenente Laurentino Cruz;Estação;;;Maracajá;Dobrada;;
+157;;;;;Ibitiara;Salitre;;;Nerópolis;Riachão;Carmópolis de Minas;;;;Itambaracá;Remígio;São Vicente Ferrer;Pedro ii;;Tibau do Sul;Estância Velha;;;Maravilha;Dois Córregos;;
+158;;;;;Ibititá;Santana do Acaraú;;;Niquelândia;Ribamar Fiquene;Carneirinho;;;;Itambé;Pedro Régis;Serra Talhada;Pedro Laurentino;;Timbaúba Dos Batistas;Esteio;;;Marema;Dolcinópolis;;
+159;;;;;Ibotirama;Santana do Cariri;;;Nova América;Rosário;Carrancas;;;;Itapejara D´oeste;Riachão;Serrita;Nova Santa Rita;;Touros;Estrela;;;Massaranduba;Dourado;;
+160;;;;;Ichu;Santa Quitéria;;;Nova Aurora;Sambaíba;Carvalhópolis;;;;Itaperuçu;Riachão do Bacamarte;Sertânia;Picos;;Triunfo Potiguar;Estrela Velha;;;Matos Costa;Dracena;;
+161;;;;;Igaporã;São Benedito;;;Nova Crixás;Santa Filomena do Maranhão;Carvalhos;;;;Itaúna do Sul;Riachão do Poço;Sirinhaém;Pimenteiras;;Umarizal;Eugênio de Castro;;;Meleiro;Duartina;;
+162;;;;;Igrapiúna;São Gonçalo do Amarante;;;Nova Glória;Santa Helena;Casa Grande;;;;Ivaí;Riacho de Santo Antônio;Moreilândia;Pio ix;;Upanema;Fagundes Varela;;;Mirim Doce;Dumont;;
+163;;;;;Iguaí;São João do Jaguaribe;;;Nova Iguaçu de Goiás;Santa Inês;Cascalho Rico;;;;Ivaiporã;Riacho Dos Cavalos;Solidão;Piracuruca;;Várzea;Farroupilha;;;Modelo;Echaporã;;
+164;;;;;Ilhéus;São Luís do Curu;;;Nova Roma;Santa Luzia;Cássia;;;;Ivaté;Rio Tinto;Surubim;Piripiri;;Venha-ver;Faxinal do Soturno;;;Mondaí;Eldorado;;
+165;;;;;Inhambupe;Senador Pompeu;;;Nova Veneza;Santa Luzia do Paruá;Conceição da Barra de Minas;;;;Ivatuba;Salgadinho;Tabira;Porto;;Vera Cruz;Faxinalzinho;;;Monte Carlo;Elias Fausto;;
+166;;;;;Ipecaetá;Senador sá;;;Novo Brasil;Santa Quitéria do Maranhão;Cataguases;;;;Jaboti;Salgado de São Félix;Tacaimbó;Porto Alegre do Piauí;;Viçosa;Fazenda Vilanova;;;Monte Castelo;Elisiário;;
+167;;;;;Ipiaú;Sobral;;;Novo Gama;Santa Rita;Catas Altas;;;;Jacarezinho;Santa Cecília;Tacaratu;Prata do Piauí;;Vila Flor;Feliz;;;Morro da Fumaça;Embaúba;;
+168;;;;;Ipirá;Solonópole;;;Novo Planalto;Santana do Maranhão;Catas Altas da Noruega;;;;Jaguapitã;Santa Cruz;Tamandaré;Queimada Nova;;;Flores da Cunha;;;Morro Grande;Embu;;
+169;;;;;Ipupiara;Tabuleiro do Norte;;;Orizona;Santo Amaro do Maranhão;Catuji;;;;Jaguariaíva;Santa Helena;Taquaritinga do Norte;Redenção do Gurguéia;;;Floriano Peixoto;;;Navegantes;Embu-guaçu;;
+170;;;;;Irajuba;Tamboril;;;Ouro Verde de Goiás;Santo Antônio Dos Lopes;Catuti;;;;Jandaia do Sul;Santa Inês;Terezinha;Regeneração;;;Fontoura Xavier;;;Nova Erechim;Emilianópolis;;
+171;;;;;Iramaia;Tarrafas;;;Ouvidor;São Benedito do Rio Preto;Caxambu;;;;Janiópolis;Santa Luzia;Terra Nova;Riacho Frio;;;Formigueiro;;;Nova Itaberaba;Engenheiro Coelho;;
+172;;;;;Iraquara;Tauá;;;Padre Bernardo;São Bento;Cedro do Abaeté;;;;Japira;Santana de Mangueira;Timbaúba;Ribeira do Piauí;;;Forquetinha;;;Nova Trento;Espírito Santo do Pinhal;;
+173;;;;;Irará;Tejuçuoca;;;Palestina de Goiás;São Bernardo;Central de Minas;;;;Japurá;Santana Dos Garrotes;Toritama;Ribeiro Gonçalves;;;Fortaleza Dos Valos;;;Nova Veneza;Espírito Santo do Turvo;;
+174;;;;;Irecê;Tianguá;;;Palmeiras de Goiás;São Domingos do Azeitão;Centralina;;;;Jardim Alegre;Santarém;Tracunhaém;Rio Grande do Piauí;;;Frederico Westphalen;;;Novo Horizonte;Estrela D´oeste;;
+175;;;;;Itabela;Trairi;;;Palmelo;São Domingos do Maranhão;Chácara;;;;Jardim Olinda;Santa Rita;Trindade;Santa Cruz do Piauí;;;Garibaldi;;;Orleans;Estrela do Norte;;
+176;;;;;Itaberaba;Tururu;;;Palminópolis;São Félix de Balsas;Chalé;;;;Jataizinho;Santa Teresinha;Triunfo;Santa Cruz Dos Milagres;;;Garruchos;;;Otacílio Costa;Euclides da Cunha Paulista;;
+177;;;;;Itabuna;Ubajara;;;Panamá;São Francisco do Brejão;Chapada do Norte;;;;Jesuítas;Santo André;Tupanatinga;Santa Filomena;;;Gaurama;;;Ouro;Fartura;;
+178;;;;;Itacaré;Umari;;;Paranaiguara;São Francisco do Maranhão;Chapada Gaúcha;;;;Joaquim Távora;São Bento;Tuparetama;Santa Luz;;;General Câmara;;;Ouro Verde;Fernandópolis;;
+179;;;;;Itaeté;Umirim;;;Paraúna;São João Batista;Chiador;;;;Jundiaí do Sul;São Bentinho;Venturosa;Santana do Piauí;;;Gentil;;;Paial;Fernando Prestes;;
+180;;;;;Itagi;Uruburetama;;;Perolândia;São João do Carú;Cipotânea;;;;Juranda;São Domingos do Cariri;Verdejante;Santa Rosa do Piauí;;;Getúlio Vargas;;;Painel;Fernão;;
+181;;;;;Itagibá;Uruoca;;;Petrolina de Goiás;São João do Paraíso;Claraval;;;;Jussara;São Domingos de Pombal;Vertente do Lério;Santo Antônio de Lisboa;;;Giruá;;;Palhoça;Ferraz de Vasconcelos;;
+182;;;;;Itagimirim;Varjota;;;Pilar de Goiás;São João do Soter;Claro Dos Poções;;;;Kaloré;São Francisco;Vertentes;Santo Antônio Dos Milagres;;;Glorinha;;;Palma Sola;Flora Rica;;
+183;;;;;Itaguaçu da Bahia;Várzea Alegre;;;Piracanjuba;São João Dos Patos;Cláudio;;;;Lapa;São João do Cariri;Vicência;Santo Inácio do Piauí;;;Gramado;;;Palmeira;Floreal;;
+184;;;;;Itaju do Colônia;Viçosa do Ceará;;;Piranhas;São José de Ribamar;Coimbra;;;;Laranjal;São João do Tigre;Vitória de Santo Antão;São Braz do Piauí;;;Gramado Dos Loureiros;;;Palmitos;Flórida Paulista;;
+185;;;;;Itajuípe;;;;Pirenópolis;São José Dos Basílios;Coluna;;;;Laranjeiras do Sul;São José da Lagoa Tapada;Xexéu;São Félix do Piauí;;;Gramado Xavier;;;Papanduva;Florínia;;
+186;;;;;Itamaraju;;;;Pires do Rio;São Luís;Comendador Gomes;;;;Leópolis;São José de Caiana;;São Francisco de Assis do Piauí;;;Gravataí;;;Paraíso;Franca;;
+187;;;;;Itamari;;;;Planaltina;São Luís Gonzaga do Maranhão;Comercinho;;;;Lidianópolis;São José de Espinharas;;São Francisco do Piauí;;;Guabiju;;;Passo de Torres;Francisco Morato;;
+188;;;;;Itambé;;;;Pontalina;São Mateus do Maranhão;Conceição da Aparecida;;;;Lindoeste;São José Dos Ramos;;São Gonçalo do Gurguéia;;;Guaíba;;;Passos Maia;Franco da Rocha;;
+189;;;;;Itanagra;;;;Porangatu;São Pedro da Água Branca;Conceição Das Pedras;;;;Loanda;São José de Piranhas;;São Gonçalo do Piauí;;;Guaporé;;;Paulo Lopes;Gabriel Monteiro;;
+190;;;;;Itanhém;;;;Porteirão;São Pedro Dos Crentes;Conceição Das Alagoas;;;;Lobato;São José de Princesa;;São João da Canabrava;;;Guarani Das Missões;;;Pedras Grandes;Gália;;
+191;;;;;Itaparica;;;;Portelândia;São Raimundo Das Mangabeiras;Conceição de Ipanema;;;;Londrina;São José do Bonfim;;São João da Fronteira;;;Harmonia;;;Penha;Garça;;
+192;;;;;Itapé;;;;Posse;São Raimundo do Doca Bezerra;Conceição do Mato Dentro;;;;Luiziana;São José do Brejo do Cruz;;São João da Serra;;;Herveiras;;;Peritiba;Gastão Vidigal;;
+193;;;;;Itapebi;;;;Professor Jamil;São Roberto;Conceição do Pará;;;;Lunardelli;São José do Sabugi;;São João da Varjota;;;Horizontina;;;Pescaria Brava;Gavião Peixoto;;
+194;;;;;Itapetinga;;;;Quirinópolis;São Vicente Ferrer;Conceição do Rio Verde;;;;Lupionópolis;São José Dos Cordeiros;;São João do Arraial;;;Hulha Negra;;;Petrolândia;General Salgado;;
+195;;;;;Itapicuru;;;;Rialma;Satubinha;Conceição Dos Ouros;;;;Mallet;São Mamede;;São João do Piauí;;;Humaitá;;;Piçarras;Getulina;;
+196;;;;;Itapitanga;;;;Rianápolis;Senador Alexandre Costa;Cônego Marinho;;;;Mamborê;São Miguel de Taipu;;São José do Divino;;;Ibarama;;;Pinhalzinho;Glicério;;
+197;;;;;Itaquara;;;;Rio Quente;Senador la Rocque;Confins;;;;Mandaguaçu;São Sebastião de Lagoa de Roça;;São José do Peixe;;;Ibiaçá;;;Pinheiro Preto;Guaiçara;;
+198;;;;;Itarantim;;;;Rio Verde;Serrano do Maranhão;Congonhal;;;;Mandaguari;São Sebastião do Umbuzeiro;;São José do Piauí;;;Ibiraiaras;;;Piratuba;Guaimbê;;
+199;;;;;Itatim;;;;Rubiataba;Sítio Novo;Congonhas;;;;Mandirituba;Sapé;;São Julião;;;Ibirapuitã;;;Planalto Alegre;Guaíra;;
+200;;;;;Itiruçu;;;;Sanclerlândia;Sucupira do Norte;Congonhas do Norte;;;;Manfrinópolis;Seridó;;São Lourenço do Piauí;;;Ibirubá;;;Pomerode;Guapiaçu;;
+201;;;;;Itiúba;;;;Santa Bárbara de Goiás;Sucupira do Riachão;Conquista;;;;Mangueirinha;Serra Branca;;São Luis do Piauí;;;Igrejinha;;;Ponte Alta;Guapiara;;
+202;;;;;Itororó;;;;Santa Cruz de Goiás;Tasso Fragoso;Conselheiro Lafaiete;;;;Manoel Ribas;Serra da Raiz;;São Miguel da Baixa Grande;;;Ijuí;;;Ponte Alta do Norte;Guará;;
+203;;;;;Ituaçu;;;;Santa fé de Goiás;Timbiras;Conselheiro Pena;;;;Marechal Cândido Rondon;Serra Grande;;São Miguel do Fidalgo;;;Ilópolis;;;Ponte Serrada;Guaraçaí;;
+204;;;;;Ituberá;;;;Santa Helena de Goiás;Timon;Consolação;;;;Maria Helena;Serra Redonda;;São Miguel do Tapuio;;;Imbé;;;Porto Belo;Guaraci;;
+205;;;;;Iuiú;;;;Santa Isabel;Trizidela do Vale;Contagem;;;;Marialva;Serraria;;São Pedro do Piauí;;;Imigrante;;;Porto União;Guarani D´oeste;;
+206;;;;;Jaborandi;;;;Santa Rita do Araguaia;Tufilândia;Coqueiral;;;;Marilândia do Sul;Sertãozinho;;São Raimundo Nonato;;;Independência;;;Pouso Redondo;Guarantã;;
+207;;;;;Jacaraci;;;;Santa Rita do Novo Destino;Tuntum;Coração de Jesus;;;;Marilena;Sobrado;;Sebastião Barros;;;Inhacorá;;;Praia Grande;Guararapes;;
+208;;;;;Jacobina;;;;Santa Rosa de Goiás;Turiaçu;Cordisburgo;;;;Mariluz;Solânea;;Sebastião Leal;;;Ipê;;;Presidente Castelo Branco;Guararema;;
+209;;;;;Jaguaquara;;;;Santa Tereza de Goiás;Turilândia;Cordislândia;;;;Maringá;Soledade;;Sigefredo Pacheco;;;Ipiranga do Sul;;;Presidente Getúlio;Guaratinguetá;;
+210;;;;;Jaguarari;;;;Santa Terezinha de Goiás;Tutóia;Corinto;;;;Mariópolis;Sossêgo;;Simões;;;Iraí;;;Presidente Nereu;Guareí;;
+211;;;;;Jaguaripe;;;;Santo Antônio da Barra;Urbano Santos;Coroaci;;;;Maripá;Sousa;;Simplício Mendes;;;Itaara;;;Princesa;Guariba;;
+212;;;;;Jandaíra;;;;Santo Antônio de Goiás;Vargem Grande;Coromandel;;;;Marmeleiro;Sumé;;Socorro do Piauí;;;Itacurubi;;;Quilombo;Guarujá;;
+213;;;;;Jequié;;;;Santo Antônio do Descoberto;Viana;Coronel Fabriciano;;;;Marquinho;Campo de Santana;;Sussuapara;;;Itapuca;;;Rancho Queimado;Guarulhos;;
+214;;;;;Jeremoabo;;;;São Domingos;Vila Nova Dos Martírios;Coronel Murta;;;;Marumbi;Taperoá;;Tamboril do Piauí;;;Itaqui;;;Rio Das Antas;Guatapará;;
+215;;;;;Jiquiriçá;;;;São Francisco de Goiás;Vitória do Mearim;Coronel Pacheco;;;;Matelândia;Tavares;;Tanque do Piauí;;;Itati;;;Rio do Campo;Guzolândia;;
+216;;;;;Jitaúna;;;;São João D´aliança;Vitorino Freire;Coronel Xavier Chaves;;;;Matinhos;Teixeira;;Teresina;;;Itatiba do Sul;;;Rio do Oeste;Herculândia;;
+217;;;;;João Dourado;;;;São João da Paraúna;Zé Doca;Córrego Danta;;;;Mato Rico;Tenório;;União;;;Ivorá;;;Rio Dos Cedros;Holambra;;
+218;;;;;Juazeiro;;;;São Luís de Montes Belos;;Córrego do Bom Jesus;;;;Mauá da Serra;Triunfo;;Uruçuí;;;Ivoti;;;Rio do Sul;Hortolândia;;
+219;;;;;Jucuruçu;;;;São Luíz do Norte;;Córrego Fundo;;;;Medianeira;Uiraúna;;Valença do Piauí;;;Jaboticaba;;;Rio Fortuna;Iacanga;;
+220;;;;;Jussara;;;;São Miguel do Araguaia;;Córrego Novo;;;;Mercedes;Umbuzeiro;;Várzea Branca;;;Jacuizinho;;;Rio Negrinho;Iacri;;
+221;;;;;Jussari;;;;São Miguel do Passa Quatro;;Couto de Magalhães de Minas;;;;Mirador;Várzea;;Várzea Grande;;;Jacutinga;;;Rio Rufino;Iaras;;
+222;;;;;Jussiape;;;;São Patrício;;Crisólita;;;;Miraselva;Vieirópolis;;Vera Mendes;;;Jaguarão;;;Riqueza;Ibaté;;
+223;;;;;Lafaiete Coutinho;;;;São Simão;;Cristais;;;;Missal;Zabelê;;Vila Nova do Piauí;;;Jaguari;;;Rodeio;Ibirá;;
+224;;;;;Lagoa Real;;;;Senador Canedo;;Cristália;;;;Moreira Sales;;;Wall Ferraz;;;Jaquirana;;;Romelândia;Ibirarema;;
+225;;;;;Laje;;;;Serranópolis;;Cristiano Otoni;;;;Morretes;;;;;;Jari;;;Salete;Ibitinga;;
+226;;;;;Lajedão;;;;Silvânia;;Cristina;;;;Munhoz de Melo;;;;;;Jóia;;;Saltinho;Ibiúna;;
+227;;;;;Lajedinho;;;;Simolândia;;Crucilândia;;;;Nossa Senhora Das Graças;;;;;;Júlio de Castilhos;;;Salto Veloso;Icém;;
+228;;;;;Lajedo do Tabocal;;;;Sítio D´abadia;;Cruzeiro da Fortaleza;;;;Nova Aliança do Ivaí;;;;;;Lagoa Bonita do Sul;;;Sangão;Iepê;;
+229;;;;;Lamarão;;;;Taquaral de Goiás;;Cruzília;;;;Nova América da Colina;;;;;;Lagoão;;;Santa Cecília;Igaraçu do Tietê;;
+230;;;;;Lapão;;;;Teresina de Goiás;;Cuparaque;;;;Nova Aurora;;;;;;Lagoa Dos Três Cantos;;;Santa Helena;Igarapava;;
+231;;;;;Lauro de Freitas;;;;Terezópolis de Goiás;;Curral de Dentro;;;;Nova Cantu;;;;;;Lagoa Vermelha;;;Santa Rosa de Lima;Igaratá;;
+232;;;;;Lençóis;;;;Três Ranchos;;Curvelo;;;;Nova Esperança;;;;;;Lajeado;;;Santa Rosa do Sul;Iguape;;
+233;;;;;Licínio de Almeida;;;;Trindade;;Datas;;;;Nova Esperança do Sudoeste;;;;;;Lajeado do Bugre;;;Santa Terezinha;Ilhabela;;
+234;;;;;Livramento de Nossa Senhora;;;;Trombas;;Delfim Moreira;;;;Nova Fátima;;;;;;Lavras do Sul;;;Santa Terezinha do Progresso;Ilha Comprida;;
+235;;;;;Luís Eduardo Magalhães;;;;Turvânia;;Delfinópolis;;;;Nova Laranjeiras;;;;;;Liberato Salzano;;;Santiago do Sul;Ilha Solteira;;
+236;;;;;Macajuba;;;;Turvelândia;;Delta;;;;Nova Londrina;;;;;;Lindolfo Collor;;;Santo Amaro da Imperatriz;Indaiatuba;;
+237;;;;;Macarani;;;;Uirapuru;;Descoberto;;;;Nova Olímpia;;;;;;Linha Nova;;;São Bernardino;Indiana;;
+238;;;;;Macaúbas;;;;Uruaçu;;Desterro de Entre Rios;;;;Nova Santa Bárbara;;;;;;Machadinho;;;São Bento do Sul;Indiaporã;;
+239;;;;;Macururé;;;;Uruana;;Desterro do Melo;;;;Nova Santa Rosa;;;;;;Maçambara;;;São Bonifácio;Inúbia Paulista;;
+240;;;;;Madre de Deus;;;;Urutaí;;Diamantina;;;;Nova Prata do Iguaçu;;;;;;Mampituba;;;São Carlos;Ipaussu;;
+241;;;;;Maetinga;;;;Valparaíso de Goiás;;Diogo de Vasconcelos;;;;Nova Tebas;;;;;;Manoel Viana;;;São Cristovão do Sul;Iperó;;
+242;;;;;Maiquinique;;;;Varjão;;Dionísio;;;;Novo Itacolomi;;;;;;Maquiné;;;São Domingos;Ipeúna;;
+243;;;;;Mairi;;;;Vianópolis;;Divinésia;;;;Ortigueira;;;;;;Maratá;;;São Francisco do Sul;Ipiguá;;
+244;;;;;Malhada;;;;Vicentinópolis;;Divino;;;;Ourizona;;;;;;Marau;;;São João do Oeste;Iporanga;;
+245;;;;;Malhada de Pedras;;;;Vila Boa;;Divino Das Laranjeiras;;;;Ouro Verde do Oeste;;;;;;Marcelino Ramos;;;São João Batista;Ipuã;;
+246;;;;;Manoel Vitorino;;;;Vila Propício;;Divinolândia de Minas;;;;Paiçandu;;;;;;Mariana Pimentel;;;São João do Itaperiú;Iracemápolis;;
+247;;;;;Mansidão;;;;;;Divinópolis;;;;Palmas;;;;;;Mariano Moro;;;São João do Sul;Irapuã;;
+248;;;;;Maracás;;;;;;Divisa Alegre;;;;Palmeira;;;;;;Marques de Souza;;;São Joaquim;Irapuru;;
+249;;;;;Maragogipe;;;;;;Divisa Nova;;;;Palmital;;;;;;Mata;;;São José;Itaberá;;
+250;;;;;Maraú;;;;;;Divisópolis;;;;Palotina;;;;;;Mato Castelhano;;;São José do Cedro;Itaí;;
+251;;;;;Marcionílio Souza;;;;;;Dom Bosco;;;;Paraíso do Norte;;;;;;Mato Leitão;;;São José do Cerrito;Itajobi;;
+252;;;;;Mascote;;;;;;Dom Cavati;;;;Paranacity;;;;;;Mato Queimado;;;São Lourenço do Oeste;Itaju;;
+253;;;;;Mata de São João;;;;;;Dom Joaquim;;;;Paranaguá;;;;;;Maximiliano de Almeida;;;São Ludgero;Itanhaém;;
+254;;;;;Matina;;;;;;Dom Silvério;;;;Paranapoema;;;;;;Minas do Leão;;;São Martinho;Itaóca;;
+255;;;;;Medeiros Neto;;;;;;Dom Viçoso;;;;Paranavaí;;;;;;Miraguaí;;;São Miguel da Boa Vista;Itapecerica da Serra;;
+256;;;;;Miguel Calmon;;;;;;Dona Eusébia;;;;Pato Bragado;;;;;;Montauri;;;São Miguel do Oeste;Itapetininga;;
+257;;;;;Milagres;;;;;;Dores de Campos;;;;Pato Branco;;;;;;Monte Alegre Dos Campos;;;São Pedro de Alcântara;Itapeva;;
+258;;;;;Mirangaba;;;;;;Dores de Guanhães;;;;Paula Freitas;;;;;;Monte Belo do Sul;;;Saudades;Itapevi;;
+259;;;;;Mirante;;;;;;Dores do Indaiá;;;;Paulo Frontin;;;;;;Montenegro;;;Schroeder;Itapira;;
+260;;;;;Monte Santo;;;;;;Dores do Turvo;;;;Peabiru;;;;;;Mormaço;;;Seara;Itapirapuã Paulista;;
+261;;;;;Morpará;;;;;;Doresópolis;;;;Perobal;;;;;;Morrinhos do Sul;;;Serra Alta;Itápolis;;
+262;;;;;Morro do Chapéu;;;;;;Douradoquara;;;;Pérola;;;;;;Morro Redondo;;;Siderópolis;Itaporanga;;
+263;;;;;Mortugaba;;;;;;Durandé;;;;Pérola D´oeste;;;;;;Morro Reuter;;;Sombrio;Itapuí;;
+264;;;;;Mucugê;;;;;;Elói Mendes;;;;Piên;;;;;;Mostardas;;;Sul Brasil;Itapura;;
+265;;;;;Mucuri;;;;;;Engenheiro Caldas;;;;Pinhais;;;;;;Muçum;;;Taió;Itaquaquecetuba;;
+266;;;;;Mulungu do Morro;;;;;;Engenheiro Navarro;;;;Pinhalão;;;;;;Muitos Capões;;;Tangará;Itararé;;
+267;;;;;Mundo Novo;;;;;;Entre Folhas;;;;Pinhal de São Bento;;;;;;Muliterno;;;Tigrinhos;Itariri;;
+268;;;;;Muniz Ferreira;;;;;;Entre Rios de Minas;;;;Pinhão;;;;;;Não-me-toque;;;Tijucas;Itatiba;;
+269;;;;;Muquém de São Francisco;;;;;;Ervália;;;;Piraí do Sul;;;;;;Nicolau Vergueiro;;;Timbé do Sul;Itatinga;;
+270;;;;;Muritiba;;;;;;Esmeraldas;;;;Piraquara;;;;;;Nonoai;;;Timbó;Itirapina;;
+271;;;;;Mutuípe;;;;;;Espera Feliz;;;;Pitanga;;;;;;Nova Alvorada;;;Timbó Grande;Itirapuã;;
+272;;;;;Nazaré;;;;;;Espinosa;;;;Pitangueiras;;;;;;Nova Araçá;;;Três Barras;Itobi;;
+273;;;;;Nilo Peçanha;;;;;;Espírito Santo do Dourado;;;;Planaltina do Paraná;;;;;;Nova Bassano;;;Treviso;Itu;;
+274;;;;;Nordestina;;;;;;Estiva;;;;Planalto;;;;;;Nova Boa Vista;;;Treze de Maio;Itupeva;;
+275;;;;;Nova Canaã;;;;;;Estrela Dalva;;;;Ponta Grossa;;;;;;Nova Bréscia;;;Treze Tílias;Ituverava;;
+276;;;;;Nova Fátima;;;;;;Estrela do Indaiá;;;;Pontal do Paraná;;;;;;Nova Candelária;;;Trombudo Central;Jaborandi;;
+277;;;;;Nova Ibiá;;;;;;Estrela do Sul;;;;Porecatu;;;;;;Nova Esperança do Sul;;;Tubarão;Jaboticabal;;
+278;;;;;Nova Itarana;;;;;;Eugenópolis;;;;Porto Amazonas;;;;;;Nova Hartz;;;Tunápolis;Jacareí;;
+279;;;;;Nova Redenção;;;;;;Ewbank da Câmara;;;;Porto Barreiro;;;;;;Nova Pádua;;;Turvo;Jaci;;
+280;;;;;Nova Soure;;;;;;Extrema;;;;Porto Rico;;;;;;Nova Palma;;;União do Oeste;Jacupiranga;;
+281;;;;;Nova Viçosa;;;;;;Fama;;;;Porto Vitória;;;;;;Nova Petrópolis;;;Urubici;Jaguariúna;;
+282;;;;;Novo Horizonte;;;;;;Faria Lemos;;;;Prado Ferreira;;;;;;Nova Prata;;;Urupema;Jales;;
+283;;;;;Novo Triunfo;;;;;;Felício Dos Santos;;;;Pranchita;;;;;;Nova Ramada;;;Urussanga;Jambeiro;;
+284;;;;;Olindina;;;;;;São Gonçalo do Rio Preto;;;;Presidente Castelo Branco;;;;;;Nova Roma do Sul;;;Vargeão;Jandira;;
+285;;;;;Oliveira Dos Brejinhos;;;;;;Felisburgo;;;;Primeiro de Maio;;;;;;Nova Santa Rita;;;Vargem;Jardinópolis;;
+286;;;;;Ouriçangas;;;;;;Felixlândia;;;;Prudentópolis;;;;;;Novo Cabrais;;;Vargem Bonita;Jarinu;;
+287;;;;;Ourolândia;;;;;;Fernandes Tourinho;;;;Quarto Centenário;;;;;;Novo Hamburgo;;;Vidal Ramos;Jaú;;
+288;;;;;Palmas de Monte Alto;;;;;;Ferros;;;;Quatiguá;;;;;;Novo Machado;;;Videira;Jeriquara;;
+289;;;;;Palmeiras;;;;;;Fervedouro;;;;Quatro Barras;;;;;;Novo Tiradentes;;;Vitor Meireles;Joanópolis;;
+290;;;;;Paramirim;;;;;;Florestal;;;;Quatro Pontes;;;;;;Novo Xingu;;;Witmarsum;João Ramalho;;
+291;;;;;Paratinga;;;;;;Formiga;;;;Quedas do Iguaçu;;;;;;Novo Barreiro;;;Xanxerê;José Bonifácio;;
+292;;;;;Paripiranga;;;;;;Formoso;;;;Querência do Norte;;;;;;Osório;;;Xavantina;Júlio Mesquita;;
+293;;;;;Pau Brasil;;;;;;Fortaleza de Minas;;;;Quinta do Sol;;;;;;Paim Filho;;;Xaxim;Jumirim;;
+294;;;;;Paulo Afonso;;;;;;Fortuna de Minas;;;;Quitandinha;;;;;;Palmares do Sul;;;Zortéa;Jundiaí;;
+295;;;;;pé de Serra;;;;;;Francisco Badaró;;;;Ramilândia;;;;;;Palmeira Das Missões;;;Balneário Rincão;Junqueirópolis;;
+296;;;;;Pedrão;;;;;;Francisco Dumont;;;;Rancho Alegre;;;;;;Palmitinho;;;;Juquiá;;
+297;;;;;Pedro Alexandre;;;;;;Francisco sá;;;;Rancho Alegre D´oeste;;;;;;Panambi;;;;Juquitiba;;
+298;;;;;Piatã;;;;;;Franciscópolis;;;;Realeza;;;;;;Pantano Grande;;;;Lagoinha;;
+299;;;;;Pilão Arcado;;;;;;Frei Gaspar;;;;Rebouças;;;;;;Paraí;;;;Laranjal Paulista;;
+300;;;;;Pindaí;;;;;;Frei Inocêncio;;;;Renascença;;;;;;Paraíso do Sul;;;;Lavínia;;
+301;;;;;Pindobaçu;;;;;;Frei Lagonegro;;;;Reserva;;;;;;Pareci Novo;;;;Lavrinhas;;
+302;;;;;Pintadas;;;;;;Fronteira;;;;Reserva do Iguaçu;;;;;;Parobé;;;;Leme;;
+303;;;;;Piraí do Norte;;;;;;Fronteira Dos Vales;;;;Ribeirão Claro;;;;;;Passa Sete;;;;Lençóis Paulista;;
+304;;;;;Piripá;;;;;;Fruta de Leite;;;;Ribeirão do Pinhal;;;;;;Passo do Sobrado;;;;Limeira;;
+305;;;;;Piritiba;;;;;;Frutal;;;;Rio Azul;;;;;;Passo Fundo;;;;Lindóia;;
+306;;;;;Planaltino;;;;;;Funilândia;;;;Rio Bom;;;;;;Paulo Bento;;;;Lins;;
+307;;;;;Planalto;;;;;;Galiléia;;;;Rio Bonito do Iguaçu;;;;;;Paverama;;;;Lorena;;
+308;;;;;Poções;;;;;;Gameleiras;;;;Rio Branco do Ivaí;;;;;;Pedras Altas;;;;Lourdes;;
+309;;;;;Pojuca;;;;;;Glaucilândia;;;;Rio Branco do Sul;;;;;;Pedro Osório;;;;Louveira;;
+310;;;;;Ponto Novo;;;;;;Goiabeira;;;;Rio Negro;;;;;;Pejuçara;;;;Lucélia;;
+311;;;;;Porto Seguro;;;;;;Goianá;;;;Rolândia;;;;;;Pelotas;;;;Lucianópolis;;
+312;;;;;Potiraguá;;;;;;Gonçalves;;;;Roncador;;;;;;Picada Café;;;;Luís Antônio;;
+313;;;;;Prado;;;;;;Gonzaga;;;;Rondon;;;;;;Pinhal;;;;Luiziânia;;
+314;;;;;Presidente Dutra;;;;;;Gouveia;;;;Rosário do Ivaí;;;;;;Pinhal da Serra;;;;Lupércio;;
+315;;;;;Presidente Jânio Quadros;;;;;;Governador Valadares;;;;Sabáudia;;;;;;Pinhal Grande;;;;Lutécia;;
+316;;;;;Presidente Tancredo Neves;;;;;;Grão Mogol;;;;Salgado Filho;;;;;;Pinheirinho do Vale;;;;Macatuba;;
+317;;;;;Queimadas;;;;;;Grupiara;;;;Salto do Itararé;;;;;;Pinheiro Machado;;;;Macaubal;;
+318;;;;;Quijingue;;;;;;Guanhães;;;;Salto do Lontra;;;;;;Pinto Bandeira;;;;Macedônia;;
+319;;;;;Quixabeira;;;;;;Guapé;;;;Santa Amélia;;;;;;Pirapó;;;;Magda;;
+320;;;;;Rafael Jambeiro;;;;;;Guaraciaba;;;;Santa Cecília do Pavão;;;;;;Piratini;;;;Mairinque;;
+321;;;;;Remanso;;;;;;Guaraciama;;;;Santa Cruz de Monte Castelo;;;;;;Planalto;;;;Mairiporã;;
+322;;;;;Retirolândia;;;;;;Guaranésia;;;;Santa fé;;;;;;Poço Das Antas;;;;Manduri;;
+323;;;;;Riachão Das Neves;;;;;;Guarani;;;;Santa Helena;;;;;;Pontão;;;;Marabá Paulista;;
+324;;;;;Riachão do Jacuípe;;;;;;Guarará;;;;Santa Inês;;;;;;Ponte Preta;;;;Maracaí;;
+325;;;;;Riacho de Santana;;;;;;Guarda-mor;;;;Santa Isabel do Ivaí;;;;;;Portão;;;;Marapoama;;
+326;;;;;Ribeira do Amparo;;;;;;Guaxupé;;;;Santa Izabel do Oeste;;;;;;Porto Alegre;;;;Mariápolis;;
+327;;;;;Ribeira do Pombal;;;;;;Guidoval;;;;Santa Lúcia;;;;;;Porto Lucena;;;;Marília;;
+328;;;;;Ribeirão do Largo;;;;;;Guimarânia;;;;Santa Maria do Oeste;;;;;;Porto Mauá;;;;Marinópolis;;
+329;;;;;Rio de Contas;;;;;;Guiricema;;;;Santa Mariana;;;;;;Porto Vera Cruz;;;;Martinópolis;;
+330;;;;;Rio do Antônio;;;;;;Gurinhatã;;;;Santa Mônica;;;;;;Porto Xavier;;;;Matão;;
+331;;;;;Rio do Pires;;;;;;Heliodora;;;;Santana do Itararé;;;;;;Pouso Novo;;;;Mauá;;
+332;;;;;Rio Real;;;;;;Iapu;;;;Santa Tereza do Oeste;;;;;;Presidente Lucena;;;;Mendonça;;
+333;;;;;Rodelas;;;;;;Ibertioga;;;;Santa Terezinha de Itaipu;;;;;;Progresso;;;;Meridiano;;
+334;;;;;Ruy Barbosa;;;;;;Ibiá;;;;Santo Antônio da Platina;;;;;;Protásio Alves;;;;Mesópolis;;
+335;;;;;Salinas da Margarida;;;;;;Ibiaí;;;;Santo Antônio do Caiuá;;;;;;Putinga;;;;Miguelópolis;;
+336;;;;;Salvador;;;;;;Ibiracatu;;;;Santo Antônio do Paraíso;;;;;;Quaraí;;;;Mineiros do Tietê;;
+337;;;;;Santa Bárbara;;;;;;Ibiraci;;;;Santo Antônio do Sudoeste;;;;;;Quatro Irmãos;;;;Miracatu;;
+338;;;;;Santa Brígida;;;;;;Ibirité;;;;Santo Inácio;;;;;;Quevedos;;;;Mira Estrela;;
+339;;;;;Santa Cruz Cabrália;;;;;;Ibitiúra de Minas;;;;São Carlos do Ivaí;;;;;;Quinze de Novembro;;;;Mirandópolis;;
+340;;;;;Santa Cruz da Vitória;;;;;;Ibituruna;;;;São Jerônimo da Serra;;;;;;Redentora;;;;Mirante do Paranapanema;;
+341;;;;;Santa Inês;;;;;;Icaraí de Minas;;;;São João;;;;;;Relvado;;;;Mirassol;;
+342;;;;;Santaluz;;;;;;Igarapé;;;;São João do Caiuá;;;;;;Restinga Seca;;;;Mirassolândia;;
+343;;;;;Santa Luzia;;;;;;Igaratinga;;;;São João do Ivaí;;;;;;Rio Dos Índios;;;;Mococa;;
+344;;;;;Santa Maria da Vitória;;;;;;Iguatama;;;;São João do Triunfo;;;;;;Rio Grande;;;;Moji Das Cruzes;;
+345;;;;;Santana;;;;;;Ijaci;;;;São Jorge D´oeste;;;;;;Rio Pardo;;;;Mogi Guaçu;;
+346;;;;;Santanópolis;;;;;;Ilicínea;;;;São Jorge do Ivaí;;;;;;Riozinho;;;;Moji-mirim;;
+347;;;;;Santa Rita de Cássia;;;;;;Imbé de Minas;;;;São Jorge do Patrocínio;;;;;;Roca Sales;;;;Mombuca;;
+348;;;;;Santa Teresinha;;;;;;Inconfidentes;;;;São José da Boa Vista;;;;;;Rodeio Bonito;;;;Monções;;
+349;;;;;Santo Amaro;;;;;;Indaiabira;;;;São José Das Palmeiras;;;;;;Rolador;;;;Mongaguá;;
+350;;;;;Santo Antônio de Jesus;;;;;;Indianópolis;;;;São José Dos Pinhais;;;;;;Rolante;;;;Monte Alegre do Sul;;
+351;;;;;Santo Estêvão;;;;;;Ingaí;;;;São Manoel do Paraná;;;;;;Ronda Alta;;;;Monte Alto;;
+352;;;;;São Desidério;;;;;;Inhapim;;;;São Mateus do Sul;;;;;;Rondinha;;;;Monte Aprazível;;
+353;;;;;São Domingos;;;;;;Inhaúma;;;;São Miguel do Iguaçu;;;;;;Roque Gonzales;;;;Monte Azul Paulista;;
+354;;;;;São Félix;;;;;;Inimutaba;;;;São Pedro do Iguaçu;;;;;;Rosário do Sul;;;;Monte Castelo;;
+355;;;;;São Félix do Coribe;;;;;;Ipaba;;;;São Pedro do Ivaí;;;;;;Sagrada Família;;;;Monteiro Lobato;;
+356;;;;;São Felipe;;;;;;Ipanema;;;;São Pedro do Paraná;;;;;;Saldanha Marinho;;;;Monte Mor;;
+357;;;;;São Francisco do Conde;;;;;;Ipatinga;;;;São Sebastião da Amoreira;;;;;;Salto do Jacuí;;;;Morro Agudo;;
+358;;;;;São Gabriel;;;;;;Ipiaçu;;;;São Tomé;;;;;;Salvador Das Missões;;;;Morungaba;;
+359;;;;;São Gonçalo Dos Campos;;;;;;Ipuiúna;;;;Sapopema;;;;;;Salvador do Sul;;;;Motuca;;
+360;;;;;São José da Vitória;;;;;;Iraí de Minas;;;;Sarandi;;;;;;Sananduva;;;;Murutinga do Sul;;
+361;;;;;São José do Jacuípe;;;;;;Itabira;;;;Saudade do Iguaçu;;;;;;Santa Bárbara do Sul;;;;Nantes;;
+362;;;;;São Miguel Das Matas;;;;;;Itabirinha;;;;Sengés;;;;;;Santa Cecília do Sul;;;;Narandiba;;
+363;;;;;São Sebastião do Passé;;;;;;Itabirito;;;;Serranópolis do Iguaçu;;;;;;Santa Clara do Sul;;;;Natividade da Serra;;
+364;;;;;Sapeaçu;;;;;;Itacambira;;;;Sertaneja;;;;;;Santa Cruz do Sul;;;;Nazaré Paulista;;
+365;;;;;Sátiro Dias;;;;;;Itacarambi;;;;Sertanópolis;;;;;;Santa Maria;;;;Neves Paulista;;
+366;;;;;Saubara;;;;;;Itaguara;;;;Siqueira Campos;;;;;;Santa Maria do Herval;;;;Nhandeara;;
+367;;;;;Saúde;;;;;;Itaipé;;;;Sulina;;;;;;Santa Margarida do Sul;;;;Nipoã;;
+368;;;;;Seabra;;;;;;Itajubá;;;;Tamarana;;;;;;Santana da Boa Vista;;;;Nova Aliança;;
+369;;;;;Sebastião Laranjeiras;;;;;;Itamarandiba;;;;Tamboara;;;;;;Santana do Livramento;;;;Nova Campina;;
+370;;;;;Senhor do Bonfim;;;;;;Itamarati de Minas;;;;Tapejara;;;;;;Santa Rosa;;;;Nova Canaã Paulista;;
+371;;;;;Serra do Ramalho;;;;;;Itambacuri;;;;Tapira;;;;;;Santa Tereza;;;;Nova Castilho;;
+372;;;;;Sento sé;;;;;;Itambé do Mato Dentro;;;;Teixeira Soares;;;;;;Santa Vitória do Palmar;;;;Nova Europa;;
+373;;;;;Serra Dourada;;;;;;Itamogi;;;;Telêmaco Borba;;;;;;Santiago;;;;Nova Granada;;
+374;;;;;Serra Preta;;;;;;Itamonte;;;;Terra Boa;;;;;;Santo Ângelo;;;;Nova Guataporanga;;
+375;;;;;Serrinha;;;;;;Itanhandu;;;;Terra Rica;;;;;;Santo Antônio do Palma;;;;Nova Independência;;
+376;;;;;Serrolândia;;;;;;Itanhomi;;;;Terra Roxa;;;;;;Santo Antônio da Patrulha;;;;Novais;;
+377;;;;;Simões Filho;;;;;;Itaobim;;;;Tibagi;;;;;;Santo Antônio Das Missões;;;;Nova Luzitânia;;
+378;;;;;Sítio do Mato;;;;;;Itapagipe;;;;Tijucas do Sul;;;;;;Santo Antônio do Planalto;;;;Nova Odessa;;
+379;;;;;Sítio do Quinto;;;;;;Itapecerica;;;;Toledo;;;;;;Santo Augusto;;;;Novo Horizonte;;
+380;;;;;Sobradinho;;;;;;Itapeva;;;;Tomazina;;;;;;Santo Cristo;;;;Nuporanga;;
+381;;;;;Souto Soares;;;;;;Itatiaiuçu;;;;Três Barras do Paraná;;;;;;Santo Expedito do Sul;;;;Ocauçu;;
+382;;;;;Tabocas do Brejo Velho;;;;;;Itaú de Minas;;;;Tunas do Paraná;;;;;;São Borja;;;;Óleo;;
+383;;;;;Tanhaçu;;;;;;Itaúna;;;;Tuneiras do Oeste;;;;;;São Domingos do Sul;;;;Olímpia;;
+384;;;;;Tanque Novo;;;;;;Itaverava;;;;Tupãssi;;;;;;São Francisco de Assis;;;;Onda Verde;;
+385;;;;;Tanquinho;;;;;;Itinga;;;;Turvo;;;;;;São Francisco de Paula;;;;Oriente;;
+386;;;;;Taperoá;;;;;;Itueta;;;;Ubiratã;;;;;;São Gabriel;;;;Orindiúva;;
+387;;;;;Tapiramutá;;;;;;Ituiutaba;;;;Umuarama;;;;;;São Jerônimo;;;;Orlândia;;
+388;;;;;Teixeira de Freitas;;;;;;Itumirim;;;;União da Vitória;;;;;;São João da Urtiga;;;;Osasco;;
+389;;;;;Teodoro Sampaio;;;;;;Iturama;;;;Uniflor;;;;;;São João do Polêsine;;;;Oscar Bressane;;
+390;;;;;Teofilândia;;;;;;Itutinga;;;;Uraí;;;;;;São Jorge;;;;Osvaldo Cruz;;
+391;;;;;Teolândia;;;;;;Jaboticatubas;;;;Wenceslau Braz;;;;;;São José Das Missões;;;;Ourinhos;;
+392;;;;;Terra Nova;;;;;;Jacinto;;;;Ventania;;;;;;São José do Herval;;;;Ouroeste;;
+393;;;;;Tremedal;;;;;;Jacuí;;;;Vera Cruz do Oeste;;;;;;São José do Hortêncio;;;;Ouro Verde;;
+394;;;;;Tucano;;;;;;Jacutinga;;;;Verê;;;;;;São José do Inhacorá;;;;Pacaembu;;
+395;;;;;Uauá;;;;;;Jaguaraçu;;;;Vila Alta;;;;;;São José do Norte;;;;Palestina;;
+396;;;;;Ubaíra;;;;;;Jaíba;;;;Doutor Ulysses;;;;;;São José do Ouro;;;;Palmares Paulista;;
+397;;;;;Ubaitaba;;;;;;Jampruca;;;;Virmond;;;;;;São José do Sul;;;;Palmeira D´oeste;;
+398;;;;;Ubatã;;;;;;Janaúba;;;;Vitorino;;;;;;São José Dos Ausentes;;;;Palmital;;
+399;;;;;Uibaí;;;;;;Januária;;;;Xambrê;;;;;;São Leopoldo;;;;Panorama;;
+400;;;;;Umburanas;;;;;;Japaraíba;;;;;;;;;;São Lourenço do Sul;;;;Paraguaçu Paulista;;
+401;;;;;Una;;;;;;Japonvar;;;;;;;;;;São Luiz Gonzaga;;;;Paraibuna;;
+402;;;;;Urandi;;;;;;Jeceaba;;;;;;;;;;São Marcos;;;;Paraíso;;
+403;;;;;Uruçuca;;;;;;Jenipapo de Minas;;;;;;;;;;São Martinho;;;;Paranapanema;;
+404;;;;;Utinga;;;;;;Jequeri;;;;;;;;;;São Martinho da Serra;;;;Paranapuã;;
+405;;;;;Valença;;;;;;Jequitaí;;;;;;;;;;São Miguel Das Missões;;;;Parapuã;;
+406;;;;;Valente;;;;;;Jequitibá;;;;;;;;;;São Nicolau;;;;Pardinho;;
+407;;;;;Várzea da Roça;;;;;;Jequitinhonha;;;;;;;;;;São Paulo Das Missões;;;;Pariquera-açu;;
+408;;;;;Várzea do Poço;;;;;;Jesuânia;;;;;;;;;;São Pedro da Serra;;;;Parisi;;
+409;;;;;Várzea Nova;;;;;;Joaíma;;;;;;;;;;São Pedro Das Missões;;;;Patrocínio Paulista;;
+410;;;;;Varzedo;;;;;;Joanésia;;;;;;;;;;São Pedro do Butiá;;;;Paulicéia;;
+411;;;;;Vera Cruz;;;;;;João Monlevade;;;;;;;;;;São Pedro do Sul;;;;Paulínia;;
+412;;;;;Vereda;;;;;;João Pinheiro;;;;;;;;;;São Sebastião do Caí;;;;Paulistânia;;
+413;;;;;Vitória da Conquista;;;;;;Joaquim Felício;;;;;;;;;;São Sepé;;;;Paulo de Faria;;
+414;;;;;Wagner;;;;;;Jordânia;;;;;;;;;;São Valentim;;;;Pederneiras;;
+415;;;;;Wanderley;;;;;;José Gonçalves de Minas;;;;;;;;;;São Valentim do Sul;;;;Pedra Bela;;
+416;;;;;Wenceslau Guimarães;;;;;;José Raydan;;;;;;;;;;São Valério do Sul;;;;Pedranópolis;;
+417;;;;;Xique-xique;;;;;;Josenópolis;;;;;;;;;;São Vendelino;;;;Pedregulho;;
+418;;;;;;;;;;;Nova União;;;;;;;;;;São Vicente do Sul;;;;Pedreira;;
+419;;;;;;;;;;;Juatuba;;;;;;;;;;Sapiranga;;;;Pedrinhas Paulista;;
+420;;;;;;;;;;;Juiz de Fora;;;;;;;;;;Sapucaia do Sul;;;;Pedro de Toledo;;
+421;;;;;;;;;;;Juramento;;;;;;;;;;Sarandi;;;;Penápolis;;
+422;;;;;;;;;;;Juruaia;;;;;;;;;;Seberi;;;;Pereira Barreto;;
+423;;;;;;;;;;;Juvenília;;;;;;;;;;Sede Nova;;;;Pereiras;;
+424;;;;;;;;;;;Ladainha;;;;;;;;;;Segredo;;;;Peruíbe;;
+425;;;;;;;;;;;Lagamar;;;;;;;;;;Selbach;;;;Piacatu;;
+426;;;;;;;;;;;Lagoa da Prata;;;;;;;;;;Senador Salgado Filho;;;;Piedade;;
+427;;;;;;;;;;;Lagoa Dos Patos;;;;;;;;;;Sentinela do Sul;;;;Pilar do Sul;;
+428;;;;;;;;;;;Lagoa Dourada;;;;;;;;;;Serafina Corrêa;;;;Pindamonhangaba;;
+429;;;;;;;;;;;Lagoa Formosa;;;;;;;;;;Sério;;;;Pindorama;;
+430;;;;;;;;;;;Lagoa Grande;;;;;;;;;;Sertão;;;;Pinhalzinho;;
+431;;;;;;;;;;;Lagoa Santa;;;;;;;;;;Sertão Santana;;;;Piquerobi;;
+432;;;;;;;;;;;Lajinha;;;;;;;;;;Sete de Setembro;;;;Piquete;;
+433;;;;;;;;;;;Lambari;;;;;;;;;;Severiano de Almeida;;;;Piracaia;;
+434;;;;;;;;;;;Lamim;;;;;;;;;;Silveira Martins;;;;Piracicaba;;
+435;;;;;;;;;;;Laranjal;;;;;;;;;;Sinimbu;;;;Piraju;;
+436;;;;;;;;;;;Lassance;;;;;;;;;;Sobradinho;;;;Pirajuí;;
+437;;;;;;;;;;;Lavras;;;;;;;;;;Soledade;;;;Pirangi;;
+438;;;;;;;;;;;Leandro Ferreira;;;;;;;;;;Tabaí;;;;Pirapora do Bom Jesus;;
+439;;;;;;;;;;;Leme do Prado;;;;;;;;;;Tapejara;;;;Pirapozinho;;
+440;;;;;;;;;;;Leopoldina;;;;;;;;;;Tapera;;;;Pirassununga;;
+441;;;;;;;;;;;Liberdade;;;;;;;;;;Tapes;;;;Piratininga;;
+442;;;;;;;;;;;Lima Duarte;;;;;;;;;;Taquara;;;;Pitangueiras;;
+443;;;;;;;;;;;Limeira do Oeste;;;;;;;;;;Taquari;;;;Planalto;;
+444;;;;;;;;;;;Lontra;;;;;;;;;;Taquaruçu do Sul;;;;Platina;;
+445;;;;;;;;;;;Luisburgo;;;;;;;;;;Tavares;;;;Poá;;
+446;;;;;;;;;;;Luislândia;;;;;;;;;;Tenente Portela;;;;Poloni;;
+447;;;;;;;;;;;Luminárias;;;;;;;;;;Terra de Areia;;;;Pompéia;;
+448;;;;;;;;;;;Luz;;;;;;;;;;Teutônia;;;;Pongaí;;
+449;;;;;;;;;;;Machacalis;;;;;;;;;;Tio Hugo;;;;Pontal;;
+450;;;;;;;;;;;Machado;;;;;;;;;;Tiradentes do Sul;;;;Pontalinda;;
+451;;;;;;;;;;;Madre de Deus de Minas;;;;;;;;;;Toropi;;;;Pontes Gestal;;
+452;;;;;;;;;;;Malacacheta;;;;;;;;;;Torres;;;;Populina;;
+453;;;;;;;;;;;Mamonas;;;;;;;;;;Tramandaí;;;;Porangaba;;
+454;;;;;;;;;;;Manga;;;;;;;;;;Travesseiro;;;;Porto Feliz;;
+455;;;;;;;;;;;Manhuaçu;;;;;;;;;;Três Arroios;;;;Porto Ferreira;;
+456;;;;;;;;;;;Manhumirim;;;;;;;;;;Três Cachoeiras;;;;Potim;;
+457;;;;;;;;;;;Mantena;;;;;;;;;;Três Coroas;;;;Potirendaba;;
+458;;;;;;;;;;;Maravilhas;;;;;;;;;;Três de Maio;;;;Pracinha;;
+459;;;;;;;;;;;Mar de Espanha;;;;;;;;;;Três Forquilhas;;;;Pradópolis;;
+460;;;;;;;;;;;Maria da fé;;;;;;;;;;Três Palmeiras;;;;Praia Grande;;
+461;;;;;;;;;;;Mariana;;;;;;;;;;Três Passos;;;;Pratânia;;
+462;;;;;;;;;;;Marilac;;;;;;;;;;Trindade do Sul;;;;Presidente Alves;;
+463;;;;;;;;;;;Mário Campos;;;;;;;;;;Triunfo;;;;Presidente Bernardes;;
+464;;;;;;;;;;;Maripá de Minas;;;;;;;;;;Tucunduva;;;;Presidente Epitácio;;
+465;;;;;;;;;;;Marliéria;;;;;;;;;;Tunas;;;;Presidente Prudente;;
+466;;;;;;;;;;;Marmelópolis;;;;;;;;;;Tupanci do Sul;;;;Presidente Venceslau;;
+467;;;;;;;;;;;Martinho Campos;;;;;;;;;;Tupanciretã;;;;Promissão;;
+468;;;;;;;;;;;Martins Soares;;;;;;;;;;Tupandi;;;;Quadra;;
+469;;;;;;;;;;;Mata Verde;;;;;;;;;;Tuparendi;;;;Quatá;;
+470;;;;;;;;;;;Materlândia;;;;;;;;;;Turuçu;;;;Queiroz;;
+471;;;;;;;;;;;Mateus Leme;;;;;;;;;;Ubiretama;;;;Queluz;;
+472;;;;;;;;;;;Matias Barbosa;;;;;;;;;;União da Serra;;;;Quintana;;
+473;;;;;;;;;;;Matias Cardoso;;;;;;;;;;Unistalda;;;;Rafard;;
+474;;;;;;;;;;;Matipó;;;;;;;;;;Uruguaiana;;;;Rancharia;;
+475;;;;;;;;;;;Mato Verde;;;;;;;;;;Vacaria;;;;Redenção da Serra;;
+476;;;;;;;;;;;Matozinhos;;;;;;;;;;Vale Verde;;;;Regente Feijó;;
+477;;;;;;;;;;;Matutina;;;;;;;;;;Vale do Sol;;;;Reginópolis;;
+478;;;;;;;;;;;Medeiros;;;;;;;;;;Vale Real;;;;Registro;;
+479;;;;;;;;;;;Medina;;;;;;;;;;Vanini;;;;Restinga;;
+480;;;;;;;;;;;Mendes Pimentel;;;;;;;;;;Venâncio Aires;;;;Ribeira;;
+481;;;;;;;;;;;Mercês;;;;;;;;;;Vera Cruz;;;;Ribeirão Bonito;;
+482;;;;;;;;;;;Mesquita;;;;;;;;;;Veranópolis;;;;Ribeirão Branco;;
+483;;;;;;;;;;;Minas Novas;;;;;;;;;;Vespasiano Correa;;;;Ribeirão Corrente;;
+484;;;;;;;;;;;Minduri;;;;;;;;;;Viadutos;;;;Ribeirão do Sul;;
+485;;;;;;;;;;;Mirabela;;;;;;;;;;Viamão;;;;Ribeirão Dos Índios;;
+486;;;;;;;;;;;Miradouro;;;;;;;;;;Vicente Dutra;;;;Ribeirão Grande;;
+487;;;;;;;;;;;Miraí;;;;;;;;;;Victor Graeff;;;;Ribeirão Pires;;
+488;;;;;;;;;;;Miravânia;;;;;;;;;;Vila Flores;;;;Ribeirão Preto;;
+489;;;;;;;;;;;Moeda;;;;;;;;;;Vila Lângaro;;;;Riversul;;
+490;;;;;;;;;;;Moema;;;;;;;;;;Vila Maria;;;;Rifaina;;
+491;;;;;;;;;;;Monjolos;;;;;;;;;;Vila Nova do Sul;;;;Rincão;;
+492;;;;;;;;;;;Monsenhor Paulo;;;;;;;;;;Vista Alegre;;;;Rinópolis;;
+493;;;;;;;;;;;Montalvânia;;;;;;;;;;Vista Alegre do Prata;;;;Rio Claro;;
+494;;;;;;;;;;;Monte Alegre de Minas;;;;;;;;;;Vista Gaúcha;;;;Rio Das Pedras;;
+495;;;;;;;;;;;Monte Azul;;;;;;;;;;Vitória Das Missões;;;;Rio Grande da Serra;;
+496;;;;;;;;;;;Monte Belo;;;;;;;;;;Westfalia;;;;Riolândia;;
+497;;;;;;;;;;;Monte Carmelo;;;;;;;;;;Xangri-lá;;;;Rosana;;
+498;;;;;;;;;;;Monte Formoso;;;;;;;;;;;;;;Roseira;;
+499;;;;;;;;;;;Monte Santo de Minas;;;;;;;;;;;;;;Rubiácea;;
+500;;;;;;;;;;;Montes Claros;;;;;;;;;;;;;;Rubinéia;;
+501;;;;;;;;;;;Monte Sião;;;;;;;;;;;;;;Sabino;;
+502;;;;;;;;;;;Montezuma;;;;;;;;;;;;;;Sagres;;
+503;;;;;;;;;;;Morada Nova de Minas;;;;;;;;;;;;;;Sales;;
+504;;;;;;;;;;;Morro da Garça;;;;;;;;;;;;;;Sales Oliveira;;
+505;;;;;;;;;;;Morro do Pilar;;;;;;;;;;;;;;Salesópolis;;
+506;;;;;;;;;;;Munhoz;;;;;;;;;;;;;;Salmourão;;
+507;;;;;;;;;;;Muriaé;;;;;;;;;;;;;;Saltinho;;
+508;;;;;;;;;;;Mutum;;;;;;;;;;;;;;Salto;;
+509;;;;;;;;;;;Muzambinho;;;;;;;;;;;;;;Salto de Pirapora;;
+510;;;;;;;;;;;Nacip Raydan;;;;;;;;;;;;;;Salto Grande;;
+511;;;;;;;;;;;Nanuque;;;;;;;;;;;;;;Sandovalina;;
+512;;;;;;;;;;;Naque;;;;;;;;;;;;;;Santa Adélia;;
+513;;;;;;;;;;;Natalândia;;;;;;;;;;;;;;Santa Albertina;;
+514;;;;;;;;;;;Natércia;;;;;;;;;;;;;;Santa Bárbara D´oeste;;
+515;;;;;;;;;;;Nazareno;;;;;;;;;;;;;;Santa Branca;;
+516;;;;;;;;;;;Nepomuceno;;;;;;;;;;;;;;Santa Clara D´oeste;;
+517;;;;;;;;;;;Ninheira;;;;;;;;;;;;;;Santa Cruz da Conceição;;
+518;;;;;;;;;;;Nova Belém;;;;;;;;;;;;;;Santa Cruz da Esperança;;
+519;;;;;;;;;;;Nova Era;;;;;;;;;;;;;;Santa Cruz Das Palmeiras;;
+520;;;;;;;;;;;Nova Lima;;;;;;;;;;;;;;Santa Cruz do Rio Pardo;;
+521;;;;;;;;;;;Nova Módica;;;;;;;;;;;;;;Santa Ernestina;;
+522;;;;;;;;;;;Nova Ponte;;;;;;;;;;;;;;Santa fé do Sul;;
+523;;;;;;;;;;;Nova Porteirinha;;;;;;;;;;;;;;Santa Gertrudes;;
+524;;;;;;;;;;;Nova Resende;;;;;;;;;;;;;;Santa Isabel;;
+525;;;;;;;;;;;Nova Serrana;;;;;;;;;;;;;;Santa Lúcia;;
+526;;;;;;;;;;;Novo Cruzeiro;;;;;;;;;;;;;;Santa Maria da Serra;;
+527;;;;;;;;;;;Novo Oriente de Minas;;;;;;;;;;;;;;Santa Mercedes;;
+528;;;;;;;;;;;Novorizonte;;;;;;;;;;;;;;Santana da Ponte Pensa;;
+529;;;;;;;;;;;Olaria;;;;;;;;;;;;;;Santana de Parnaíba;;
+530;;;;;;;;;;;Olhos-d´água;;;;;;;;;;;;;;Santa Rita D´oeste;;
+531;;;;;;;;;;;Olímpio Noronha;;;;;;;;;;;;;;Santa Rita do Passa Quatro;;
+532;;;;;;;;;;;Oliveira;;;;;;;;;;;;;;Santa Rosa de Viterbo;;
+533;;;;;;;;;;;Oliveira Fortes;;;;;;;;;;;;;;Santa Salete;;
+534;;;;;;;;;;;Onça de Pitangui;;;;;;;;;;;;;;Santo Anastácio;;
+535;;;;;;;;;;;Oratórios;;;;;;;;;;;;;;Santo André;;
+536;;;;;;;;;;;Orizânia;;;;;;;;;;;;;;Santo Antônio da Alegria;;
+537;;;;;;;;;;;Ouro Branco;;;;;;;;;;;;;;Santo Antônio de Posse;;
+538;;;;;;;;;;;Ouro Fino;;;;;;;;;;;;;;Santo Antônio do Aracanguá;;
+539;;;;;;;;;;;Ouro Preto;;;;;;;;;;;;;;Santo Antônio do Jardim;;
+540;;;;;;;;;;;Ouro Verde de Minas;;;;;;;;;;;;;;Santo Antônio do Pinhal;;
+541;;;;;;;;;;;Padre Carvalho;;;;;;;;;;;;;;Santo Expedito;;
+542;;;;;;;;;;;Padre Paraíso;;;;;;;;;;;;;;Santópolis do Aguapeí;;
+543;;;;;;;;;;;Paineiras;;;;;;;;;;;;;;Santos;;
+544;;;;;;;;;;;Pains;;;;;;;;;;;;;;São Bento do Sapucaí;;
+545;;;;;;;;;;;Pai Pedro;;;;;;;;;;;;;;São Bernardo do Campo;;
+546;;;;;;;;;;;Paiva;;;;;;;;;;;;;;São Caetano do Sul;;
+547;;;;;;;;;;;Palma;;;;;;;;;;;;;;São Carlos;;
+548;;;;;;;;;;;Palmópolis;;;;;;;;;;;;;;São Francisco;;
+549;;;;;;;;;;;Papagaios;;;;;;;;;;;;;;São João da Boa Vista;;
+550;;;;;;;;;;;Paracatu;;;;;;;;;;;;;;São João Das Duas Pontes;;
+551;;;;;;;;;;;Pará de Minas;;;;;;;;;;;;;;São João de Iracema;;
+552;;;;;;;;;;;Paraguaçu;;;;;;;;;;;;;;São João do Pau D´alho;;
+553;;;;;;;;;;;Paraisópolis;;;;;;;;;;;;;;São Joaquim da Barra;;
+554;;;;;;;;;;;Paraopeba;;;;;;;;;;;;;;São José da Bela Vista;;
+555;;;;;;;;;;;Passabém;;;;;;;;;;;;;;São José do Barreiro;;
+556;;;;;;;;;;;Passa Quatro;;;;;;;;;;;;;;São José do Rio Pardo;;
+557;;;;;;;;;;;Passa Tempo;;;;;;;;;;;;;;São José do Rio Preto;;
+558;;;;;;;;;;;Passa-vinte;;;;;;;;;;;;;;São José Dos Campos;;
+559;;;;;;;;;;;Passos;;;;;;;;;;;;;;São Lourenço da Serra;;
+560;;;;;;;;;;;Patis;;;;;;;;;;;;;;São Luís do Paraitinga;;
+561;;;;;;;;;;;Patos de Minas;;;;;;;;;;;;;;São Manuel;;
+562;;;;;;;;;;;Patrocínio;;;;;;;;;;;;;;São Miguel Arcanjo;;
+563;;;;;;;;;;;Patrocínio do Muriaé;;;;;;;;;;;;;;São Paulo;;
+564;;;;;;;;;;;Paula Cândido;;;;;;;;;;;;;;São Pedro;;
+565;;;;;;;;;;;Paulistas;;;;;;;;;;;;;;São Pedro do Turvo;;
+566;;;;;;;;;;;Pavão;;;;;;;;;;;;;;São Roque;;
+567;;;;;;;;;;;Peçanha;;;;;;;;;;;;;;São Sebastião;;
+568;;;;;;;;;;;Pedra Azul;;;;;;;;;;;;;;São Sebastião da Grama;;
+569;;;;;;;;;;;Pedra Bonita;;;;;;;;;;;;;;São Simão;;
+570;;;;;;;;;;;Pedra do Anta;;;;;;;;;;;;;;São Vicente;;
+571;;;;;;;;;;;Pedra do Indaiá;;;;;;;;;;;;;;Sarapuí;;
+572;;;;;;;;;;;Pedra Dourada;;;;;;;;;;;;;;Sarutaiá;;
+573;;;;;;;;;;;Pedralva;;;;;;;;;;;;;;Sebastianópolis do Sul;;
+574;;;;;;;;;;;Pedras de Maria da Cruz;;;;;;;;;;;;;;Serra Azul;;
+575;;;;;;;;;;;Pedrinópolis;;;;;;;;;;;;;;Serrana;;
+576;;;;;;;;;;;Pedro Leopoldo;;;;;;;;;;;;;;Serra Negra;;
+577;;;;;;;;;;;Pedro Teixeira;;;;;;;;;;;;;;Sertãozinho;;
+578;;;;;;;;;;;Pequeri;;;;;;;;;;;;;;Sete Barras;;
+579;;;;;;;;;;;Pequi;;;;;;;;;;;;;;Severínia;;
+580;;;;;;;;;;;Perdigão;;;;;;;;;;;;;;Silveiras;;
+581;;;;;;;;;;;Perdizes;;;;;;;;;;;;;;Socorro;;
+582;;;;;;;;;;;Perdões;;;;;;;;;;;;;;Sorocaba;;
+583;;;;;;;;;;;Periquito;;;;;;;;;;;;;;Sud Mennucci;;
+584;;;;;;;;;;;Pescador;;;;;;;;;;;;;;Sumaré;;
+585;;;;;;;;;;;Piau;;;;;;;;;;;;;;Suzano;;
+586;;;;;;;;;;;Piedade de Caratinga;;;;;;;;;;;;;;Suzanápolis;;
+587;;;;;;;;;;;Piedade de Ponte Nova;;;;;;;;;;;;;;Tabapuã;;
+588;;;;;;;;;;;Piedade do Rio Grande;;;;;;;;;;;;;;Tabatinga;;
+589;;;;;;;;;;;Piedade Dos Gerais;;;;;;;;;;;;;;Taboão da Serra;;
+590;;;;;;;;;;;Pimenta;;;;;;;;;;;;;;Taciba;;
+591;;;;;;;;;;;Pingo-d´água;;;;;;;;;;;;;;Taguaí;;
+592;;;;;;;;;;;Pintópolis;;;;;;;;;;;;;;Taiaçu;;
+593;;;;;;;;;;;Piracema;;;;;;;;;;;;;;Taiúva;;
+594;;;;;;;;;;;Pirajuba;;;;;;;;;;;;;;Tambaú;;
+595;;;;;;;;;;;Piranga;;;;;;;;;;;;;;Tanabi;;
+596;;;;;;;;;;;Piranguçu;;;;;;;;;;;;;;Tapiraí;;
+597;;;;;;;;;;;Piranguinho;;;;;;;;;;;;;;Tapiratiba;;
+598;;;;;;;;;;;Pirapetinga;;;;;;;;;;;;;;Taquaral;;
+599;;;;;;;;;;;Pirapora;;;;;;;;;;;;;;Taquaritinga;;
+600;;;;;;;;;;;Piraúba;;;;;;;;;;;;;;Taquarituba;;
+601;;;;;;;;;;;Pitangui;;;;;;;;;;;;;;Taquarivaí;;
+602;;;;;;;;;;;Piumhi;;;;;;;;;;;;;;Tarabai;;
+603;;;;;;;;;;;Planura;;;;;;;;;;;;;;Tarumã;;
+604;;;;;;;;;;;Poço Fundo;;;;;;;;;;;;;;Tatuí;;
+605;;;;;;;;;;;Poços de Caldas;;;;;;;;;;;;;;Taubaté;;
+606;;;;;;;;;;;Pocrane;;;;;;;;;;;;;;Tejupá;;
+607;;;;;;;;;;;Pompéu;;;;;;;;;;;;;;Teodoro Sampaio;;
+608;;;;;;;;;;;Ponte Nova;;;;;;;;;;;;;;Terra Roxa;;
+609;;;;;;;;;;;Ponto Chique;;;;;;;;;;;;;;Tietê;;
+610;;;;;;;;;;;Ponto Dos Volantes;;;;;;;;;;;;;;Timburi;;
+611;;;;;;;;;;;Porteirinha;;;;;;;;;;;;;;Torre de Pedra;;
+612;;;;;;;;;;;Porto Firme;;;;;;;;;;;;;;Torrinha;;
+613;;;;;;;;;;;Poté;;;;;;;;;;;;;;Trabiju;;
+614;;;;;;;;;;;Pouso Alegre;;;;;;;;;;;;;;Tremembé;;
+615;;;;;;;;;;;Pouso Alto;;;;;;;;;;;;;;Três Fronteiras;;
+616;;;;;;;;;;;Prados;;;;;;;;;;;;;;Tuiuti;;
+617;;;;;;;;;;;Prata;;;;;;;;;;;;;;Tupã;;
+618;;;;;;;;;;;Pratápolis;;;;;;;;;;;;;;Tupi Paulista;;
+619;;;;;;;;;;;Pratinha;;;;;;;;;;;;;;Turiúba;;
+620;;;;;;;;;;;Presidente Bernardes;;;;;;;;;;;;;;Turmalina;;
+621;;;;;;;;;;;Presidente Juscelino;;;;;;;;;;;;;;Ubarana;;
+622;;;;;;;;;;;Presidente Kubitschek;;;;;;;;;;;;;;Ubatuba;;
+623;;;;;;;;;;;Presidente Olegário;;;;;;;;;;;;;;Ubirajara;;
+624;;;;;;;;;;;Alto Jequitibá;;;;;;;;;;;;;;Uchoa;;
+625;;;;;;;;;;;Prudente de Morais;;;;;;;;;;;;;;União Paulista;;
+626;;;;;;;;;;;Quartel Geral;;;;;;;;;;;;;;Urânia;;
+627;;;;;;;;;;;Queluzito;;;;;;;;;;;;;;Uru;;
+628;;;;;;;;;;;Raposos;;;;;;;;;;;;;;Urupês;;
+629;;;;;;;;;;;Raul Soares;;;;;;;;;;;;;;Valentim Gentil;;
+630;;;;;;;;;;;Recreio;;;;;;;;;;;;;;Valinhos;;
+631;;;;;;;;;;;Reduto;;;;;;;;;;;;;;Valparaíso;;
+632;;;;;;;;;;;Resende Costa;;;;;;;;;;;;;;Vargem;;
+633;;;;;;;;;;;Resplendor;;;;;;;;;;;;;;Vargem Grande do Sul;;
+634;;;;;;;;;;;Ressaquinha;;;;;;;;;;;;;;Vargem Grande Paulista;;
+635;;;;;;;;;;;Riachinho;;;;;;;;;;;;;;Várzea Paulista;;
+636;;;;;;;;;;;Riacho Dos Machados;;;;;;;;;;;;;;Vera Cruz;;
+637;;;;;;;;;;;Ribeirão Das Neves;;;;;;;;;;;;;;Vinhedo;;
+638;;;;;;;;;;;Ribeirão Vermelho;;;;;;;;;;;;;;Viradouro;;
+639;;;;;;;;;;;Rio Acima;;;;;;;;;;;;;;Vista Alegre do Alto;;
+640;;;;;;;;;;;Rio Casca;;;;;;;;;;;;;;Vitória Brasil;;
+641;;;;;;;;;;;Rio Doce;;;;;;;;;;;;;;Votorantim;;
+642;;;;;;;;;;;Rio do Prado;;;;;;;;;;;;;;Votuporanga;;
+643;;;;;;;;;;;Rio Espera;;;;;;;;;;;;;;Zacarias;;
+644;;;;;;;;;;;Rio Manso;;;;;;;;;;;;;;Chavantes;;
+645;;;;;;;;;;;Rio Novo;;;;;;;;;;;;;;Estiva Gerbi;;
+646;;;;;;;;;;;Rio Paranaíba;;;;;;;;;;;;;;;;
+647;;;;;;;;;;;Rio Pardo de Minas;;;;;;;;;;;;;;;;
+648;;;;;;;;;;;Rio Piracicaba;;;;;;;;;;;;;;;;
+649;;;;;;;;;;;Rio Pomba;;;;;;;;;;;;;;;;
+650;;;;;;;;;;;Rio Preto;;;;;;;;;;;;;;;;
+651;;;;;;;;;;;Rio Vermelho;;;;;;;;;;;;;;;;
+652;;;;;;;;;;;Ritápolis;;;;;;;;;;;;;;;;
+653;;;;;;;;;;;Rochedo de Minas;;;;;;;;;;;;;;;;
+654;;;;;;;;;;;Rodeiro;;;;;;;;;;;;;;;;
+655;;;;;;;;;;;Romaria;;;;;;;;;;;;;;;;
+656;;;;;;;;;;;Rosário da Limeira;;;;;;;;;;;;;;;;
+657;;;;;;;;;;;Rubelita;;;;;;;;;;;;;;;;
+658;;;;;;;;;;;Rubim;;;;;;;;;;;;;;;;
+659;;;;;;;;;;;Sabará;;;;;;;;;;;;;;;;
+660;;;;;;;;;;;Sabinópolis;;;;;;;;;;;;;;;;
+661;;;;;;;;;;;Sacramento;;;;;;;;;;;;;;;;
+662;;;;;;;;;;;Salinas;;;;;;;;;;;;;;;;
+663;;;;;;;;;;;Salto da Divisa;;;;;;;;;;;;;;;;
+664;;;;;;;;;;;Santa Bárbara;;;;;;;;;;;;;;;;
+665;;;;;;;;;;;Santa Bárbara do Leste;;;;;;;;;;;;;;;;
+666;;;;;;;;;;;Santa Bárbara do Monte Verde;;;;;;;;;;;;;;;;
+667;;;;;;;;;;;Santa Bárbara do Tugúrio;;;;;;;;;;;;;;;;
+668;;;;;;;;;;;Santa Cruz de Minas;;;;;;;;;;;;;;;;
+669;;;;;;;;;;;Santa Cruz de Salinas;;;;;;;;;;;;;;;;
+670;;;;;;;;;;;Santa Cruz do Escalvado;;;;;;;;;;;;;;;;
+671;;;;;;;;;;;Santa Efigênia de Minas;;;;;;;;;;;;;;;;
+672;;;;;;;;;;;Santa fé de Minas;;;;;;;;;;;;;;;;
+673;;;;;;;;;;;Santa Helena de Minas;;;;;;;;;;;;;;;;
+674;;;;;;;;;;;Santa Juliana;;;;;;;;;;;;;;;;
+675;;;;;;;;;;;Santa Luzia;;;;;;;;;;;;;;;;
+676;;;;;;;;;;;Santa Margarida;;;;;;;;;;;;;;;;
+677;;;;;;;;;;;Santa Maria de Itabira;;;;;;;;;;;;;;;;
+678;;;;;;;;;;;Santa Maria do Salto;;;;;;;;;;;;;;;;
+679;;;;;;;;;;;Santa Maria do Suaçuí;;;;;;;;;;;;;;;;
+680;;;;;;;;;;;Santana da Vargem;;;;;;;;;;;;;;;;
+681;;;;;;;;;;;Santana de Cataguases;;;;;;;;;;;;;;;;
+682;;;;;;;;;;;Santana de Pirapama;;;;;;;;;;;;;;;;
+683;;;;;;;;;;;Santana do Deserto;;;;;;;;;;;;;;;;
+684;;;;;;;;;;;Santana do Garambéu;;;;;;;;;;;;;;;;
+685;;;;;;;;;;;Santana do Jacaré;;;;;;;;;;;;;;;;
+686;;;;;;;;;;;Santana do Manhuaçu;;;;;;;;;;;;;;;;
+687;;;;;;;;;;;Santana do Paraíso;;;;;;;;;;;;;;;;
+688;;;;;;;;;;;Santana do Riacho;;;;;;;;;;;;;;;;
+689;;;;;;;;;;;Santana Dos Montes;;;;;;;;;;;;;;;;
+690;;;;;;;;;;;Santa Rita de Caldas;;;;;;;;;;;;;;;;
+691;;;;;;;;;;;Santa Rita de Jacutinga;;;;;;;;;;;;;;;;
+692;;;;;;;;;;;Santa Rita de Minas;;;;;;;;;;;;;;;;
+693;;;;;;;;;;;Santa Rita de Ibitipoca;;;;;;;;;;;;;;;;
+694;;;;;;;;;;;Santa Rita do Itueto;;;;;;;;;;;;;;;;
+695;;;;;;;;;;;Santa Rita do Sapucaí;;;;;;;;;;;;;;;;
+696;;;;;;;;;;;Santa Rosa da Serra;;;;;;;;;;;;;;;;
+697;;;;;;;;;;;Santa Vitória;;;;;;;;;;;;;;;;
+698;;;;;;;;;;;Santo Antônio do Amparo;;;;;;;;;;;;;;;;
+699;;;;;;;;;;;Santo Antônio do Aventureiro;;;;;;;;;;;;;;;;
+700;;;;;;;;;;;Santo Antônio do Grama;;;;;;;;;;;;;;;;
+701;;;;;;;;;;;Santo Antônio do Itambé;;;;;;;;;;;;;;;;
+702;;;;;;;;;;;Santo Antônio do Jacinto;;;;;;;;;;;;;;;;
+703;;;;;;;;;;;Santo Antônio do Monte;;;;;;;;;;;;;;;;
+704;;;;;;;;;;;Santo Antônio do Retiro;;;;;;;;;;;;;;;;
+705;;;;;;;;;;;Santo Antônio do Rio Abaixo;;;;;;;;;;;;;;;;
+706;;;;;;;;;;;Santo Hipólito;;;;;;;;;;;;;;;;
+707;;;;;;;;;;;Santos Dumont;;;;;;;;;;;;;;;;
+708;;;;;;;;;;;São Bento Abade;;;;;;;;;;;;;;;;
+709;;;;;;;;;;;São Brás do Suaçuí;;;;;;;;;;;;;;;;
+710;;;;;;;;;;;São Domingos Das Dores;;;;;;;;;;;;;;;;
+711;;;;;;;;;;;São Domingos do Prata;;;;;;;;;;;;;;;;
+712;;;;;;;;;;;São Félix de Minas;;;;;;;;;;;;;;;;
+713;;;;;;;;;;;São Francisco;;;;;;;;;;;;;;;;
+714;;;;;;;;;;;São Francisco de Paula;;;;;;;;;;;;;;;;
+715;;;;;;;;;;;São Francisco de Sales;;;;;;;;;;;;;;;;
+716;;;;;;;;;;;São Francisco do Glória;;;;;;;;;;;;;;;;
+717;;;;;;;;;;;São Geraldo;;;;;;;;;;;;;;;;
+718;;;;;;;;;;;São Geraldo da Piedade;;;;;;;;;;;;;;;;
+719;;;;;;;;;;;São Geraldo do Baixio;;;;;;;;;;;;;;;;
+720;;;;;;;;;;;São Gonçalo do Abaeté;;;;;;;;;;;;;;;;
+721;;;;;;;;;;;São Gonçalo do Pará;;;;;;;;;;;;;;;;
+722;;;;;;;;;;;São Gonçalo do Rio Abaixo;;;;;;;;;;;;;;;;
+723;;;;;;;;;;;São Gonçalo do Sapucaí;;;;;;;;;;;;;;;;
+724;;;;;;;;;;;São Gotardo;;;;;;;;;;;;;;;;
+725;;;;;;;;;;;São João Batista do Glória;;;;;;;;;;;;;;;;
+726;;;;;;;;;;;São João da Lagoa;;;;;;;;;;;;;;;;
+727;;;;;;;;;;;São João da Mata;;;;;;;;;;;;;;;;
+728;;;;;;;;;;;São João da Ponte;;;;;;;;;;;;;;;;
+729;;;;;;;;;;;São João Das Missões;;;;;;;;;;;;;;;;
+730;;;;;;;;;;;São João Del Rei;;;;;;;;;;;;;;;;
+731;;;;;;;;;;;São João do Manhuaçu;;;;;;;;;;;;;;;;
+732;;;;;;;;;;;São João do Manteninha;;;;;;;;;;;;;;;;
+733;;;;;;;;;;;São João do Oriente;;;;;;;;;;;;;;;;
+734;;;;;;;;;;;São João do Pacuí;;;;;;;;;;;;;;;;
+735;;;;;;;;;;;São João do Paraíso;;;;;;;;;;;;;;;;
+736;;;;;;;;;;;São João Evangelista;;;;;;;;;;;;;;;;
+737;;;;;;;;;;;São João Nepomuceno;;;;;;;;;;;;;;;;
+738;;;;;;;;;;;São Joaquim de Bicas;;;;;;;;;;;;;;;;
+739;;;;;;;;;;;São José da Barra;;;;;;;;;;;;;;;;
+740;;;;;;;;;;;São José da Lapa;;;;;;;;;;;;;;;;
+741;;;;;;;;;;;São José da Safira;;;;;;;;;;;;;;;;
+742;;;;;;;;;;;São José da Varginha;;;;;;;;;;;;;;;;
+743;;;;;;;;;;;São José do Alegre;;;;;;;;;;;;;;;;
+744;;;;;;;;;;;São José do Divino;;;;;;;;;;;;;;;;
+745;;;;;;;;;;;São José do Goiabal;;;;;;;;;;;;;;;;
+746;;;;;;;;;;;São José do Jacuri;;;;;;;;;;;;;;;;
+747;;;;;;;;;;;São José do Mantimento;;;;;;;;;;;;;;;;
+748;;;;;;;;;;;São Lourenço;;;;;;;;;;;;;;;;
+749;;;;;;;;;;;São Miguel do Anta;;;;;;;;;;;;;;;;
+750;;;;;;;;;;;São Pedro da União;;;;;;;;;;;;;;;;
+751;;;;;;;;;;;São Pedro Dos Ferros;;;;;;;;;;;;;;;;
+752;;;;;;;;;;;São Pedro do Suaçuí;;;;;;;;;;;;;;;;
+753;;;;;;;;;;;São Romão;;;;;;;;;;;;;;;;
+754;;;;;;;;;;;São Roque de Minas;;;;;;;;;;;;;;;;
+755;;;;;;;;;;;São Sebastião da Bela Vista;;;;;;;;;;;;;;;;
+756;;;;;;;;;;;São Sebastião da Vargem Alegre;;;;;;;;;;;;;;;;
+757;;;;;;;;;;;São Sebastião do Anta;;;;;;;;;;;;;;;;
+758;;;;;;;;;;;São Sebastião do Maranhão;;;;;;;;;;;;;;;;
+759;;;;;;;;;;;São Sebastião do Oeste;;;;;;;;;;;;;;;;
+760;;;;;;;;;;;São Sebastião do Paraíso;;;;;;;;;;;;;;;;
+761;;;;;;;;;;;São Sebastião do Rio Preto;;;;;;;;;;;;;;;;
+762;;;;;;;;;;;São Sebastião do Rio Verde;;;;;;;;;;;;;;;;
+763;;;;;;;;;;;São Tiago;;;;;;;;;;;;;;;;
+764;;;;;;;;;;;São Tomás de Aquino;;;;;;;;;;;;;;;;
+765;;;;;;;;;;;São Thomé Das Letras;;;;;;;;;;;;;;;;
+766;;;;;;;;;;;São Vicente de Minas;;;;;;;;;;;;;;;;
+767;;;;;;;;;;;Sapucaí-mirim;;;;;;;;;;;;;;;;
+768;;;;;;;;;;;Sardoá;;;;;;;;;;;;;;;;
+769;;;;;;;;;;;Sarzedo;;;;;;;;;;;;;;;;
+770;;;;;;;;;;;Setubinha;;;;;;;;;;;;;;;;
+771;;;;;;;;;;;Sem-peixe;;;;;;;;;;;;;;;;
+772;;;;;;;;;;;Senador Amaral;;;;;;;;;;;;;;;;
+773;;;;;;;;;;;Senador Cortes;;;;;;;;;;;;;;;;
+774;;;;;;;;;;;Senador Firmino;;;;;;;;;;;;;;;;
+775;;;;;;;;;;;Senador José Bento;;;;;;;;;;;;;;;;
+776;;;;;;;;;;;Senador Modestino Gonçalves;;;;;;;;;;;;;;;;
+777;;;;;;;;;;;Senhora de Oliveira;;;;;;;;;;;;;;;;
+778;;;;;;;;;;;Senhora do Porto;;;;;;;;;;;;;;;;
+779;;;;;;;;;;;Senhora Dos Remédios;;;;;;;;;;;;;;;;
+780;;;;;;;;;;;Sericita;;;;;;;;;;;;;;;;
+781;;;;;;;;;;;Seritinga;;;;;;;;;;;;;;;;
+782;;;;;;;;;;;Serra Azul de Minas;;;;;;;;;;;;;;;;
+783;;;;;;;;;;;Serra da Saudade;;;;;;;;;;;;;;;;
+784;;;;;;;;;;;Serra Dos Aimorés;;;;;;;;;;;;;;;;
+785;;;;;;;;;;;Serra do Salitre;;;;;;;;;;;;;;;;
+786;;;;;;;;;;;Serrania;;;;;;;;;;;;;;;;
+787;;;;;;;;;;;Serranópolis de Minas;;;;;;;;;;;;;;;;
+788;;;;;;;;;;;Serranos;;;;;;;;;;;;;;;;
+789;;;;;;;;;;;Serro;;;;;;;;;;;;;;;;
+790;;;;;;;;;;;Sete Lagoas;;;;;;;;;;;;;;;;
+791;;;;;;;;;;;Silveirânia;;;;;;;;;;;;;;;;
+792;;;;;;;;;;;Silvianópolis;;;;;;;;;;;;;;;;
+793;;;;;;;;;;;Simão Pereira;;;;;;;;;;;;;;;;
+794;;;;;;;;;;;Simonésia;;;;;;;;;;;;;;;;
+795;;;;;;;;;;;Sobrália;;;;;;;;;;;;;;;;
+796;;;;;;;;;;;Soledade de Minas;;;;;;;;;;;;;;;;
+797;;;;;;;;;;;Tabuleiro;;;;;;;;;;;;;;;;
+798;;;;;;;;;;;Taiobeiras;;;;;;;;;;;;;;;;
+799;;;;;;;;;;;Taparuba;;;;;;;;;;;;;;;;
+800;;;;;;;;;;;Tapira;;;;;;;;;;;;;;;;
+801;;;;;;;;;;;Tapiraí;;;;;;;;;;;;;;;;
+802;;;;;;;;;;;Taquaraçu de Minas;;;;;;;;;;;;;;;;
+803;;;;;;;;;;;Tarumirim;;;;;;;;;;;;;;;;
+804;;;;;;;;;;;Teixeiras;;;;;;;;;;;;;;;;
+805;;;;;;;;;;;Teófilo Otoni;;;;;;;;;;;;;;;;
+806;;;;;;;;;;;Timóteo;;;;;;;;;;;;;;;;
+807;;;;;;;;;;;Tiradentes;;;;;;;;;;;;;;;;
+808;;;;;;;;;;;Tiros;;;;;;;;;;;;;;;;
+809;;;;;;;;;;;Tocantins;;;;;;;;;;;;;;;;
+810;;;;;;;;;;;Tocos do Moji;;;;;;;;;;;;;;;;
+811;;;;;;;;;;;Toledo;;;;;;;;;;;;;;;;
+812;;;;;;;;;;;Tombos;;;;;;;;;;;;;;;;
+813;;;;;;;;;;;Três Corações;;;;;;;;;;;;;;;;
+814;;;;;;;;;;;Três Marias;;;;;;;;;;;;;;;;
+815;;;;;;;;;;;Três Pontas;;;;;;;;;;;;;;;;
+816;;;;;;;;;;;Tumiritinga;;;;;;;;;;;;;;;;
+817;;;;;;;;;;;Tupaciguara;;;;;;;;;;;;;;;;
+818;;;;;;;;;;;Turmalina;;;;;;;;;;;;;;;;
+819;;;;;;;;;;;Turvolândia;;;;;;;;;;;;;;;;
+820;;;;;;;;;;;Ubá;;;;;;;;;;;;;;;;
+821;;;;;;;;;;;Ubaí;;;;;;;;;;;;;;;;
+822;;;;;;;;;;;Ubaporanga;;;;;;;;;;;;;;;;
+823;;;;;;;;;;;Uberaba;;;;;;;;;;;;;;;;
+824;;;;;;;;;;;Uberlândia;;;;;;;;;;;;;;;;
+825;;;;;;;;;;;Umburatiba;;;;;;;;;;;;;;;;
+826;;;;;;;;;;;Unaí;;;;;;;;;;;;;;;;
+827;;;;;;;;;;;União de Minas;;;;;;;;;;;;;;;;
+828;;;;;;;;;;;Uruana de Minas;;;;;;;;;;;;;;;;
+829;;;;;;;;;;;Urucânia;;;;;;;;;;;;;;;;
+830;;;;;;;;;;;Urucuia;;;;;;;;;;;;;;;;
+831;;;;;;;;;;;Vargem Alegre;;;;;;;;;;;;;;;;
+832;;;;;;;;;;;Vargem Bonita;;;;;;;;;;;;;;;;
+833;;;;;;;;;;;Vargem Grande do Rio Pardo;;;;;;;;;;;;;;;;
+834;;;;;;;;;;;Varginha;;;;;;;;;;;;;;;;
+835;;;;;;;;;;;Varjão de Minas;;;;;;;;;;;;;;;;
+836;;;;;;;;;;;Várzea da Palma;;;;;;;;;;;;;;;;
+837;;;;;;;;;;;Varzelândia;;;;;;;;;;;;;;;;
+838;;;;;;;;;;;Vazante;;;;;;;;;;;;;;;;
+839;;;;;;;;;;;Verdelândia;;;;;;;;;;;;;;;;
+840;;;;;;;;;;;Veredinha;;;;;;;;;;;;;;;;
+841;;;;;;;;;;;Veríssimo;;;;;;;;;;;;;;;;
+842;;;;;;;;;;;Vermelho Novo;;;;;;;;;;;;;;;;
+843;;;;;;;;;;;Vespasiano;;;;;;;;;;;;;;;;
+844;;;;;;;;;;;Viçosa;;;;;;;;;;;;;;;;
+845;;;;;;;;;;;Vieiras;;;;;;;;;;;;;;;;
+846;;;;;;;;;;;Mathias Lobato;;;;;;;;;;;;;;;;
+847;;;;;;;;;;;Virgem da Lapa;;;;;;;;;;;;;;;;
+848;;;;;;;;;;;Virgínia;;;;;;;;;;;;;;;;
+849;;;;;;;;;;;Virginópolis;;;;;;;;;;;;;;;;
+850;;;;;;;;;;;Virgolândia;;;;;;;;;;;;;;;;
+851;;;;;;;;;;;Visconde do Rio Branco;;;;;;;;;;;;;;;;
+852;;;;;;;;;;;Volta Grande;;;;;;;;;;;;;;;;
+853;;;;;;;;;;;Wenceslau Braz;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
