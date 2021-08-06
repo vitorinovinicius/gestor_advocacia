@@ -37,9 +37,9 @@
 <form action="{{route('cadastro.store')}}" method="post" class="form-horizontal">
         @csrf
     <div class="row">
-        <div class="col-6">
+        <div class="col-10">
         <label class="col-sm-4 control-label">DADOS PESSOA NATURAL</label>
-            <div class="card scroll-me" style="height: 600px;">
+            <div class="card scroll-me" style="height: 550px;">
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Nome completo</label>
                     <div class="col-sm-10">
@@ -161,88 +161,80 @@
                     <div class="col-sm-10">
                         <input type="text" name="nomeMae" class="form-control">
                     </div>
+                </div><!-- FIM DOS DADOS PESSOA NATURAL -->
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">CEP</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="cep" class="form-control">
+                    </div>
                 </div>
-            </div>
-        </div> <!-- FIM DOS DADOS PESSOA NATURAL -->
 
-        <div class="col-6">
-        <label class="col-sm-4 control-label">ENDEREÇO E CONTATOS</label>
-            <div class="card scroll-me" style="height: 600px;">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">CEP</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cep" class="form-control">
-                        </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Logradouro</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="logradouro" class="form-control">
                     </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Logradouro</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="logradouro" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <label class="col-sm-4 control-label">Complemento</label>
-                            <div class="col-12">
-                                <input class="form-control form-control" type="text" name="complemento">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="col-sm-6 control-label">Número</label>
-                            <div class="col-5">
-                                <input class="form-control form-control" type="text" name="numEndereco">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Bairro</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="bairro" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Cidade</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cidade" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Estado</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="uf" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">E-mail</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="email" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Telefone</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="telefone" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Celular</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="celular" class="form-control">
-                        </div>
-                    </div> <!-- FIM DOS DADOS ENDEREÇO E CONTATOS-->
                 </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label class="col-sm-4 control-label">Complemento</label>
+                        <div class="col-12">
+                            <input class="form-control form-control" type="text" name="complemento">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="col-sm-6 control-label">Número</label>
+                        <div class="col-6">
+                            <input class="form-control form-control" type="text" name="numEndereco">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Bairro</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="bairro" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Cidade</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="cidade" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Estado</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="uf" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">E-mail</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Telefone</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="telefone" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Celular</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="celular" class="form-control">
+                    </div>
+                </div> <!-- FIM DOS DADOS ENDEREÇO E CONTATOS-->
             </div>
         </div>
     </div>
-</div>
 <div class="form-group">
     <label class="col-sm-4 control-label"></label>
     <div class="col-sm-10">

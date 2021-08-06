@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Painel de Controle')
+@section('title', 'Dashboard')
 
 @section('content_header')
     <h1>
-        Painel de Controle
+        Dashboard
         <a href="#" class="btn btn-sm btn-success">
             Site
         </a>
