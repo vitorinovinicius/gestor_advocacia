@@ -13,7 +13,7 @@ class UsuariosController extends Controller
 {public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('can:edita_usuarios');
+        $this->middleware('can:permissao_usuarios');
     }
 
     public function index()
