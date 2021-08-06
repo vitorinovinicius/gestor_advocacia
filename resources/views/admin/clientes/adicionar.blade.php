@@ -12,36 +12,37 @@
 @endsection
 
 
-<style>
-    .scroll-me{
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-::-webkit-scrollbar{
-    background-color: white;
-    width: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: gray;
-    border-radius: 10px;
-}
-
-.card{
-    border-radius: 10px;
-}
-
-</style>
 @section('content')
+
+<style>
+        .scroll-me{
+        overflow-y: auto;
+        overflow-x: hidden;
+        }
+        .scroll-me::-webkit-scrollbar{
+            background-color: white;
+            width: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .scroll-me::-webkit-scrollbar-thumb{
+            background-color: gray;
+            border-radius: 10px;
+        }
+
+        .card{
+            border-radius: 10px;
+            height: 550px;
+        }
+    </style>
+
 <form action="{{route('cadastro.store')}}" method="post" class="form-horizontal">
         @csrf
     <div class="row">
         <div class="col-10">
-        <label class="col-sm-4 control-label">DADOS PESSOA NATURAL</label>
-            <div class="card scroll-me" style="height: 550px;">
+            <div class="card scroll-me">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Nome completo</label>
+                    <label class="col-sm-4 control-label top-control">Nome completo</label>
                     <div class="col-sm-10">
                         <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror">
                         @error('nome')
