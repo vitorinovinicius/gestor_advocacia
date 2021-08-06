@@ -15,12 +15,7 @@ class CreateEstadosCivisTable extends Migration
     {
         Schema::create('estados_civis', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pessoaFisica_id')->unsigned();
-            $table->foreign('pessoaFisica_id')
-            ->references('id')
-            ->on('pessoas_fisicas')
-            ->onDelete('cascade');
-            $table->string('tipo_Est_Civ');
+            $table->string('tipo_estado_civil');
             $table->timestamps();
         });
     }

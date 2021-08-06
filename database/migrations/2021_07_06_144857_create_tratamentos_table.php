@@ -15,12 +15,7 @@ class CreateTratamentosTable extends Migration
     {
         Schema::create('tratamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pessoaFisica_id')->unsigned();
-            $table->foreign('pessoaFisica_id')
-            ->references('id')
-            ->on('pessoas_fisicas')
-            ->onDelete('cascade');
-            $table->string('tipo_Trat');
+            $table->string('tipo_tratamento');
             $table->timestamps();
         });
     }

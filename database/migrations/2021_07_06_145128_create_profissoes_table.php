@@ -15,12 +15,7 @@ class CreateProfissoesTable extends Migration
     {
         Schema::create('profissoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pessoaFisica_id')->unsigned();
-            $table->foreign('pessoaFisica_id')
-            ->references('id')
-            ->on('pessoas_fisicas')
-            ->onDelete('cascade');
-            $table->string('tipo_Prof');
+            $table->string('tipo_profissao');
             $table->timestamps();
         });
     }
