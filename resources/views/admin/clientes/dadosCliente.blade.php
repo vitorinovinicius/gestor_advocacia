@@ -13,13 +13,13 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-::-webkit-scrollbar{
+.scroll-me::-webkit-scrollbar{
     background-color: white;
     width: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-::-webkit-scrollbar-thumb{
+.scroll-me::-webkit-scrollbar-thumb{
     background-color: gray;
     border-radius: 10px;
 }
@@ -34,7 +34,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label"> Nome completo </label>
             <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->tratamento)}} {{$cliente->nome}}</ol>
+                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->tratamento)}} {{ucwords($cliente->nome)}}</ol>
             </div>
 
             <label class="col-sm-2 col-form-label"> CPF / CNPJ </label>
