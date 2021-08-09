@@ -16,10 +16,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th width="50px">Ordem</th>
-                    <th width="500px">Nome</th>
-                    <th width="500px">CPF / CNPJ</th>
-                    <th width="150px">Ações</th>
+                    <th class="col-1">Ordem</th>
+                    <th class="col-4">Nome</th>
+                    <th class="col-3">CPF / CNPJ</th>
+                    <th class="col-2">Processo</th>                    
+                    <th class="col-2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                         @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
                         @endif
                     </td>
+                    <td><a data-toggle="modal" data-target="#listaProcesso" href="">@if(!empty($cliente->processo->pasta) > 0){{$cliente->processo->pasta}}@else @endif</a></td>                  
                     <td>
                         <a href="{{route('cadastro.edit', [$cliente->id])}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', [$cliente->id])}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
@@ -153,41 +155,16 @@
                                 <div class="col-sm-8">
                                     <ol type="text" readonly class="form-control-plaintext">{{substr_replace($cliente->endereco->cep, '-', 5, 0)}}</ol>
                                 </div>
-
-                                @if(!empty($cliente->processo->id))
-                                <div class="container">Nenhum processo encontrado!</div>
-                                    @else                                                      
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th width="50px">#</th>
-                                                <th width="500px">Processos</th>
-                                                <th width="500px">Andamentos</th>
-                                                <th width="150px">Pastas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($cliente->processo as $dados)
-                                            <tr>
-                                                <td>{{$dados->id}}</td>
-                                                <td>{{$dados->parteContraria}}</td>
-                                                <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($dados->ultAndamento))}}  @else Não há andamento. @endif</td>
-                                                <td>
-                                                    <a href="{{route('processo.show', [$dados->id])}}">{{$dados->pasta}}</a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                @endif
-                                </div>                    
                             </div>                
-                        <div class="modal-footer">                
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="modal-footer">                
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </table>
+    </div>
+</div>
     {{$clientes->links()}}
 @endsection
