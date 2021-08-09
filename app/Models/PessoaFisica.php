@@ -15,15 +15,11 @@ class PessoaFisica extends Model
         'sexo',
         'numCtps',
         'serieCtps',
-        'tratamento',
-        'estadoCivil',
         'nacionalidade',
-        'profissao',
         'codMatricula',
         'dtNascimento',
         'tituloEleitor',
         'idtCivil',
-        'orgExpeditor',
         'dtExpedicao',
         'nomeMae'
     ];
