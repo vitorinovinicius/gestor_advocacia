@@ -1,34 +1,15 @@
 @extends('adminlte::page')
 
+
 @section('title', 'Clientes')
 
 @section('content_header')
+<link rel="stylesheet" type="text/css" href={{ url('css/dados_cliente.css') }}>
     <h1>
         Meus clientes
     </h1>
 @endsection
 @section('content')
-<style>
-    .scroll-me{
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-.scroll-me::-webkit-scrollbar{
-    background-color: white;
-    width: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.scroll-me::-webkit-scrollbar-thumb{
-    background-color: gray;
-    border-radius: 10px;
-}
-
-.card{
-    border-radius: 10px;
-}
-
-</style>
 <div class="card col-12 scroll-me" style="height: 400px;">
     <div class="card-body">
         <div class="mb-3 row">
