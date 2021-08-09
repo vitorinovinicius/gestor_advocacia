@@ -10,11 +10,11 @@ class Profissao extends Model
     use HasFactory;
 
     protected $table = 'profissoes';
-    protected $fillable = ['tipo_Prof'];
+    protected $fillable = ['tipo'];
 
     public function pessoaFisica()
     {
-        return $this->hasOne(PessoaFisica::class);
+        return $this->belongsTo(PessoaFisica::class);
     }
 
 }
