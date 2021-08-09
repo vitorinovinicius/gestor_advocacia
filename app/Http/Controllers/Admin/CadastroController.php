@@ -8,9 +8,10 @@ use App\Http\Requests\StoreCadastroRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cliente;
 use App\Models\PessoaFisica;
+use App\Models\PessoaJuridica;
 use App\Models\Contato;
 use App\Models\Endereco;
-use App\Models\PessoaJuridica;
+use App\Models\Profissao;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -93,6 +94,7 @@ class CadastroController extends Controller
         }
 
         return redirect()->route('cadastro.index');
+        
     }
 
     public function edit($id)
