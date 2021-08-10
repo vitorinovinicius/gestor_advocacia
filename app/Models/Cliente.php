@@ -12,7 +12,7 @@ class Cliente extends Model
     protected $fillable = [
         'nome'
     ];
-    use HasFactory;
+
     public function contato()
     {
         return $this->hasMany(Contato::class);
@@ -37,50 +37,6 @@ class Cliente extends Model
     {
         return $this->hasOne(Endereco::class);
     }
-
-    /*public function estadoCivil()
-    {
-        return $this->hasOneThrough(
-            EstadoCivil::class,
-            PessoaFisica::class,
-            'cliente_id',
-            'id'
-
-        );
-    }
-
-    public function tratamento()
-    {
-        return $this->hasOneThrough(
-            Tratamento::class,
-            PessoaFisica::class,
-            'cliente_id',
-            'id'
-
-        );
-    }
-
-    public function profissao()
-    {
-        return $this->hasOneThrough(
-            Profissao::class,
-            PessoaFisica::class,
-            'cliente_id',
-            'id'
-
-        );
-    }
-
-    public function orgExpeditor()
-    {
-        return $this->hasOneThrough(
-            OrgaoExpeditor::class,
-            PessoaFisica::class,
-            'cliente_id',
-            'id'
-
-        );
-    }*/
 
 
 
