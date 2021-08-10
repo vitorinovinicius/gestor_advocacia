@@ -14,7 +14,7 @@ class Profissao extends Model
 
     public function pessoaFisica()
     {
-        return $this->belongsTo(PessoaFisica::class);
+        return $this->belongsToMany(PessoaFisica::class);
     }
 
 }
