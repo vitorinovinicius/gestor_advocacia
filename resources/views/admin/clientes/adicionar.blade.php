@@ -3,6 +3,7 @@
 @section('title', 'Novo cliente ')
 
 @section('content_header')
+<link rel="stylesheet" href="{{url('/css/app.css')}}">
     <h1>
         Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -12,6 +13,7 @@
 @endsection
 
 @section('content')
+
 <form action="{{route('cadastro.store')}}" method="post" >
     @csrf
     <p>
@@ -50,8 +52,8 @@
                         {{$message}}
                     </div>
                         @enderror
-                </div> 
-                                    
+                </div>
+
                 <div class="col-sm-3">
                     <input class="form-control @error('numCtps') is-invalid @enderror" placeholder="Número da CTPS" type="text" name="numCtps" >
                     @error('numCtps')
@@ -77,8 +79,8 @@
                     <select name="profissao" class="custom-select" id="profissao">
                         <option selected></option>
                     </select>
-                </div>                
-                
+                </div>
+
                 <div class="col-sm-4">
                     <input type="text" placeholder="Título de eleitor" name="tituloEleitor" class="form-control">
                 </div>
@@ -94,7 +96,7 @@
                 <div class="col-sm-4">
                     <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
                 </div>
-                
+
                 <div class="input-group col-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="sexo">Sexo</label>
@@ -102,7 +104,7 @@
                     <select name="sexo" class="custom-select" id="sexo">
                         <option selected></option>
                     </select>
-                </div>                
+                </div>
 
                 <div class="input-group col-3">
                     <div class="input-group-prepend">
@@ -121,7 +123,7 @@
                         <option selected></option>
                     </select>
                 </div>
-                
+
                 <div class="input-group col-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
@@ -133,13 +135,13 @@
 
                 <div class="col-sm-5">
                     <input type="date" name="dtNascimento" class="form-control">
-                </div>         
+                </div>
 
                 <div class="col-sm-6">
                     <input type="text" placeholder="Nome da mãe" name="nomeMae" class="form-control">
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
 
     <div class="collapse col-12" id="pessoaJuridica">
@@ -170,8 +172,8 @@
                         {{$message}}
                     </div>
                         @enderror
-                </div> 
-                                    
+                </div>
+
                 <div class="col-sm-5">
                     <input type="text" name="inscEstadual" placeholder="Inscrição Estadual" class="form-control" >
                     @error('numCtps')
@@ -202,14 +204,14 @@
                     <div class="col-sm-4">
                         <input type="text" placeholder="Logradouro" name="logradouro" class="form-control">
                     </div>
-            
+
                     <div class="col-1">
                         <input class="form-control form-control" placeholder="Número" type="text" name="numEndereco">
                     </div>
-                    
+
                     <div class="col-5">
                         <input class="form-control form-control" placeholder="Complemento" type="text" name="complemento">
-                    </div>                
+                    </div>
 
                     <div class="col-sm-3">
                         <input type="text" placeholder="Bairro" name="bairro" class="form-control">
@@ -227,8 +229,8 @@
                             <option selected></option>
                         </select>
                     </div>
-                    
-                </div>            
+
+                </div>
             </p>
         </div>
 
@@ -248,10 +250,10 @@
 
                     <div class="col-sm-4">
                         <input type="text" placeholder="Celular" name="celular" class="form-control">
-                    </div>                
-                </div>            
+                    </div>
+                </div>
             </p>
-        </div>        
+        </div>
         </div>
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#processo" aria-expanded="false" aria-controls="processo">
@@ -274,7 +276,7 @@
 
                     <div class="col-sm-2">
                         <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
-                    </div>                
+                    </div>
 
                     <div class="col-sm-2">
                         <input type="text"  placeholder="Número do Processo" name="numProcesso" class="form-control">
@@ -291,7 +293,7 @@
                     <div class="col-sm-12">
                         <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
