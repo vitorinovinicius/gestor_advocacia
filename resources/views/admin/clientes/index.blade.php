@@ -19,7 +19,7 @@
                     <th class="col-1">Ordem</th>
                     <th class="col-4">Nome</th>
                     <th class="col-3">CPF / CNPJ</th>
-                    <th class="col-2">Processo</th>                    
+                    <th class="col-2">Processo</th>
                     <th class="col-2">Ações</th>
                 </tr>
             </thead>
@@ -32,7 +32,7 @@
                         @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
                         @endif
                     </td>
-                    <td><a data-toggle="modal" data-target="#listaProcesso" href="">@if(!empty($cliente->processo->pasta) > 0){{$cliente->processo->pasta}}@else @endif</a></td>                  
+                    <td><a data-toggle="modal" data-target="#listaProcesso" href="">@if(!empty($cliente->processo->pasta) > 0){{$cliente->processo->pasta}}@else @endif</a></td>
                     <td>
                         <a href="{{route('cadastro.edit', [$cliente->id])}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', [$cliente->id])}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
@@ -43,7 +43,7 @@
                     </td>
                 </tr>
                 @endforeach
-            </tbody>            
+            </tbody>
             <!-- Modal lista cliente -->
             <div class="modal fade" id="listaCliente" tabindex="-1" aria-labelledby="listaCliente" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-md">
@@ -155,8 +155,8 @@
                                 <div class="col-sm-8">
                                     <ol type="text" readonly class="form-control-plaintext">{{substr_replace($cliente->endereco->cep, '-', 5, 0)}}</ol>
                                 </div>
-                            </div>                
-                            <div class="modal-footer">                
+                            </div>
+                            <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
