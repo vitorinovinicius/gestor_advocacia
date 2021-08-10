@@ -8,10 +8,11 @@ use App\Http\Requests\StoreCadastroRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cliente;
 use App\Models\PessoaFisica;
+use App\Models\ProfissaoPessoaFisica;
 use App\Models\PessoaJuridica;
 use App\Models\Contato;
 use App\Models\Endereco;
-use App\Models\Profissao;
+use App\Models\Processo;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -29,7 +30,7 @@ class CadastroController extends Controller
         return view('admin.clientes.adicionar');
     }
 
-    public function store(StoreCadastroRequest $request)
+    public function store(Request $request)
     {
         $cliente = new Cliente;
         $cliente->nome = $request->input('nome');
@@ -38,7 +39,6 @@ class CadastroController extends Controller
         $pf = new PessoaFisica;
         $pf->cpf = $request->input('pf');
         $pf->pis = $request->input('pis');
-        $pf->profissao = $request->input('profissao');
         $pf->sexo = $request->input('sexo');
         $pf->estadoCivil = $request->input('estadoCivil');
         $pf->tratamento = $request->input('tratamento');
@@ -53,6 +53,11 @@ class CadastroController extends Controller
         $pf->nomeMae = $request->input('nomeMae');
         $pf->cliente()->associate($cliente);
         $pf->save();
+
+        $profissao = new ProfissaoPessoaFisica;
+        $profissao->profissao_id = $request->input('profissao_id');
+        $profissao->pessoaFisica()->associate($pf);
+        $profissao->save();
 
         $pj = new PessoaJuridica;
         $pj->nome_empresa = $request->input('nome_empresa');
@@ -81,6 +86,14 @@ class CadastroController extends Controller
         $endereco->cliente()->associate($cliente);
         $endereco->save();
 
+        $processo = new Processo;
+        $processo->pasta = $request->input('pasta');
+        $processo->ultAndamento = $request->input('ultAndamento');
+        $processo->advContrario = $request->input('advContrario');
+        $processo->titulo = $request->input('titulo');
+        $processo->cliente()->associate($cliente);
+        $processo->save();
+
         return redirect()->route('cadastro.index');
     }
 
@@ -94,7 +107,7 @@ class CadastroController extends Controller
         }
 
         return redirect()->route('cadastro.index');
-        
+
     }
 
     public function edit($id)
