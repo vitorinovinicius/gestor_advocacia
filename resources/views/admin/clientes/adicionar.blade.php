@@ -17,13 +17,13 @@
 @section('content')
 <form action="{{route('cadastro.store')}}" method="post" >
     @csrf
-    <div class="form-check"><!-- BOTÕES DO COLLAPSE PF E PJ-->
+    <div class="form-check form-check-inline"><!-- BOTÕES DO COLLAPSE PF E PJ-->
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" data-toggle="collapse" data-target="#pessoaFisica" aria-expanded="false" aria-controls="pessoaFisica">
         <label class="form-check-label" for="flexRadioDefault1">
             Pessoa natural
         </label>
     </div>
-    <div class="form-check">
+    <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" data-toggle="collapse" data-target="#pessoaJuridica" aria-expanded="false" aria-controls="pessoaJuridica" >
         <label class="form-check-label" for="flexRadioDefault2">
             Pessoa jurídica
@@ -42,7 +42,6 @@
                         @enderror
                 </div>
                 <div class="form-group col-sm-3">
-                    <input type="text" name="cpf" placeholder="CPF" class="form-control">
                     <input type="text" name="cpf" placeholder="CPF" class="form-control @error('cpf') is-invalid @enderror">
                         @error('cpf')
                     <div class="invalid-feedback">
@@ -78,11 +77,7 @@
                         @enderror
                 </div>
 
-                <div class="form-group col-sm-2">
-                    <input class="form-control" placeholder="Profissão" type="text" name="profissao_id">
-                </div>
-                <!--
-                <div class="input-group col-3">
+                <div class="form-group input-group col-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="profissao">Profissão</label>
                     </div>
@@ -92,7 +87,6 @@
 
                     </select>
                 </div>
-                -->
 
                 <div class="form-group col-sm-4">
                     <input type="text" placeholder="Título de eleitor" name="tituloEleitor" class="form-control">
@@ -235,7 +229,7 @@
                         <input type="text" placeholder="Cidade" name="cidade" class="form-control">
                     </div>
 
-                    <div class="input-group col-3">
+                    <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Estado</label>
                         </div>
