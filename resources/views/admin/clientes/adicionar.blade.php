@@ -4,19 +4,20 @@
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('/css/app.css')}}">
-    <h1>
-        Adicionar cliente
+    <h1>Adicionar cliente</h1>
+    <p class="botao-voltar">
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
-        <i class="fas fa-reply"></i> Voltar
+        <i class="fas fa-reply"></i>
+            Voltar
         </a>
-    </h1>
+    </p>
 @endsection
 
 @section('content')
 
 <form action="{{route('cadastro.store')}}" method="post" >
     @csrf
-    <p>
+    <p> <!-- BOTÕES DO COLLAPSE PF E PJ-->
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#pessoaFisica" aria-expanded="false" aria-controls="pessoaFisica">
             Pessoa natural
         </button>
@@ -25,7 +26,7 @@
             Pessoa jurídica
         </button>
     </p>
-    <div class="collapse col-12" id="pessoaFisica">
+    <div class="collapse col-12" id="pessoaFisica"> <!-- INÍCIO DO COLLAPSE PF -->
         <div class="card card-body">
             <div class="row">
                 <div class="col-6">
@@ -142,9 +143,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- FIM DO COLLAPSE PF -->
 
-    <div class="collapse col-12" id="pessoaJuridica">
+    <div class="collapse col-12" id="pessoaJuridica"> <!-- INÍCIO DO COLLAPSE PJ -->
         <div class="card card-body">
             <div class="row">
             <div class="col-9">
@@ -189,9 +190,10 @@
 
             </div>
         </div>
-    </div>
+    </div> <!-- FIM DO COLLAPSE PJ -->
+
     <div class="card">
-        <div class="card-header">
+        <div class="card-header"> <!-- FIM DO CARD ENDEREÇO -->
         <strong>ENDEREÇO</strong>
         </div>
         <div class="card-body">
@@ -232,9 +234,9 @@
 
                 </div>
             </p>
-        </div>
+        </div> <!-- FIM DO CARD ENDEREÇO -->
 
-        <div class="card-header">
+        <div class="card-header"> <!-- INÍCIO DO CARD CONTATO -->
             <strong>CONTATO</strong>
         </div>
         <div class="card-body">
@@ -253,14 +255,15 @@
                     </div>
                 </div>
             </p>
-        </div>
-        </div>
-        <p>
+        </div> <!-- FIM DO CARD CONTATO -->
+    </div>
+
+        <p> <!-- BOTÃO COLLAPSE PARTE CONTRÁRIA -->
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#processo" aria-expanded="false" aria-controls="processo">
                 Parte contrária
             </button>
         </p>
-        <div class="collapse col-12" id="processo">
+        <div class="collapse col-12" id="processo"> <!-- INÍCIO DO COLLAPSE PARTE CONTRÁRIA -->
             <div class="card card-body">
                 <div class="row">
                     <div class="col-sm-6">
@@ -295,11 +298,57 @@
                     </div>
                 </div>
             </div>
+        </div> <!-- FIM DO COLLAPSE PARTE CONTRÁRIA -->
+    </div>
+
+    <div class="modal fade" id="documentos" tabindex="-1" aria-labelledby="documentos" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="documentos">GERADOR DE DOCUMENTOS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="" id="honorarios">
+                        <label class="form-check-label" for="honorarios">
+                            Contrato de honorários
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="" id="procuracao">
+                        <label class="form-check-label" for="procuracao">
+                            Procuração
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="" id="decHipo">
+                        <label class="form-check-label" for="decHipo">
+                            Declaração de hipossuficiência
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="" id="decRisc">
+                        <label class="form-check-label" for="decRisc">
+                            Declaração de risco
+                        </label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" value="" id="soliDocs">
+                        <label class="form-check-label" for="soliDocs">
+                            Solicitação de documentos
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4 control-label"></label>
-        <div class="col-sm-10">
+
+    <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+        <div class="col-sm-12" align="right">
+        <a data-toggle="modal" data-target="#documentos" href="">Gerar documentos</a> <!-- BOTÃO MODAL GERAR DOCUMENTOS -->
             <input type="submit" value="Cadastrar" class="btn btn-success">
         </div>
     </div>
