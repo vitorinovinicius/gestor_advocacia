@@ -10,6 +10,9 @@ use App\Models\Cliente;
 use App\Models\PessoaFisica;
 use App\Models\ProfissaoPessoaFisica;
 use App\Models\Profissao;
+use App\Models\Tratamento;
+use App\Models\Nacionalidade;
+use App\Models\EstadoCivil;
 use App\Models\PessoaJuridica;
 use App\Models\Contato;
 use App\Models\Endereco;
@@ -29,10 +32,19 @@ class CadastroController extends Controller
     public function create()
     {
         $profissoes = Profissao::all();
+        $tratamentos = Tratamento::all();
+        $nacionalidades = Nacionalidade::all();
+        $estadoscivis = EstadoCivil::all();
+        $sexos = PessoaFisica::all();
         return view('admin.clientes.adicionar', [
-            'profissoes' => $profissoes
+            'profissoes' => $profissoes,
+            'tratamentos' => $tratamentos,
+            'nacionalidades' => $nacionalidades,
+            'estadoscivis' => $estadoscivis,
+            'sexos' => $sexos
+
         ]);
-        
+
         return view('admin.clientes.adicionar');
     }
 
