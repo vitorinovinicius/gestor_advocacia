@@ -102,6 +102,8 @@
                         </div>
                         <select name="sexo" class="custom-select" id="sexo">
                             <option selected></option>
+                            <option>Masculino</option>
+                            <option>Feminino</option>
                         </select>
                     </div>
 
@@ -111,6 +113,9 @@
                         </div>
                         <select name="estadoCivil" class="custom-select" id="estadoCivil">
                             <option selected></option>
+                            @foreach($estadoscivis as $estadocivil)
+                            <option>{{$estadocivil->tipo}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -120,6 +125,9 @@
                         </div>
                         <select name="tratamento" class="custom-select" id="tratamento">
                             <option selected></option>
+                            @foreach($tratamentos as $tratamento)
+                            <option>{{$tratamento->tipo}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -129,6 +137,9 @@
                         </div>
                         <select name="nacionalidade" class="custom-select" id="nacionalidade">
                             <option selected></option>
+                            @foreach($nacionalidades as $nacionalidade)
+                            <option>{{$nacionalidade->tipo}}</option>
+                            @endforeach
                         </select>
                     </div>
 
