@@ -12,9 +12,9 @@ class Profissao extends Model
     protected $table = 'profissoes';
     protected $fillable = ['tipo'];
 
-    public function pessoaFisica()
+    public function profissaoPessoaFisica()
     {
-        return $this->belongsToMany(PessoaFisica::class);
+        return $this->hasMany(ProfissaoPessoaFisica::class);
     }
 
 }
