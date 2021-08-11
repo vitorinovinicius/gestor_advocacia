@@ -12,7 +12,7 @@ class EstadoCivil extends Model
 
     protected $table = 'estados_civis';
     protected $fillable = [
-        'tipo_Est_Civ'
+        'tipo'
     ];
 
     public function pessoaFisica()

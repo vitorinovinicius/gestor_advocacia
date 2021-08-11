@@ -9,7 +9,7 @@ class Tratamento extends Model
 {
     use HasFactory;
     protected $table = 'tratamentos';
-    protected $fillable = ['tipo_Trat'];
+    protected $fillable = ['tipo'];
 
     public function pessoaFisica()
     {
