@@ -71,12 +71,13 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="profissao">Profissão</label>
                         </div>
-                        @foreach($profissoes as $profissao)
                         <select name="profissao_id" class="custom-select" id="profissao">
                         <option selected></option>
-                        <option>{{$profissao}}</option>
-                        </select>
+                        @foreach($profissoes as $profissao)
+                        <option>{{$profissao->tipo}}</option>
                         @endforeach
+                        </select>
+
                     </div>
 
                     <div class="form-group col-sm-4">
