@@ -24,15 +24,15 @@ class CadastroController extends Controller
         return view('admin.clientes.index', [
             'clientes' => $clientes
         ]);
-
-        $profissoes = Profissao::all();
-        return view('admin.clientes.adicionar', [
-            'profissoes' => $profissoes
-        ]);
     }
 
     public function create()
     {
+        $profissoes = Profissao::all();
+        return view('admin.clientes.adicionar', [
+            'profissoes' => $profissoes
+        ]);
+        
         return view('admin.clientes.adicionar');
     }
 
