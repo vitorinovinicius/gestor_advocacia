@@ -4,6 +4,7 @@
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <h1>
             Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -14,150 +15,175 @@
 @endsection
 
 @section('content')
-<div class="col-12">
-    <form action="{{ route('cadastro.store') }}" method="post" >
+<style type="text/css">
+    .cadastro{
+        display:none;
+    }
+</style>
+    <form action="{{ route('cadastro.store') }}" method="POST" >
         @csrf
-        <div class="form-check form-check-inline"><!-- BOTÕES DO COLLAPSE PF E PJ-->
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" data-toggle="collapse" data-target="#pessoaFisica" aria-expanded="false" aria-controls="pessoaFisica">
-            <label class="form-check-label" for="flexRadioDefault1">
+        <!-- BOTÕES DO COLLAPSE PF E PJ-->
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cliente" value="natural">
+            <label class="form-check-label">
                 Pessoa natural
             </label>
         </div>
+
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2" data-toggle="collapse" data-target="#pessoaJuridica" aria-expanded="false" aria-controls="pessoaJuridica" >
-            <label class="form-check-label" for="flexRadioDefault2">
+            <input class="form-check-input" type="radio" name="cliente" value="juridica">
+            <label class="form-check-label">
                 Pessoa jurídica
             </label>
-        </div> <!-- FIM BOTÕES DO COLLAPSE PF E PJ-->
+        </div>
+        <!-- FIM BOTÕES DO COLLAPSE PF E PJ-->
 
-        <div class="collapse col-12" id="pessoaFisica"> <!-- INÍCIO DO COLLAPSE PF -->
-            <div class="card card-body">
-                <div class="form-group row">
-                    <div class="form-group col-6">
-                        <input type="text" name="nome" placeholder="Nome completo" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <input type="text" name="cpf" placeholder="CPF" class="form-control">
-                    </div>
-
-                    <div class="form-group col-sm-3">
-                        <input type="text" name="pis" placeholder="PIS" class="form-control @error('pis') is-invalid @enderror">
-                        @error('pis')
-                        <div class="invalid-feedback">
-                            {{$message}}
+        <!-- INÍCIO DO COLLAPSE PF -->
+            <div class="card cadastro natural">
+                <div class="card-header">
+                    <strong>PESSOA NATURAL</strong>
+                </div>
+                <div class="card-body col-12">
+                    <p class="card-text">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
                         </div>
-                            @enderror
-                    </div>
-
-                    <div class="form-group col-sm-3">
-                        <input class="form-control @error('numCtps') is-invalid @enderror" placeholder="Número da CTPS" type="text" name="numCtps" >
-                        @error('numCtps')
-                        <div class="invalid-feedback">
-                            {{$message}}
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="cpf" placeholder="CPF" class="form-control">
                         </div>
-                            @enderror
-                    </div>
 
-                    <div class="form-group col-sm-2">
-                        <input class="form-control @error('serieCtps') is-invalid @enderror" placeholder="Série" type="text" name="serieCtps">
-                            @error('serieCtps')
-                        <div class="invalid-feedback">
-                            {{$message}}
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('pis') is-invalid @enderror">
+                            @error('pis')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
                         </div>
-                            @enderror
-                    </div>
 
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="profissao">Profissão</label>
+                        <div class="form-group col-sm-3">
+                            <input class="form-control @error('numCtps') is-invalid @enderror" placeholder="Número da CTPS" type="text" name="numCtps" >
+                            @error('numCtps')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
                         </div>
-                        <select name="profissao_id" class="custom-select" id="profissao">
-                        <option selected></option>
-                        @foreach($profissoes as $profissao)
-                        <option>{{$profissao->tipo}}</option>
-                        @endforeach
-                        </select>
 
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <input type="text" placeholder="Título de eleitor" name="tituloEleitor" class="form-control">
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <input type="text" placeholder="Orgão expeditor" name="orgExpeditor" class="form-control">
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
-                    </div>
-
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="sexo">Sexo</label>
+                        <div class="form-group col-sm-2">
+                            <input class="form-control @error('serieCtps') is-invalid @enderror" placeholder="Série" type="text" name="serieCtps">
+                                @error('serieCtps')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
                         </div>
-                        <select name="sexo" class="custom-select" id="sexo">
+
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="profissao">Profissão</label>
+                            </div>
+                            <select name="profissao_id" class="custom-select" id="profissao">
                             <option selected></option>
-                            <option>Masculino</option>
-                            <option>Feminino</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="estadoCivil">Estado civil</label>
-                        </div>
-                        <select name="estadoCivil" class="custom-select" id="estadoCivil">
-                            <option selected></option>
-                            @foreach($estadoscivis as $estadocivil)
-                            <option>{{$estadocivil->tipo}}</option>
+                            @foreach($profissoes as $profissao)
+                            <option>{{$profissao->tipo}}</option>
                             @endforeach
-                        </select>
-                    </div>
+                            </select>
 
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="tratamento">Tratamento</label>
                         </div>
-                        <select name="tratamento" class="custom-select" id="tratamento">
-                            <option selected></option>
-                            @foreach($tratamentos as $tratamento)
-                            <option>{{$tratamento->tipo}}</option>
-                            @endforeach
-                        </select>
-                    </div>
 
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Título de eleitor" name="tituloEleitor" class="form-control">
                         </div>
-                        <select name="nacionalidade" class="custom-select" id="nacionalidade">
-                            <option selected></option>
-                            @foreach($nacionalidades as $nacionalidade)
-                            <option>{{$nacionalidade->tipo}}</option>
-                            @endforeach
-                        </select>
-                    </div>
 
-                    <div class="form-group col-sm-5">
-                        <input type="date" name="dtNascimento" class="form-control">
-                    </div>
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
+                        </div>
 
-                    <div class="form-group col-sm-6">
-                        <input type="text" placeholder="Nome da mãe" name="nomeMae" class="form-control">
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="orgExpeditor">Orgão expeditor</label>
+                            </div>
+                            <select name="orgExpeditor" class="custom-select" id="orgExpeditor">
+                                <option selected></option>
+                                @foreach($orgexpeditores as $orgExpeditor)
+                                <option>{{$orgExpeditor->tipo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
+                        </div>
+
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="sexo">Sexo</label>
+                            </div>
+                            <select name="sexo" class="custom-select" id="sexo">
+                                <option selected></option>
+                                <option>Masculino</option>
+                                <option>Feminino</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="estadoCivil">Estado civil</label>
+                            </div>
+                            <select name="estadoCivil" class="custom-select" id="estadoCivil">
+                                <option selected></option>
+                                @foreach($estadoscivis as $estadocivil)
+                                <option>{{$estadocivil->tipo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tratamento">Tratamento</label>
+                            </div>
+                            <select name="tratamento" class="custom-select" id="tratamento">
+                                <option selected></option>
+                                @foreach($tratamentos as $tratamento)
+                                <option>{{$tratamento->tipo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
+                            </div>
+                            <select name="nacionalidade" class="custom-select" id="nacionalidade">
+                                <option selected></option>
+                                @foreach($nacionalidades as $nacionalidade)
+                                <option>{{$nacionalidade->tipo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-5">
+                            <input type="date" name="dtNascimento" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <input type="text" placeholder="Nome da mãe" name="nomeMae" class="form-control">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> <!-- FIM DO COLLAPSE PF -->
+            </div><!-- FIM DO COLLAPSE PF -->
 
-        <div class="collapse col-12" id="pessoaJuridica"> <!-- INÍCIO DO COLLAPSE PJ -->
-            <div class="card card-body">
+        <!-- INÍCIO DO COLLAPSE PJ -->
+        <div class="card cadastro juridica">
+            <div class="card-header">
+                <strong>PESSOA JURÍDICA</strong>
+            </div>
+            <div class="card-body col-12">
+                <p class="card-text">
                 <div class="row">
-                <div class="form-group col-9">
+                    <div class="form-group col-9">
                         <input type="text" name="nome" placeholder="Razão social" class="form-control @error('nome_empresa') is-invalid @enderror">
                             @error('nome_empresa')
                         <div class="invalid-feedback">
@@ -176,7 +202,7 @@
                     </div>
 
                     <div class="form-group col-sm-5">
-                        <input type="text" name="inscEstadual" placeholder="Inscrição Municipal" class="form-control">
+                        <input type="text" name="inscMunicipal" placeholder="Inscrição Municipal" class="form-control">
                         @error('pis')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -196,14 +222,15 @@
                     <div class="form-group col-sm-2">
                         <input class="form-control form-control" placeholder="Código" type="text" name="codigo">
                     </div>
-
                 </div>
             </div>
-        </div> <!-- FIM DO COLLAPSE PJ -->
+        </div>
+        <!-- FIM DO COLLAPSE PJ -->
 
+        <!-- INÍCIO DO CARD ENDEREÇO -->
         <div class="card">
-            <div class="card-header"> <!-- FIM DO CARD ENDEREÇO -->
-            <strong>ENDEREÇO</strong>
+            <div class="card-header">
+                <strong>ENDEREÇO</strong>
             </div>
             <div class="card-body">
                 <p class="card-text">
@@ -228,24 +255,36 @@
                             <input type="text" placeholder="Bairro" name="bairro" class="form-control">
                         </div>
 
-                        <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Cidade" name="cidade" class="form-control">
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="cidade">Cidade</label>
+                            </div>
+                            <select name="cidade" class="custom-select" id="cidade">
+                                <option selected></option>
+                                @foreach($cidades as $cidade)
+                                <option>{{$cidade}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group input-group col-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Estado</label>
+                                <label class="input-group-text" for="estado">Estado</label>
                             </div>
-                            <select class="form-group custom-select" id="inputGroupSelect01">
+                            <select name="estado" class="form-group custom-select" id="estado">
                                 <option selected></option>
+                                @foreach($estados as $estado)
+                                <option>{{$estado->uf}}</option>
+                                @endforeach
                             </select>
                         </div>
-
                     </div>
                 </p>
-            </div> <!-- FIM DO CARD ENDEREÇO -->
+            </div>
+        <!-- FIM DO CARD ENDEREÇO -->
 
-            <div class="card-header"> <!-- INÍCIO DO CARD CONTATO -->
+        <!-- INÍCIO DO CARD CONTATO -->
+            <div class="card-header">
                 <strong>CONTATO</strong>
             </div>
             <div class="card-body">
@@ -264,18 +303,23 @@
                         </div>
                     </div>
                 </p>
-            </div> <!-- FIM DO CARD CONTATO -->
+            </div>
+        <!-- FIM DO CARD CONTATO -->
         </div>
 
-            <div class="form-check"> <!-- BOTÃO COLLAPSE PARTE CONTRÁRIA -->
-                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault3" data-toggle="collapse" data-target="#processo" aria-expanded="false" aria-controls="processo" >
-                <label class="form-check-label" for="flexRadioDefault3">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
+                <label class="form-check-label">
                     Parte contrária
                 </label>
             </div> <!-- FIM BOTÃO COLLAPSE PARTE CONTRÁRIA -->
 
-            <div class="collapse col-12" id="processo"> <!-- INÍCIO DO COLLAPSE PARTE CONTRÁRIA -->
-                <div class="card card-body">
+            <div class="card cadastro parte_contraria">
+                <div class="card-header">
+                    <strong>PARTE CONTRÁRIA</strong>
+                </div>
+                <div class="card-body col-12">
+                    <p class="card-text">
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <input type="text"  placeholder="Nome da parte contrária" name="parteContraria" class="form-control">
@@ -366,10 +410,19 @@
 
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
             <div class="col-sm-12" align="right">
-                <input type="submit" value="Cadastrar" class="btn btn-success">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
             </div>
         </div>
     </form>
-</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('input[type="radio"]').click (function() {
+            var inputValue = $(this).attr("value");
+            var targetBox = $("."+ inputValue);
+            $(".cadastro").not(targetBox).hide();
+            $(targetBox).show();
+        })
+    })
+</script>
 @endsection
 

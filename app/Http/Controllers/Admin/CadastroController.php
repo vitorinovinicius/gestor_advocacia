@@ -13,9 +13,12 @@ use App\Models\Profissao;
 use App\Models\Tratamento;
 use App\Models\Nacionalidade;
 use App\Models\EstadoCivil;
+use App\Models\OrgaoExpeditor;
 use App\Models\PessoaJuridica;
 use App\Models\Contato;
 use App\Models\Endereco;
+use App\Models\Estado;
+use App\Models\Cidade;
 use App\Models\Processo;
 use Illuminate\Support\Facades\DB;
 
@@ -31,39 +34,48 @@ class CadastroController extends Controller
 
     public function create()
     {
-        $profissoes = Profissao::all();
-        $tratamentos = Tratamento::all();
+        $profissoes     = Profissao::all();
+        $tratamentos    = Tratamento::all();
         $nacionalidades = Nacionalidade::all();
-        $estadoscivis = EstadoCivil::all();
-        $sexos = PessoaFisica::all();
+        $estadoscivis   = EstadoCivil::all();
+        $sexos          = PessoaFisica::all();
+        $orgexpeditores = OrgaoExpeditor::all();
+
+        $estados        = Estado::all();
+        $cidades        = Cidade::all();
         return view('admin.clientes.adicionar', [
-            'profissoes' => $profissoes,
-            'tratamentos' => $tratamentos,
-            'nacionalidades' => $nacionalidades,
-            'estadoscivis' => $estadoscivis,
-            'sexos' => $sexos
+            'profissoes'        => $profissoes,
+            'tratamentos'       => $tratamentos,
+            'nacionalidades'    => $nacionalidades,
+            'estadoscivis'      => $estadoscivis,
+            'sexos'             => $sexos,
+            'orgexpeditores'    => $orgexpeditores,
+            'estados'           => $estados,
+            'cidades'           => $cidades
 
         ]);
-
-        return view('admin.clientes.adicionar');
     }
 
     public function store(Request $request)
     {
+        //dd($request->all());
+
         $cliente        = new Cliente;
         $pf             = new PessoaFisica;
-        $profissao_pf   = new ProfissaoPessoaFisica;
         $pj             = new PessoaJuridica;
         $contato        = new Contato;
         $endereco       = new Endereco;
         $processo       = new Processo;
+        //$profissao_pf   = new ProfissaoPessoaFisica; Pivô entre profissão e pessoa fisica
 
         $cliente->nome      = $request->input('nome');
         $cliente->save();
 
+        $pf->nome_natural   = $request->input('nome_natural');
         $pf->cpf            = $request->input('cpf');
         $pf->pis            = $request->input('pis');
         $pf->sexo           = $request->input('sexo');
+        $pf->profissao      = $request->input('profissao');
         $pf->estadoCivil    = $request->input('estadoCivil');
         $pf->tratamento     = $request->input('tratamento');
         $pf->numCtps        = $request->input('numCtps');
@@ -78,9 +90,9 @@ class CadastroController extends Controller
         $pf->cliente()->associate($cliente);
         $pf->save();
 
-        $profissao_pf->profissao_id = $request->input('profissao_id');
+        /*$profissao_pf->profissao_id = $request->input('profissao_id');
         $profissao_pf->pessoaFisica()->associate($pf);
-        $profissao_pf->save();
+        $profissao_pf->save();*/
 
         $pj->nome_empresa       = $request->input('nome_empresa');
         $pj->numero             = $request->input('numero');

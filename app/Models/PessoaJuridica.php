@@ -9,6 +9,12 @@ class PessoaJuridica extends Model
 {
     use HasFactory;
     protected $table = 'pessoas_juridicas';
+    protected $fillable = [
+        'numero',
+        'inscMunicipal',
+        'inscEstadual',
+        'codigo'
+    ];
 
     public function cliente()
     {
