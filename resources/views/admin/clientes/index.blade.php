@@ -50,7 +50,7 @@
                 <div class="modal-dialog modal-dialog-scrollable modal-md">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="listaCliente">Dados de {{$cliente->nome}}</h5>
+                            <h5 class="modal-title" id="listaCliente">Dados de @if(isset($cliente->nome) > 0){{$cliente->nome}} @else {{$cliente->nome_empresa}} @endif</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
