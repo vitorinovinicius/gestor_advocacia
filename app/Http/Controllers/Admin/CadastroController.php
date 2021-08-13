@@ -68,10 +68,10 @@ class CadastroController extends Controller
         $processo       = new Processo;
         //$profissao_pf   = new ProfissaoPessoaFisica; Pivô entre profissão e pessoa fisica
 
-        $cliente->nome      = $request->input('nome');
+        $cliente->nome              = $request->input('nome');
+        $cliente->nome_empresa      = $request->input('nome_empresa');
         $cliente->save();
 
-        $pf->nome_natural   = $request->input('nome_natural');
         $pf->cpf            = $request->input('cpf');
         $pf->pis            = $request->input('pis');
         $pf->sexo           = $request->input('sexo');
@@ -94,7 +94,6 @@ class CadastroController extends Controller
         $profissao_pf->pessoaFisica()->associate($pf);
         $profissao_pf->save();*/
 
-        $pj->nome_empresa       = $request->input('nome_empresa');
         $pj->numero             = $request->input('numero');
         $pj->inscMunicipal      = $request->input('inscMunicipal');
         $pj->inscEstadual       = $request->input('inscEstadual');
