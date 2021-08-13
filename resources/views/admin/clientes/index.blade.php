@@ -27,10 +27,11 @@
                 @foreach($clientes as $cliente)
                 <tr>
                     <td>{{$cliente->id}}</td>
-                    <td><a data-toggle="modal" data-target="#listaCliente" href="">{{$cliente->nome}}</a></td>
+                    <td><a data-toggle="modal" data-target="#listaCliente" href="">@if(isset($cliente->nome) > 0){{$cliente->nome}} @else {{$cliente->nome_empresa}}@endif</a></td>
                     <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}
                         @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
                         @endif
+
                     </td>
                     <td><a data-toggle="modal" data-target="#listaProcesso" href="">@if(!empty($cliente->processo->pasta) > 0){{$cliente->processo->pasta}}@else @endif</a></td>
                     <td>
