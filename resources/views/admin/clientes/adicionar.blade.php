@@ -101,7 +101,7 @@
                             <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
                         </div>
 
-                        <div class="form-group input-group col-3">
+                        <div class="form-group input-group col-4">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="orgExpeditor">Orgão expeditor</label>
                             </div>
@@ -113,7 +113,11 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-2" align="right">
+                        <strong>Data de expedição </strong>
+                        </div>
+
+                        <div class="form-group col-sm-2">
                             <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
                         </div>
 
@@ -164,7 +168,10 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-sm-5">
+                        <div class="form-group col-sm-2" align="right">
+                        <strong>Data de expedição </strong>
+                        </div>
+                        <div class="form-group col-sm-3">
                             <input type="date" name="dtNascimento" class="form-control">
                         </div>
 
@@ -184,7 +191,7 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome" placeholder="Razão social" class="form-control @error('nome_empresa') is-invalid @enderror">
+                        <input type="text" name="nome_empresa" placeholder="Razão social" class="form-control @error('nome_empresa') is-invalid @enderror">
                             @error('nome_empresa')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -414,15 +421,16 @@
             </div>
         </div>
     </form>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('input[type="radio"]').click (function() {
-            var inputValue = $(this).attr("value");
-            var targetBox = $("."+ inputValue);
-            $(".cadastro").not(targetBox).hide();
-            $(targetBox).show();
+    <script type="text/javascript" src="../../../../node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('input[type="radio"]').click (function() {
+                var inputValue = $(this).attr("value");
+                var targetBox = $("."+ inputValue);
+                $(".cadastro").not(targetBox).hide();
+                $(targetBox).show();
+            })
         })
-    })
-</script>
+    </script>
 @endsection
 
