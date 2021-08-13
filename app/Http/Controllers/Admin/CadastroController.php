@@ -20,6 +20,7 @@ use App\Models\Endereco;
 use App\Models\Estado;
 use App\Models\Cidade;
 use App\Models\Processo;
+use App\Models\ClienteProcesso;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -60,17 +61,20 @@ class CadastroController extends Controller
     {
         //dd($request->all());
 
-        $cliente        = new Cliente;
-        $pf             = new PessoaFisica;
-        $pj             = new PessoaJuridica;
-        $contato        = new Contato;
-        $endereco       = new Endereco;
-        $processo       = new Processo;
+        $cliente                = new Cliente;
+        $pf                     = new PessoaFisica;
+        $pj                     = new PessoaJuridica;
+        $contato                = new Contato;
+        $endereco               = new Endereco;
+        $processo               = new Processo;
+        $cliente_processo       = new ClienteProcesso;
         //$profissao_pf   = new ProfissaoPessoaFisica; Pivô entre profissão e pessoa fisica
 
         $cliente->nome              = $request->input('nome');
         $cliente->nome_empresa      = $request->input('nome_empresa');
         $cliente->save();
+
+        if ($cliente->nome = $request->input('nome')){
 
         $pf->cpf            = $request->input('cpf');
         $pf->pis            = $request->input('pis');
@@ -90,9 +94,7 @@ class CadastroController extends Controller
         $pf->cliente()->associate($cliente);
         $pf->save();
 
-        /*$profissao_pf->profissao_id = $request->input('profissao_id');
-        $profissao_pf->pessoaFisica()->associate($pf);
-        $profissao_pf->save();*/
+    }else if ($cliente->nome_empresa = $request->input('nome_empresa')){
 
         $pj->numero             = $request->input('numero');
         $pj->inscMunicipal      = $request->input('inscMunicipal');
@@ -100,6 +102,7 @@ class CadastroController extends Controller
         $pj->codigo             = $request->input('codigo');
         $pj->cliente()->associate($cliente);
         $pj->save();
+    }
 
 
         $contato->email         = $request->input('email');
@@ -116,6 +119,7 @@ class CadastroController extends Controller
         $endereco->cidade       = $request->input('cidade');
         $endereco->uf           = $request->input('uf');
         $endereco->cep          = $request->input('cep');
+        $endereco->cliente()->associate($cliente);
         $endereco->save();
 
 
@@ -123,8 +127,11 @@ class CadastroController extends Controller
         $processo->ultAndamento = $request->input('ultAndamento');
         $processo->advContrario = $request->input('advContrario');
         $processo->titulo       = $request->input('titulo');
-        $processo->cliente()->associate($cliente);
         $processo->save();
+
+        /*$cliente_processo->processo_id->processo()->associate($processo);
+        $cliente_processo->cliente_id->cliente()->associate($cliente);
+        $cliente_processo->save();*/
 
         return redirect()->route('cadastro.index');
     }
