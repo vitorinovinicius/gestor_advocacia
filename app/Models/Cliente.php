@@ -10,7 +10,8 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome'
+        'nome',
+        'nome_empresa'
     ];
 
     public function contato()
@@ -30,7 +31,12 @@ class Cliente extends Model
 
     public function processo()
     {
-        return $this->belongsToMany(Processo::class, 'processo_cliente');
+        return $this->belongsToMany(Processo::class);
+    }
+
+    public function clienteProcesso()
+    {
+        return $this->hasMany(ClienteProcesso::class);
     }
 
     public function endereco()

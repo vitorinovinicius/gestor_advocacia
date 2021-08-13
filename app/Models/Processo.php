@@ -24,11 +24,16 @@ class Processo extends Model
 
     public function cliente()
     {
-        return $this->belongsToMany(Cliente::class, 'processo_cliente');
+        return $this->belongsToMany(Cliente::class);
     }
 
     public function compromisso()
     {
         return $this->belongsTo(Cliente::class);
+    }
+
+    public function clienteProcesso()
+    {
+        return $this->hasMany(ClienteProcesso::class);
     }
 }
