@@ -169,7 +169,7 @@
                         </div>
 
                         <div class="form-group col-sm-2" align="right">
-                        <strong>Data de expedição </strong>
+                        <strong>Data de Nascimento </strong>
                         </div>
                         <div class="form-group col-sm-3">
                             <input type="date" name="dtNascimento" class="form-control">
@@ -200,8 +200,8 @@
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" name="número" placeholder="Número CNPJ" class="form-control @error('cnpj') is-invalid @enderror">
-                            @error('cnpj')
+                        <input type="text" name="numero" placeholder="Número CNPJ" class="form-control @error('numero') is-invalid @enderror">
+                            @error('numero')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
@@ -210,7 +210,7 @@
 
                     <div class="form-group col-sm-5">
                         <input type="text" name="inscMunicipal" placeholder="Inscrição Municipal" class="form-control">
-                        @error('pis')
+                        @error('inscMunicipal')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
