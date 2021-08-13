@@ -27,7 +27,7 @@
                 @foreach($processos as $processo)
                 <tr>
                     <td>{{$processo->id}}</td>
-                    <td><a href="{{route('processo.show', [$processo->id])}}">{{$processo->parteContraria}}</a></td>
+                    <td><a href="{{route('processo.show', [$processo->id])}}">{{$processo->pasta}}</a></td>
                     <td>@if(array($processo) > 0){{count($processo->cliente)}} @else Não há clientes registrados. @endif</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning">Editar</a>
