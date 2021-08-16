@@ -15,6 +15,7 @@ use App\Models\Nacionalidade;
 use App\Models\EstadoCivil;
 use App\Models\OrgaoExpeditor;
 use App\Models\PessoaJuridica;
+use App\Models\NaturezaJuridica;
 use App\Models\Contato;
 use App\Models\Endereco;
 use App\Models\Estado;
@@ -35,29 +36,32 @@ class CadastroController extends Controller
 
     public function create()
     {
-        $profissoes     = Profissao::all();
-        $tratamentos    = Tratamento::all();
-        $nacionalidades = Nacionalidade::all();
-        $estadoscivis   = EstadoCivil::all();
-        $sexos          = PessoaFisica::all();
-        $orgexpeditores = OrgaoExpeditor::all();
+        $profissoes                 = Profissao::all()->sortBy('tipo');
+        $tratamentos                = Tratamento::all();
+        $nacionalidades             = Nacionalidade::all();
+        $estadoscivis               = EstadoCivil::all();
+        $sexos                      = PessoaFisica::all();
+        $orgexpeditores             = OrgaoExpeditor::all();
 
-        $estados        = Estado::all();
-        $cidades        = Cidade::all();
+        $naturezas_juridicas        = NaturezaJuridica::all();
+
+        $estados                    = Estado::all();
+        $cidades                    = Cidade::all();
         return view('admin.clientes.adicionar', [
-            'profissoes'        => $profissoes,
-            'tratamentos'       => $tratamentos,
-            'nacionalidades'    => $nacionalidades,
-            'estadoscivis'      => $estadoscivis,
-            'sexos'             => $sexos,
-            'orgexpeditores'    => $orgexpeditores,
-            'estados'           => $estados,
-            'cidades'           => $cidades
+            'profissoes'            => $profissoes,
+            'tratamentos'           => $tratamentos,
+            'nacionalidades'        => $nacionalidades,
+            'estadoscivis'          => $estadoscivis,
+            'sexos'                 => $sexos,
+            'orgexpeditores'        => $orgexpeditores,
+            'estados'               => $estados,
+            'cidades'               => $cidades,
+            'naturezas_juridicas'   => $naturezas_juridicas
 
         ]);
     }
 
-    public function store(StoreCadastroRequest $request)
+    public function store(Request $request)
     {
         //dd($request->all());
 
@@ -140,7 +144,7 @@ class CadastroController extends Controller
     {
         $cliente = Cliente::find($id);
         if($cliente) {
-            return view('admin.clientes.dadosCliente', [
+            return view('admin.clientes.index', [
                 'cliente' => $cliente
             ]);
         }
@@ -168,7 +172,7 @@ class CadastroController extends Controller
 
     public function destroy($id)
     {
-        $cliente = Cliente::all($id);
+        $cliente = Cliente::find($id);
         $cliente->delete();
 
         return redirect()->route('cadastro.index');
