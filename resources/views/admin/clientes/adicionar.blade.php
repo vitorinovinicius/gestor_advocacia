@@ -47,15 +47,16 @@
                     <p class="card-text">
                     <div class="row">
                         <div class="form-group col-6">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control @error('nome') is-invalid @enderror">
+                            @error('nome')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
                         </div>
                         <div class="form-group col-sm-3">
-                            <input type="text" name="cpf" placeholder="CPF" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('pis') is-invalid @enderror">
-                            @error('pis')
+                            <input type="text" name="cpf" placeholder="CPF" class="form-control @error('cpf') is-invalid @enderror">
+                            @error('cpf')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -63,8 +64,17 @@
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input class="form-control @error('numCtps') is-invalid @enderror" placeholder="Número da CTPS" type="text" name="numCtps" >
-                            @error('numCtps')
+                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('nome') is-invalid @enderror">
+                            @error('nome')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control @error('nome') is-invalid @enderror">
+                            @error('nome')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -72,8 +82,8 @@
                         </div>
 
                         <div class="form-group col-sm-2">
-                            <input class="form-control @error('serieCtps') is-invalid @enderror" placeholder="Série" type="text" name="serieCtps">
-                                @error('serieCtps')
+                            <input placeholder="Série" type="text" name="serieCtps" class="form-control @error('serieCtps') is-invalid @enderror">
+                            @error('serieCtps')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -99,6 +109,11 @@
 
                         <div class="form-group col-sm-4">
                             <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
+                                @error('nome')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                                @enderror
                         </div>
 
                         <div class="form-group input-group col-4">
@@ -242,48 +257,32 @@
             <div class="card-body">
                 <p class="card-text">
                     <div class="row">
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="CEP" name="cep" class="form-control">
+                        <div class="form-group col-sm-3">
+                            <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Logradouro" name="logradouro" class="form-control">
+                            <input type="text" placeholder="Logradouro" name="logradouro" id="rua" class="form-control" readonly>
                         </div>
 
                         <div class="form-group col-1">
                             <input class="form-control form-control" placeholder="Número" type="text" name="numEndereco">
                         </div>
 
-                        <div class="form-group col-5">
-                            <input class="form-control form-control" placeholder="Complemento" type="text" name="complemento">
+                        <div class="form-group col-3">
+                            <input class="form-control form-control" placeholder="Complemento"  type="text" name="complemento">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="Bairro" name="bairro" class="form-control">
+                            <input type="text" placeholder="Bairro" name="bairro" id="bairro" class="form-control" readonly>
                         </div>
 
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="cidade">Cidade</label>
-                            </div>
-                            <select name="cidade" class="custom-select" id="cidade">
-                                <option selected></option>
-                                @foreach($cidades as $cidade)
-                                <option>{{$cidade}}</option>
-                                @endforeach
-                            </select>
+                        <div class="form-group col-sm-3">
+                            <input type="text" placeholder="Cidade" name="cidade" id="cidade" class="form-control" readonly>
                         </div>
 
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="estado">Estado</label>
-                            </div>
-                            <select name="estado" class="form-group custom-select" id="estado">
-                                <option selected></option>
-                                @foreach($estados as $estado)
-                                <option>{{$estado->uf}}</option>
-                                @endforeach
-                            </select>
+                        <div class="form-group col-sm-3">
+                            <input type="text" placeholder="Estado" name="uf" id="uf" class="form-control" readonly>
                         </div>
                     </div>
                 </p>
@@ -421,7 +420,6 @@
             </div>
         </div>
     </form>
-    <script type="text/javascript" src="../../../../node_modules/mdbootstrap/js/mdb.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('input[type="radio"]').click (function() {
@@ -432,5 +430,7 @@
             })
         })
     </script>
+    <script src="{{url('js/viacep.js')}}"></script>
 @endsection
+
 
