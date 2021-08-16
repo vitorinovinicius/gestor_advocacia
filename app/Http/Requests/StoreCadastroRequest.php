@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\NomeCompleto;
+use App\Rules\Cpf;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCadastroRequest extends FormRequest
@@ -26,30 +27,30 @@ class StoreCadastroRequest extends FormRequest
     {
         return [
             'nome' => ['required', new NomeCompleto],
-            'cpf' => 'required',
-            'pis' => 'required',
-            'profissao' => 'required',
-            'sexo' => 'required',
-            'estadoCivil' => 'required',
-            'tratamento' => 'required',
-            'numCtps' => 'required',
-            'serieCtps' => 'required',
-            'nacionalidade' => 'required',
-            'dtNascimento' => 'required',
-            'tituloEleitor' => 'required',
-            'idtCivil' => 'required',
-            'dtExpedicao' => 'required',
-            'orgExpeditor' => 'required',
-            'nomaMae' => 'required',
-            'email' => 'required',
-            'celular' => 'required',
-            'logradouro' => 'required',
-            'complemento' => 'required',
-            'numEndereco' => 'required',
-            'bairro' => 'required',
-            'cidade' => 'required',
-            'uf' => 'required',
-            'cep' => 'required'
+            'cpf' => ['required', new Cpf],
+            'pis' => ['required',],
+            'profissao' => ['required',],
+            'sexo' => ['required',],
+            'estadoCivil' => ['required',],
+            'tratamento' => ['required',],
+            'numCtps' => ['required',],
+            'serieCtps' => ['required',],
+            'nacionalidade' => ['required',],
+            'dtNascimento' => ['required',],
+            'tituloEleitor' => ['required',],
+            'idtCivil' => ['required',],
+            'dtExpedicao' => ['required',],
+            'orgExpeditor' => ['required',],
+            'nomaMae' => ['required',],
+            'email' => ['required',],
+            'celular' => ['required',],
+            'logradouro' => ['required',],
+            'complemento' => ['required',],
+            'numEndereco' => ['required',],
+            'bairro' => ['required',],
+            'cidade' => ['required',],
+            'uf' => ['required',],
+            'cep' => ['required',]
         ];
     }
 
@@ -57,7 +58,7 @@ class StoreCadastroRequest extends FormRequest
     {
         return [
             'nome.required' => 'O campo nome é obrigatório.',
-            'cpf' => 'O campo cpf é obrigatório.',
+            'cpf.required' => 'O campo cpf é obrigatório.',
             'pis.required' => '',
             'profissao.required' => '',
             'sexo.required' => '',
