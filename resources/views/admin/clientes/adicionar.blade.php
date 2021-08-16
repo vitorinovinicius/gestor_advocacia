@@ -4,7 +4,7 @@
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url('js/jquery.min.js')}}"></script>
     <h1>
             Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -15,11 +15,7 @@
 @endsection
 
 @section('content')
-<style type="text/css">
-    .cadastro{
-        display:none;
-    }
-</style>
+<link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
     <form action="{{ route('cadastro.store') }}" method="POST" >
         @csrf
         <!-- BOTÕES DO COLLAPSE PF E PJ-->
@@ -64,8 +60,8 @@
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('nome') is-invalid @enderror">
-                            @error('nome')
+                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('pis') is-invalid @enderror">
+                            @error('pis')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -73,8 +69,8 @@
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control @error('nome') is-invalid @enderror">
-                            @error('nome')
+                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control @error('numCtps') is-invalid @enderror">
+                            @error('numCtps')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -109,7 +105,7 @@
 
                         <div class="form-group col-sm-4">
                             <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
-                                @error('nome')
+                                @error('idtCivil')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -223,7 +219,7 @@
                             @enderror
                     </div>
 
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-4">
                         <input type="text" name="inscMunicipal" placeholder="Inscrição Municipal" class="form-control">
                         @error('inscMunicipal')
                         <div class="invalid-feedback">
@@ -232,7 +228,7 @@
                             @enderror
                     </div>
 
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-4">
                         <input type="text" name="inscEstadual" placeholder="Inscrição Estadual" class="form-control" >
                         @error('numCtps')
                         <div class="invalid-feedback">
@@ -243,6 +239,17 @@
 
                     <div class="form-group col-sm-2">
                         <input class="form-control form-control" placeholder="Código" type="text" name="codigo">
+                    </div>
+                    <div class="form-group input-group col-2">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="natureza">Natureza</label>
+                        </div>
+                        <select name="natureza" class="custom-select" id="natureza">
+                            <option selected></option>
+                            @foreach($naturezas_juridicas as $natureza)
+                            <option>{{$natureza->sigla}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
@@ -262,27 +269,27 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Logradouro" name="logradouro" id="rua" class="form-control" readonly>
+                            <input type="text" placeholder="Logradouro" name="logradouro" id="rua" class="form-control">
                         </div>
 
                         <div class="form-group col-1">
-                            <input class="form-control form-control" placeholder="Número" type="text" name="numEndereco">
+                            <input placeholder="Número" type="text" name="numEndereco" class="form-control">
                         </div>
 
                         <div class="form-group col-3">
-                            <input class="form-control form-control" placeholder="Complemento"  type="text" name="complemento">
+                            <input placeholder="Complemento"  type="text" name="complemento" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="Bairro" name="bairro" id="bairro" class="form-control" readonly>
+                            <input type="text" placeholder="Bairro" name="bairro" id="bairro" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="Cidade" name="cidade" id="cidade" class="form-control" readonly>
+                            <input type="text" placeholder="Cidade" name="cidade" id="cidade" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="Estado" name="uf" id="uf" class="form-control" readonly>
+                            <input type="text" placeholder="Estado" name="uf" id="uf" class="form-control">
                         </div>
                     </div>
                 </p>
@@ -420,16 +427,7 @@
             </div>
         </div>
     </form>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('input[type="radio"]').click (function() {
-                var inputValue = $(this).attr("value");
-                var targetBox = $("."+ inputValue);
-                $(".cadastro").not(targetBox).hide();
-                $(targetBox).show();
-            })
-        })
-    </script>
+    <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep.js')}}"></script>
 @endsection
 
