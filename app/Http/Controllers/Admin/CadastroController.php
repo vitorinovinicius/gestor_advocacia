@@ -57,7 +57,7 @@ class CadastroController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreCadastroRequest $request)
     {
         //dd($request->all());
 
@@ -94,7 +94,7 @@ class CadastroController extends Controller
         $pf->cliente()->associate($cliente);
         $pf->save();
 
-    }else if ($cliente->nome_empresa = $request->input('nome_empresa')){
+        }elseif($cliente->nome_empresa = $request->input('nome_empresa')){
 
         $pj->numero             = $request->input('numero');
         $pj->inscMunicipal      = $request->input('inscMunicipal');
