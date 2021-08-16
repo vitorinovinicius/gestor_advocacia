@@ -27,7 +27,7 @@
                 @foreach($clientes as $cliente)
                 <tr>
                     <td>{{$cliente->id}}</td>
-                    <td><a data-toggle="modal" data-target="#listaCliente" href="">@if(isset($cliente->nome) > 0){{$cliente->nome}} @else {{$cliente->nome_empresa}}@endif</a></td>
+                    <td><a data-toggle="modal" data-target="#listaCliente" href="{{route('cadastro.show', [$cliente->id])}}">@if(isset($cliente->nome) > 0){{$cliente->nome}} @else {{$cliente->nome_empresa}}@endif</a></td>
                     <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}
                         @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
                         @endif
@@ -55,6 +55,7 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        @if ($cliente->pessoafisica > 0)
                         <div class="modal-body">
                             <div class="row">
                                 <label class="col-sm-4 col-form-label"> Nome completo </label>
@@ -161,6 +162,19 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
+                        @else($cliente->pessoajurica)
+                        <div class="modal-body">
+                            <div class="row">
+                                <label class="col-sm-4 col-form-label"> Número </label>
+                                <div class="col-sm-8">
+                                    <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}</ol>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
