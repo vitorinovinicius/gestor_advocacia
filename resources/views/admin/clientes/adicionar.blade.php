@@ -43,47 +43,22 @@
                     <p class="card-text">
                     <div class="row">
                         <div class="form-group col-6">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form-control @error('nome') is-invalid @enderror">
-                            @error('nome')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
                         </div>
                         <div class="form-group col-sm-3">
-                            <input type="text" name="cpf" placeholder="CPF" class="form-control @error('cpf') is-invalid @enderror">
-                            @error('cpf')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input type="text" name="cpf" placeholder="CPF" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" placeholder="PIS" class="form-control @error('pis') is-invalid @enderror">
-                            @error('pis')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input type="text" name="pis" placeholder="PIS" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control @error('numCtps') is-invalid @enderror">
-                            @error('numCtps')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-2">
-                            <input placeholder="Série" type="text" name="serieCtps" class="form-control @error('serieCtps') is-invalid @enderror">
-                            @error('serieCtps')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input placeholder="Série" type="text" name="serieCtps" class="form-control">
                         </div>
 
                         <div class="form-group input-group col-3">
