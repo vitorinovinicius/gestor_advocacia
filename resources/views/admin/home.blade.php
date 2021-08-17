@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>
         Dashboard
-        <a href="#" class="btn btn-sm btn-success">
+        <a href="{{route('home')}}" class="btn btn-sm btn-success">
             Site
         </a>
     </h1>
