@@ -104,6 +104,7 @@ class CadastroController extends Controller
         $pj->inscMunicipal      = $request->input('inscMunicipal');
         $pj->inscEstadual       = $request->input('inscEstadual');
         $pj->codigo             = $request->input('codigo');
+        $pj->natureza_pj        = $request->input('natureza_pj');
         $pj->cliente()->associate($cliente);
         $pj->save();
     }
