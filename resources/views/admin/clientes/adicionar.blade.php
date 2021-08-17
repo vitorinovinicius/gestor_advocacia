@@ -219,7 +219,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="natureza">Natureza</label>
                         </div>
-                        <select name="natureza" class="custom-select" id="natureza">
+                        <select name="natureza_pj" class="custom-select" id="natureza">
                             <option selected></option>
                             @foreach($naturezas_juridicas as $natureza)
                             <option>{{$natureza->sigla}}</option>
@@ -263,7 +263,7 @@
                             <input type="text" placeholder="Cidade" name="cidade" id="cidade" class="form-control">
                         </div>
 
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-1">
                             <input type="text" placeholder="Estado" name="uf" id="uf" class="form-control">
                         </div>
                     </div>
@@ -308,40 +308,79 @@
                 </div>
                 <div class="card-body col-12">
                     <p class="card-text">
-                    <div class="row">
-                        <div class="form-group col-sm-6">
-                            <input type="text"  placeholder="Nome da parte contrária" name="parteContraria" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
-                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <input type="text"  placeholder="Nome da parte contrária" name="parteContraria" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
-                        </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
-                        </div>
+                            <div class="form-group col-sm-2">
+                                <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Número do Processo" name="numProcesso" class="form-control">
-                        </div>
+                            <div class="form-group col-sm-2">
+                                <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-2">
-                            <input type="date"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
-                        </div>
+                            <div class="form-group col-sm-2">
+                                <input type="text"  placeholder="Número do Processo" name="numProcesso" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-6">
-                            <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
-                        </div>
+                            <div class="form-group col-sm-2">
+                                <input type="date"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
+                            </div>
 
-                        <div class="form-group col-sm-12">
-                            <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
+                            <div class="form-group col-sm-6">
+                                <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
+                            </div>
                         </div>
-                    </div>
+                    </p>
+                </div><!-- FIM DO COLLAPSE PARTE CONTRÁRIA -->
+
+                <div class="card-header">
+                    <strong>ENDEREÇO</strong>
                 </div>
-            </div> <!-- FIM DO COLLAPSE PARTE CONTRÁRIA -->
+                <div class="card-body col-12">
+                    <p class="card-text">
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep2" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <input type="text" placeholder="Logradouro" name="logradouro" id="rua2" class="form-control">
+                            </div>
+
+                            <div class="form-group col-1">
+                                <input type="text" placeholder="Número" name="numEndereco" class="form-control">
+                            </div>
+
+                            <div class="form-group col-3">
+                                <input type="text" placeholder="Complemento"  name="complemento" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <input type="text" placeholder="Bairro" name="bairro" id="bairro2" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <input type="text" placeholder="Cidade" name="cidade" id="cidade2" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-1">
+                                <input type="text" placeholder="Estado" name="uf" id="uf2" class="form-control">
+                            </div>
+                        </div>
+                    </p>
+                </div><!-- FIM DO COLLAPSE ENDEREÇO PARTE CONTRÁRIA -->
+            </div>
         </div>
 
     <!-- INÍCIO DO MODAL GERADOR DE DOCUMENTOS-->
@@ -403,7 +442,8 @@
         </div>
     </form>
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
-    <script src="{{url('js/viacep.js')}}"></script>
+    <script src="{{url('js/viacep_cliente.js')}}"></script>
+    <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
 @endsection
 
 
