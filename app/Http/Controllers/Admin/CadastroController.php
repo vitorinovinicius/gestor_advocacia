@@ -145,7 +145,7 @@ class CadastroController extends Controller
     {
         $cliente = Cliente::find($id);
         if($cliente) {
-            return view('admin.clientes.index', [
+            return view('admin.clientes.dadosCliente', [
                 'cliente' => $cliente
             ]);
         }

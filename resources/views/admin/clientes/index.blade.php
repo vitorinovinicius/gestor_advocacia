@@ -19,7 +19,6 @@
                     <th class="col-1">Ordem</th>
                     <th class="col-4">Nome</th>
                     <th class="col-3">CPF / CNPJ</th>
-                    <th class="col-2">Processo</th>
                     <th class="col-2">Ações</th>
                 </tr>
             </thead>
@@ -31,9 +30,7 @@
                     <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}
                         @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
                         @endif
-
                     </td>
-                    <td><a data-toggle="modal" data-target="#listaProcesso" href="">@if(!empty($cliente->processo->pasta) > 0){{$cliente->processo->pasta}}@else @endif</a></td>
                     <td>
                         <a href="{{route('cadastro.edit', $cliente->id)}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', $cliente->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >

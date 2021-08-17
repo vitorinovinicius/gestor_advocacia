@@ -57,7 +57,7 @@ class ProcessoController extends Controller
             ]);
         }
 
-        return redirect()->route('cliente.list');
+        return redirect()->route('processo.index');
     }
 
     /**
@@ -91,6 +91,9 @@ class ProcessoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Processo::find($id);
+        $cliente->delete();
+
+        return redirect()->route('processo.index');
     }
 }
