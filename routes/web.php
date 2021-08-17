@@ -17,7 +17,7 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', [Sistema\HomeController::class, 'index']);
+Route::get('/', [Sistema\HomeController::class, 'index'])->name('home');
 
 Route::prefix('painel')->group(function ()
 {
