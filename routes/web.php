@@ -40,4 +40,8 @@ Route::prefix('painel')->group(function ()
 
     Route::get('config',       [Admin\ConfiguracaoController::class, 'index'])->name('config');
     Route::put('salvarConfig', [Admin\ConfiguracaoController::class, 'save'])->name('config.save');
+
+    Route::get('pdf', [Admin\PdfController::class, 'geraPdf']);
 });
+
+
