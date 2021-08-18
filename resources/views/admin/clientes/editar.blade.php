@@ -3,242 +3,298 @@
 @section('title', 'Editar cliente ')
 
 @section('content_header')
+<link rel="stylesheet" href="{{url('css/app.css')}}">
+<script src="{{url('js/jquery.min.js')}}"></script>
     <h1>
-        Editar cliente
+            Editar dados do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
+        <i class="fas fa-reply"></i>
             Voltar
         </a>
     </h1>
 @endsection
-<style>
-    .scroll-me{
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-::-webkit-scrollbar{
-    background-color: white;
-    width: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: gray;
-    border-radius: 10px;
-}
 
-.card{
-    border-radius: 10px;
-}
-
-</style>
 @section('content')
-<form action="#" method="post" class="form-horizontal">
-        @method('put')
+    <form action="{{ route('cadastro.store') }}" method="POST" >
         @csrf
-    <div class="row">
-        <div class="col-6">
-        <label class="col-sm-4 control-label">DADOS PESSOA NATURAL</label>
-            <div class="card scroll-me" style="height: 600px;">
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Nome completo</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->nome}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">CPF</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->cpf}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">PIS</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->pis}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Profissão</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->profissao}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Sexo</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->sexo}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Estado Cívil</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->estadoCivil}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Tratamento</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="{{$cliente->pessoaFisica->tratamento}}" class="form-control">
-                    </div>
-                </div>
-
+        @if($cliente->nome > 0)
+        <!-- INÍCIO DA PESSOA NATURAL -->
+        <div class="card cadastro natural">
+            <div class="card-header">
+                <strong>PESSOA NATURAL</strong>
+            </div>
+            <div class="card-body col-12">
+                <p class="card-text">
                 <div class="row">
-                    <div class="col-8">
-                        <label class="col-sm-4 control-label">Número da CTPS</label>
-                        <div class="col-12">
-                            <input class="form-control form-control" type="text" name="numCtps" >
+                    <div class="form-group col-6">
+                        <input type="text" name="nome" placeholder="{{$cliente->nome}}" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="cpf" placeholder="{{$cliente->pessoaFisica->cpf}}" class="form-control">
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="pis" placeholder="{{$cliente->pessoaFisica->pis}}" class="form-control">
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="numCtps" placeholder="{{$cliente->pessoaFisica->numCtps}}" class="form-control">
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="serieCtps" placeholder="{{$cliente->pessoaFisica->serieCtps}}" class="form-control">
+                    </div>
+
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="profissao">Profissão</label>
                         </div>
+                        <select name="profissao" class="custom-select" id="profissao">
+                        <option selected>{{$cliente->pessoaFisica->profissao}}</option>
+                        @foreach($profissoes as $profissao)
+                        <option>{{$profissao->tipo}}</option>
+                        @endforeach
+                        </select>
+
                     </div>
-                    <div class="col-4">
-                        <label class="col-sm-4 control-label">Série</label>
-                        <div class="col-6">
-                            <input class="form-control form-control" type="text" name="serieCtps">
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" placeholder="{{$cliente->pessoaFisica->tituloEleitor}}" name="tituloEleitor" class="form-control">
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" placeholder="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control">
+                            @error('idtCivil')
+                        <div class="invalid-feedback">
+                            {{$message}}
                         </div>
+                            @enderror
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Nacionalidade</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="nacionalidade" class="form-control">
+                    <div class="form-group input-group col-4">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="orgExpeditor">Orgão expeditor</label>
+                        </div>
+                        <select name="orgExpeditor" class="custom-select" id="orgExpeditor">
+                            <option selected>{{$cliente->pessoaFisica->orgExpeditor}}</option>
+                            @foreach($orgexpeditores as $orgExpeditor)
+                            <option>{{$orgExpeditor->tipo}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Data de Nascimento</label>
-                    <div class="col-sm-10">
-                        <input type="date" name="dtNascimento" class="form-control">
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de expedição </strong>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Titulo de Eleitor</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="tituloEleitor" class="form-control">
+                    <div class="form-group col-sm-2">
+                        <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Identidade Cívil</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="idtCivil" class="form-control">
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="sexo">Sexo</label>
+                        </div>
+                        <select name="sexo" class="custom-select" id="sexo">
+                            <option selected>{{$cliente->pessoaFisica->sexo}}</option>
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Data de Expedição</label>
-                    <div class="col-sm-10">
-                        <input type="date" name="dtExpedicao" class="form-control">
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="estadoCivil">Estado civil</label>
+                        </div>
+                        <select name="estadoCivil" class="custom-select" id="estadoCivil">
+                            <option selected>{{$cliente->pessoaFisica->estadoCivil}}</option>
+                            @foreach($estadoscivis as $estadocivil)
+                            <option>{{$estadocivil->tipo}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Orgão expeditor</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="orgExpeditor" class="form-control">
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="tratamento">Tratamento</label>
+                        </div>
+                        <select name="tratamento" class="custom-select" id="tratamento">
+                            <option selected>{{$cliente->pessoaFisica->tratamento}}</option>
+                            @foreach($tratamentos as $tratamento)
+                            <option>{{$tratamento->tipo}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Nome da mãe</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="nomeMae" class="form-control">
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
+                        </div>
+                        <select name="nacionalidade" class="custom-select" id="nacionalidade">
+                            <option selected>{{$cliente->pessoaFisica->nacionalidade}}</option>
+                            @foreach($nacionalidades as $nacionalidade)
+                            <option>{{$nacionalidade->tipo}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de Nascimento </strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="date" name="dtNascimento" class="form-control" value="{{$cliente->pessoaFisica->dtNascimento}}">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <input type="text" placeholder="{{$cliente->pessoaFisica->nomeMae}}" name="nomeMae" class="form-control">
                     </div>
                 </div>
             </div>
-        </div> <!-- FIM DOS DADOS PESSOA NATURAL -->
+        </div><!-- FIM DO COLLAPSE PF -->
 
-        <div class="col-6">
-        <label class="col-sm-4 control-label">ENDEREÇO E CONTATOS</label>
-            <div class="card scroll-me" style="height: 600px;">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Logradouro</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="logradouro" class="form-control">
+        @else($cliente->nome_empresa > 0)
+        <!-- INÍCIO DO COLLAPSE PJ -->
+        <div class="card cadastro juridica">
+            <div class="card-header">
+                <strong>PESSOA JURÍDICA</strong>
+            </div>
+            <div class="card-body col-12">
+                <p class="card-text">
+                <div class="row">
+                    <div class="form-group col-9">
+                        <input type="text" name="nome_empresa" placeholder="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
+                            @error('nome_empresa')
+                        <div class="invalid-feedback">
+                            {{$message}}
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <label class="col-sm-4 control-label">Complemento</label>
-                            <div class="col-12">
-                                <input class="form-control form-control" type="text" name="complemento" >
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <label class="col-sm-6 control-label">Número</label>
-                            <div class="col-5">
-                                <input class="form-control form-control" type="text" name="numEndereco">
-                            </div>
-                        </div>
+                            @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Bairro</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="bairro" class="form-control">
-                        </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="numero" placeholder="{{$cliente->pessoaJuridica->numero}}" class="form-control">
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Cidade</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cidade" class="form-control">
-                        </div>
+                    @if($cliente->pessoaJuridica->inscMunicipal > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" placeholder="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
                     </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Estado</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="uf" class="form-control">
-                        </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" placeholder="Inscrição Municipal" class="form-control">
                     </div>
+                    @endif
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">CEP</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="cep" class="form-control">
-                        </div>
+                    @if($cliente->pessoaJuridica->insEstadual > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" placeholder="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
                     </div>
-
-
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">E-mail</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="email" class="form-control">
-                        </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscEstadual" placeholder="Inscrição Estadual" class="form-control">
                     </div>
+                    @endif
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Telefone</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="telefone" class="form-control">
-                        </div>
+                    @if($cliente->pessoaJuridica->codigo > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="codigo" placeholder="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
                     </div>
+                    @else
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="codigo"  placeholder="Código" class="form-control">
+                    </div>
+                    @endif
 
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Celular</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="celular" class="form-control">
+                    <div class="form-group input-group col-2">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="natureza">Natureza</label>
                         </div>
-                    </div> <!-- FIM DOS DADOS ENDEREÇO E CONTATOS-->
+                        <select name="natureza_pj" class="custom-select" id="natureza">
+                            <option selected>{{$cliente->pessoaJuridica->natureza_pj}}</option>
+                            @foreach($naturezas_juridicas as $natureza)
+                            <option>{{$natureza->sigla}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="form-group">
-    <label class="col-sm-4 control-label"></label>
-    <div class="col-sm-10">
-        <input type="submit" value="Cadastrar" class="btn btn-success">
-    </div>
-</div>
-</form>
+        <!-- FIM DO COLLAPSE PJ -->
+        @endif
+        <!-- INÍCIO DO CARD ENDEREÇO -->
+        <div class="card">
+            <div class="card-header">
+                <strong>ENDEREÇO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <input type="text"  placeholder="{{substr_replace($cliente->endereco->cep, '-', 5, 0)}}" name="cep" id="cep" class="form-control">
+                        </div>
 
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="{{$cliente->endereco->logradouro}}" name="logradouro" id="rua" class="form-control">
+                        </div>
+
+                        <div class="form-group col-1">
+                            <input placeholder="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" class="form-control">
+                        </div>
+
+                        <div class="form-group col-3">
+                            <input placeholder="{{$cliente->endereco->complemento}}"  type="text" name="complemento" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <input type="text" placeholder="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <input type="text" placeholder="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-1">
+                            <input type="text" placeholder="{{$cliente->endereco->uf}}" name="uf" id="uf" class="form-control">
+                        </div>
+                    </div>
+                </p>
+            </div>
+        <!-- FIM DO CARD ENDEREÇO -->
+
+        <!-- INÍCIO DO CARD CONTATO -->
+            <div class="card-header">
+                <strong>CONTATO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        @foreach($cliente->contato as $contato)
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="{{$contato->email}}" name="email" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="@if($contato->telefone > 0){{$contato->telefone}} @else Telefone @endif" name="telefone" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="@if($contato->celular > 0){{$contato->celular}} @else Celular @endif" name="celular" class="form-control">
+                        </div>
+                        @endforeach
+                    </div>
+                </p>
+            </div>
+        <!-- FIM DO CARD CONTATO -->
+        </div>
+
+        <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+            <div class="col-sm-12" align="right">
+                <button type="submit" class="btn btn-success">Atualizar</button>
+            </div>
+        </div>
+    </form>
+    <script src="{{url('js/botao_pf_pj.js')}}"></script>
+    <script src="{{url('js/viacep_cliente.js')}}"></script>
+    <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
 @endsection
+
+
