@@ -88,6 +88,7 @@ class CadastroController extends Controller
         $pf->tratamento     = $request->input('tratamento');
         $pf->numCtps        = $request->input('numCtps');
         $pf->serieCtps      = $request->input('serieCtps');
+        $pf->ufCtps         = $request->input('ufCtps');
         $pf->nacionalidade  = $request->input('nacionalidade');
         $pf->dtNascimento   = $request->input('dtNascimento');
         $pf->tituloEleitor  = $request->input('tituloEleitor');
@@ -128,13 +129,13 @@ class CadastroController extends Controller
         $endereco->save();
 
 
-        $processo->pasta        = $request->input('pasta');
+        /*$processo->pasta        = $request->input('pasta');
         $processo->ultAndamento = $request->input('ultAndamento');
         $processo->advContrario = $request->input('advContrario');
         $processo->titulo       = $request->input('titulo');
         $processo->save();
 
-        /*$cliente_processo->processo_id->processo()->associate($processo);
+        $cliente_processo->processo_id->processo()->associate($processo);
         $cliente_processo->cliente_id->cliente()->associate($cliente);
         $cliente_processo->save();*/
 
@@ -156,10 +157,31 @@ class CadastroController extends Controller
 
     public function edit($id)
     {
+        $profissoes                 = Profissao::all()->sortBy('tipo');
+        $tratamentos                = Tratamento::all();
+        $nacionalidades             = Nacionalidade::all();
+        $estadoscivis               = EstadoCivil::all();
+        $sexos                      = PessoaFisica::all();
+        $orgexpeditores             = OrgaoExpeditor::all();
+
+        $naturezas_juridicas        = NaturezaJuridica::all();
+
+        $estados                    = Estado::all();
+        $cidades                    = Cidade::all();
+
         $cliente = Cliente::find($id);
         if($cliente) {
             return view('admin.clientes.editar', [
-                'cliente' => $cliente
+                'cliente' => $cliente,
+                'profissoes'            => $profissoes,
+                'tratamentos'           => $tratamentos,
+                'nacionalidades'        => $nacionalidades,
+                'estadoscivis'          => $estadoscivis,
+                'sexos'                 => $sexos,
+                'orgexpeditores'        => $orgexpeditores,
+                'estados'               => $estados,
+                'cidades'               => $cidades,
+                'naturezas_juridicas'   => $naturezas_juridicas
             ]);
         }
 
