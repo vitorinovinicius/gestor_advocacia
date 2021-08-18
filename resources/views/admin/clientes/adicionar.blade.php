@@ -4,7 +4,9 @@
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
+<link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
 <script src="{{url('js/jquery.min.js')}}"></script>
+<script src="{{url('js/mascara_cadastro.js')}}"></script>
     <h1>
             Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -15,7 +17,6 @@
 @endsection
 
 @section('content')
-<link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
     <form action="{{ route('cadastro.store') }}" method="POST" >
         @csrf
         <!-- BOTÕES DO COLLAPSE PF E PJ-->
@@ -46,26 +47,37 @@
                             <input type="text" name="nome" placeholder="Nome completo" class="form-control">
                         </div>
                         <div class="form-group col-sm-3">
-                            <input type="text" name="cpf" placeholder="CPF" class="form-control">
+                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" placeholder="PIS" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control">
+                            <input type="text" id="pis" name="pis" placeholder="PIS" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_pis()">
                         </div>
 
                         <div class="form-group col-sm-2">
-                            <input placeholder="Série" type="text" name="serieCtps" class="form-control">
+                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control" autocomplete="off" maxlength="7">
+                        </div>
+
+                        <div class="form-group col-sm-1">
+                            <input placeholder="Série" type="text" id="serie_ctps" name="serieCtps" class="form-control" maxlength="5" onkeyup="mascara_serie_ctps()">
+                        </div>
+                        <div class="form-group input-group col-2">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="uf_ctps">UF</label>
+                            </div>
+                            <select name="ufCtps" class="custom-select" id="uf_ctps">
+                                <option selected></option>
+                                @foreach($estados as $uf)
+                                <option>{{$uf->uf}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group input-group col-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="profissao">Profissão</label>
                             </div>
-                            <select name="profissao_id" class="custom-select" id="profissao">
+                            <select name="profissao" class="custom-select" id="profissao">
                             <option selected></option>
                             @foreach($profissoes as $profissao)
                             <option>{{$profissao->tipo}}</option>
@@ -75,16 +87,11 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Título de eleitor" name="tituloEleitor" class="form-control">
+                            <input type="text" placeholder="Título de eleitor" id="titulo_eleitor" name="tituloEleitor" class="form-control" autocomplete="off" maxlength="19" onkeyup="mascara_titulo_eleitor()">
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Identidade (RG)" name="idtCivil" class="form-control">
-                                @error('idtCivil')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                                @enderror
+                            <input type="text" placeholder="Identidade (RG)" id="rg" name="idtCivil" class="form-control" autocomplete="off" maxlength="13" onkeyup="mascara_rg()">
                         </div>
 
                         <div class="form-group input-group col-4">
@@ -177,39 +184,19 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome_empresa" placeholder="Razão social" class="form-control @error('nome_empresa') is-invalid @enderror">
-                            @error('nome_empresa')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                            @enderror
+                        <input type="text" name="nome_empresa" placeholder="Razão social" class="form-control">
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numero" placeholder="Número CNPJ" class="form-control @error('numero') is-invalid @enderror">
-                            @error('numero')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                            @enderror
+                        <input type="text" id="cnpj" name="numero" placeholder="Número CNPJ" class="form-control" maxlength="19" onkeyup="mascara_cnpj()">
                     </div>
 
                     <div class="form-group col-sm-4">
                         <input type="text" name="inscMunicipal" placeholder="Inscrição Municipal" class="form-control">
-                        @error('inscMunicipal')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                            @enderror
                     </div>
 
                     <div class="form-group col-sm-4">
                         <input type="text" name="inscEstadual" placeholder="Inscrição Estadual" class="form-control" >
-                        @error('numCtps')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                            @enderror
                     </div>
 
                     <div class="form-group col-sm-2">
@@ -240,7 +227,7 @@
                 <p class="card-text">
                     <div class="row">
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep" class="form-control">
+                            <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep" class="form-control" autocomplete="off">
                         </div>
 
                         <div class="form-group col-sm-4">
@@ -287,152 +274,12 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Celular" name="celular" class="form-control">
+                            <input type="text" id="celular" placeholder="Celular" name="celular" class="form-control" maxlength="15" onkeyup="mascara_celular()">
                         </div>
                     </div>
                 </p>
             </div>
         <!-- FIM DO CARD CONTATO -->
-        </div>
-
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
-                <label class="form-check-label">
-                    Parte contrária
-                </label>
-            </div> <!-- FIM BOTÃO COLLAPSE PARTE CONTRÁRIA -->
-
-            <div class="card cadastro parte_contraria">
-                <div class="card-header">
-                    <strong>PARTE CONTRÁRIA</strong>
-                </div>
-                <div class="card-body col-12">
-                    <p class="card-text">
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                                <input type="text"  placeholder="Nome da parte contrária" name="parteContraria" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-4">
-                                <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-2">
-                                <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-2">
-                                <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-2">
-                                <input type="text"  placeholder="Número do Processo" name="numProcesso" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-2">
-                                <input type="date"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-12">
-                                <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
-                            </div>
-                        </div>
-                    </p>
-                </div><!-- FIM DO COLLAPSE PARTE CONTRÁRIA -->
-
-                <div class="card-header">
-                    <strong>ENDEREÇO</strong>
-                </div>
-                <div class="card-body col-12">
-                    <p class="card-text">
-                        <div class="row">
-                            <div class="form-group col-sm-3">
-                                <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-4">
-                                <input type="text" placeholder="Logradouro" name="logradouro" id="rua2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-1">
-                                <input type="text" placeholder="Número" name="numEndereco" class="form-control">
-                            </div>
-
-                            <div class="form-group col-3">
-                                <input type="text" placeholder="Complemento"  name="complemento" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                                <input type="text" placeholder="Bairro" name="bairro" id="bairro2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                                <input type="text" placeholder="Cidade" name="cidade" id="cidade2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-1">
-                                <input type="text" placeholder="Estado" name="uf" id="uf2" class="form-control">
-                            </div>
-                        </div>
-                    </p>
-                </div><!-- FIM DO COLLAPSE ENDEREÇO PARTE CONTRÁRIA -->
-            </div>
-        </div>
-
-    <!-- INÍCIO DO MODAL GERADOR DE DOCUMENTOS-->
-        <div class="modal fade" id="documentos" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="documentos" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-md">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="documentos">GERADOR DE DOCUMENTOS</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="honorarios">
-                            <label class="form-check-label" for="honorarios">
-                                Contrato de honorários
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="procuracao">
-                            <label class="form-check-label" for="procuracao">
-                                Procuração
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="decHipo">
-                            <label class="form-check-label" for="decHipo">
-                                Declaração de hipossuficiência
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="decRisc">
-                            <label class="form-check-label" for="decRisc">
-                                Declaração de risco
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="soliDocs">
-                            <label class="form-check-label" for="soliDocs">
-                                Solicitação de documentos
-                            </label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div><!-- FIM DO MODAL GERADOR DE DOCUMENTOS-->
-        <div class="col-sm-12" align="left">
-            <a data-toggle="modal" data-target="#documentos" href="">Gerar documentos</a> <!-- BOTÃO MODAL GERAR DOCUMENTOS -->
         </div>
 
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
@@ -441,6 +288,7 @@
             </div>
         </div>
     </form>
+    
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
