@@ -11,6 +11,21 @@
     </h1>
 @endsection
 @section('content')
+@if(!empty($clientes) >= 0)
+<div align="center">
+    <div class="col-lg-4 col-4">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h1>Não há clientes cadastrados.</h1>
+            </div>
+            <div class="icon">
+                <i class="fas fa-exclamation-triangle">
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
+@else
 <div class="card col-12">
     <div class="card-body">
         <table class="table table-hover">
@@ -26,9 +41,16 @@
                 @foreach($clientes as $cliente)
                 <tr>
                     <td>{{$cliente->id}}</td>
-                    <td><a href="{{route('cadastro.show', [$cliente->id])}}">@if(isset($cliente->nome) > 0){{$cliente->nome}} @else {{$cliente->nome_empresa}}  ({{$cliente->pessoaJuridica->natureza_pj}})@endif</a></td>
-                    <td>@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}
-                        @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}}
+                    <td>
+                        <a href="{{route('cadastro.show', [$cliente->id])}}">
+                            @if(isset($cliente->nome) > 0){{$cliente->nome}}
+                            @else {{$cliente->nome_empresa}}  ({{$cliente->pessoaJuridica->natureza_pj}})
+                            @endif
+                        </a>
+                    </td>
+                    <td>
+                        @if(!empty($cliente->pessoaJuridica->numero) > 0){{ $cliente->pessoaJuridica->numero }}
+                        @else{{$cliente->pessoaFisica->cpf}}
                         @endif
                     </td>
                     <td>
@@ -46,4 +68,5 @@
     </div>
 </div>
     {{$clientes->links()}}
+@endif
 @endsection
