@@ -14,6 +14,10 @@ class Cliente extends Model
         'nome_empresa'
     ];
 
+    protected $date = ['date'];
+
+    protected $guarded = [];
+
     public function contato()
     {
         return $this->hasMany(Contato::class);
