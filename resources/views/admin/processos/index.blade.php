@@ -12,6 +12,21 @@
     </h1>
 @endsection
 @section('content')
+@if(!empty($processos) >= 0)
+<div align="center">
+    <div class="col-lg-4 col-4">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h1>Não há processos cadastrados.</h1>
+            </div>
+            <div class="icon">
+                <i class="fas fa-exclamation-triangle">
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
+@else
 <div class="card col-12">
     <div class="card-body">
         <table class="table table-hover">
@@ -42,4 +57,7 @@
             </tbody>
         </table>
         {{$processos->links()}}
+    </div>
+</div>
+@endif
 @endsection
