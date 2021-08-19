@@ -15,27 +15,39 @@ class CreatePessoasFisicasTable extends Migration
     {
         Schema::create('pessoas_fisicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
+            $table->integer('cliente_id')->unsigned()->nullable();
+            $table->integer('parte_contraria_id')->unsigned()->nullable();
+            
+            $table->integer('user_id')->unsigned()->nullable();
+            
+            $table->string('cpf', 14)->unique()->nullable();
+            $table->string('pis', 14)->unique()->nullable();
+            $table->string('profissao', 5)->nullable();
+            $table->enum('sexo', ['Masculino', 'Feminino'])->nullable();
+            $table->string('tratamento', 50)->nullable();
+            $table->string('numCtps', 7)->unique()->nullable();
+            $table->string('serieCtps', 5)->nullable();
+            $table->string('ufCtps', 2)->nullable();
+            $table->string('nacionalidade', 100)->nullable();
+            $table->string('codMatricula', 10)->nullable();
+            $table->date('dtNascimento')->nullable();
+            $table->string('tituloEleitor', 19)->unique()->nullable();
+            $table->string('idtCivil', 13)->unique()->nullable();
+            $table->date('dtExpedicao')->nullable();
+            $table->string('nomeMae', 150)->nullable();
+            $table->timestamps();
+
+            $table->foreign('parte_contraria_id')
+            ->references('id')
+            ->on('partes_contrarias')
+            ->onDelete('cascade');
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')
             ->references('id')
             ->on('users');
-            $table->string('cpf', 15)->unique();
-            $table->string('pis', 15)->unique()->nullable();
-            $table->enum('sexo', ['M', 'F']);
-            $table->string('numCtps', 6)->unique();
-            $table->string('serieCtps', 10);
-            $table->string('codMatricula', 10);
-            $table->date('dtNascimento');
-            $table->string('tituloEleitor', 16)->unique();
-            $table->string('idtCivil', 10)->unique();
-            $table->date('dtExpedicao');
-            $table->string('nomeMae', 150);
-            $table->timestamps();
         });
     }
 

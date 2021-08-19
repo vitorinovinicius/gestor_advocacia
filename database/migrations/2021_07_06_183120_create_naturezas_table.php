@@ -15,12 +15,7 @@ class CreateNaturezasTable extends Migration
     {
         Schema::create('naturezas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('processo_id')->unsigned();
-            $table->foreign('processo_id')
-            ->references('id')
-            ->on('processos')
-            ->onDelete('cascade');
-            $table->string('tipo_Nat');
+            $table->string('tipo')->nullable();
             $table->timestamps();
         });
     }

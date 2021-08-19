@@ -15,12 +15,7 @@ class CreateAcoesTable extends Migration
     {
         Schema::create('acoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('processo_id')->unsigned()->nullable();
-            $table->foreign('processo_id')
-            ->references('id')
-            ->on('processos')
-            ->onDelete('cascade');
-            $table->string('tipo_Acao');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

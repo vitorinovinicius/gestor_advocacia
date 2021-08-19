@@ -16,27 +16,41 @@ class CreateEnderecosTable extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
+
+            $table->integer('parte_contraria_id')->unsigned()->nullable();
+            
+            $table->integer('user_id')->unsigned()->nullable();
+            
+            $table->integer('orgao_id')->unsigned()->nullable();
+
+            $table->string('logradouro', 150)->nullable();
+            $table->string('complemento', 50)->nullable();
+            $table->string('numEndereco', 10)->nullable();
+            $table->string('bairro', 60)->nullable();
+            $table->string('cidade', 60)->nullable();
+            $table->tinyInteger('uf')->nullable();
+            $table->string('cep', 8)->nullable();
+            $table->timestamps();
+
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->nullable();
+
+            $table->foreign('parte_contraria_id')
+            ->references('id')
+            ->on('partes_contrarias')
+            ->onDelete('cascade');         
+
             $table->foreign('user_id')
             ->references('id')
-            ->on('users');
-            $table->integer('orgao_id')->unsigned()->nullable();
+            ->on('users')
+            ->onDelete('cascade');
+
             $table->foreign('orgao_id')
             ->references('id')
             ->on('orgaos')
             ->onDelete('cascade');
-            $table->string('logradouro', 150);
-            $table->string('complemento', 50);
-            $table->string('numEndereco', 10);
-            $table->string('bairro', 60);
-            $table->string('cidade', 60);
-            $table->tinyInteger('uf');
-            $table->integer('cep');
-            $table->timestamps();
         });
     }
 

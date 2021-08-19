@@ -15,17 +15,16 @@ class CreateProcessosTable extends Migration
     {
         Schema::create('processos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pasta', 300);
-            $table->integer('numInicial')->nullable();
-            $table->integer('numPrincipal')->nullable();
-            $table->string('parteContraria')->nullable();
-            $table->integer('numProcesso')->nullable();
+            $table->string('pasta', 300)->nullable();
+            $table->string('numInicial')->nullable();
+            $table->string('numPrincipal')->nullable();
+            $table->string('numProcesso')->nullable();
             $table->date('ultAndamento')->nullable();
             $table->text('compromisso')->nullable();
             $table->string('instInicial')->nullable();
             $table->date('dtDistribuicao')->nullable();
-            $table->string('advContrario');
-            $table->text('titulo');
+            $table->string('advContrario')->nullable();
+            $table->text('titulo')->nullable();
             $table->timestamps();
         });
     }

@@ -15,12 +15,7 @@ class CreateOrgaosExpeditoresTable extends Migration
     {
         Schema::create('orgaos_expeditores', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pessoaFisica_id')->unsigned();
-            $table->foreign('pessoaFisica_id')
-            ->references('id')
-            ->on('pessoas_fisicas')
-            ->onDelete('cascade');
-            $table->string('tipo_Org_Exp');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

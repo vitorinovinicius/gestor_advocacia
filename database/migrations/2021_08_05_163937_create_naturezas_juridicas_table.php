@@ -15,11 +15,6 @@ class CreateNaturezasJuridicasTable extends Migration
     {
         Schema::create('naturezas_juridicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pessoa_juridica_id')->unsigned();
-            $table->foreign('pessoa_juridica_id')
-            ->references('id')
-            ->on('pessoas_juridicas')
-            ->onDelete('cascade');
             $table->string('tipo', 60)->nullable();
             $table->string('sigla', 10)->nullable();
         });

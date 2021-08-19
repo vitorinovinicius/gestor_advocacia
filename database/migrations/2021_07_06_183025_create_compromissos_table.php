@@ -25,13 +25,13 @@ class CreateCompromissosTable extends Migration
             ->references('id')
             ->on('servicos')
             ->onDelete('cascade');
-            $table->string('situacao');
-            $table->string('tipo');
-            $table->date('publicacao');
-            $table->text('descricao');
-            $table->date('inicial');
-            $table->time('hora');
-            $table->time('final');
+            $table->string('situacao')->nullable();
+            $table->string('tipo')->nullable();
+            $table->date('publicacao')->nullable();
+            $table->text('descricao')->nullable();
+            $table->date('inicial')->nullable();
+            $table->time('hora')->nullable();
+            $table->time('final')->nullable();
             $table->timestamps();
         });
     }

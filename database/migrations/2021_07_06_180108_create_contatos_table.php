@@ -26,8 +26,8 @@ class CreateContatosTable extends Migration
             ->on('users');
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('telefone', 20)->nullable();
-            $table->string('celular', 20)->unique();
+            $table->string('telefone', 13)->nullable();
+            $table->string('celular', 14)->unique();
             $table->timestamps();
         });
     }

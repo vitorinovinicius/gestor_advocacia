@@ -15,12 +15,7 @@ class CreateRitosTable extends Migration
     {
         Schema::create('ritos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('processo_id')->unsigned();
-            $table->foreign('processo_id')
-            ->references('id')
-            ->on('processos')
-            ->onDelete('cascade');
-            $table->string('tipo_Rito');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

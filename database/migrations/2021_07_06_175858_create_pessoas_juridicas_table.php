@@ -15,16 +15,23 @@ class CreatePessoasJuridicasTable extends Migration
     {
         Schema::create('pessoas_juridicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
+            $table->integer('cliente_id')->unsigned()->nullable();
+            $table->integer('parte_contraria_id')->unsigned()->nullable();
+            $table->string('numero', 19)->nullable();
+            $table->string('inscMunicipal')->nullable();
+            $table->string('inscEstadual')->nullable();
+            $table->integer('codigo')->nullable();
+            $table->timestamps();
+                        
+            $table->foreign('parte_contraria_id')
+            ->references('id')
+            ->on('partes_contrarias')
+            ->onDelete('cascade');
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->string('numero');
-            $table->string('inscMunicipal');
-            $table->string('inscEstadual');
-            $table->integer('codigo');
-            $table->timestamps();
+            
         });
     }
 

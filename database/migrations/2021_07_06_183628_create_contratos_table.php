@@ -15,29 +15,34 @@ class CreateContratosTable extends Migration
     {
         Schema::create('contratos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unsigned();
+            
+            $table->integer('cliente_id')->unsigned()->nullable();            
+            $table->integer('user_id')->unsigned()->nullable();           
+            $table->integer('servico_id')->unsigned()->nullable();
+            
+            $table->string('numero')->nullable();
+            $table->string('tipo')->nullable();
+            $table->date('cadastro')->nullable();
+            $table->date('assinatura')->nullable();
+            $table->date('dtInicio')->nullable();
+            $table->date('dtFim')->nullable();
+            $table->string('valor')->nullable();
+            $table->timestamps();
+
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
+
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-            $table->integer('servico_id')->unsigned();
+
             $table->foreign('servico_id')
             ->references('id')
             ->on('servicos')
-            ->onDelete('cascade');
-            $table->string('numero');
-            $table->string('tipo_Contr');
-            $table->date('cadastro');
-            $table->date('assinatura');
-            $table->date('dtInicio');
-            $table->date('dtFim');
-            $table->string('valor');
-            $table->timestamps();
+            ->onDelete('cascade');            
         });
     }
 

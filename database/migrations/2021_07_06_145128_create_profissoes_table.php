@@ -15,7 +15,7 @@ class CreateProfissoesTable extends Migration
     {
         Schema::create('profissoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo_profissao');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

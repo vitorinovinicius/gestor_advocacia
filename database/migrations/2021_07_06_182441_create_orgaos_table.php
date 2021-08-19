@@ -20,9 +20,9 @@ class CreateOrgaosTable extends Migration
             ->references('id')
             ->on('processos')
             ->onDelete('cascade');
-            $table->string('nome');
-            $table->integer('numero');
-            $table->string('vara');
+            $table->string('nome')->nullable();
+            $table->integer('numero')->nullable();
+            $table->string('vara')->nullable();
             $table->timestamps();
         });
     }

@@ -15,12 +15,7 @@ class CreateTipoServicosTable extends Migration
     {
         Schema::create('tipo_servicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('servico_id')->unsigned();
-            $table->foreign('servico_id')
-            ->references('id')
-            ->on('servicos')
-            ->onDelete('cascade');
-            $table->string('tipo_Serv');
+            $table->string('tipo')->nullable();
             $table->timestamps();
         });
     }
