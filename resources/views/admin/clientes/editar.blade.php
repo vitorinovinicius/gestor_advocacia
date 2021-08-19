@@ -5,6 +5,7 @@
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
 <script src="{{url('js/jquery.min.js')}}"></script>
+<script src="{{url('js/mascara_cadastro.js')}}"></script>
     <h1>
             Editar dados do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -15,10 +16,11 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('cadastro.store') }}" method="POST" >
+    <form action="{{ route('cadastro.update', $cliente->id) }}" method="POST" >
         @csrf
-        @if($cliente->nome > 0)
+        @method('PUT')
         <!-- INÍCIO DA PESSOA NATURAL -->
+        @if($cliente->nome > 0)
         <div class="card cadastro natural">
             <div class="card-header">
                 <strong>PESSOA NATURAL</strong>
@@ -27,23 +29,41 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-6">
-                        <input type="text" name="nome" placeholder="{{$cliente->nome}}" class="form-control">
+                        <input type="text" name="nome" value="{{$cliente->nome}}" class="form-control" maxlength="150">
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="text" name="cpf" placeholder="{{$cliente->pessoaFisica->cpf}}" class="form-control">
+                        <input type="text" name="cpf" value="{{$cliente->pessoaFisica->cpf}}" class="form-control" maxlength="14" autocomplete="off">
                     </div>
 
+                    @if($cliente->pessoaFisica->pis > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="pis" placeholder="{{$cliente->pessoaFisica->pis}}" class="form-control">
+                        <input type="text" name="pis" value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14" autocomplete="off">
                     </div>
-
+                    @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numCtps" placeholder="{{$cliente->pessoaFisica->numCtps}}" class="form-control">
+                        <input type="text" name="pis" placeholder="PIS não informado." class="form-control" maxlength="14" autocomplete="off" onkeyup="mascara_pis()">
                     </div>
+                    @endif
 
-                    <div class="form-group col-sm-2">
-                        <input type="text" name="serieCtps" placeholder="{{$cliente->pessoaFisica->serieCtps}}" class="form-control">
+                    @if($cliente->pessoaFisica->numCtps > 0)
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="numCtps" value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7" autocomplete="off">
                     </div>
+                    @else
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="numCtps" placeholder="Número da CTPS não infomado." class="form-control" maxlength="7" autocomplete="off">
+                    </div>
+                    @endif
+
+                    @if($cliente->pessoaFisica->serieCtps > 0)
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="serieCtps" value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5" autocomplete="off">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="serieCtps" placeholder="Nº de série da CTPS não infomado." class="form-control" maxlength="5" autocomplete="off">
+                    </div>
+                    @endif
 
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
@@ -58,12 +78,18 @@
 
                     </div>
 
-                    <div class="form-group col-sm-4">
-                        <input type="text" placeholder="{{$cliente->pessoaFisica->tituloEleitor}}" name="tituloEleitor" class="form-control">
+                    @if($cliente->pessoaFisica->serieCtps <= 0 && $cliente->pessoaFisica->tituloEleitor > 0)
+                    <div class="form-group col-sm-3">
+                        <input type="text" value="{{$cliente->pessoaFisica->tituloEleitor}}" name="tituloEleitor" class="form-control" maxlength="19">
                     </div>
+                    @else
+                    <div class="form-group col-sm-3">
+                        <input type="text" placeholder="Título de eleitor não informado." name="tituloEleitor" class="form-control" maxlength="19">
+                    </div>
+                    @endif 
 
                     <div class="form-group col-sm-4">
-                        <input type="text" placeholder="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control">
+                        <input type="text" value="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control" maxlength="13">
                             @error('idtCivil')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -88,7 +114,7 @@
                     </div>
 
                     <div class="form-group col-sm-2">
-                        <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
+                        <input type="date" name="dtExpedicao" class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
                     </div>
 
                     <div class="form-group input-group col-3">
@@ -146,7 +172,7 @@
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <input type="text" placeholder="{{$cliente->pessoaFisica->nomeMae}}" name="nomeMae" class="form-control">
+                        <input type="text" value="{{$cliente->pessoaFisica->nomeMae}}" name="nomeMae" class="form-control" maxlength="150">
                     </div>
                 </div>
             </div>
@@ -162,7 +188,7 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome_empresa" placeholder="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
+                        <input type="text" name="nome_empresa" value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
                             @error('nome_empresa')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -171,12 +197,12 @@
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numero" placeholder="{{$cliente->pessoaJuridica->numero}}" class="form-control">
+                        <input type="text" name="numero" value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18">
                     </div>
 
                     @if($cliente->pessoaJuridica->inscMunicipal > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal" placeholder="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
+                        <input type="text" name="inscMunicipal" value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
@@ -186,7 +212,7 @@
 
                     @if($cliente->pessoaJuridica->insEstadual > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal" placeholder="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
+                        <input type="text" name="inscMunicipal" value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
@@ -228,32 +254,38 @@
             <div class="card-body">
                 <p class="card-text">
                     <div class="row">
+                    @if($cliente->endereco->cep > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="{{substr_replace($cliente->endereco->cep, '-', 5, 0)}}" name="cep" id="cep" class="form-control">
+                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" id="cep" class="form-control" maxlength="8">
                         </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text"  placeholder="Insira somente os números do CEP" name="cep" id="cep" class="form-control" maxlength="8">
+                        </div>
+                    @endif
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="{{$cliente->endereco->logradouro}}" name="logradouro" id="rua" class="form-control">
+                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" id="rua" class="form-control" maxlength="150">
                         </div>
 
                         <div class="form-group col-1">
-                            <input placeholder="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" class="form-control">
+                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" class="form-control" maxlength="10">
                         </div>
 
                         <div class="form-group col-3">
-                            <input placeholder="{{$cliente->endereco->complemento}}"  type="text" name="complemento" class="form-control">
+                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" class="form-control" maxlength="50">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" class="form-control">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" class="form-control" maxlength="60">
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <input type="text" placeholder="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" class="form-control">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" class="form-control" maxlength="60">
                         </div>
 
                         <div class="form-group col-sm-1">
-                            <input type="text" placeholder="{{$cliente->endereco->uf}}" name="uf" id="uf" class="form-control">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" class="form-control" maxlength="2">
                         </div>
                     </div>
                 </p>
@@ -269,16 +301,28 @@
                     <div class="row">
                         @foreach($cliente->contato as $contato)
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="{{$contato->email}}" name="email" class="form-control">
+                            <input type="text" value="{{$contato->email}}" name="email" class="form-control" maxlength="100">
                         </div>
 
+                        @if(isset($contato->telefone) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="@if($contato->telefone > 0){{$contato->telefone}} @else Telefone @endif" name="telefone" class="form-control">
+                            <input type="text" value="{{$contato->telefone}}" name="telefone" class="form-control" maxlength="13">
                         </div>
+                        @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Telefone" name="telefone" class="form-control" maxlength="13">
+                        </div>
+                        @endif
 
+                        @if(isset($contato->celular) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="@if($contato->celular > 0){{$contato->celular}} @else Celular @endif" name="celular" class="form-control">
+                            <input type="text" value="{{$contato->celular}}" name="celular" class="form-control" maxlength="14">
                         </div>
+                        @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Celular" name="telefone" class="form-control" maxlength="14">
+                        </div>
+                        @endif
                         @endforeach
                     </div>
                 </p>
