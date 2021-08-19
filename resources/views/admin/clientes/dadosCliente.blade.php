@@ -1,154 +1,410 @@
 @extends('adminlte::page')
 
-
-@section('title', 'Clientes')
+@section('title', 'Editar cliente ')
 
 @section('content_header')
-<link rel="stylesheet" type="text/css" href={{ url('css/dados_cliente.css') }}>
+<link rel="stylesheet" href="{{url('css/app.css')}}">
+<script src="{{url('js/jquery.min.js')}}"></script>
     <h1>
-        Meus clientes
+            Editar dados do cliente
+        <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
+        <i class="fas fa-reply"></i>
+            Voltar
+        </a>
     </h1>
 @endsection
+
 @section('content')
-<div class="card col-12 scroll-me" style="height: 400px;">
-    <div class="card-body">
-        <div class="mb-3 row">
-            <label class="col-sm-2 col-form-label"> Nome completo </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->tratamento)}} {{ucwords($cliente->nome)}}</ol>
+    <form action="{{ route('cadastro.update', $cliente->id) }}" method="POST" >
+        @csrf
+        @method('PUT')
+        <!-- INÍCIO DA PESSOA NATURAL -->
+        @if($cliente->nome > 0)
+        <div class="card cadastro natural">
+            <div class="card-header">
+                <strong>PESSOA NATURAL</strong>
             </div>
+            <div class="card-body col-12">
+                <p class="card-text">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <input type="text" name="nome" readonly value="{{$cliente->nome}}" class="form-control" maxlength="150">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="cpf" readonly value="{{$cliente->pessoaFisica->cpf}}" class="form-control" maxlength="14">
+                    </div>
 
-            <label class="col-sm-2 col-form-label"> CPF / CNPJ </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">@if(!empty($cliente->pessoaJuridica->numero) > 0){{substr_replace(substr_replace(substr_replace(substr_replace($cliente->pessoaJuridica->numero, '-', 12, 0), '/', 8, 0), '.', 5, 0), '.', 2, 0)}}  @else{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->cpf, '-', 9, 0 ), '.', 6, 0), '.', 3, 0 )}} @endif</ol>
-            </div>
+                    @if($cliente->pessoaFisica->pis > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="pis" readonly value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="pis" readonly value="PIS não informado." class="form-control" maxlength="14">
+                        </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Identidade </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->idtCivil, '-', 8, 0 ), '.', 5, 0), '.', 2, 0 )}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->numCtps > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="numCtps" readonly value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text" name="numCtps" readonly value="Número da CTPS não informado." class="form-control" maxlength="7">
+                        </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label">PIS</label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->pis, '-', 10, 0), '.', 8, 0), '.', 3, 0)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->serieCtps > 0)
+                        <div class="form-group col-sm-2">
+                            <input type="text" name="serieCtps" readonly value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-2">
+                            <input type="text" name="serieCtps" readonly value="Série CTPS não informado." class="form-control" maxlength="5">
+                        </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Nº CTPS </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->pessoaFisica->numCtps}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->profissao > 0)
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" for="profissao">Profissão</span>
+                            </div>
+                            <input type="text" name="profissao" readonly value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao">
+                        </div>
+                    @else
+                        <div class="form-group input-group col-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" for="profissao">Profissão</span>
+                            </div>
+                            <input type="text" name="profissao" readonly value="Não informada."class="custom-select" id="profissao">
+                        </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Série CTPS </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace($cliente->pessoaFisica->serieCtps, '-', 5, 0), '/', 2, 0)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->tituloEleitor > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="tituloEleitor" readonly value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="tituloEleitor" readonly value="Não informado." class="form-control" maxlength="19">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Título de Eleitor </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{substr_replace(substr_replace(substr_replace($cliente->pessoaFisica->tituloEleitor,' ', 12, 0),' ', 8, 0), ' ', 4, 0)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->idtCivil > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="idtCivil" readonly  value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="idtCivil" readonly  value="Número do registro geral não informado." class="form-control" maxlength="13">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Gênero </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->sexo)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->orgExpeditor > 0)
+                    <div class="form-group input-group col-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
+                        </div>
+                        <input type="text" name="orgExpeditor" readonly value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor">
+                    </div>
+                    @else
+                    <div class="form-group input-group col-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
+                        </div>
+                        <input type="text" name="orgExpeditor" readonly value="Orgão não infomado."class="custom-select" id="orgExpeditor">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Nacionalidade </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->nacionalidade)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->dtExpeditor > 0)
+                    <div class="form-group col-sm-2" align="right">
+                        <strong>Data de expedição </strong>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <input type="date" name="dtExpedicao" readonly class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-2" align="right">
+                        <strong>Data de expedição </strong>
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <input type="date" name="dtExpedicao" readonly class="form-control" value="Não informado.">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Estado civil </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{ucfirst($cliente->pessoaFisica->estadoCivil)}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->sexo > 0)
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="sexo">Sexo</span>
+                        </div>
+                        <input type="text" name="sexo" readonly value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo">
+                    </div>
+                    @else
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="sexo">Sexo</span>
+                        </div>
+                        <input type="text" name="sexo" readonly value="Não informado"class="custom-select" id="sexo">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Profissão </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->pessoaFisica->profissao}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->estadoCivil > 0)
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="estadoCivil">Estado civil</span>
+                        </div>
+                        <input type="text" name="estadoCivil" readonly value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil">
+                    </div>
+                    @else
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="estadoCivil">Estado civil</span>
+                        </div>
+                        <input type="text" name="estadoCivil" readonly value="Não informado."class="custom-select" id="estadoCivil">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Mãe </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->pessoaFisica->nomeMae}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->tratamento > 0)
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="tratamento">Tratamento</span>
+                        </div>
+                        <input type="text" name="tratamento" readonly value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento">
+                    </div>
+                    @else
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" for="tratamento">Tratamento</span>
+                        </div>
+                        <input type="text" name="tratamento" readonly value="Não informado."class="custom-select" id="tratamento">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Data de nascimento </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{date('d/m/Y', strtotime($cliente->pessoaFisica->dtNascimento))}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->nacionalidade > 0)
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nacionalidade</span>
+                        </div>
+                        <input type="text" name="nacionalidade" readonly value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" >
+                    </div>
+                    @else
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nacionalidade</span>
+                        </div>
+                        <input type="text" name="nacionalidade" readonly value="Não informado." class="custom-select" >
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Logradouro </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->endereco->logradouro}}</ol>
-            </div>
+                    @if($cliente->pessoaFisica->dtNascimento > 0)
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de Nascimento </strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="date" name="dtNascimento" class="form-control" readonly value="{{$cliente->pessoaFisica->dtNascimento}}">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de Nascimento </strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="dtNascimento" class="form-control" readonly value="Não informado.">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Número </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->endereco->numEndereco}}</ol>
+                    <div class="form-group col-sm-6">
+                        <input type="text" name="nomeMae" readonly value="{{$cliente->pessoaFisica->nomeMae}}" class="form-control" maxlength="150">
+                    </div>
+                </div>
             </div>
+        </div><!-- FIM DO COLLAPSE PF -->
 
-            <label class="col-sm-2 col-form-label"> Complemento </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">@if(!empty($cliente->endereco->complemento) < 0)  S/N  @else {{$cliente->endereco->complemento}} @endif</ol>
+        @else($cliente->nome_empresa > 0)
+        <!-- INÍCIO DO COLLAPSE PJ -->
+        <div class="card cadastro juridica">
+            <div class="card-header">
+                <strong>PESSOA JURÍDICA</strong>
             </div>
+            <div class="card-body col-12">
+                <p class="card-text">
+                <div class="row">
+                    <div class="form-group col-9">
+                        <input type="text" name="nome_empresa" readonly value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
+                            @error('nome_empresa')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                            @enderror
+                    </div>
 
-            <label class="col-sm-2 col-form-label"> Bairro </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->endereco->bairro}}</ol>
-            </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="numero" readonly value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18">
+                    </div>
 
-            <label class="col-sm-2 col-form-label"> Cidade </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->endereco->cidade}}</ol>
-            </div>
+                    @if($cliente->pessoaJuridica->inscMunicipal > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" readonly value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" readonly placeholder="Inscrição Municipal não informada." class="form-control">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> Estado </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{$cliente->endereco->uf}}</ol>
-            </div>
+                    @if($cliente->pessoaJuridica->insEstadual > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscMunicipal" readonly value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="inscEstadual" readonly placeholder="Inscrição Estadual não informada." class="form-control">
+                    </div>
+                    @endif
 
-            <label class="col-sm-2 col-form-label"> CEP </label>
-            <div class="col-sm-10">
-                <ol type="text" readonly class="form-control-plaintext">{{substr_replace($cliente->endereco->cep, '-', 5, 0)}}</ol>
-            </div>
-        </div>
-    </div>
-</div>
-    @if(!empty($cliente->processo->id))
-    <div class="container">Nenhum processo encontrado!</div>
-    @else
-    <div class="row">
-        <div class="col-12">
-            <div class="card scroll-me" style="height: 230px">
-                <div class="card-header">
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="50px">#</th>
-                                    <th width="500px">Processos</th>
-                                    <th width="500px">Andamentos</th>
-                                    <th width="150px">Pastas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($cliente->processo as $dados)
-                                <tr>
-                                    <td>{{$dados->id}}</td>
-                                    <td>{{$dados->parteContraria}}</td>
-                                    <td>@if($dados->ultAndamento > 0){{date('d/m/Y', strtotime($dados->ultAndamento))}}  @else Não há andamento. @endif</td>
-                                    <td>
-                                        <a href="{{route('processo.show', [$dados->id])}}">{{$dados->pasta}}</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                    @if($cliente->pessoaJuridica->codigo > 0)
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="codigo" readonly value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
+                    </div>
+                    @else
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="codigo" readonly placeholder="Código não informado." class="form-control">
+                    </div>
+                    @endif
+
+                    <div class="form-group input-group col-2">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="natureza">Natureza</label>
+                        </div>
+                        <input name="natureza_pj" value="{{$cliente->pessoaJuridica->natureza_pj}}" class="custom-select" id="natureza">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endif
+        <!-- FIM DO COLLAPSE PJ -->
+        @endif
+        <!-- INÍCIO DO CARD ENDEREÇO -->
+        <div class="card">
+            <div class="card-header">
+                <strong>ENDEREÇO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                    @if($cliente->endereco->cep > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" readonly id="cep" class="form-control" maxlength="8">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text"  placeholder="CEP não informado" name="cep" readonly id="cep" class="form-control" maxlength="8">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->logradouro > 0)
+                        <div class="form-group col-sm-4">
+                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" readonly id="rua" class="form-control" maxlength="150">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" value="Logradouro não informado." name="logradouro" readonly id="rua" class="form-control" maxlength="150">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->numEndereco > 0)
+                        <div class="form-group col-1">
+                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
+                        </div>
+                    @else
+                        <div class="form-group col-1">
+                            <input value="Nº não informado" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->complemento > 0)
+                        <div class="form-group col-3">
+                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" readonly class="form-control" maxlength="50">
+                        </div>
+                    @else
+                        <div class="form-group col-3">
+                            <input value="Complemento não informado."  type="text" name="complemento" readonly class="form-control" maxlength="50">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->bairro > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" readonly class="form-control" maxlength="60">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" readonly class="form-control" maxlength="60">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->cidade > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" readonly class="form-control" maxlength="60">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" readonly class="form-control" maxlength="60">
+                        </div>
+                    @endif
+
+                    @if($cliente->endereco->uf > 0)
+                        <div class="form-group col-sm-1">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-1">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
+                        </div>
+                    @endif
+                    </div>
+                </p>
+            </div>
+        <!-- FIM DO CARD ENDEREÇO -->
+
+        <!-- INÍCIO DO CARD CONTATO -->
+            <div class="card-header">
+                <strong>CONTATO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        @foreach($cliente->contato as $contato)
+                        <div class="form-group col-sm-4">
+                            <input type="text" value="{{$contato->email}}" name="email" readonly class="form-control" maxlength="100">
+                        </div>
+
+                        @if(isset($contato->telefone) > 0)
+                        <div class="form-group col-sm-4">
+                            <input type="text" value="{{$contato->telefone}}" name="telefone" readonly class="form-control" maxlength="13">
+                        </div>
+                        @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Telefone não informado." name="telefone" readonly class="form-control" maxlength="13">
+                        </div>
+                        @endif
+
+                        @if(isset($contato->celular) > 0)
+                        <div class="form-group col-sm-4">
+                            <input type="text" value="{{$contato->celular}}" name="celular" readonly class="form-control" maxlength="14">
+                        </div>
+                        @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Celular não informado." name="celular" readonly class="form-control" maxlength="14">
+                        </div>
+                        @endif
+                        @endforeach
+                    </div>
+                </p>
+            </div>
+        <!-- FIM DO CARD CONTATO -->
+        </div>
+    </form>
+    <script src="{{url('js/botao_pf_pj.js')}}"></script>
+    <script src="{{url('js/viacep_cliente.js')}}"></script>
+    <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
 @endsection
+
+
