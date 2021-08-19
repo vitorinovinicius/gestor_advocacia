@@ -23,11 +23,11 @@ $(document).ready(function() {
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                $("#rua").val("...");
-                $("#bairro").val("...");
-                $("#cidade").val("...");
-                $("#uf").val("...");
+                //Preenche os campos com "Carregando..." enquanto consulta webservice.
+                $("#rua").val("Carregando...");
+                $("#bairro").val("Carregando...");
+                $("#cidade").val("Carregando...");
+                $("#uf").val("Carregando...");
 
                 //Consulta o webservice viacep.com.br/
                 $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
