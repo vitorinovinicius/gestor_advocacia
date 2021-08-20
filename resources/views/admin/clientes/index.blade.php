@@ -11,7 +11,7 @@
     </h1>
 @endsection
 @section('content')
-@if(count($clientes) >= 0)
+@if(count($clientes) <= 0)
 <div align="center">
     <div class="col-lg-4 col-4">
         <div class="small-box bg-warning">
@@ -40,19 +40,25 @@
             <tbody>
                 @foreach($clientes as $cliente)
                 <tr>
+                    @if(empty($cliente->nome || $cliente->nome_empresa)) <!--Verifica se existe cliente cadastrado.-->
+                    @else <!--Senão existir retorna somente os cliente cadastrados.-->
                     <td>{{$cliente->id}}</td>
                     <td>
                         <a href="{{route('cadastro.show', [$cliente->id])}}">
-                            @if(isset($cliente->nome) > 0){{$cliente->nome}}
-                            @else {{$cliente->nome_empresa}}  ({{$cliente->pessoaJuridica->natureza_pj}})
-                            @endif
+                        @if(isset($cliente->nome) > 0){{$cliente->nome}}
+                        @elseif (isset($cliente->nome_empresa) > 0) {{$cliente->nome_empresa}} ({{$cliente->pessoaJuridica->natureza_pj}})
+                        @endif
                         </a>
                     </td>
+                    @if(isset($cliente) > 0)
                     <td>
-                        @if(!empty($cliente->pessoaJuridica->numero) > 0){{ $cliente->pessoaJuridica->numero }}
-                        @else{{$cliente->pessoaFisica->cpf}}
+                        @if($cliente->pessoaJuridica > 0){{ $cliente->pessoaJuridica->numero }}
+                        @else($cliente->pessoaFisica >0){{ $cliente->pessoaFisica->cpf }}
                         @endif
                     </td>
+                    @else
+                    <td>Não há dados cadastros.</td>
+                    @endif
                     <td>
                         <a href="{{route('cadastro.edit', $cliente->id)}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('cadastro.destroy', $cliente->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
@@ -61,6 +67,7 @@
                             <button class="btn btn-sm btn-danger">Excluir</button>
                         </form>
                     </td>
+                    @endif <!--Fim da verificação-->
                 </tr>
                 @endforeach
             </tbody>
