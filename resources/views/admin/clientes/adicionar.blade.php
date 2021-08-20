@@ -17,7 +17,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('cadastro.store') }}" method="POST" >
+    <form action="{{ route('cadastro.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
         @csrf
         <!-- BOTÕES DO COLLAPSE PF E PJ-->
         <div class="form-check form-check-inline">
@@ -37,14 +37,14 @@
 
         <!-- INÍCIO DO COLLAPSE PF -->
             <div class="card cadastro natural">
-                <div class="card-header">
+                <div class="card-header bg-light">
                     <strong>PESSOA NATURAL</strong>
                 </div>
                 <div class="card-body col-12">
                     <p class="card-text">
                     <div class="row">
                         <div class="form-group col-6">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control required">
                         </div>
                         <div class="form-group col-sm-3">
                             <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()">
@@ -65,24 +65,26 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="uf_ctps">UF</label>
                             </div>
-                            <select name="ufCtps" class="custom-select" id="uf_ctps">
-                                <option selected></option>
-                                @foreach($estados as $uf)
-                                <option>{{$uf->uf}}</option>
-                                @endforeach
-                            </select>
+                            <input name="ufCtps" class="custom-select" id="uf_ctps" list="uf_ctpsOptions">
+                            <datalist id="uf_ctpsOptions">
+                            <option selected></option>
+                            @foreach($estados as $uf)
+                            <option>{{$uf->uf}}</option>
+                            @endforeach
+                            </datalist>
                         </div>
 
                         <div class="form-group input-group col-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="profissao">Profissão</label>
                             </div>
-                            <select name="profissao" class="custom-select" id="profissao">
+                            <input name="profissao" class="custom-select" id="profissao" list="ProfissaoOptions">
+                            <datalist id="ProfissaoOptions">
                             <option selected></option>
                             @foreach($profissoes as $profissao)
                             <option>{{$profissao->tipo}}</option>
                             @endforeach
-                            </select>
+                            </datalist>
 
                         </div>
 
@@ -177,18 +179,18 @@
 
         <!-- INÍCIO DO COLLAPSE PJ -->
         <div class="card cadastro juridica">
-            <div class="card-header">
+            <div class="card-header bg-light">
                 <strong>PESSOA JURÍDICA</strong>
             </div>
             <div class="card-body col-12">
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome_empresa" placeholder="Razão social" class="form-control">
+                        <input type="text" name="nome_empresa" placeholder="Razão social" class="form-control required">
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" id="cnpj" name="numero" placeholder="Número CNPJ" class="form-control" maxlength="19" onkeyup="mascara_cnpj()">
+                        <input type="text" id="cnpj" name="numero" placeholder="Número CNPJ" class="form-control" maxlength="18" onkeyup="mascara_cnpj()">
                     </div>
 
                     <div class="form-group col-sm-4">
@@ -206,12 +208,17 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="natureza">Natureza</label>
                         </div>
-                        <select name="natureza_pj" class="custom-select" id="natureza">
-                            <option selected></option>
-                            @foreach($naturezas_juridicas as $natureza)
-                            <option>{{$natureza->sigla}}</option>
-                            @endforeach
-                        </select>
+                        <input name="natureza_pj" class="custom-select" id="natureza" list="NaturezaOptions">
+                            <datalist id="NaturezaOptions">
+                                <option selected></option>
+                                @foreach($naturezas_juridicas as $natureza)
+                                <option>{{$natureza->sigla}}</option>
+                                @endforeach
+                            </datalist>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="pasta" placeholder="Pasta do Processo" class="form-control" >
                     </div>
                 </div>
             </div>
@@ -220,7 +227,7 @@
 
         <!-- INÍCIO DO CARD ENDEREÇO -->
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-light">
                 <strong>ENDEREÇO</strong>
             </div>
             <div class="card-body">
@@ -284,11 +291,11 @@
 
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
             <div class="col-sm-12" align="right">
-                <button type="submit" class="btn btn-success">Cadastrar</button>
+                <input type="submit" class="btn btn-success" value="Cadastrar">
             </div>
         </div>
     </form>
-    
+
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
