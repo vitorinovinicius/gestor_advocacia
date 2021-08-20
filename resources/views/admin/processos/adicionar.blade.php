@@ -1,3 +1,16 @@
+@extends('adminlte::page')
+
+@section('title', 'Processos')
+
+@section('content_header')
+    <h1>
+        Novo processo
+        <a href="{{route('processo.index)}}" class="btn btn-sm btn-success">
+            Voltar
+        </a>
+    </h1>
+@endsection
+@section('content')
 <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
                 <label class="form-check-label">
