@@ -4,7 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Cliente;
+use App\Models\PessoaFisica;
+use App\Models\ProfissaoPessoaFisica;
+use App\Models\Profissao;
+use App\Models\Tratamento;
+use App\Models\Nacionalidade;
+use App\Models\EstadoCivil;
+use App\Models\OrgaoExpeditor;
+use App\Models\PessoaJuridica;
+use App\Models\NaturezaJuridica;
+use App\Models\Contato;
+use App\Models\Endereco;
+use App\Models\Estado;
+use App\Models\Cidade;
 use App\Models\Processo;
+use App\Models\ParteContraria;
 
 class ProcessoController extends Controller
 {
@@ -28,7 +43,7 @@ class ProcessoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.processos.adicionar');
     }
 
     /**
@@ -39,7 +54,68 @@ class ProcessoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $processo               = new Processo;
+        $parte_contraria        = new ParteContraria;
+        $pf                     = new PessoaFisica;
+        $pj                     = new PessoaJuridica;
+        $contato                = new Contato;
+        $endereco               = new Endereco;
+
+        $parte_contraria->nome              = $request->input('nome');
+        $parte_contraria->nome_empresa      = $request->input('nome_empresa');
+        $parte_contraria->save();
+
+        if ($parte_contraria->nome = $request->input('nome')){
+
+        $pf->cpf            = $request->input('cpf');
+        $pf->pis            = $request->input('pis');
+        $pf->sexo           = $request->input('sexo');
+        $pf->profissao      = $request->input('profissao');
+        $pf->estadoCivil    = $request->input('estadoCivil');
+        $pf->tratamento     = $request->input('tratamento');
+        $pf->numCtps        = $request->input('numCtps');
+        $pf->serieCtps      = $request->input('serieCtps');
+        $pf->ufCtps         = $request->input('ufCtps');
+        $pf->nacionalidade  = $request->input('nacionalidade');
+        $pf->dtNascimento   = $request->input('dtNascimento');
+        $pf->tituloEleitor  = $request->input('tituloEleitor');
+        $pf->idtCivil       = $request->input('idtCivil');
+        $pf->dtExpedicao    = $request->input('dtExpedicao');
+        $pf->orgExpeditor   = $request->input('orgExpeditor');
+        $pf->nomeMae        = $request->input('nomeMae');
+        $pf->parteContraria()->associate($parte_contraria);
+        $pf->save();
+
+        }elseif($parte_contraria->nome_empresa = $request->input('nome_empresa')){
+
+        $pj->numero             = $request->input('numero');
+        $pj->inscMunicipal      = $request->input('inscMunicipal');
+        $pj->inscEstadual       = $request->input('inscEstadual');
+        $pj->codigo             = $request->input('codigo');
+        $pj->natureza_pj        = $request->input('natureza_pj');
+        $pj->parteContraria()->associate($parte_contraria);
+        $pj->save();
+    }
+
+
+        $contato->email         = $request->input('email');
+        $contato->telefone      = $request->input('telefone');
+        $contato->celular       = $request->input('celular');
+        $contato->parteContraria()->associate($parte_contraria);
+        $contato->save();
+
+
+        $endereco->logradouro   = $request->input('logradouro');
+        $endereco->complemento  = $request->input('complemento');
+        $endereco->numEndereco  = $request->input('numEndereco');
+        $endereco->bairro       = $request->input('bairro');
+        $endereco->cidade       = $request->input('cidade');
+        $endereco->uf           = $request->input('uf');
+        $endereco->cep          = $request->input('cep');
+        $endereco->parteContraria()->associate($parte_contraria);
+        $endereco->save();
+
+        return redirect()->route('cadastro.index');
     }
 
     /**
@@ -80,7 +156,12 @@ class ProcessoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+        $cliente->processo()->sync($id);
+
+        $processo = Processo::findOrFail($id);
+
+        return redirect()->route('Processo.index')->with('success', 'Processo vínculado ao'.$cliente->nome || $cliente->nome_empresa);
     }
 
     /**
