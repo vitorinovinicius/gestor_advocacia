@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{url('css/app.css')}}">
 <script src="{{url('js/jquery.min.js')}}"></script>
     <h1>
-            Editar dados do cliente
+            Dados do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
         <i class="fas fa-reply"></i>
             Voltar
@@ -15,13 +15,12 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('cadastro.update', $cliente->id) }}" method="POST" >
+    <form>
         @csrf
-        @method('PUT')
         <!-- INÍCIO DA PESSOA NATURAL -->
         @if($cliente->nome > 0)
-        <div class="card cadastro natural">
-            <div class="card-header">
+        <div class="card shadow-lg bg-light rounded cadastro natural">
+            <div class="card-header bg-light">
                 <strong>PESSOA NATURAL</strong>
             </div>
             <div class="card-body col-12">
@@ -116,7 +115,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->dtExpeditor > 0)
+                    @if($cliente->pessoaFisica->dtExpedicao > 0)
                     <div class="form-group col-sm-2" align="right">
                         <strong>Data de expedição </strong>
                     </div>
@@ -221,8 +220,8 @@
 
         @else($cliente->nome_empresa > 0)
         <!-- INÍCIO DO COLLAPSE PJ -->
-        <div class="card cadastro juridica">
-            <div class="card-header">
+        <div class="card shadow-lg bg-light rounded cadastro juridica">
+            <div class="card-header bg-light">
                 <strong>PESSOA JURÍDICA</strong>
             </div>
             <div class="card-body col-12">
@@ -283,8 +282,8 @@
         <!-- FIM DO COLLAPSE PJ -->
         @endif
         <!-- INÍCIO DO CARD ENDEREÇO -->
-        <div class="card">
-            <div class="card-header">
+        <div class="card shadow-lg rounded">
+            <div class="card-header bg-light">
                 <strong>ENDEREÇO</strong>
             </div>
             <div class="card-body">
@@ -315,7 +314,7 @@
                             <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
                         </div>
                     @else
-                        <div class="form-group col-1">
+                        <div class="form-group col-2">
                             <input value="Nº não informado" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
                         </div>
                     @endif
@@ -336,7 +335,7 @@
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" readonly class="form-control" maxlength="60">
+                            <input type="text" value="Bairro não informado." name="bairro" id="bairro" readonly class="form-control" maxlength="60">
                         </div>
                     @endif
 
@@ -346,7 +345,7 @@
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" readonly class="form-control" maxlength="60">
+                            <input type="text" value="Cidade não informada." name="cidade" id="cidade" readonly class="form-control" maxlength="60">
                         </div>
                     @endif
 
@@ -355,8 +354,8 @@
                             <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
                         </div>
                     @else
-                        <div class="form-group col-sm-1">
-                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
+                        <div class="form-group col-sm-2">
+                            <input type="text" value="UF não informada." name="uf" id="uf" readonly class="form-control" maxlength="2">
                         </div>
                     @endif
                     </div>
@@ -365,7 +364,7 @@
         <!-- FIM DO CARD ENDEREÇO -->
 
         <!-- INÍCIO DO CARD CONTATO -->
-            <div class="card-header">
+            <div class="card-header bg-light">
                 <strong>CONTATO</strong>
             </div>
             <div class="card-body">
