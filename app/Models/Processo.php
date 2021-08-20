@@ -32,8 +32,8 @@ class Processo extends Model
         return $this->belongsTo(Cliente::class);
     }
 
-    public function clienteProcesso()
+    public function parteContraria()
     {
-        return $this->hasMany(ClienteProcesso::class);
+        return $this->belongsToMany(Cliente::class);
     }
 }

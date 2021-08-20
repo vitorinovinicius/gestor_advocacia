@@ -19,4 +19,9 @@ class Contato extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function parteContraria()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
 }

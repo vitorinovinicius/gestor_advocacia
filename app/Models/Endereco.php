@@ -10,15 +10,20 @@ class Endereco extends Model
     use HasFactory;
     protected $fillable = [
         'logradouro',
-         'complemento',
-         'numEndereco',
-         'bairro',
-         'cidade',
-         'uf',
-         'cep'
+        'complemento',
+        'numEndereco',
+        'bairro',
+        'cidade',
+        'uf',
+        'cep'
         ];
 
     public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function parteContraria()
     {
         return $this->belongsTo(Cliente::class);
     }

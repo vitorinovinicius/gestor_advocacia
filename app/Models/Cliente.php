@@ -18,11 +18,6 @@ class Cliente extends Model
 
     protected $guarded = [];
 
-    public function contato()
-    {
-        return $this->hasMany(Contato::class);
-    }
-
     public function pessoaFisica()
     {
         return $this->hasOne(PessoaFisica::class);
@@ -38,9 +33,9 @@ class Cliente extends Model
         return $this->belongsToMany(Processo::class);
     }
 
-    public function clienteProcesso()
+    public function servico()
     {
-        return $this->hasMany(ClienteProcesso::class);
+        return $this->belongsToMany(Processo::class);
     }
 
     public function endereco()
@@ -48,7 +43,8 @@ class Cliente extends Model
         return $this->hasOne(Endereco::class);
     }
 
-
-
-
+    public function contato()
+    {
+        return $this->hasMany(Contato::class);
+    }
 }
