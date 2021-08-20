@@ -11,7 +11,7 @@
     </h1>
 @endsection
 @section('content')
-@if(!empty($clientes) >= 0)
+@if(count($clientes) >= 0)
 <div align="center">
     <div class="col-lg-4 col-4">
         <div class="small-box bg-warning">

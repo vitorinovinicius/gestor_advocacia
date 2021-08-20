@@ -12,7 +12,7 @@
     </h1>
 @endsection
 @section('content')
-@if(!empty($processos) >= 0)
+@if(count($processos) <= 0)
 <div align="center">
     <div class="col-lg-4 col-4">
         <div class="small-box bg-warning">
