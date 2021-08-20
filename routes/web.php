@@ -33,6 +33,7 @@ Route::prefix('painel')->group(function ()
     Route::resource('usuarios',  Admin\UsuariosController::class);
     Route::resource('paginas',   Admin\PaginasController::class);
     Route::resource('cadastro',  Admin\CadastroController::class);
+
     Route::resource('processo',  Admin\ProcessoController::class);
 
     Route::get('perfil',       [Admin\PerfilController::class, 'index'])->name('perfil');
