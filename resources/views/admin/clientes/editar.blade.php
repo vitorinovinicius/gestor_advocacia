@@ -86,7 +86,7 @@
                     <div class="form-group col-sm-3">
                         <input type="text" placeholder="Título de eleitor não informado." name="tituloEleitor" class="form-control" maxlength="19">
                     </div>
-                    @endif 
+                    @endif
 
                     <div class="form-group col-sm-4">
                         <input type="text" value="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control" maxlength="13">
@@ -254,39 +254,75 @@
             <div class="card-body">
                 <p class="card-text">
                     <div class="row">
-                    @if($cliente->endereco->cep > 0)
+                    @if(isset($cliente->endereco->cep) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" id="cep" class="form-control" maxlength="8">
+                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep"  id="cep" class="form-control" maxlength="8">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="Insira somente os números do CEP" name="cep" id="cep" class="form-control" maxlength="8">
+                            <input type="text"  placeholder="CEP não informado" name="cep"  id="cep" class="form-control" maxlength="8">
                         </div>
                     @endif
 
+                    @if(isset($cliente->endereco->logradouro) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" id="rua" class="form-control" maxlength="150">
+                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro"  id="rua" class="form-control" maxlength="150">
                         </div>
+                    @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="Logradouro não informado." name="logradouro"  id="rua" class="form-control" maxlength="150">
+                        </div>
+                    @endif
 
+                    @if(isset($cliente->endereco->numEndereco) > 0)
                         <div class="form-group col-1">
-                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" class="form-control" maxlength="10">
+                            <input type="text" value="{{$cliente->endereco->numEndereco}}" name="numEndereco"  class="form-control" maxlength="10">
                         </div>
+                    @else
+                        <div class="form-group col-2">
+                            <input type="text" placeholder="Nº não informado" name="numEndereco"  class="form-control" maxlength="10">
+                        </div>
+                    @endif
 
+                    @if(isset($cliente->endereco->complemento) > 0)
                         <div class="form-group col-3">
-                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" class="form-control" maxlength="50">
+                            <input type="text" value="{{$cliente->endereco->complemento}}" name="complemento"  class="form-control" maxlength="50">
                         </div>
+                    @else
+                        <div class="form-group col-3">
+                            <input type="text" placeholder="Complemento não informado." name="complemento"  class="form-control" maxlength="50">
+                        </div>
+                    @endif
 
+                    @if(isset($cliente->endereco->bairro) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" class="form-control" maxlength="60">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro"  class="form-control" maxlength="60">
                         </div>
-
+                    @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" class="form-control" maxlength="60">
+                            <input type="text" placeholder="Bairro não informado." name="bairro" id="bairro"  class="form-control" maxlength="60">
                         </div>
+                    @endif
 
+                    @if(isset($cliente->endereco->cidade) > 0)
+                        <div class="form-group col-sm-3">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade"  class="form-control" maxlength="60">
+                        </div>
+                    @else
+                        <div class="form-group col-sm-3">
+                            <input type="text" placeholder="Cidade não informada." name="cidade" id="cidade"  class="form-control" maxlength="60">
+                        </div>
+                    @endif
+
+                    @if(isset($cliente->endereco->uf) > 0)
                         <div class="form-group col-sm-1">
-                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" class="form-control" maxlength="2">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf"  class="form-control" maxlength="2">
                         </div>
+                    @else
+                        <div class="form-group col-sm-2">
+                            <input type="text" placeholder="UF não informada." name="uf" id="uf"  class="form-control" maxlength="2">
+                        </div>
+                    @endif
                     </div>
                 </p>
             </div>
@@ -300,9 +336,15 @@
                 <p class="card-text">
                     <div class="row">
                         @foreach($cliente->contato as $contato)
+                        @if($contato->email > 0)
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$contato->email}}" name="email" class="form-control" maxlength="100">
                         </div>
+                        @else
+                        <div class="form-group col-sm-4">
+                            <input type="text" placeholder="E-mail" name="telefone" class="form-control" maxlength="100">
+                        </div>
+                        @endif
 
                         @if(isset($contato->telefone) > 0)
                         <div class="form-group col-sm-4">
