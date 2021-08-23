@@ -13,16 +13,14 @@
 @endsection
 @section('content')
 @if(count($processos) <= 0)
-<div align="center">
-    <div class="col-lg-4 col-4">
-        <div class="small-box bg-warning">
+<div class="container-fluid" align="center">
+    <div class="col-lg-3 col-6">
+        <div class="card bg-warning">
             <div class="inner">
-                <h1>Não há processos cadastrados.</h1>
+                <h3><i class="fas fa-exclamation-triangle"></i></h3>
+                <p>Não há processos cadastrados.</p>
             </div>
-            <div class="icon">
-                <i class="fas fa-exclamation-triangle">
-                </i>
-            </div>
+            <div class="small-box-footer"></div>
         </div>
     </div>
 </div>

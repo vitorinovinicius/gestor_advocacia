@@ -147,7 +147,7 @@ return [
 
     'sidebar_mini' => 'md',
     'sidebar_collapse' => true,
-    'sidebar_collapse_auto_size' => true,
+    'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-dark',
@@ -250,9 +250,16 @@ return [
             'icon'        => 'fas fa-users'
         ],
         [
-            'text'        => 'Processos',
-            'url'         => 'painel/processo',
-            'icon'        => 'fas fa-gavel'
+            'text'        => 'Contingência',
+            'icon'        => 'fas fa-gavel',
+            'submenu'     => [
+                        'text' => 'Processos',
+                        'url'  => 'painel/processo',
+            ],
+            [
+                        'text' => 'Serviços',
+                        'url'  => 'painel/servico',
+            ],
         ],
         [
             'text'        => 'Minhas páginas',
