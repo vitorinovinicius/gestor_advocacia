@@ -58,14 +58,13 @@ class ProcessoController extends Controller
         $parte_contraria        = new ParteContraria;
         $pf                     = new PessoaFisica;
         $pj                     = new PessoaJuridica;
-        $contato                = new Contato;
+        //$contato                = new Contato;
         $endereco               = new Endereco;
 
         $parte_contraria->nome              = $request->input('nome');
-        $parte_contraria->nome_empresa      = $request->input('nome_empresa');
         $parte_contraria->save();
 
-        if ($parte_contraria->nome = $request->input('nome')){
+        /*if ($parte_contraria->nome = $request->input('nome')){
 
         $pf->cpf            = $request->input('cpf');
         $pf->pis            = $request->input('pis');
@@ -95,14 +94,23 @@ class ProcessoController extends Controller
         $pj->natureza_pj        = $request->input('natureza_pj');
         $pj->parteContraria()->associate($parte_contraria);
         $pj->save();
-    }
+    }*/
+        $processo->pasta            = $request->input('pasta');
+        $processo->numInicial       = $request->input('numInicial');
+        $processo->numPrincipal     = $request->input('numPrincipal');
+        $processo->numProcesso      = $request->input('numProcesso');
+        $processo->ultAndamento     = $request->input('ultAndamento');
+        $processo->compromisso      = $request->input('compromisso');
+        $processo->instInicial      = $request->input('instInicial');
+        $processo->dtDistribuicao   = $request->input('dtDistribuicao');
+        $processo->advContrario     = $request->input('advContrario');
+        $processo->titulo           = $request->input('titulo');
 
-
-        $contato->email         = $request->input('email');
+        /*$contato->email         = $request->input('email');
         $contato->telefone      = $request->input('telefone');
         $contato->celular       = $request->input('celular');
         $contato->parteContraria()->associate($parte_contraria);
-        $contato->save();
+        $contato->save();*/
 
 
         $endereco->logradouro   = $request->input('logradouro');
@@ -115,7 +123,7 @@ class ProcessoController extends Controller
         $endereco->parteContraria()->associate($parte_contraria);
         $endereco->save();
 
-        return redirect()->route('cadastro.index');
+        return redirect()->route('processo.index');
     }
 
     /**
@@ -144,9 +152,13 @@ class ProcessoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $processo = Processo::find($id);
+        if($processo) {
+            return view('admin.processos.editar', [
+                'processo' => $processo
+            ]);
+        }
     }
-
     /**
      * Update the specified resource in storage.
      *

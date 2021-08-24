@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ParteContraria extends Model
 {
     use HasFactory;
+    protected $table = 'partes_contrarias';
     protected $fillable = [
         'nome',
         'nome_empresa'
