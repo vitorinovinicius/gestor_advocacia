@@ -3,10 +3,11 @@
 @section('title', 'Novo cliente ')
 
 @section('content_header')
-<link rel="stylesheet" href="{{url('css/app.css')}}">
 <link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
-<script src="{{url('js/jquery.min.js')}}"></script>
-<script src="{{url('js/mascara_cadastro.js')}}"></script>
+<script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
+
     <h1>
             Adicionar cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -234,7 +235,7 @@
                 <p class="card-text">
                     <div class="row">
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep" class="form-control" autocomplete="off">
+                            <input type="text"  placeholder="Insira o CEP." name="cep" id="cep" class="form-control" autocomplete="off" maxlength="9">
                         </div>
 
                         <div class="form-group col-sm-4">
@@ -273,11 +274,11 @@
                 <p class="card-text">
                     <div class="row">
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="E-mail" name="email" class="form-control">
+                            <input type="email" placeholder="E-mail" name="email" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Telefone" name="telefone" class="form-control">
+                            <input type="text" id="telefone" placeholder="Telefone" name="telefone" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-4">
@@ -299,6 +300,7 @@
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
+
 @endsection
 
 

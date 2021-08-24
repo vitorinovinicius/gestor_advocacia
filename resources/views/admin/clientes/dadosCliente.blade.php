@@ -12,6 +12,12 @@
             Voltar
         </a>
     </h1>
+    <div align="right">
+        <a href="{{route('processo.create', $cliente->id)}}" class="btn btn-sm btn-success">
+        <i class="fas fa-gavel"></i>
+            Adicionar Processo
+        </a>
+    </div>
 @endsection
 
 @section('content')
