@@ -31,7 +31,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th class="col-1">Ordem</th>
+                    <th class="col-1">#</th>
                     <th class="col-4">Nome</th>
                     <th class="col-3">CPF / CNPJ</th>
                     <th class="col-2">Ações</th>
@@ -42,7 +42,7 @@
                 <tr>
                     @if(empty($cliente->nome || $cliente->nome_empresa)) <!--Verifica se existe cliente cadastrado.-->
                     @else <!--Senão existir retorna somente os cliente cadastrados.-->
-                    <td>{{$cliente->id}}</td>
+                    <td><i class="fas fa-user"></i></td>
                     <td>
                         <a href="{{route('cadastro.show', [$cliente->id])}}">
                         @if(isset($cliente->nome) > 0){{$cliente->nome}}
