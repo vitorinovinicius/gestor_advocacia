@@ -146,14 +146,14 @@ return [
     */
 
     'sidebar_mini' => 'md',
-    'sidebar_collapse' => true,
+    'sidebar_collapse' => false,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
-    'sidebar_collapse_remember_no_transition' => true,
+    'sidebar_collapse_remember_no_transition' => false,
     'sidebar_scrollbar_theme' => 'os-theme-dark',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 1000,
+    'sidebar_nav_animation_speed' => 150,
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +194,7 @@ return [
     'register_url' => 'painel/registro',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -240,49 +240,48 @@ return [
         // Sidebar items:
 
         [
-            'text'        => 'Dashboard',
-            'url'         => 'painel',
-            'icon'        => 'fas fa-chart-pie'
+            'text'          => 'Dashboard',
+            'url'           => 'painel',
+            'icon'          => 'fas fa-chart-pie'
         ],
         [
-            'text'        => 'Clientes',
-            'url'         => 'painel/cadastro',
-            'icon'        => 'fas fa-users'
+            'text'          => 'Clientes',
+            'url'           => 'painel/cadastro',
+            'icon'          => 'fas fa-users'
         ],
         [
-            'text'        => 'Contingência',
-            'icon'        => 'fas fa-gavel',
-            'submenu'     => [
-                        'text' => 'Processos',
-                        'url'  => 'painel/processo',
+            'text'          => 'Contingência',
+            'icon'          => 'fas fa-briefcase',
+            'submenu'       => [
+                [
+                    'text'  => 'Processos',
+                    'url'   => 'painel/processo',
+                    'icon'  => 'fas fa-gavel'
+                ],[
+                    'text'  => 'Serviços',
+                    'url'   => 'painel/servico',
+                    'icon'  => 'fas fa-hands-helping'
+                ],
             ],
-            [
-                        'text' => 'Serviços',
-                        'url'  => 'painel/servico',
-            ],
-        ],
-        [
-            'text'        => 'Minhas páginas',
-            'url'         => 'painel/paginas',
-            'icon'        => 'fas fa-window-restore'
+
         ],
 
         [
-            'text'        => 'Meus usuários',
-            'url'         => 'painel/usuarios',
-            'icon'        => 'fas fa-id-card-alt',
-            'can'         => 'permissao_usuarios'
+            'text'          => 'Usuários do Sistema',
+            'url'           => 'painel/usuarios',
+            'icon'          => 'fas fa-id-card-alt',
+            'can'           => 'permissao_usuarios'
         ],
-        ['header' => 'Configurações'],
+        ['header'           => 'Configurações'],
         [
-            'text'        => 'Configurações do sistema',
-            'url'        => 'painel/config',
-            'icon'        => 'fas fa-fw fa-cog',
+            'text'          => 'Configurações do sistema',
+            'url'           => 'painel/config',
+            'icon'          => 'fas fa-fw fa-cog',
         ],
         [
-            'text'        => 'Meu perfil',
-            'url'        => 'painel/perfil',
-            'icon'        => 'fas fa-fw fa-user-tie',
+            'text'          => 'Meu perfil',
+            'url'           => 'painel/perfil',
+            'icon'          => 'fas fa-fw fa-user-tie',
         ]
     ],
 
@@ -322,71 +321,71 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],
         ],
         'Pace' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
                 ],
             ],
