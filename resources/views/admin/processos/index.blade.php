@@ -6,21 +6,23 @@
 @section('content_header')
     <h1>
         Meus processos
-        <a href="#" class="btn btn-sm btn-success">
+        <a href="{{route('processo.create')}}" class="btn btn-sm btn-success">
             Novo processo
         </a>
     </h1>
 @endsection
 @section('content')
 @if(count($processos) <= 0)
-<div class="container-fluid" align="center">
-    <div class="col-lg-3 col-6">
-        <div class="card bg-warning">
+<div align="center">
+    <div class="col-lg-4 col-4">
+        <div class="small-box bg-warning">
             <div class="inner">
-                <h3><i class="fas fa-exclamation-triangle"></i></h3>
-                <p>Não há processos cadastrados.</p>
+                <h1 align="left">Não há processos cadastrados.</h1>
             </div>
-            <div class="small-box-footer"></div>
+            <div class="icon">
+                <i class="fas fa-exclamation-triangle">
+                </i>
+            </div>
         </div>
     </div>
 </div>

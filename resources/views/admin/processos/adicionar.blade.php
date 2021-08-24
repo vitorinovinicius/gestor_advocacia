@@ -5,13 +5,16 @@
 @section('content_header')
     <h1>
         Novo processo
-        <a href="{{route('processo.index)}}" class="btn btn-sm btn-success">
+        <a href="{{route('processo.index')}}" class="btn btn-sm btn-success">
             Voltar
         </a>
     </h1>
 @endsection
+
 @section('content')
-<div class="form-check form-check-inline">
+    <form action="{{ route('processo.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
+        @csrf
+        <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
                 <label class="form-check-label">
                     Parte contrária
@@ -26,7 +29,7 @@
                     <p class="card-text">
                         <div class="row">
                             <div class="form-group col-sm-6">
-                                <input type="text"  placeholder="Nome da parte contrária" name="parteContraria" class="form-control">
+                                <input type="text"  placeholder="Nome da parte contrária" name="nome" class="form-control">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -98,52 +101,12 @@
                 </div><!-- FIM DO COLLAPSE ENDEREÇO PARTE CONTRÁRIA -->
             </div>
         </div>
-
-    <!-- INÍCIO DO MODAL GERADOR DE DOCUMENTOS-->
-        <div class="modal fade" id="documentos" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="documentos" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-md">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="documentos">GERADOR DE DOCUMENTOS</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="honorarios">
-                            <label class="form-check-label" for="honorarios">
-                                Contrato de honorários
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="procuracao">
-                            <label class="form-check-label" for="procuracao">
-                                Procuração
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="decHipo">
-                            <label class="form-check-label" for="decHipo">
-                                Declaração de hipossuficiência
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="decRisc">
-                            <label class="form-check-label" for="decRisc">
-                                Declaração de risco
-                            </label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="soliDocs">
-                            <label class="form-check-label" for="soliDocs">
-                                Solicitação de documentos
-                            </label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+        <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+            <div class="col-sm-12" align="right">
+                <input type="submit" class="btn btn-success" value="Cadastrar">
             </div>
-        </div><!-- FIM DO MODAL GERADOR DE DOCUMENTOS-->
+        </div>
+    </form>
+@endsection
+@section('footer')
+@endsection
