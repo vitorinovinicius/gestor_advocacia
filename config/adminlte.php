@@ -251,7 +251,7 @@ return [
         ],
         [
             'text'          => 'Contingência',
-            'icon'          => 'fas fa-briefcase',
+            'icon'          => 'fas fa-balance-scale',
             'submenu'       => [
                 [
                     'text'  => 'Processos',
@@ -276,7 +276,7 @@ return [
         [
             'text'          => 'Configurações do sistema',
             'url'           => 'painel/config',
-            'icon'          => 'fas fa-fw fa-cog',
+            'icon'          => 'fas fa-fw fa-cogs',
         ],
         [
             'text'          => 'Meu perfil',
