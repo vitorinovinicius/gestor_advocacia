@@ -45,7 +45,7 @@
                     <td><a href="{{route('processo.show', [$processo->id])}}">{{$processo->pasta}}</a></td>
                     <td>@if(array($processo) > 0){{count($processo->cliente)}} @else Não há clientes registrados. @endif</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{route('processo.edit', [$processo->id])}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('processo.destroy', $processo->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
                             @method('delete')
                             @csrf
