@@ -105,6 +105,7 @@ class ProcessoController extends Controller
         $processo->dtDistribuicao   = $request->input('dtDistribuicao');
         $processo->advContrario     = $request->input('advContrario');
         $processo->titulo           = $request->input('titulo');
+        $processo->save();
 
         /*$contato->email         = $request->input('email');
         $contato->telefone      = $request->input('telefone');
@@ -122,6 +123,7 @@ class ProcessoController extends Controller
         $endereco->cep          = $request->input('cep');
         $endereco->parteContraria()->associate($parte_contraria);
         $endereco->save();
+
 
         return redirect()->route('processo.index');
     }
@@ -152,12 +154,15 @@ class ProcessoController extends Controller
      */
     public function edit($id)
     {
+        $cliente = Cliente::find($id);
+        $cliente->processo()->sync($id);
+
         $processo = Processo::find($id);
-        if($processo) {
+        $processo->cliente()->sync($id);
             return view('admin.processos.editar', [
-                'processo' => $processo
+                'processo' => $processo,
+                'cliente' => $cliente
             ]);
-        }
     }
     /**
      * Update the specified resource in storage.
@@ -172,6 +177,7 @@ class ProcessoController extends Controller
         $cliente->processo()->sync($id);
 
         $processo = Processo::findOrFail($id);
+        $processo->cliente()->sync($id);
 
         return redirect()->route('Processo.index')->with('success', 'Processo vínculado ao'.$cliente->nome || $cliente->nome_empresa);
     }
@@ -188,5 +194,13 @@ class ProcessoController extends Controller
         $cliente->delete();
 
         return redirect()->route('processo.index');
+    }
+
+    public function vincula_cliente($id)
+    {
+        $cliente = Cliente::find($id);
+        $cliente->processo()->sync($id);
+        $processo =Processo::findOrFail($id);
+
     }
 }
