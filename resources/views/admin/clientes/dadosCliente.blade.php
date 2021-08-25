@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar cliente ')
+@section('title', 'Dados do cliente ')
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
@@ -13,9 +13,9 @@
         </a>
     </h1>
     <div align="right">
-        <a href="{{route('processo.create', $cliente->id)}}" class="btn btn-sm btn-success">
+        <a href="{{route('processo.create')}}" class="btn btn-sm btn-success">
         <i class="fas fa-gavel"></i>
-            Adicionar Processo
+            Criar Processo
         </a>
     </div>
 @endsection
@@ -271,16 +271,12 @@
                         <input type="text" name="codigo" readonly value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
                     </div>
                     @else
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-3">
                         <input type="text" name="codigo" readonly placeholder="Código não informado." class="form-control">
                     </div>
                     @endif
-
-                    <div class="form-group input-group col-2">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="natureza">Natureza</label>
-                        </div>
-                        <input name="natureza_pj" value="{{$cliente->pessoaJuridica->natureza_pj}}" class="custom-select" id="natureza">
+                    <div class="form-group col-sm-1">
+                        <input type="text" name="natureza_pj" readonly value="{{$cliente->pessoaJuridica->natureza_pj}}" class="form-control">
                     </div>
                 </div>
             </div>
