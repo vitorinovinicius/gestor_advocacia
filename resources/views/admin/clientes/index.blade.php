@@ -42,7 +42,11 @@
                 <tr>
                     @if(empty($cliente->nome || $cliente->nome_empresa)) <!--Verifica se existe cliente cadastrado.-->
                     @else <!--Senão existir retorna somente os cliente cadastrados.-->
-                    <td><i class="fas fa-user"></i></td>
+                    <td>
+                        @if($cliente->nome)<i class="fas fa-user"></i>
+                        @else($cliente->nome_empresa)<i class="fas fa-building"></i>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{route('cadastro.show', [$cliente->id])}}">
                         @if(isset($cliente->nome) > 0){{$cliente->nome}}
@@ -52,8 +56,8 @@
                     </td>
                     @if(isset($cliente) > 0)
                     <td>
-                        @if($cliente->pessoaJuridica > 0){{ $cliente->pessoaJuridica->numero }}
-                        @else($cliente->pessoaFisica >0){{ $cliente->pessoaFisica->cpf }}
+                        @if(!empty($cliente->pessoaJuridica->numero) > 0){{ $cliente->pessoaJuridica->numero }}
+                        @else($cliente->pessoaFisica > 0){{ $cliente->pessoaFisica->cpf }}
                         @endif
                     </td>
                     @else
