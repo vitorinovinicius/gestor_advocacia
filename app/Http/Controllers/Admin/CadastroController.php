@@ -127,7 +127,7 @@ class CadastroController extends Controller
         $endereco->cliente()->associate($cliente);
         $endereco->save();
 
-        return redirect()->route('cadastro.index');
+        return redirect()->route('cadastro.show', $cliente->id);
     }
 
     public function show($id)
