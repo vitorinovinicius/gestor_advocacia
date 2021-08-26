@@ -30,12 +30,12 @@ Route::prefix('painel')->group(function ()
 
     Route::post('logout',           [Auth\LoginController::class, 'logout'])->name('logout');
 
-    Route::resource('usuarios',     Admin\UsuariosController::class);
-    Route::resource('cadastro',     Admin\CadastroController::class);
-    Route::resource('processo',     Admin\ProcessoController::class);
-    Route::resource('servico',      Admin\ServicoController::class);
+    Route::resource('usuarios',     Admin\UsuariosController::class)->middleware('auth');
+    Route::resource('cadastro',     Admin\CadastroController::class)->middleware('auth');
+    Route::resource('processo',     Admin\ProcessoController::class)->middleware('auth');
+    Route::resource('servico',      Admin\ServicoController::class)->middleware('auth');
 
-    Route::get('perfil',            [Admin\PerfilController::class, 'index'])->name('perfil');
+    Route::get('perfil',            [Admin\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
     Route::put('salvarPerfil',      [Admin\PerfilController::class, 'save'])->name('perfil.save');
 
     Route::get('config',            [Admin\ConfiguracaoController::class, 'index'])->name('config');
