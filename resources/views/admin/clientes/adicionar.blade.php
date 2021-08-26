@@ -209,7 +209,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="natureza">Natureza</label>
                         </div>
-                        <input name="natureza_pj" class="custom-select" id="natureza" list="NaturezaOptions">
+                        <input name="natureza_pj" class="custom-select" id="natureza" list="NaturezaOptions" autocomplete="off">
                             <datalist id="NaturezaOptions">
                                 <option selected></option>
                                 @foreach($naturezas_juridicas as $natureza)
