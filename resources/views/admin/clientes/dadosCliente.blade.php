@@ -36,10 +36,10 @@
                         <input type="text" name="nome" readonly value="{{$cliente->nome}}" class="form-control" maxlength="150">
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="text" name="cpf" readonly value="{{$cliente->pessoaFisica->cpf}}" class="form-control" maxlength="14">
+                        <input type="text" name="cpf" readonly value="@if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="14">
                     </div>
 
-                    @if($cliente->pessoaFisica->pis > 0)
+                    @if(isset($cliente->pessoaFisica->pis) > 0)
                         <div class="form-group col-sm-3">
                             <input type="text" name="pis" readonly value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14">
                         </div>
@@ -49,7 +49,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->numCtps > 0)
+                    @if(isset($cliente->pessoaFisica->numCtps) > 0)
                         <div class="form-group col-sm-3">
                             <input type="text" name="numCtps" readonly value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7">
                         </div>
@@ -59,7 +59,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->serieCtps > 0)
+                    @if(isset($cliente->pessoaFisica->serieCtps) > 0)
                         <div class="form-group col-sm-2">
                             <input type="text" name="serieCtps" readonly value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5">
                         </div>
@@ -69,7 +69,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->profissao > 0)
+                    @if(isset($cliente->pessoaFisica->profissao) > 0)
                         <div class="form-group input-group col-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" for="profissao">Profissão</span>
@@ -85,7 +85,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->tituloEleitor > 0)
+                    @if(isset($cliente->pessoaFisica->tituloEleitor) > 0)
                     <div class="form-group col-sm-4">
                         <input type="text" name="tituloEleitor" readonly value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19">
                     </div>
@@ -95,7 +95,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->idtCivil > 0)
+                    @if(isset($cliente->pessoaFisica->idtCivil) > 0)
                     <div class="form-group col-sm-4">
                         <input type="text" name="idtCivil" readonly  value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13">
                     </div>
@@ -105,7 +105,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->orgExpeditor > 0)
+                    @if(isset($cliente->pessoaFisica->orgExpeditor) > 0)
                     <div class="form-group input-group col-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
@@ -121,7 +121,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->dtExpedicao > 0)
+                    @if(isset($cliente->pessoaFisica->dtExpedicao) > 0)
                     <div class="form-group col-sm-2" align="right">
                         <strong>Data de expedição </strong>
                     </div>
@@ -137,7 +137,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->sexo > 0)
+                    @if(isset($cliente->pessoaFisica->sexo) > 0)
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="sexo">Sexo</span>
@@ -153,7 +153,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->estadoCivil > 0)
+                    @if(isset($cliente->pessoaFisica->estadoCivil) > 0)
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="estadoCivil">Estado civil</span>
@@ -169,7 +169,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->tratamento > 0)
+                    @if(isset($cliente->pessoaFisica->tratamento) > 0)
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="tratamento">Tratamento</span>
@@ -185,7 +185,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->nacionalidade > 0)
+                    @if(isset($cliente->pessoaFisica->nacionalidade) > 0)
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nacionalidade</span>
@@ -201,7 +201,7 @@
                     </div>
                     @endif
 
-                    @if($cliente->pessoaFisica->dtNascimento > 0)
+                    @if(isset($cliente->pessoaFisica->dtNascimento) > 0)
                     <div class="form-group col-sm-2" align="right">
                     <strong>Data de Nascimento </strong>
                     </div>
@@ -218,13 +218,13 @@
                     @endif
 
                     <div class="form-group col-sm-6">
-                        <input type="text" name="nomeMae" readonly value="{{$cliente->pessoaFisica->nomeMae}}" class="form-control" maxlength="150">
+                        <input type="text" name="nomeMae" readonly value="@if(isset($cliente->pessoaFisica->nomeMae)){{$cliente->pessoaFisica->nomeMae}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="150">
                     </div>
                 </div>
             </div>
         </div><!-- FIM DO COLLAPSE PF -->
 
-        @else($cliente->nome_empresa > 0)
+        @elseif(isset($cliente->nome_empresa) > 0)
         <!-- INÍCIO DO COLLAPSE PJ -->
         <div class="card shadow-lg bg-light rounded cadastro juridica">
             <div class="card-header bg-light">
@@ -291,7 +291,7 @@
             <div class="card-body">
                 <p class="card-text">
                     <div class="row">
-                    @if($cliente->endereco->cep > 0)
+                    @if(isset($cliente->endereco->cep) > 0)
                         <div class="form-group col-sm-3">
                             <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" readonly id="cep" class="form-control" maxlength="8">
                         </div>
@@ -301,7 +301,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->logradouro > 0)
+                    @if(isset($cliente->endereco->logradouro) > 0)
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" readonly id="rua" class="form-control" maxlength="150">
                         </div>
@@ -311,7 +311,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->numEndereco > 0)
+                    @if(isset($cliente->endereco->numEndereco) > 0)
                         <div class="form-group col-1">
                             <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
                         </div>
@@ -321,7 +321,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->complemento > 0)
+                    @if(isset($cliente->endereco->complemento) > 0)
                         <div class="form-group col-3">
                             <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" readonly class="form-control" maxlength="50">
                         </div>
@@ -331,7 +331,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->bairro > 0)
+                    @if(isset($cliente->endereco->bairro) > 0)
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" readonly class="form-control" maxlength="60">
                         </div>
@@ -341,7 +341,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->cidade > 0)
+                    @if(isset($cliente->endereco->cidade) > 0)
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" readonly class="form-control" maxlength="60">
                         </div>
@@ -351,7 +351,7 @@
                         </div>
                     @endif
 
-                    @if($cliente->endereco->uf > 0)
+                    @if(isset($cliente->endereco->uf) > 0)
                         <div class="form-group col-sm-1">
                             <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
                         </div>
