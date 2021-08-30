@@ -13,6 +13,7 @@
 
 @section('content')
     <form action="{{ route('processo.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
+        @method('PUT')
         @csrf
         <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
