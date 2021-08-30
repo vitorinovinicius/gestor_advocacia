@@ -43,7 +43,7 @@
                     @if(empty($cliente->nome || $cliente->nome_empresa)) <!--Verifica se existe cliente cadastrado.-->
                     @else <!--Senão existir retorna somente os cliente cadastrados.-->
                     <td>
-                        @if($cliente->nome)<i class="fas fa-user"></i>
+                        @if(($cliente->nome))<i class="fas fa-user"></i>
                         @else($cliente->nome_empresa)<i class="fas fa-building"></i>
                         @endif
                     </td>
@@ -54,10 +54,11 @@
                         @endif
                         </a>
                     </td>
-                    @if(isset($cliente) > 0)
+                    @if(!empty($cliente->nome || $cliente->nome_empresa) > 0)
                     <td>
                         @if(!empty($cliente->pessoaJuridica->numero) > 0){{ $cliente->pessoaJuridica->numero }}
-                        @else($cliente->pessoaFisica > 0){{ $cliente->pessoaFisica->cpf }}
+                        @elseif(!empty($cliente->pessoaFisica->cpf) > 0){{ $cliente->pessoaFisica->cpf }}
+                        @elseif(empty($cliente->pessoaFisica->cpf)) Não há dados cadastros.
                         @endif
                     </td>
                     @else
