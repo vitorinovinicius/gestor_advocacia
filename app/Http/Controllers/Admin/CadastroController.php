@@ -76,6 +76,7 @@ class CadastroController extends Controller
         $cliente->nome              = $request->input('nome');
         $cliente->nome_empresa      = $request->input('nome_empresa');
         $cliente->save();
+        $cliente = Cliente::find($cliente->id);
 
         if ($cliente->nome = $request->input('nome')){
 
@@ -107,6 +108,22 @@ class CadastroController extends Controller
         $pj->natureza_pj        = $request->input('natureza_pj');
         $pj->cliente()->associate($cliente);
         $pj->save();
+    }
+        if($cliente->processo->pasta = $request->input('pasta')){
+        $processo                   = new Processo;
+        $processo->pasta            = $request->input('pasta');
+        $processo->numInicial       = $request->input('numInicial');
+        $processo->numPrincipal     = $request->input('numPrincipal');
+        $processo->numProcesso      = $request->input('numProcesso');
+        $processo->ultAndamento     = $request->input('ultAndamento');
+        $processo->compromisso      = $request->input('compromisso');
+        $processo->instInicial      = $request->input('instInicial');
+        $processo->dtDistribuicao   = $request->input('dtDistribuicao');
+        $processo->advContrario     = $request->input('advContrario');
+        $processo->titulo           = $request->input('titulo');
+        $processo->save();
+        $processo                   = Processo::find($processo->id);
+        $processo->cliente()->attach($cliente);
     }
 
 
