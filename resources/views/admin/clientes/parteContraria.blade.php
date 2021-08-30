@@ -27,11 +27,11 @@
                 @foreach($processo->cliente as $dados)
                 <tr>
                     <td>{{$dados->id}}</td>
-                    <td><a href="{{route('cadastro.show', [$dados->id])}}">{{$dados->nome}}</a></td>
+                    <td><a href="{{route('cadastro.show', [$dados->id])}}">@if(isset($dados->nome_empresa) > 0){{$dados->nome_empresa}} @else {{$dados->nome}} @endif</a></td>
                     <td>@if(isset($processo->compromisso) > 0){{$processo->compromisso}} @else Não há compromisso. @endif</td>
                     <td>{{$processo->titulo}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{{route('cadastro.edit', [$dados->id])}}" class="btn btn-sm btn-warning">Editar</a>
                     </td>
                 </tr>
                 @endforeach
