@@ -18,9 +18,9 @@ class CreateEnderecosTable extends Migration
             $table->integer('cliente_id')->unsigned();
 
             $table->integer('parte_contraria_id')->unsigned()->nullable();
-            
+
             $table->integer('user_id')->unsigned()->nullable();
-            
+
             $table->integer('orgao_id')->unsigned()->nullable();
 
             $table->string('logradouro', 150)->nullable();
@@ -28,8 +28,8 @@ class CreateEnderecosTable extends Migration
             $table->string('numEndereco', 10)->nullable();
             $table->string('bairro', 60)->nullable();
             $table->string('cidade', 60)->nullable();
-            $table->tinyInteger('uf')->nullable();
-            $table->string('cep', 8)->nullable();
+            $table->string('uf', 2)->nullable();
+            $table->string('cep', 9)->nullable();
             $table->timestamps();
 
             $table->foreign('cliente_id')
@@ -40,7 +40,7 @@ class CreateEnderecosTable extends Migration
             $table->foreign('parte_contraria_id')
             ->references('id')
             ->on('partes_contrarias')
-            ->onDelete('cascade');         
+            ->onDelete('cascade');
 
             $table->foreign('user_id')
             ->references('id')

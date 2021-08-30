@@ -14,8 +14,19 @@ class CreateClienteProcessoTable extends Migration
     public function up()
     {
         Schema::create('cliente_processo', function (Blueprint $table) {
-            $table->integer('cliente_id')->constrained();
-            $table->integer('processo_id')->constrained();
+            $table->increments('id');
+            $table->integer('cliente_id')->unsigned();
+            $table->integer('processo_id')->unsigned();
+
+            $table->foreign('cliente_id')
+            ->references('id')
+            ->on('clientes')
+            ->onDelete('cascade');
+
+            $table->foreign('processo_id')
+            ->references('id')
+            ->on('processos')
+            ->onDelete('cascade');
         });
     }
 

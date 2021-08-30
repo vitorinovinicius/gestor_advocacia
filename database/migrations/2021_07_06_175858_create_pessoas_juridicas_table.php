@@ -21,8 +21,9 @@ class CreatePessoasJuridicasTable extends Migration
             $table->string('inscMunicipal')->nullable();
             $table->string('inscEstadual')->nullable();
             $table->integer('codigo')->nullable();
+            $table->string('natureza_pj', 50)->nullable();
             $table->timestamps();
-                        
+
             $table->foreign('parte_contraria_id')
             ->references('id')
             ->on('partes_contrarias')
@@ -31,7 +32,7 @@ class CreatePessoasJuridicasTable extends Migration
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
-            
+
         });
     }
 
