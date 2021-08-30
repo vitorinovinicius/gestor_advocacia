@@ -14,7 +14,7 @@
 @section('content')
     <form action="{{ route('processo.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
         @csrf
-        <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="cliente" value="parte_contraria">
                 <label class="form-check-label">
                     Parte contrária
@@ -28,8 +28,20 @@
                 <div class="card-body col-12">
                     <p class="card-text">
                         <div class="row">
-                            <div class="form-group col-sm-6">
-                                <input type="text"  placeholder="Nome da parte contrária" name="nome" class="form-control">
+                            <div class="form-group input-group col-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="cliente">Cliente</label>
+                                </div>
+                                @foreach($clientes as $cliente)
+                                <input name="id"class="custom-select" id="cliente" list="NaturezaOptions" autocomplete="off">
+                                    <datalist id="NaturezaOptions">
+                                        <option selected></option>
+                                        <option value="{{$cliente->id}}">@if($cliente->nome_empresa){{$cliente->nome_empresa}}
+                                                @else{{$cliente->nome}}
+                                                @endif
+                                        </option>
+                                        @endforeach
+                                    </datalist>
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -45,11 +57,19 @@
                             </div>
 
                             <div class="form-group col-sm-2">
-                                <input type="text"  placeholder="Número do Processo" name="numProcesso" class="form-control">
+                                <input type="date"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
                             </div>
 
                             <div class="form-group col-sm-2">
-                                <input type="date"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
+                                <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-2">
+                                <input type="datetime"  value="{{date("YmdHis", time())}}" name="numProcesso" class="form-control">
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
                             </div>
 
                             <div class="form-group col-sm-6">
@@ -63,42 +83,6 @@
                     </p>
                 </div><!-- FIM DO COLLAPSE PARTE CONTRÁRIA -->
 
-                <div class="card-header">
-                    <strong>ENDEREÇO</strong>
-                </div>
-                <div class="card-body col-12">
-                    <p class="card-text">
-                        <div class="row">
-                            <div class="form-group col-sm-3">
-                                <input type="text"  placeholder="Insira somente os números do CEP." name="cep" id="cep2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-4">
-                                <input type="text" placeholder="Logradouro" name="logradouro" id="rua2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-1">
-                                <input type="text" placeholder="Número" name="numEndereco" class="form-control">
-                            </div>
-
-                            <div class="form-group col-3">
-                                <input type="text" placeholder="Complemento"  name="complemento" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                                <input type="text" placeholder="Bairro" name="bairro" id="bairro2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                                <input type="text" placeholder="Cidade" name="cidade" id="cidade2" class="form-control">
-                            </div>
-
-                            <div class="form-group col-sm-1">
-                                <input type="text" placeholder="Estado" name="uf" id="uf2" class="form-control">
-                            </div>
-                        </div>
-                    </p>
-                </div><!-- FIM DO COLLAPSE ENDEREÇO PARTE CONTRÁRIA -->
             </div>
         </div>
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
