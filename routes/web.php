@@ -35,6 +35,35 @@ Route::prefix('painel')->group(function ()
     Route::resource('processo',     Admin\ProcessoController::class)->middleware('auth');
     Route::resource('servico',      Admin\ServicoController::class)->middleware('auth');
 
+
+    /*Route::get('usuarios',          [Admin\UsuariosController::class, 'index'])->name('usuarios')->middleware('auth');
+    Route::post('usuarios',         [Admin\UsuariosController::class, 'create'])->middleware('auth');
+    Route::get('usuarios',          [Admin\UsuariosController::class, 'store'])->middleware('auth');
+    Route::post('usuarios',         [Admin\UsuariosController::class, 'edit'])->middleware('auth');
+    Route::put('usuarios',          [Admin\UsuariosController::class, 'update'])->middleware('auth');
+    Route::delete('usuarios',       [Admin\UsuariosController::class, 'destroy'])->middleware('auth');
+
+    Route::get('cadastro',          [Admin\CadastroController::class, 'index'])->middleware('auth');
+    Route::post('cadastro',         [Admin\CadastroController::class, 'create'])->middleware('auth');
+    Route::get('cadastro',          [Admin\CadastroController::class, 'store'])->middleware('auth');
+    Route::post('cadastro',         [Admin\CadastroController::class, 'edit'])->middleware('auth');
+    Route::put('cadastro',          [Admin\CadastroController::class, 'update'])->middleware('auth');
+    Route::delete('cadastro',       [Admin\CadastroController::class, 'destroy'])->middleware('auth');
+
+    Route::get('processo',          [Admin\ProcessoController::class, 'index'])->middleware('auth');
+    Route::post('processo',         [Admin\ProcessoController::class, 'create'])->middleware('auth');
+    Route::get('processo',          [Admin\ProcessoController::class, 'store'])->middleware('auth');
+    Route::post('processo',         [Admin\ProcessoController::class, 'edit'])->middleware('auth');
+    Route::put('processo',          [Admin\ProcessoController::class, 'update'])->middleware('auth');
+    Route::delete('processo',       [Admin\ProcessoController::class, 'destroy'])->middleware('auth');
+
+    Route::get('servico',           [Admin\ServicoController::class, 'index'])->middleware('auth');
+    Route::post('servico',          [Admin\ServicoController::class, 'create'])->middleware('auth');
+    Route::get('servico',           [Admin\ServicoController::class, 'store'])->middleware('auth');
+    Route::post('servico',          [Admin\ServicoController::class, 'edit'])->middleware('auth');
+    Route::put('servico',           [Admin\ServicoController::class, 'update'])->middleware('auth');
+    Route::delete('servico',        [Admin\ServicoController::class, 'destroy'])->middleware('auth');*/
+
     Route::get('perfil',            [Admin\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
     Route::put('salvarPerfil',      [Admin\PerfilController::class, 'save'])->name('perfil.save');
 
