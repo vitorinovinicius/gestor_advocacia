@@ -45,7 +45,7 @@
                     <p class="card-text">
                     <div class="row">
                         <div class="form-group col-6">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form-control required">
+                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
                         </div>
                         <div class="form-group col-sm-3">
                             <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()">
@@ -227,8 +227,53 @@
         <!-- FIM DO COLLAPSE PJ -->
 
         <!-- INÍCIO DO CARD ENDEREÇO -->
-        <div class="card">
+        <div class="card bg-light">
             <div class="card-header bg-light">
+                <strong>Processo</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="datetime-local"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="datetime"  value="{{date("YmdHism")}}" name="numProcesso" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div class="card-header">
                 <strong>ENDEREÇO</strong>
             </div>
             <div class="card-body">
