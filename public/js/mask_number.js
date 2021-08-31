@@ -8,13 +8,20 @@ $(document).ready(function($){
     $("#cep").mask("00000-000")
     $("#dataNascimento").mask("00/00/0000")
 
-    $("#rg").mask("999.999.999-W", {
+    $("#rg").mask("99.999.999-X", {
         translation: {
-            'W': {
+            'X': {
                 pattern: /[X0-9]/
             }
         },
         reverse: true
+    })
+    $("#rg").blur(function(event){
+        if ($(this).val().length == 15){
+            $("#rg").mask("99.999.999-X")
+        }else{
+            $("#rg").mask("9.999.999-X")
+        }
     })
 
     var options = {
