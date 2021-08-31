@@ -190,17 +190,9 @@ class ProcessoController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Processo::find($id);
-        $cliente->delete();
+        $processo = Processo::find($id);
+        $processo->delete();
 
         return redirect()->route('processo.index');
-    }
-
-    public function vincula_cliente($id)
-    {
-        $cliente = Cliente::find($id);
-        $cliente->processo()->sync($id);
-        $processo =Processo::findOrFail($id);
-
     }
 }
