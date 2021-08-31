@@ -21,7 +21,7 @@ use App\Models\Endereco;
 use App\Models\Estado;
 use App\Models\Cidade;
 use App\Models\Processo;
-use App\Models\ClienteProcesso;
+use App\Models\Servico;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -78,53 +78,67 @@ class CadastroController extends Controller
         $cliente->save();
         $cliente = Cliente::find($cliente->id);
 
-        if ($cliente->nome = $request->input('nome')){
+        if($cliente->nome = $request->input('nome')){
 
-        $pf->cpf            = $request->input('cpf');
-        $pf->pis            = $request->input('pis');
-        $pf->sexo           = $request->input('sexo');
-        $pf->profissao      = $request->input('profissao');
-        $pf->estadoCivil    = $request->input('estadoCivil');
-        $pf->tratamento     = $request->input('tratamento');
-        $pf->numCtps        = $request->input('numCtps');
-        $pf->serieCtps      = $request->input('serieCtps');
-        $pf->ufCtps         = $request->input('ufCtps');
-        $pf->nacionalidade  = $request->input('nacionalidade');
-        $pf->dtNascimento   = $request->input('dtNascimento');
-        $pf->tituloEleitor  = $request->input('tituloEleitor');
-        $pf->idtCivil       = $request->input('idtCivil');
-        $pf->dtExpedicao    = $request->input('dtExpedicao');
-        $pf->orgExpeditor   = $request->input('orgExpeditor');
-        $pf->nomeMae        = $request->input('nomeMae');
-        $pf->cliente()->associate($cliente);
-        $pf->save();
+            $pf->cpf            = $request->input('cpf');
+            $pf->pis            = $request->input('pis');
+            $pf->sexo           = $request->input('sexo');
+            $pf->profissao      = $request->input('profissao');
+            $pf->estadoCivil    = $request->input('estadoCivil');
+            $pf->tratamento     = $request->input('tratamento');
+            $pf->numCtps        = $request->input('numCtps');
+            $pf->serieCtps      = $request->input('serieCtps');
+            $pf->ufCtps         = $request->input('ufCtps');
+            $pf->nacionalidade  = $request->input('nacionalidade');
+            $pf->dtNascimento   = $request->input('dtNascimento');
+            $pf->tituloEleitor  = $request->input('tituloEleitor');
+            $pf->idtCivil       = $request->input('idtCivil');
+            $pf->dtExpedicao    = $request->input('dtExpedicao');
+            $pf->orgExpeditor   = $request->input('orgExpeditor');
+            $pf->nomeMae        = $request->input('nomeMae');
+            $pf->cliente()->associate($cliente);
+            $pf->save();
 
         }elseif($cliente->nome_empresa = $request->input('nome_empresa')){
 
-        $pj->numero             = $request->input('numero');
-        $pj->inscMunicipal      = $request->input('inscMunicipal');
-        $pj->inscEstadual       = $request->input('inscEstadual');
-        $pj->codigo             = $request->input('codigo');
-        $pj->natureza_pj        = $request->input('natureza_pj');
-        $pj->cliente()->associate($cliente);
-        $pj->save();
-    }
+            $pj->numero             = $request->input('numero');
+            $pj->inscMunicipal      = $request->input('inscMunicipal');
+            $pj->inscEstadual       = $request->input('inscEstadual');
+            $pj->codigo             = $request->input('codigo');
+            $pj->natureza_pj        = $request->input('natureza_pj');
+            $pj->cliente()->associate($cliente);
+            $pj->save();
+        }
+
         if($cliente->processo->pasta = $request->input('pasta')){
-        $processo                   = new Processo;
-        $processo->pasta            = $request->input('pasta');
-        $processo->numInicial       = $request->input('numInicial');
-        $processo->numPrincipal     = $request->input('numPrincipal');
-        $processo->numProcesso      = $request->input('numProcesso');
-        $processo->ultAndamento     = $request->input('ultAndamento');
-        $processo->compromisso      = $request->input('compromisso');
-        $processo->instInicial      = $request->input('instInicial');
-        $processo->dtDistribuicao   = $request->input('dtDistribuicao');
-        $processo->advContrario     = $request->input('advContrario');
-        $processo->titulo           = $request->input('titulo');
-        $processo->save();
-        $processo                   = Processo::find($processo->id);
-        $processo->cliente()->attach($cliente);
-    }
+
+            $processo                   = new Processo;
+            $processo->pasta            = $request->input('pasta');
+            $processo->numInicial       = $request->input('numInicial');
+            $processo->numPrincipal     = $request->input('numPrincipal');
+            $processo->numProcesso      = $request->input('numProcesso');
+            $processo->ultAndamento     = $request->input('ultAndamento');
+            $processo->compromisso      = $request->input('compromisso');
+            $processo->instInicial      = $request->input('instInicial');
+            $processo->dtDistribuicao   = $request->input('dtDistribuicao');
+            $processo->advContrario     = $request->input('advContrario');
+            $processo->titulo           = $request->input('titulo');
+            $processo->save();
+            $processo                   = Processo::find($processo->id);
+            $processo->cliente()->attach($cliente);
+            
+        }elseif($cliente->servico->pasta_servico = $request->input('pasta_servico')){
+
+            $servico                        = new Servico;
+            $servico->pasta_servico         = $request->input('pasta_servico');
+            $servico->assunto               = $request->input('assunto');
+            $servico->contrato              = $request->input('contrato');
+            $servico->negociacao            = $request->input('negociacao');
+            $servico->abertura              = $request->input('abertura');
+            $servico->situacao              = $request->input('situacao');
+            $servico->save();
+            $servico->cliente()->attach($cliente);
+        }
 
 
         $contato->email         = $request->input('email');
@@ -277,6 +291,8 @@ class CadastroController extends Controller
     public function destroy($id)
     {
         $cliente = Cliente::find($id);
+        $cliente->processo()->detach();
+        $cliente->servico()->detach();
         $cliente->delete();
 
         return redirect()->route('cadastro.index');
