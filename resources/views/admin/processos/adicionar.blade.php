@@ -28,22 +28,6 @@
                 <div class="card-body col-12">
                     <p class="card-text">
                         <div class="row">
-                            <div class="form-group input-group col-3">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="cliente">Cliente</label>
-                                </div>
-                                @foreach($clientes as $cliente)
-                                <input name="id"class="custom-select" id="cliente" list="NaturezaOptions" autocomplete="off">
-                                    <datalist id="NaturezaOptions">
-                                        <option selected></option>
-                                        <option value="{{$cliente->id}}">@if($cliente->nome_empresa){{$cliente->nome_empresa}}
-                                                @else{{$cliente->nome}}
-                                                @endif
-                                        </option>
-                                        @endforeach
-                                    </datalist>
-                            </div>
-
                             <div class="form-group col-sm-4">
                                 <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
                             </div>
