@@ -9,7 +9,7 @@
 <script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
 
     <h1>
-            Adicionar cliente
+            Cadastro inicial do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
         <i class="fas fa-reply"></i>
             Voltar
@@ -37,148 +37,148 @@
         <!-- FIM BOTÕES DO COLLAPSE PF E PJ-->
 
         <!-- INÍCIO DO COLLAPSE PF -->
-            <div class="card cadastro natural">
-                <div class="card-header bg-light">
-                    <strong>PESSOA NATURAL</strong>
-                </div>
-                <div class="card-body col-12">
-                    <p class="card-text">
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()">
-                        </div>
+        <div class="card cadastro natural">
+            <div class="card-header bg-light">
+                <strong>PESSOA NATURAL</strong>
+            </div>
+            <div class="card-body col-12">
+                <p class="card-text">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <input type="text" name="nome" placeholder="Nome completo" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_cpf()">
+                    </div>
 
-                        <div class="form-group col-sm-3">
-                            <input type="text" id="pis" name="pis" placeholder="PIS" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_pis()">
-                        </div>
+                    <div class="form-group col-sm-3">
+                        <input type="text" id="pis" name="pis" placeholder="PIS" class="form-control" autocomplete="off" maxlength="14" onkeyup="mascara_pis()">
+                    </div>
 
-                        <div class="form-group col-sm-2">
-                            <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control" autocomplete="off" maxlength="7">
-                        </div>
+                    <div class="form-group col-sm-2">
+                        <input placeholder="Número da CTPS" type="text" name="numCtps" class="form-control" autocomplete="off" maxlength="7">
+                    </div>
 
-                        <div class="form-group col-sm-1">
-                            <input placeholder="Série" type="text" id="serie_ctps" name="serieCtps" class="form-control" maxlength="5" onkeyup="mascara_serie_ctps()">
+                    <div class="form-group col-sm-1">
+                        <input placeholder="Série" type="text" id="serie_ctps" name="serieCtps" class="form-control" maxlength="5" onkeyup="mascara_serie_ctps()">
+                    </div>
+                    <div class="form-group input-group col-2">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="uf_ctps">UF</label>
                         </div>
-                        <div class="form-group input-group col-2">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="uf_ctps">UF</label>
-                            </div>
-                            <input name="ufCtps" class="custom-select" id="uf_ctps" list="uf_ctpsOptions">
-                            <datalist id="uf_ctpsOptions">
+                        <input name="ufCtps" class="custom-select" id="uf_ctps" list="uf_ctpsOptions">
+                        <datalist id="uf_ctpsOptions">
+                        <option selected></option>
+                        @foreach($estados as $uf)
+                        <option>{{$uf->uf}}</option>
+                        @endforeach
+                        </datalist>
+                    </div>
+
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="profissao">Profissão</label>
+                        </div>
+                        <input name="profissao" class="custom-select" id="profissao" list="ProfissaoOptions">
+                        <datalist id="ProfissaoOptions">
+                        <option selected></option>
+                        @foreach($profissoes as $profissao)
+                        <option>{{$profissao->tipo}}</option>
+                        @endforeach
+                        </datalist>
+
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" placeholder="Título de eleitor" id="titulo_eleitor" name="tituloEleitor" class="form-control" autocomplete="off" maxlength="19" onkeyup="mascara_titulo_eleitor()">
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" placeholder="Identidade (RG)" id="rg" name="idtCivil" class="form-control" autocomplete="off" maxlength="13" onkeyup="mascara_rg()">
+                    </div>
+
+                    <div class="form-group input-group col-4">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="orgExpeditor">Orgão expeditor</label>
+                        </div>
+                        <select name="orgExpeditor" class="custom-select" id="orgExpeditor">
                             <option selected></option>
-                            @foreach($estados as $uf)
-                            <option>{{$uf->uf}}</option>
+                            @foreach($orgexpeditores as $orgExpeditor)
+                            <option>{{$orgExpeditor->tipo}}</option>
                             @endforeach
-                            </datalist>
-                        </div>
+                        </select>
+                    </div>
 
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="profissao">Profissão</label>
-                            </div>
-                            <input name="profissao" class="custom-select" id="profissao" list="ProfissaoOptions">
-                            <datalist id="ProfissaoOptions">
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de expedição </strong>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
+                    </div>
+
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="sexo">Sexo</label>
+                        </div>
+                        <select name="sexo" class="custom-select" id="sexo">
                             <option selected></option>
-                            @foreach($profissoes as $profissao)
-                            <option>{{$profissao->tipo}}</option>
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="estadoCivil">Estado civil</label>
+                        </div>
+                        <select name="estadoCivil" class="custom-select" id="estadoCivil">
+                            <option selected></option>
+                            @foreach($estadoscivis as $estadocivil)
+                            <option>{{$estadocivil->tipo}}</option>
                             @endforeach
-                            </datalist>
+                        </select>
+                    </div>
 
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="tratamento">Tratamento</label>
                         </div>
+                        <select name="tratamento" class="custom-select" id="tratamento">
+                            <option selected></option>
+                            @foreach($tratamentos as $tratamento)
+                            <option>{{$tratamento->tipo}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Título de eleitor" id="titulo_eleitor" name="tituloEleitor" class="form-control" autocomplete="off" maxlength="19" onkeyup="mascara_titulo_eleitor()">
+                    <div class="form-group input-group col-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
                         </div>
+                        <select name="nacionalidade" class="custom-select" id="nacionalidade">
+                            <option selected></option>
+                            @foreach($nacionalidades as $nacionalidade)
+                            <option>{{$nacionalidade->tipo}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Identidade (RG)" id="rg" name="idtCivil" class="form-control" autocomplete="off" maxlength="13" onkeyup="mascara_rg()">
-                        </div>
+                    <div class="form-group col-sm-2" align="right">
+                    <strong>Data de Nascimento </strong>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="date" name="dtNascimento" class="form-control">
+                    </div>
 
-                        <div class="form-group input-group col-4">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="orgExpeditor">Orgão expeditor</label>
-                            </div>
-                            <select name="orgExpeditor" class="custom-select" id="orgExpeditor">
-                                <option selected></option>
-                                @foreach($orgexpeditores as $orgExpeditor)
-                                <option>{{$orgExpeditor->tipo}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group col-sm-2" align="right">
-                        <strong>Data de expedição </strong>
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="date" placeholder="Data de expedição" name="dtExpedicao" class="form-control">
-                        </div>
-
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="sexo">Sexo</label>
-                            </div>
-                            <select name="sexo" class="custom-select" id="sexo">
-                                <option selected></option>
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="estadoCivil">Estado civil</label>
-                            </div>
-                            <select name="estadoCivil" class="custom-select" id="estadoCivil">
-                                <option selected></option>
-                                @foreach($estadoscivis as $estadocivil)
-                                <option>{{$estadocivil->tipo}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="tratamento">Tratamento</label>
-                            </div>
-                            <select name="tratamento" class="custom-select" id="tratamento">
-                                <option selected></option>
-                                @foreach($tratamentos as $tratamento)
-                                <option>{{$tratamento->tipo}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="nacionalidade">Nacionalidade</label>
-                            </div>
-                            <select name="nacionalidade" class="custom-select" id="nacionalidade">
-                                <option selected></option>
-                                @foreach($nacionalidades as $nacionalidade)
-                                <option>{{$nacionalidade->tipo}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group col-sm-2" align="right">
-                        <strong>Data de Nascimento </strong>
-                        </div>
-                        <div class="form-group col-sm-3">
-                            <input type="date" name="dtNascimento" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-6">
-                            <input type="text" placeholder="Nome da mãe" name="nomeMae" class="form-control">
-                        </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" placeholder="Nome da mãe" name="nomeMae" class="form-control">
                     </div>
                 </div>
-            </div><!-- FIM DO COLLAPSE PF -->
+            </div>
+        </div><!-- FIM DO COLLAPSE PF -->
 
-        <!-- INÍCIO DO COLLAPSE PJ -->
+    <!-- INÍCIO DO COLLAPSE PJ -->
         <div class="card cadastro juridica">
             <div class="card-header bg-light">
                 <strong>PESSOA JURÍDICA</strong>
@@ -217,62 +217,13 @@
                                 @endforeach
                             </datalist>
                     </div>
-
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="pasta" placeholder="Pasta do Processo" class="form-control" >
-                    </div>
                 </div>
             </div>
         </div>
-        <!-- FIM DO COLLAPSE PJ -->
+    <!-- FIM DO COLLAPSE PJ -->
 
         <!-- INÍCIO DO CARD ENDEREÇO -->
-        <div class="card bg-light">
-            <div class="card-header bg-light">
-                <strong>Processo</strong>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    <div class="row">
-                        <div class="form-group col-sm-4">
-                            <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="datetime-local"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <input type="datetime"  value="{{date("YmdHism")}}" name="numProcesso" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-6">
-                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-6">
-                            <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
-                        </div>
-
-                        <div class="form-group col-sm-12">
-                            <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
-                        </div>
-                    </div>
-                </p>
-            </div>
-
+        <div class="card">
             <div class="card-header">
                 <strong>ENDEREÇO</strong>
             </div>
@@ -332,7 +283,105 @@
                     </div>
                 </p>
             </div>
+        </div>
         <!-- FIM DO CARD CONTATO -->
+
+        <!-- BOTÕES DO COLLAPSE PROCESSO E SERVIÇO-->
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cliente" value="processo">
+            <label class="form-check-label">
+                Processo
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cliente" value="servico">
+            <label class="form-check-label">
+                Serviço
+            </label>
+        </div>
+        <!-- FIM BOTÕES DO COLLAPSE PROCESSO E SERVIÇO-->
+
+        <div class="card cadastro processo">
+            <div class="card-header bg-light">
+                <strong>PROCESSO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Pasta" name="pasta" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Número da Inicial" name="numInicial" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Número Principal" name="numPrincipal" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="datetime-local"  placeholder="Data de Distribuição" name="dtDistribuicao" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="datetime"  value="{{date("YmdHism")}}" name="numProcesso" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Situação do contrato" name="situacaoContrato" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <input type="text"  placeholder="Advogado da parte contrária" name="advContraria" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <textarea class="form-control"type="text"  placeholder="Título" name="titulo"></textarea>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+
+        <div class="card cadastro servico">
+            <div class="card-header bg-light">
+                <strong>SERVIÇO</strong>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Pasta" name="pasta_servico" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Contrato" name="contrato" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <input type="text"  placeholder="Negociação" name="negociacao" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <input type="datetime-local"  placeholder="Data de Distribuição" name="abertura" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-10">
+                            <input type="text"  placeholder="Situação" name="situacao" class="form-control">
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <textarea type="text"  placeholder="Assunto" name="assunto" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </p>
+            </div>
         </div>
 
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
