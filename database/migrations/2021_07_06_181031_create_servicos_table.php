@@ -15,7 +15,7 @@ class CreateServicosTable extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pasta', 300)->unique()->nullable();
+            $table->string('pasta_servico', 300)->unique()->nullable();
             $table->text('assunto')->nullable();
             $table->string('contrato')->nullable();
             $table->string('negociacao')->nullable();
