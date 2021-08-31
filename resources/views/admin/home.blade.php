@@ -31,11 +31,11 @@
     <div class="col-lg-4 col-6">
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>@if(array($compromissos) > 0){{count($compromissos)}}@endif</h3>
-                <p>@if(count($compromissos) <= 1) Compromisso @else Compromissos @endif</p>
+                <h3>@if(array($servicos) > 0){{count($servicos)}}@endif</h3>
+                <p>@if(count($servicos) <= 1) Serviço @else Serviços @endif</p>
             </div>
             <div class="icon">
-                <i class="fas fa-calendar-check">
+                <i class="fas fa-hands-helping">
                 </i>
             </div>
         </div>
