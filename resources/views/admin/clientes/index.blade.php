@@ -32,8 +32,9 @@
             <thead>
                 <tr>
                     <th class="col-1">#</th>
-                    <th class="col-4">Nome</th>
-                    <th class="col-3">CPF / CNPJ</th>
+                    <th class="col-4">Nome / Razão social</th>
+                    <th class="col-2">CPF / CNPJ</th>
+                    <th class="col-3">Processo / Serviço</th>
                     <th class="col-2">Ações</th>
                 </tr>
             </thead>
@@ -44,7 +45,7 @@
                     @else <!--Senão existir retorna somente os cliente cadastrados.-->
                     <td>
                         @if(($cliente->nome))<i class="fas fa-user"></i>
-                        @else($cliente->nome_empresa)<i class="fas fa-building"></i>
+                        @elseif($cliente->nome_empresa)<i class="fas fa-building"></i>
                         @endif
                     </td>
                     <td>
@@ -64,13 +65,30 @@
                     @else
                     <td>Não há dados cadastros.</td>
                     @endif
+
+                    <td>
+                        @if (!empty($cliente->processo || $cliente->servico) > 0)
+
+                        @foreach ($cliente->processo as $processo)
+                        Processos:
+                            <a href="{{route('processo.show', [$processo->id])}}">
+                                @if($processo){{count(array($processo->pasta))}}@endif
+                            </a>
+                            <br>
+                        @endforeach
+
+                        @foreach ($cliente->servico as $servico)
+                        Serviços:
+                            <a href="#">
+                                @if($servico){{count(array($servico->pasta_servico))}}@endif
+                            </a>
+                        @endforeach
+
+                        @endif
+                    </td>
+
                     <td>
                         <a href="{{route('cadastro.edit', $cliente->id)}}" class="btn btn-sm btn-warning">Editar</a>
-                        <form class="d-inline" method="POST" action="{{route('cadastro.destroy', $cliente->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm btn-danger">Excluir</button>
-                        </form>
                     </td>
                     @endif <!--Fim da verificação-->
                 </tr>
