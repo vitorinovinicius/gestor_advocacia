@@ -20,12 +20,10 @@ class CreateServicoClienteTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('cliente_id')
             ->references('id')
-            ->on('clientes')
-            ->onDelete('cascade');
+            ->on('clientes');
             $table->foreign('servico_id')
             ->references('id')
-            ->on('servicos')
-            ->onDelete('cascade');
+            ->on('servicos');
             $table->foreign('user_id')
             ->references('id')
             ->on('users');
