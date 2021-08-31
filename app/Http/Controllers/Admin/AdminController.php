@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\Models\Processo;
-use App\Models\Compromisso;
+use App\Models\Servico;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -19,11 +19,11 @@ class AdminController extends Controller
     {
         $clientes = Cliente::all();
         $processos = Processo::all();
-        $compromissos = Compromisso::all();
+        $servicos = Servico::all();
         return view('admin.home', [
             'clientes' => $clientes,
             'processos' => $processos,
-            'compromissos' => $compromissos
+            'servicos' => $servicos
         ]);
     }
 }
