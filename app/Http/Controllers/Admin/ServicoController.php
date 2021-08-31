@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Servico;
+
 class ServicoController extends Controller
 {
     /**
@@ -14,7 +16,10 @@ class ServicoController extends Controller
      */
     public function index()
     {
-        //
+        $servicos = Servico::paginate(10);
+        return view('admin.servicos.index', [
+            'servicos' => $servicos
+        ]);
     }
 
     /**
@@ -80,6 +85,9 @@ class ServicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servico = Servico::find($id);
+        $servico->cliente()->detach();
+
+        return redirect()->route('processo.index');
     }
 }
