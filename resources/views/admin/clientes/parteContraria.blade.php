@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Processos')
 
 @section('content_header')
     <h1>
-        Meus clientes
+        Meus processos
     </h1>
 @endsection
 @section('content')
