@@ -4,7 +4,9 @@
 
 @section('content_header')
 <link rel="stylesheet" href="{{url('css/app.css')}}">
-<script src="{{url('js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
 <script src="{{url('js/mascara_cadastro.js')}}"></script>
     <h1>
             Editar dados do cliente
@@ -22,8 +24,8 @@
         <!-- INÍCIO DA PESSOA NATURAL -->
         @if($cliente->nome > 0)
         <div class="card cadastro natural">
-            <div class="card-header">
-                <strong>PESSOA NATURAL</strong>
+            <div class="card-header col-md-12">
+                <strong>PESSOA NATURAL</strong>                    
             </div>
             <div class="card-body col-12">
                 <p class="card-text">
@@ -32,26 +34,26 @@
                         <input type="text" name="nome" value="{{$cliente->nome}}" class="form-control" maxlength="150">
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="text" name="cpf" value="{{$cliente->pessoaFisica->cpf}}" class="form-control" maxlength="14" autocomplete="off">
+                        <input type="text" name="cpf" value="{{$cliente->pessoaFisica->cpf}}" class="form-control" id="cpf" maxlength="14" autocomplete="off">
                     </div>
 
                     @if($cliente->pessoaFisica->pis > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="pis" value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14" autocomplete="off">
+                        <input type="text" name="pis" value="{{$cliente->pessoaFisica->pis}}" class="form-control" id="pis" maxlength="14" autocomplete="off">
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="pis" placeholder="PIS não informado." class="form-control" maxlength="14" autocomplete="off" onkeyup="mascara_pis()">
+                        <input type="text" name="pis" placeholder="PIS não informado." class="form-control" id="pis" maxlength="14" autocomplete="off" onkeyup="mascara_pis()">
                     </div>
                     @endif
 
                     @if($cliente->pessoaFisica->numCtps > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numCtps" value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7" autocomplete="off">
+                        <input type="text" name="numCtps" value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" id="numCtps" maxlength="7" autocomplete="off">
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numCtps" placeholder="Número da CTPS não infomado." class="form-control" maxlength="7" autocomplete="off">
+                        <input type="text" name="numCtps" placeholder="Número da CTPS não infomado." class="form-control" id="numCtps" maxlength="7" autocomplete="off">
                     </div>
                     @endif
 
@@ -78,24 +80,25 @@
 
                     </div>
 
-                    @if($cliente->pessoaFisica->serieCtps <= 0 && $cliente->pessoaFisica->tituloEleitor > 0)
+                    @if($cliente->pessoaFisica->tituloEleitor > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" value="{{$cliente->pessoaFisica->tituloEleitor}}" name="tituloEleitor" class="form-control" maxlength="19">
+                        <input type="text" value="{{$cliente->pessoaFisica->tituloEleitor}}" name="tituloEleitor" class="form-control" id="titulo_eleitor" maxlength="19">
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" placeholder="Título de eleitor não informado." name="tituloEleitor" class="form-control" maxlength="19">
+                        <input type="text" placeholder="Título de eleitor não informado." name="tituloEleitor" class="form-control" id="titulo_eleitor" maxlength="19">
                     </div>
                     @endif
 
+                    @if($cliente->pessoaFisica->idtCivil > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" value="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control" maxlength="13">
-                            @error('idtCivil')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                            @enderror
+                        <input type="text" value="{{$cliente->pessoaFisica->idtCivil}}" name="idtCivil" class="form-control" id="rg" maxlength="13" autocomplete="off">
                     </div>
+                    @else
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="idtCivil" placeholder="Nº do RG não infomado." class="form-control" id="rg" maxlength="13" autocomplete="off">
+                    </div>
+                    @endif
 
                     <div class="form-group input-group col-4">
                         <div class="input-group-prepend">
@@ -370,14 +373,19 @@
                 </p>
             </div>
         <!-- FIM DO CARD CONTATO -->
-        </div>
-
-        <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
-            <div class="col-sm-12" align="right">
-                <button type="submit" class="btn btn-success">Atualizar</button>
+            <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+                <div class="col-sm-12" align="right">
+                    <button type="submit" class="btn btn-success">Atualizar</button>
+                    <form class="d-inline" method="POST" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" action="{{route('cadastro.destroy', $cliente->id)}}">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                </div>                
             </div>
         </div>
     </form>
+
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
