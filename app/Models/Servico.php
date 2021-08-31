@@ -11,7 +11,7 @@ class Servico extends Model
 
     public function cliente()
     {
-        return $this->belongsToMany(Cliente::class);
+        return $this->belongsToMany(Cliente::class, 'servico_cliente');
     }
 
     public function parteContraria()

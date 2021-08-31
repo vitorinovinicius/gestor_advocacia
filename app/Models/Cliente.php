@@ -35,7 +35,7 @@ class Cliente extends Model
 
     public function servico()
     {
-        return $this->belongsToMany(Processo::class);
+        return $this->belongsToMany(Servico::class, 'servico_cliente');
     }
 
     public function endereco()
