@@ -35,47 +35,6 @@
             <form action="{{route('config.save')}}" method="post" class="form-horizontal">
                 @method('PUT')
                 @csrf
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Título do sistema</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="titulo" placeholder="{{$configuracoes['titulo']}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Sub-título do sistema</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="sub-titulo" placeholder="{{$configuracoes['sub-titulo']}}" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">E-mail para contato</label>
-                    <div class="col-sm-10">
-                        <input type="email" name="e-mail" placeholder="{{$configuracoes['e-mail']}}" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Cor fundo</label>
-                    <div class="col-sm-10">
-                        <input type="color" name="bgcolor" value="{{$configuracoes['bgcolor']}}" class="form-control" style="width:50px">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Cor do texto</label>
-                    <div class="col-sm-10">
-                        <input type="color" name="textcolor" value="{{$configuracoes['textcolor']}}" class="form-control" style="width:50px">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-10">
-                        <input type="submit" value="Salvar" class="btn btn-sm btn-success">
-                    </div>
-                </div>
             </form>
         </div>
     </div>
