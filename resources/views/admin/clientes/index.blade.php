@@ -67,24 +67,15 @@
                     @endif
 
                     <td>
-                        @if (!empty($cliente->processo || $cliente->servico) > 0)
-
-                        @foreach ($cliente->processo as $processo)
-                        Processos:
-                            <a href="{{route('processo.show', [$processo->id])}}">
-                                @if($processo){{count(array($processo->pasta))}}@endif
-                            </a>
-                            <br>
-                        @endforeach
-
-                        @foreach ($cliente->servico as $servico)
-                        Serviços:
-                            <a href="#">
-                                @if($servico){{count(array($servico->pasta_servico))}}@endif
-                            </a>
-                        @endforeach
-
+                        @if (!empty($cliente->processo) > 0)
+                        Processos: {{$cliente->processo->count('cliente_processo')}}
+                        <br>
+                        @if ($cliente->servico)
+                        Serviços: {{$cliente->servico->count('servico_cliente')}}
+                        @else
+                        @endif                       
                         @endif
+                        
                     </td>
 
                     <td>
