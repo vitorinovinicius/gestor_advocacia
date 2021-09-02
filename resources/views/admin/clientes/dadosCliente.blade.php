@@ -3,7 +3,6 @@
 @section('title', 'Dados do cliente ')
 
 @section('content_header')
-<link rel="stylesheet" href="{{url('css/app.css')}}">
 <script src="{{url('js/jquery.min.js')}}"></script>
     <h1>
             Dados do cliente
@@ -21,7 +20,8 @@
 @endsection
 
 @section('content')
-    <form>
+<link rel="stylesheet" href="{{url('css/dados_cliente.css')}}">
+    <form method="post">
         @csrf
         <!-- INÍCIO DA PESSOA NATURAL -->
         @if($cliente->nome > 0)
@@ -33,39 +33,39 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-6">
-                        <input type="text" name="nome" readonly value="{{$cliente->nome}}" class="form-control" maxlength="150">
+                        <input type="text" name="nome" disabled value="{{$cliente->nome}}" class="form-control" maxlength="150">
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="text" name="cpf" readonly value="@if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="14">
+                        <input type="text" name="cpf" disabled value="@if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="14">
                     </div>
 
                     @if(isset($cliente->pessoaFisica->pis) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" readonly value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14">
+                            <input type="text" name="pis" disabled value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" readonly value="PIS não informado." class="form-control" maxlength="14">
+                            <input type="text" name="pis" disabled value="PIS não informado." class="form-control" maxlength="14">
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->numCtps) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps" readonly value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7">
+                            <input type="text" name="numCtps" disabled value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps" readonly value="Número da CTPS não informado." class="form-control" maxlength="7">
+                            <input type="text" name="numCtps" disabled value="Número da CTPS não informado." class="form-control" maxlength="7">
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->serieCtps) > 0)
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps" readonly value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5">
+                            <input type="text" name="serieCtps" disabled value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5">
                         </div>
                     @else
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps" readonly value="Série CTPS não informado." class="form-control" maxlength="5">
+                            <input type="text" name="serieCtps" disabled value="Série CTPS não informado." class="form-control" maxlength="5">
                         </div>
                     @endif
 
@@ -74,34 +74,34 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" for="profissao">Profissão</span>
                             </div>
-                            <input type="text" name="profissao" readonly value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao">
+                            <input type="text" name="profissao" disabled value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao">
                         </div>
                     @else
                         <div class="form-group input-group col-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" for="profissao">Profissão</span>
                             </div>
-                            <input type="text" name="profissao" readonly value="Não informada."class="custom-select" id="profissao">
+                            <input type="text" name="profissao" disabled value="Não informada."class="custom-select" id="profissao">
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->tituloEleitor) > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="tituloEleitor" readonly value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19">
+                        <input type="text" name="tituloEleitor" disabled value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="tituloEleitor" readonly value="Não informado." class="form-control" maxlength="19">
+                        <input type="text" name="tituloEleitor" disabled value="Não informado." class="form-control" maxlength="19">
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->idtCivil) > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="idtCivil" readonly  value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13">
+                        <input type="text" name="idtCivil" disabled  value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="idtCivil" readonly  value="Número do registro geral não informado." class="form-control" maxlength="13">
+                        <input type="text" name="idtCivil" disabled  value="Número do registro geral não informado." class="form-control" maxlength="13">
                     </div>
                     @endif
 
@@ -110,14 +110,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
                         </div>
-                        <input type="text" name="orgExpeditor" readonly value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor">
+                        <input type="text" name="orgExpeditor" disabled value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor">
                     </div>
                     @else
                     <div class="form-group input-group col-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
                         </div>
-                        <input type="text" name="orgExpeditor" readonly value="Orgão não infomado."class="custom-select" id="orgExpeditor">
+                        <input type="text" name="orgExpeditor" disabled value="Orgão não infomado."class="custom-select" id="orgExpeditor">
                     </div>
                     @endif
 
@@ -126,14 +126,14 @@
                         <strong>Data de expedição </strong>
                     </div>
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao" readonly class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
+                        <input type="date" name="dtExpedicao" disabled class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
                     </div>
                     @else
                     <div class="form-group col-sm-2" align="right">
                         <strong>Data de expedição </strong>
                     </div>
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao" readonly class="form-control" value="Não informado.">
+                        <input type="date" name="dtExpedicao" disabled class="form-control" value="Não informado.">
                     </div>
                     @endif
 
@@ -142,14 +142,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="sexo">Sexo</span>
                         </div>
-                        <input type="text" name="sexo" readonly value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo">
+                        <input type="text" name="sexo" disabled value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo">
                     </div>
                     @else
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="sexo">Sexo</span>
                         </div>
-                        <input type="text" name="sexo" readonly value="Não informado"class="custom-select" id="sexo">
+                        <input type="text" name="sexo" disabled value="Não informado"class="custom-select" id="sexo">
                     </div>
                     @endif
 
@@ -158,14 +158,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="estadoCivil">Estado civil</span>
                         </div>
-                        <input type="text" name="estadoCivil" readonly value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil">
+                        <input type="text" name="estadoCivil" disabled value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil">
                     </div>
                     @else
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="estadoCivil">Estado civil</span>
                         </div>
-                        <input type="text" name="estadoCivil" readonly value="Não informado."class="custom-select" id="estadoCivil">
+                        <input type="text" name="estadoCivil" disabled value="Não informado."class="custom-select" id="estadoCivil">
                     </div>
                     @endif
 
@@ -174,14 +174,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="tratamento">Tratamento</span>
                         </div>
-                        <input type="text" name="tratamento" readonly value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento">
+                        <input type="text" name="tratamento" disabled value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento">
                     </div>
                     @else
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" for="tratamento">Tratamento</span>
                         </div>
-                        <input type="text" name="tratamento" readonly value="Não informado."class="custom-select" id="tratamento">
+                        <input type="text" name="tratamento" disabled value="Não informado."class="custom-select" id="tratamento">
                     </div>
                     @endif
 
@@ -190,14 +190,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nacionalidade</span>
                         </div>
-                        <input type="text" name="nacionalidade" readonly value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" >
+                        <input type="text" name="nacionalidade" disabled value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" >
                     </div>
                     @else
                     <div class="form-group input-group col-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nacionalidade</span>
                         </div>
-                        <input type="text" name="nacionalidade" readonly value="Não informado." class="custom-select" >
+                        <input type="text" name="nacionalidade" disabled value="Não informado." class="custom-select" >
                     </div>
                     @endif
 
@@ -206,19 +206,19 @@
                     <strong>Data de Nascimento </strong>
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="date" name="dtNascimento" class="form-control" readonly value="{{$cliente->pessoaFisica->dtNascimento}}">
+                        <input type="date" name="dtNascimento" class="form-control" disabled value="{{$cliente->pessoaFisica->dtNascimento}}">
                     </div>
                     @else
                     <div class="form-group col-sm-2" align="right">
                     <strong>Data de Nascimento </strong>
                     </div>
                     <div class="form-group col-sm-3">
-                        <input type="text" name="dtNascimento" class="form-control" readonly value="Não informado.">
+                        <input type="text" name="dtNascimento" class="form-control" disabled value="Não informado.">
                     </div>
                     @endif
 
                     <div class="form-group col-sm-6">
-                        <input type="text" name="nomeMae" readonly value="@if(isset($cliente->pessoaFisica->nomeMae)){{$cliente->pessoaFisica->nomeMae}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="150">
+                        <input type="text" name="nomeMae" disabled value="@if(isset($cliente->pessoaFisica->nomeMae)){{$cliente->pessoaFisica->nomeMae}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="150">
                     </div>
                 </div>
             </div>
@@ -234,7 +234,7 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome_empresa" readonly value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
+                        <input type="text" name="nome_empresa" disabled value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
                             @error('nome_empresa')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -243,40 +243,40 @@
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numero" readonly value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18">
+                        <input type="text" name="numero" disabled value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18">
                     </div>
 
                     @if($cliente->pessoaJuridica->inscMunicipal > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal" readonly value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
+                        <input type="text" name="inscMunicipal" disabled value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal" readonly placeholder="Inscrição Municipal não informada." class="form-control">
+                        <input type="text" name="inscMunicipal" disabled placeholder="Inscrição Municipal não informada." class="form-control">
                     </div>
                     @endif
 
                     @if($cliente->pessoaJuridica->insEstadual > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal" readonly value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
+                        <input type="text" name="inscMunicipal" disabled value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscEstadual" readonly placeholder="Inscrição Estadual não informada." class="form-control">
+                        <input type="text" name="inscEstadual" disabled placeholder="Inscrição Estadual não informada." class="form-control">
                     </div>
                     @endif
 
                     @if($cliente->pessoaJuridica->codigo > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="codigo" readonly value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
+                        <input type="text" name="codigo" disabled value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="codigo" readonly placeholder="Código não informado." class="form-control">
+                        <input type="text" name="codigo" disabled placeholder="Código não informado." class="form-control">
                     </div>
                     @endif
                     <div class="form-group col-sm-1">
-                        <input type="text" name="natureza_pj" readonly value="{{$cliente->pessoaJuridica->natureza_pj}}" class="form-control">
+                        <input type="text" name="natureza_pj" disabled value="{{$cliente->pessoaJuridica->natureza_pj}}" class="form-control">
                     </div>
                 </div>
             </div>
@@ -293,71 +293,71 @@
                     <div class="row">
                     @if(isset($cliente->endereco->cep) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" readonly id="cep" class="form-control" maxlength="8">
+                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep" disabled id="cep" class="form-control" maxlength="8">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="CEP não informado" name="cep" readonly id="cep" class="form-control" maxlength="8">
+                            <input type="text"  placeholder="CEP não informado" name="cep" disabled id="cep" class="form-control" maxlength="8">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->logradouro) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" readonly id="rua" class="form-control" maxlength="150">
+                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro" disabled id="rua" class="form-control" maxlength="150">
                         </div>
                     @else
                         <div class="form-group col-sm-4">
-                            <input type="text" value="Logradouro não informado." name="logradouro" readonly id="rua" class="form-control" maxlength="150">
+                            <input type="text" value="Logradouro não informado." name="logradouro" disabled id="rua" class="form-control" maxlength="150">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->numEndereco) > 0)
                         <div class="form-group col-1">
-                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
+                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco" disabled class="form-control" maxlength="10">
                         </div>
                     @else
                         <div class="form-group col-2">
-                            <input value="Nº não informado" type="text" name="numEndereco" readonly class="form-control" maxlength="10">
+                            <input value="Nº não informado" type="text" name="numEndereco" disabled class="form-control" maxlength="10">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->complemento) > 0)
                         <div class="form-group col-3">
-                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" readonly class="form-control" maxlength="50">
+                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento" disabled class="form-control" maxlength="50">
                         </div>
                     @else
                         <div class="form-group col-3">
-                            <input value="Complemento não informado."  type="text" name="complemento" readonly class="form-control" maxlength="50">
+                            <input value="Complemento não informado."  type="text" name="complemento" disabled class="form-control" maxlength="50">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->bairro) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" readonly class="form-control" maxlength="60">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro" disabled class="form-control" maxlength="60">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="Bairro não informado." name="bairro" id="bairro" readonly class="form-control" maxlength="60">
+                            <input type="text" value="Bairro não informado." name="bairro" id="bairro" disabled class="form-control" maxlength="60">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->cidade) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" readonly class="form-control" maxlength="60">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade" disabled class="form-control" maxlength="60">
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="Cidade não informada." name="cidade" id="cidade" readonly class="form-control" maxlength="60">
+                            <input type="text" value="Cidade não informada." name="cidade" id="cidade" disabled class="form-control" maxlength="60">
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->uf) > 0)
                         <div class="form-group col-sm-1">
-                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" readonly class="form-control" maxlength="2">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf" disabled class="form-control" maxlength="2">
                         </div>
                     @else
                         <div class="form-group col-sm-2">
-                            <input type="text" value="UF não informada." name="uf" id="uf" readonly class="form-control" maxlength="2">
+                            <input type="text" value="UF não informada." name="uf" id="uf" disabled class="form-control" maxlength="2">
                         </div>
                     @endif
                     </div>
@@ -374,26 +374,26 @@
                     <div class="row">
                         @foreach($cliente->contato as $contato)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->email}}" name="email" readonly class="form-control" maxlength="100">
+                            <input type="text" value="{{$contato->email}}" name="email" disabled class="form-control" maxlength="100">
                         </div>
 
                         @if(isset($contato->telefone) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->telefone}}" name="telefone" readonly class="form-control" maxlength="13">
+                            <input type="text" value="{{$contato->telefone}}" name="telefone" disabled class="form-control" maxlength="13">
                         </div>
                         @else
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Telefone não informado." name="telefone" readonly class="form-control" maxlength="13">
+                            <input type="text" placeholder="Telefone não informado." name="telefone" disabled class="form-control" maxlength="13">
                         </div>
                         @endif
 
                         @if(isset($contato->celular) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->celular}}" name="celular" readonly class="form-control" maxlength="14">
+                            <input type="text" value="{{$contato->celular}}" name="celular" disabled class="form-control" maxlength="14">
                         </div>
                         @else
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Celular não informado." name="celular" readonly class="form-control" maxlength="14">
+                            <input type="text" placeholder="Celular não informado." name="celular" disabled class="form-control" maxlength="14">
                         </div>
                         @endif
                         @endforeach
@@ -402,7 +402,96 @@
             </div>
         <!-- FIM DO CARD CONTATO -->
         </div>
-    </form>
+        @if(isset($processos) > 0)
+        <div class="card col-12 shadow-lg rounded">
+            <div class="card-header bg-light">
+                <strong>PROCESSO</strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-5">Pasta do processo</th>
+                            <th class="col-2">Número do processo</th>
+                            <th class="col-2">Data de distribuição</th>
+                            <th class="col-2">Andamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($processos as $processo)
+                        <tr>
+                            <td>{{$processo->pasta}}</td>
+                            <td>{{$processo->numProcesso}}</td>
+                            <td>
+                                @php
+                                $data_distribuicao = new DateTime($processo->dtDistribuicao);
+                                //dd($processo->dtDistribuicao);
+                                echo $data_distribuicao->format('d/m/Y');                                
+                                @endphp
+                            </td>
+                            <td>
+                                @php
+                                if($processo->ultAndamento > 0){
+                                    $data_andamento = new DateTime($processo->ultAndamento);
+                                    //dd($processo->ultAndamento);
+                                    echo $data_andamento->format('d/m/Y');
+                                }else{
+                                    echo 'Não há andamento.';
+                                }                                
+                                @endphp
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>                    
+                </table><br>
+                <div>                    
+                    {{ $processos->links() }}                    
+                </div>                                          
+            </div>
+        </div>
+        @else
+        @endif
+
+        @if(isset($servicos) > 0)
+        <div class="card col-12 shadow-lg rounded">
+            <div class="card-header bg-light">
+                <strong>SERVIÇO</strong>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-5">Pasta do serviço</th>
+                            <th class="col-2">Contrato</th>
+                            <th class="col-2">Data de abertura</th>
+                            <th class="col-2">Situação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($servicos as $servico)
+                        <tr>
+                            <td>{{$servico->pasta_servico}}</td>
+                            <td>{{$servico->contrato}}</td>
+                            <td>
+                                @php
+                                $data_abertura = new DateTime($processo->abertura);
+                                //dd($processo->dtDistribuicao);
+                                echo $data_abertura->format('d/m/Y');                                
+                                @endphp
+                            </td>
+                            <td>{{$servico->situacao}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>                    
+                </table>
+                <div>
+                    {{ $servicos->links() }}
+                </div>                
+            </div>
+        </div>
+        @endif        
+    </form>  
+    
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
