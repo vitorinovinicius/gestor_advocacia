@@ -266,12 +266,6 @@ return [
 
         ],
 
-        [
-            'text'          => 'Usuários do Sistema',
-            'url'           => 'painel/usuarios',
-            'icon'          => 'fas fa-id-card-alt',
-            'can'           => 'permissao_usuarios'
-        ],
         ['header'           => 'Configurações'],
         [
             'text'          => 'Configurações do sistema',
