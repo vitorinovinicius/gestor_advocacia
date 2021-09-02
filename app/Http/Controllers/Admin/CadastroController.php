@@ -80,22 +80,22 @@ class CadastroController extends Controller
 
         if($cliente->nome = $request->input('nome')){
 
-            $pf->cpf            = $request->input('cpf');
-            $pf->pis            = $request->input('pis');
-            $pf->sexo           = $request->input('sexo');
-            $pf->profissao      = $request->input('profissao');
-            $pf->estadoCivil    = $request->input('estadoCivil');
-            $pf->tratamento     = $request->input('tratamento');
-            $pf->numCtps        = $request->input('numCtps');
-            $pf->serieCtps      = $request->input('serieCtps');
-            $pf->ufCtps         = $request->input('ufCtps');
-            $pf->nacionalidade  = $request->input('nacionalidade');
-            $pf->dtNascimento   = $request->input('dtNascimento');
-            $pf->tituloEleitor  = $request->input('tituloEleitor');
-            $pf->idtCivil       = $request->input('idtCivil');
-            $pf->dtExpedicao    = $request->input('dtExpedicao');
-            $pf->orgExpeditor   = $request->input('orgExpeditor');
-            $pf->nomeMae        = $request->input('nomeMae');
+            $pf->cpf                = $request->input('cpf');
+            $pf->pis                = $request->input('pis');
+            $pf->sexo               = $request->input('sexo');
+            $pf->profissao          = $request->input('profissao');
+            $pf->estadoCivil        = $request->input('estadoCivil');
+            $pf->tratamento         = $request->input('tratamento');
+            $pf->numCtps            = $request->input('numCtps');
+            $pf->serieCtps          = $request->input('serieCtps');
+            $pf->ufCtps             = $request->input('ufCtps');
+            $pf->nacionalidade      = $request->input('nacionalidade');
+            $pf->dtNascimento       = $request->input('dtNascimento');
+            $pf->tituloEleitor      = $request->input('tituloEleitor');
+            $pf->idtCivil           = $request->input('idtCivil');
+            $pf->dtExpedicao        = $request->input('dtExpedicao');
+            $pf->orgExpeditor       = $request->input('orgExpeditor');
+            $pf->nomeMae            = $request->input('nomeMae');
             $pf->cliente()->associate($cliente);
             $pf->save();
 
@@ -125,36 +125,36 @@ class CadastroController extends Controller
             $processo->titulo           = $request->input('titulo');
             $processo->save();
             $processo                   = Processo::find($processo->id);
-            $processo->cliente()->attach($cliente);
-            
+            $processo->cliente()->sync($cliente);
+
         }elseif($cliente->servico->pasta_servico = $request->input('pasta_servico')){
 
-            $servico                        = new Servico;
-            $servico->pasta_servico         = $request->input('pasta_servico');
-            $servico->assunto               = $request->input('assunto');
-            $servico->contrato              = $request->input('contrato');
-            $servico->negociacao            = $request->input('negociacao');
-            $servico->abertura              = $request->input('abertura');
-            $servico->situacao              = $request->input('situacao');
+            $servico                    = new Servico;
+            $servico->pasta_servico     = $request->input('pasta_servico');
+            $servico->assunto           = $request->input('assunto');
+            $servico->contrato          = $request->input('contrato');
+            $servico->negociacao        = $request->input('negociacao');
+            $servico->abertura          = $request->input('abertura');
+            $servico->situacao          = $request->input('situacao');
             $servico->save();
-            $servico->cliente()->attach($cliente);
+            $servico->cliente()->sync($cliente);
         }
 
 
-        $contato->email         = $request->input('email');
-        $contato->telefone      = $request->input('telefone');
-        $contato->celular       = $request->input('celular');
+        $contato->email                 = $request->input('email');
+        $contato->telefone              = $request->input('telefone');
+        $contato->celular               = $request->input('celular');
         $contato->cliente()->associate($cliente);
         $contato->save();
 
 
-        $endereco->logradouro   = $request->input('logradouro');
-        $endereco->complemento  = $request->input('complemento');
-        $endereco->numEndereco  = $request->input('numEndereco');
-        $endereco->bairro       = $request->input('bairro');
-        $endereco->cidade       = $request->input('cidade');
-        $endereco->uf           = $request->input('uf');
-        $endereco->cep          = $request->input('cep');
+        $endereco->logradouro           = $request->input('logradouro');
+        $endereco->complemento          = $request->input('complemento');
+        $endereco->numEndereco          = $request->input('numEndereco');
+        $endereco->bairro               = $request->input('bairro');
+        $endereco->cidade               = $request->input('cidade');
+        $endereco->uf                   = $request->input('uf');
+        $endereco->cep                  = $request->input('cep');
         $endereco->cliente()->associate($cliente);
         $endereco->save();
 
@@ -176,10 +176,14 @@ class CadastroController extends Controller
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
 
+        $processos = Cliente::find($id)->processo()->paginate(2);
+        $servicos = Cliente::find($id)->servico()->paginate(1);
         $cliente = Cliente::find($id);
         if($cliente) {
             return view('admin.clientes.dadosCliente', [
                 'cliente'               => $cliente,
+                'processos'             => $processos,
+                'servicos'              => $servicos,
                 'profissoes'            => $profissoes,
                 'tratamentos'           => $tratamentos,
                 'nacionalidades'        => $nacionalidades,
@@ -231,14 +235,14 @@ class CadastroController extends Controller
 
     public function update(Request $request, $id)
     {
-        $cliente                = Cliente::find($id);
-        $pessoa_fisica          = Cliente::find($id)->pessoaFisica;
-        $pessoa_juridica        = Cliente::find($id)->pessoaJuridica;
-        $contatos               = Cliente::find($id)->Contato;
-        $endereco               = Cliente::find($id)->Endereco;
+        $cliente                                    = Cliente::find($id);
+        $pessoa_fisica                              = Cliente::find($id)->pessoaFisica;
+        $pessoa_juridica                            = Cliente::find($id)->pessoaJuridica;
+        $contatos                                   = Cliente::find($id)->Contato;
+        $endereco                                   = Cliente::find($id)->Endereco;
 
-        $cliente->nome          = $request['nome'];
-        $cliente->nome_empresa  = $request['nome_empresa'];
+        $cliente->nome                              = $request['nome'];
+        $cliente->nome_empresa                      = $request['nome_empresa'];
         $cliente->save();
 
         if ($cliente->nome = $request['nome']){
@@ -269,19 +273,19 @@ class CadastroController extends Controller
         }
 
         foreach($contatos as $contato){
-            $contato->email         = $request['email'];
-            $contato->telefone      = $request['telefone'];
-            $contato->celular       = $request['celular'];
+            $contato->email                         = $request['email'];
+            $contato->telefone                      = $request['telefone'];
+            $contato->celular                       = $request['celular'];
             $contato->save();
         }
 
-        $endereco->logradouro   = $request['logradouro'];
-        $endereco->complemento  = $request['complemento'];
-        $endereco->numEndereco  = $request['numEndereco'];
-        $endereco->bairro       = $request['bairro'];
-        $endereco->cidade       = $request['cidade'];
-        $endereco->uf           = $request['uf'];
-        $endereco->cep          = $request['cep'];
+        $endereco->logradouro                       = $request['logradouro'];
+        $endereco->complemento                      = $request['complemento'];
+        $endereco->numEndereco                      = $request['numEndereco'];
+        $endereco->bairro                           = $request['bairro'];
+        $endereco->cidade                           = $request['cidade'];
+        $endereco->uf                               = $request['uf'];
+        $endereco->cep                              = $request['cep'];
         $endereco->save();
 
             //dd($pessoa_fisica);
@@ -291,8 +295,15 @@ class CadastroController extends Controller
     public function destroy($id)
     {
         $cliente = Cliente::find($id);
-        $cliente->processo()->detach();
-        $cliente->servico()->detach();
+        if(!empty($cliente->processo)){
+
+            $cliente->processo()->detach();
+
+            if(!empty($cliente->servico)){
+                $cliente->servico()->detach();
+            }
+        }
+
         $cliente->delete();
 
         return redirect()->route('cadastro.index');
