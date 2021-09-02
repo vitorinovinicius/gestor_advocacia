@@ -25,7 +25,7 @@
         @if($cliente->nome > 0)
         <div class="card cadastro natural">
             <div class="card-header col-md-12">
-                <strong>PESSOA NATURAL</strong>                    
+                <strong>PESSOA NATURAL</strong>
             </div>
             <div class="card-body col-12">
                 <p class="card-text">
@@ -376,12 +376,7 @@
             <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
                 <div class="col-sm-12" align="right">
                     <button type="submit" class="btn btn-success">Atualizar</button>
-                    <form class="d-inline" method="POST" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" action="{{route('cadastro.destroy', $cliente->id)}}">
-                        @method('DELETE')
-                        @csrf
-                        <button class="btn btn-sm btn-danger">Excluir</button>
-                    </form>
-                </div>                
+                </div>
             </div>
         </div>
     </form>
