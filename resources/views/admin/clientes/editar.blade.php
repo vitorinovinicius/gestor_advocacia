@@ -376,7 +376,12 @@
             <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
                 <div class="col-sm-12" align="right">
                     <button type="submit" class="btn btn-success">Atualizar</button>
-                </div>
+                    <form class="d-inline" method="POST" action="{{route('cadastro.destroy', $cliente->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                </div>                
             </div>
         </div>
     </form>
