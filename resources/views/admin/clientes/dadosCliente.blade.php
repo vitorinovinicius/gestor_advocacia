@@ -11,12 +11,6 @@
             Voltar
         </a>
     </h1>
-    <div align="right">
-        <a href="{{route('processo.create')}}" class="btn btn-sm btn-success">
-        <i class="fas fa-gavel"></i>
-            Criar Processo
-        </a>
-    </div>
 @endsection
 
 @section('content')
@@ -402,96 +396,143 @@
             </div>
         <!-- FIM DO CARD CONTATO -->
         </div>
-        @if(isset($processos) > 0)
-        <div class="card col-12 shadow-lg rounded">
-            <div class="card-header bg-light">
-                <strong>PROCESSO</strong>
-            </div>
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="col-5">Pasta do processo</th>
-                            <th class="col-2">Número do processo</th>
-                            <th class="col-2">Data de distribuição</th>
-                            <th class="col-2">Andamento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($processos as $processo)
-                        <tr>
-                            <td>{{$processo->pasta}}</td>
-                            <td>{{$processo->numProcesso}}</td>
-                            <td>
-                                @php
-                                $data_distribuicao = new DateTime($processo->dtDistribuicao);
-                                //dd($processo->dtDistribuicao);
-                                echo $data_distribuicao->format('d/m/Y');                                
-                                @endphp
-                            </td>
-                            <td>
-                                @php
-                                if($processo->ultAndamento > 0){
-                                    $data_andamento = new DateTime($processo->ultAndamento);
-                                    //dd($processo->ultAndamento);
-                                    echo $data_andamento->format('d/m/Y');
-                                }else{
-                                    echo 'Não há andamento.';
-                                }                                
-                                @endphp
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>                    
-                </table><br>
-                <div>                    
-                    {{ $processos->links() }}                    
-                </div>                                          
-            </div>
-        </div>
-        @else
-        @endif
 
-        @if(isset($servicos) > 0)
-        <div class="card col-12 shadow-lg rounded">
-            <div class="card-header bg-light">
-                <strong>SERVIÇO</strong>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="card col-md-12" role="tabpanel">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item" >
+                            <a class="nav-link active" href="#processo" aria-controls="processo" data-toggle="tab" role="tab">Processo</a>
+                        </li>
+
+                        <li role="presentation" class="nav-item" >
+                            <a class="nav-link" href="#servico" aria-controls="servico" data-toggle="tab" role="tab">Serviço</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane nav-link active tabela" id="processo">
+                            @if(count($cliente->processo) > 0)
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Pasta do processo</th>
+                                        <th class="col-2">Número do processo</th>
+                                        <th class="col-2">Data de distribuição</th>
+                                        <th class="col-2">Andamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($processos as $processo)
+                                    <tr>
+                                        <td>
+                                            <a href="{{route('processo.show', $processo->id)}}">
+                                                {{$processo->pasta}}
+                                            </a>
+                                        </td>
+                                        <td>{{$processo->numProcesso}}</td>
+                                        <td>
+                                            @php
+                                            $data_distribuicao = new DateTime($processo->dtDistribuicao);
+                                            //dd($processo->dtDistribuicao);
+                                            echo $data_distribuicao->format('d/m/Y');
+                                            @endphp
+                                        </td>
+                                        <td>
+                                            @php
+                                            if($processo->ultAndamento > 0){
+                                                $data_andamento = new DateTime($processo->ultAndamento);                                        
+                                                echo $data_andamento->format('d/m/Y');
+                                            }else{
+                                                echo 'Não há andamento.';
+                                            }
+                                            @endphp
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table><br>
+                            <div>
+                                {{ $processos->links() }}
+                            </div>
+                            @else
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Pasta do processo</th>
+                                        <th class="col-2">Número do processo</th>
+                                        <th class="col-2">Data de distribuição</th>
+                                        <th class="col-2">Andamento</th>
+                                    </tr>                           
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Não há dados. </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @endif
+                        </div>
+        
+                        <div role="tabpanel" class="tab-pane nav-link tabela" id="servico">
+                            @if(count($servicos) > 0)
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Pasta do serviço</th>
+                                        <th class="col-2">Contrato</th>
+                                        <th class="col-2">Data de abertura</th>
+                                        <th class="col-2">Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($servicos as $servico)
+                                    <tr>
+                                        <td>
+                                            <a href="{{route('servico.show', $servico->id)}}">
+                                                {{$servico->pasta_servico}}
+                                            </a>
+                                        </td>
+                                        <td>{{$servico->contrato}}</td>
+                                        <td>
+                                            @php
+                                            $data_abertura = new DateTime($servico->abertura);                                    
+                                            echo $data_abertura->format('d/m/Y');
+                                            @endphp
+                                        </td>
+                                        <td>{{$servico->situacao}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div>
+                                {{ $servicos->links() }}
+                            </div>
+                            @else
+                            <table class="table table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Pasta do serviço</th>
+                                        <th class="col-2">Contrato</th>
+                                        <th class="col-2">Data de abertura</th>
+                                        <th class="col-2">Situação</th>
+                                    </tr>                           
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Não há dados. </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="col-5">Pasta do serviço</th>
-                            <th class="col-2">Contrato</th>
-                            <th class="col-2">Data de abertura</th>
-                            <th class="col-2">Situação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($servicos as $servico)
-                        <tr>
-                            <td>{{$servico->pasta_servico}}</td>
-                            <td>{{$servico->contrato}}</td>
-                            <td>
-                                @php
-                                $data_abertura = new DateTime($processo->abertura);
-                                //dd($processo->dtDistribuicao);
-                                echo $data_abertura->format('d/m/Y');                                
-                                @endphp
-                            </td>
-                            <td>{{$servico->situacao}}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>                    
-                </table>
-                <div>
-                    {{ $servicos->links() }}
-                </div>                
-            </div>
+            
         </div>
-        @endif        
-    </form>  
-    
+
+    </form>
+
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
