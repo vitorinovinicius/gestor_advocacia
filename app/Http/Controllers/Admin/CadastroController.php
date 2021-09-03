@@ -137,6 +137,7 @@ class CadastroController extends Controller
             $servico->abertura          = $request->input('abertura');
             $servico->situacao          = $request->input('situacao');
             $servico->save();
+            $servico                    = Servico::find($servico->id);
             $servico->cliente()->sync($cliente);
         }
 
@@ -176,8 +177,8 @@ class CadastroController extends Controller
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
 
-        $processos = Cliente::find($id)->processo()->paginate(2);
-        $servicos = Cliente::find($id)->servico()->paginate(1);
+        $processos = Cliente::find($id)->processo()->paginate(5);
+        $servicos = Cliente::find($id)->servico()->paginate(5);
         $cliente = Cliente::find($id);
         if($cliente) {
             return view('admin.clientes.dadosCliente', [
