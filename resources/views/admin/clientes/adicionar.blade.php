@@ -369,7 +369,7 @@
                         </div>
 
                         <div class="form-group col-sm-2">
-                            <input type="datetime-local"  placeholder="Data de Distribuição" name="abertura" class="form-control">
+                            <input type="datetime"  value="{{date("YmdHism")}}" name="abertura" class="form-control">
                         </div>
 
                         <div class="form-group col-sm-10">
