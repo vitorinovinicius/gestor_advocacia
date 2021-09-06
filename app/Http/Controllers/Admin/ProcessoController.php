@@ -190,10 +190,9 @@ class ProcessoController extends Controller
      */
     public function destroy($id)
     {
-        $processo = Processo::find($id);
+        $processo   = Processo::find($id);
         $processo->cliente()->detach();
-        $processo->delete();
 
-        return redirect()->route('processo.index');
+        return redirect()->route('cadastro.index');
     }
 }
