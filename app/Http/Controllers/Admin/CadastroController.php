@@ -176,7 +176,7 @@ class CadastroController extends Controller
 
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
-
+        
         $processos = Cliente::find($id)->processo()->paginate(5);
         $servicos = Cliente::find($id)->servico()->paginate(5);
         $cliente = Cliente::find($id);
@@ -215,11 +215,24 @@ class CadastroController extends Controller
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
 
-        $cliente = Cliente::find($id);
+        
+        $processos = Cliente::find($id)->processo()->paginate(5);    
+        
+        $servicos = Cliente::find($id)->servico()->paginate(5);
+
+        $cliente                    = Cliente::find($id);
+
+        $processos_todos = Processo::all();        
+        $servicos_todos = Servico::all();
+
         if($cliente) {
             return view('admin.clientes.editar', [
                 'cliente'               => $cliente,
+                'processos'             => $processos,
+                'servicos'              => $servicos,
                 'profissoes'            => $profissoes,
+                'processos_todos'       => $processos_todos,
+                'servicos_todos'        => $servicos_todos,
                 'tratamentos'           => $tratamentos,
                 'nacionalidades'        => $nacionalidades,
                 'estadoscivis'          => $estadoscivis,
@@ -289,8 +302,15 @@ class CadastroController extends Controller
         $endereco->cep                              = $request['cep'];
         $endereco->save();
 
+        if(isset($request->processo)){
+            $cliente->processo()->syncWithoutDetaching($request->processo);
+        } else {
+
+            $cliente->processo()->attach(array());
+        }
+
             //dd($pessoa_fisica);
-        return redirect()->route('cadastro.index');
+        return redirect()->route('cadastro.edit', $cliente->id);
     }
 
     public function destroy($id)
