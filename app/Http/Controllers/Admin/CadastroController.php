@@ -301,24 +301,24 @@ class CadastroController extends Controller
         $endereco->uf                               = $request['uf'];
         $endereco->cep                              = $request['cep'];
         $endereco->save();
-
         
+        if($cliente->processo = $request['processo']){
 
-        if(isset($request->processo)){
-            $cliente->processo()->syncWithoutDetaching($request->processo);
+            if(isset($request->processo)){
+                $cliente->processo()->syncWithoutDetaching($request->processo);
 
-        } else {
-            $cliente->processo()->sync();
+            } else {
+                $cliente->processo()->sync();
 
+            }
+        } else{
+        //dd($request->processo);        
+            if(isset($request->servico)){
+                $cliente->servico()->syncWithoutDetaching($request->servico);
+            }else {
+                $cliente->servico()->sync();
+            }
         }
-        //dd($request->processo);
-        
-        if(isset($request->servico)){
-            $cliente->servico()->syncWithoutDetaching($request->servico);
-        }else {
-            $cliente->servico()->sync();
-        }
-
             //dd($pessoa_fisica);
         return redirect()->route('cadastro.edit', $cliente->id);
     }
