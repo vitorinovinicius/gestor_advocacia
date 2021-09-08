@@ -451,7 +451,7 @@
                                         @endphp
                                     </td>
                                     <td>
-                                        <div class="form-check">
+                                        <div class="form-check" align="center">
                                             <input class="form-check-input" name="processo[]" type="checkbox" value="{{$processo_cliente->id}}">
                                         </div>
                                     </td>
@@ -508,7 +508,7 @@
                                     </td>
                                     <td>{{$servico_cliente->situacao}}</td>
                                     <td>
-                                        <div class="form-check">
+                                        <div class="form-check" align="center">
                                             <input class="form-check-input" name="servico[]" type="checkbox" value="{{$servico_cliente->id}}">
                                         </div>
                                     </td>
@@ -572,7 +572,7 @@
                                     <th class="col-2">Número do processo</th>
                                     <th class="col-2">Data de distribuição</th>
                                     <th class="col-2">Andamento</th>
-                                    <th class="col">Ações</th>
+                                    <th class="col">Desvincular</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -606,7 +606,7 @@
                                             @method('delete')
                                             @csrf
                                             <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
-                                                <div class="col-sm-12" align="right">
+                                                <div>
                                                     <input type="submit" class="btn btn-sm btn-danger" value="Desvincular">
                                                 </div>
                                             </div>
@@ -647,6 +647,7 @@
                                     <th class="col-2">Contrato</th>
                                     <th class="col-2">Data de abertura</th>
                                     <th class="col-2">Situação</th>
+                                    <th class="col">Desvincular</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -665,6 +666,17 @@
                                         @endphp
                                     </td>
                                     <td>{{$servico->situacao}}</td>
+                                    <td>
+                                        <form action="{{route('servico.destroy', $servico->id)}}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+                                                <div>
+                                                    <input type="submit" class="btn btn-sm btn-danger" value="Desvincular">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
