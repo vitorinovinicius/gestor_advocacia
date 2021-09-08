@@ -159,7 +159,7 @@ class CadastroController extends Controller
         $endereco->cliente()->associate($cliente);
         $endereco->save();
 
-        return redirect()->route('cadastro.show', $cliente->id);
+        return redirect()->route('cadastro.edit', $cliente->id);
     }
 
     public function show($id)
@@ -176,7 +176,7 @@ class CadastroController extends Controller
 
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
-        
+
         $processos = Cliente::find($id)->processo()->paginate(5);
         $servicos = Cliente::find($id)->servico()->paginate(5);
         $cliente = Cliente::find($id);
@@ -215,15 +215,15 @@ class CadastroController extends Controller
         $estados                    = Estado::all();
         $cidades                    = Cidade::all();
 
-        
-        $processos = Cliente::find($id)->processo()->paginate(5);    
-        
-        $servicos = Cliente::find($id)->servico()->paginate(5);
+
+        $processos                  = Cliente::find($id)->processo()->paginate(5);
+
+        $servicos                   = Cliente::find($id)->servico()->paginate(5);
 
         $cliente                    = Cliente::find($id);
 
-        $processos_todos = Processo::all();        
-        $servicos_todos = Servico::all();
+        $processos_todos            = Processo::all();
+        $servicos_todos             = Servico::all();
 
         if($cliente) {
             return view('admin.clientes.editar', [
@@ -302,11 +302,21 @@ class CadastroController extends Controller
         $endereco->cep                              = $request['cep'];
         $endereco->save();
 
+        
+
         if(isset($request->processo)){
             $cliente->processo()->syncWithoutDetaching($request->processo);
-        } else {
 
-            $cliente->processo()->attach(array());
+        } else {
+            $cliente->processo()->sync();
+
+        }
+        //dd($request->processo);
+        
+        if(isset($request->servico)){
+            $cliente->servico()->syncWithoutDetaching($request->servico);
+        }else {
+            $cliente->servico()->sync();
         }
 
             //dd($pessoa_fisica);
