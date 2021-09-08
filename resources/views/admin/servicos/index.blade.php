@@ -43,7 +43,7 @@
                 <tr>
                     <td>{{$servico->id}}</td>
                     <td><a href="{{route('servico.show', [$servico->id])}}">{{$servico->pasta_servico}}</a></td>
-                    <td>@if(isset($servico->cliente->id) > 0){{count($servico->cliente) > 0}} @else Não há clientes registrados. @endif</td>
+                    <td>@if(isset($servico->cliente) > 0){{count($servico->cliente) > 0}} @if(count($servico->cliente) === 0)Não há cliente registrado. @endif @endif</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('servico.destroy', $servico->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
