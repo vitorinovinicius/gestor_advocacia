@@ -18,9 +18,9 @@ $(document).ready(function($){
     })
     $("#rg").blur(function(event){
         if ($(this).val().length == 15){
-            $("#rg").mask("99.999.999-X")
+            $("#rg").mask("99.999.999-9")
         }else{
-            $("#rg").mask("9.999.999-X")
+            $("#rg").mask("9.999.999-9")
         }
     })
 
