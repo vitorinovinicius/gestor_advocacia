@@ -87,8 +87,7 @@ class ServicoController extends Controller
     {
         $servico = Servico::find($id);
         $servico->cliente()->detach();
-        $servico->delete();
 
-        return redirect()->route('servico.index');
+        return redirect()->route('cadastro.index');
     }
 }
