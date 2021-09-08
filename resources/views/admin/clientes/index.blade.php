@@ -32,10 +32,10 @@
             <thead>
                 <tr>
                     <th class="col-1">#</th>
-                    <th class="col-4">Nome / Razão social</th>
-                    <th class="col-2">CPF / CNPJ</th>
-                    <th class="col-3">Processo / Serviço</th>
-                    <th class="col-2">Ações</th>
+                    <th class="col-5">Nome / Razão social</th>
+                    <th class="col-3">CPF / CNPJ</th>
+                    <th class="col-2">Processo / Serviço</th>
+                    <th class="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
