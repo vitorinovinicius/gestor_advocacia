@@ -3,6 +3,11 @@
 @section('title', 'Clientes')
 
 @section('content_header')
+
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
+
     <h1>
         Meus clientes
         <a href="{{route('cadastro.create')}}" class="btn btn-sm btn-success">
@@ -28,7 +33,7 @@
 @else
 <div class="card col-12">
     <div class="card-body">
-        <table class="table table-hover">
+        <table id="clientes" class="table table-hover" style="width:100%">
             <thead>
                 <tr>
                     <th class="col-1">#</th>
@@ -73,9 +78,9 @@
                         @if ($cliente->servico)
                         Serviços: {{$cliente->servico->count('servico_cliente')}}
                         @else
-                        @endif                       
                         @endif
-                        
+                        @endif
+
                     </td>
 
                     <td>
@@ -88,6 +93,15 @@
         </table>
     </div>
 </div>
-    {{$clientes->links()}}
 @endif
+@endsection
+
+@section('js')
+    <script>
+    $(document).ready(function() {
+        $('#clientes').DataTable( {
+
+        } );
+    } );
+    </script>
 @endsection
