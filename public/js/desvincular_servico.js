@@ -9,9 +9,8 @@ $('.desvincular_servico').submit(function(e){
         confirmButtonColor: '#50CB93',
         cancelButtonColor: '#BD4B4B',
         confirmButtonText: 'Sim, desvincular!',
-        cancelButtonText: `Cancelar`,
+        cancelButtonText: 'Cancelar',
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.value) {
             Swal.fire(
             'Desvinculado!',
