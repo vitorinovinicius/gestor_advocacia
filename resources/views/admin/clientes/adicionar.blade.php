@@ -3,11 +3,15 @@
 @section('title', 'Novo cliente ')
 
 @section('content_header')
-<link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
+
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" href="{{url('css/card_pf_pj.css')}}">
+@endsection
+
 <script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
 <script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
 <script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
-
     <h1>
             Cadastro inicial do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -18,7 +22,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('cadastro.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
+    <form action="{{ route('cadastro.store') }}" method="POST" class="add_cliente">
         @csrf
         <!-- BOTÕES DO COLLAPSE PF E PJ-->
         <div class="form-check form-check-inline">
@@ -390,10 +394,13 @@
             </div>
         </div>
     </form>
+@endsection
 
+@section('js')
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
+    <script src="{{url('js/adicionar_cliente.js')}}"></script>
 
 @endsection
 
