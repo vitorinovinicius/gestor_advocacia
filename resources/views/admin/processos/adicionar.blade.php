@@ -3,6 +3,9 @@
 @section('title', 'Processos')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Novo processo
         <a href="{{route('processo.index')}}" class="btn btn-sm btn-success">

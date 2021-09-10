@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Dashboard
         <a href="{{route('home')}}" class="btn btn-sm btn-success">

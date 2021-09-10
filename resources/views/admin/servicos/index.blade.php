@@ -4,10 +4,13 @@
 @section('title', 'Serviço')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Meus serviços
         <a href="{{route('servico.create')}}" class="btn btn-sm btn-success">
-            Novo servico
+            Novo serviço
         </a>
     </h1>
 @endsection
@@ -56,7 +59,6 @@
                 @endforeach
             </tbody>
         </table>
-        {{$servicos->links()}}
     </div>
 </div>
 @endif

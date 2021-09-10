@@ -3,10 +3,14 @@
 @section('title', 'Processos')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Meus processos
     </h1>
 @endsection
+
 @section('content')
 @if(!empty($processo->cliente->id))
 <div class="container">Nenhum processo encontrado!</div>
