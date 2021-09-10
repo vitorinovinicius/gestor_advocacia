@@ -3,11 +3,16 @@
 @section('title', 'Editar cliente ')
 
 @section('content_header')
-<link rel="stylesheet" href="{{url('css/app.css')}}">
-<script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
-<script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
-<script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
-<script src="{{url('js/mascara_cadastro.js')}}"></script>
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
+@section('script')
+    <script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/mascara_cadastro.js')}}"></script>
+@endsection
+
     <h1>
             Editar dados do cliente
         <a href="{{route('cadastro.index')}}" class="btn btn-sm btn-success">
@@ -19,7 +24,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{url('css/dados_cliente.css')}}">
-    <form action="{{route('cadastro.update', $cliente->id)}}" method="post">
+    <form action="{{route('cadastro.update', $cliente->id)}}" method="post" class="atualizar_cliente">
         @method('PUT')
         @csrf
         <!-- INÍCIO DA PESSOA NATURAL -->
@@ -218,7 +223,7 @@
 
                     <div class="form-group col-sm-4">
                         <input type="text" name="nomeMae"  value="@if(isset($cliente->pessoaFisica->nomeMae)){{$cliente->pessoaFisica->nomeMae}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="150">
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div><!-- FIM DO COLLAPSE PF -->
@@ -399,11 +404,11 @@
                     </div>
                 </p>
             </div>
-        <!-- FIM DO CARD CONTATO --> 
+        <!-- FIM DO CARD CONTATO -->
                 <div class="card-header bg-light">
                     <strong>VINCULAR</strong>
                 </div>
-                <div class="card-body">       
+                <div class="card-body">
                 <ul class="nav nav-tabs col-md-12" role="tablist">
                     <li role="presentation" class="nav-item" >
                         <a class="nav-link active" href="#processo_todos" aria-controls="processo_todos" data-toggle="tab" role="tab">Processo</a>
@@ -414,9 +419,9 @@
                     </li>
                 </ul>
                 <div class="tab-content col-md-12">
-                    <div role="tabpanel" class="tab-pane nav-link active tabela" id="processo_todos">
+                    <div role="tabpanel" class="tab-pane nav-link active" id="processo_todos">
                         @if(count($processos_todos) > 0)
-                        <table class="table table-hover">
+                        <table class="table table-hover display" id="processos">
                             <thead>
                                 <tr>
                                     <th class="col-5">Pasta do processo</th>
@@ -434,21 +439,18 @@
                                     </td>
                                     <td>{{$processo_cliente->numProcesso}}</td>
                                     <td>
-                                        @php
-                                        $data_distribuicao = new DateTime($processo_cliente->dtDistribuicao);
-                                        //dd($processo->dtDistribuicao);
-                                        echo $data_distribuicao->format('d/m/Y');
-                                        @endphp
+                                        @if($processo_cliente->dtDistribuicao)
+                                        {{date('d/m/Y', strtotime($processo_cliente->dtDistribuicao))}}
+                                        @else
+                                            Em análise.
+                                        @endif
                                     </td>
                                     <td>
-                                        @php
-                                        if($processo_cliente->ultAndamento > 0){
-                                            $data_andamento = new DateTime($processo_cliente->ultAndamento);
-                                            echo $data_andamento->format('d/m/Y');
-                                        }else{
-                                            echo 'Não há andamento.';
-                                        }
-                                        @endphp
+                                        @if($processo_cliente->ultAndamento)
+                                        {{date('d/m/Y', strtotime($processo_cliente->ultAndamento))}}
+                                        @else
+                                            Não há andamento.
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="form-check" align="center">
@@ -459,7 +461,7 @@
                                 @endforeach
                             </tbody>
                         </table><br>
-                        
+
                         @else
                         <table class="table table-hover">
                             <thead>
@@ -479,25 +481,23 @@
                         @endif
                     </div>
 
-                    <div role="tabpanel" class="tab-pane nav-link tabela" id="servico_todos">
+                    <div role="tabpanel" class="tab-pane nav-link" id="servico_todos">
                         @if(count($servicos_todos) > 0)
-                        <table class="table table-hover">
+                        <table class="table table-hover display" id="servicos" width="100%">
                             <thead>
                                 <tr>
-                                    <th class="col-4">Pasta do serviço</th>
-                                    <th class="col-3">Contrato</th>
-                                    <th class="col-2">Data de abertura</th>
-                                    <th class="col-2">Situação</th>
-                                    <th class="col">Vincular</th>
+                                    <th>Pasta do serviço</th>
+                                    <th>Contrato</th>
+                                    <th>Data de abertura</th>
+                                    <th>Situação</th>
+                                    <th>Vincular</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($servicos_todos as $servico_cliente)
                                 <tr>
                                     <td>
-                                        <a href="{{route('cadastro.edit', $servico_cliente->id)}}">
-                                            {{$servico_cliente->pasta_servico}}
-                                        </a>
+                                        {{$servico_cliente->pasta_servico}}
                                     </td>
                                     <td>{{$servico_cliente->contrato}}</td>
                                     <td>
@@ -516,9 +516,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div>
-                            {{ $servicos->links() }}
-                        </div>
                         @else
                         <table class="table table">
                             <thead>
@@ -546,7 +543,7 @@
             </div>
         </div>
     </form>
-        
+
     <div class="col-12">
         <div class="row">
             <div class="card-header bg-light col-md-12">
@@ -585,24 +582,17 @@
                                     </td>
                                     <td>{{$processo->numProcesso}}</td>
                                     <td>
-                                        @php
-                                        $data_distribuicao = new DateTime($processo->dtDistribuicao);
-                                        //dd($processo->dtDistribuicao);
-                                        echo $data_distribuicao->format('d/m/Y');
-                                        @endphp
+                                        {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
                                     </td>
                                     <td>
-                                        @php
-                                        if($processo->ultAndamento > 0){
-                                            $data_andamento = new DateTime($processo->ultAndamento);
-                                            echo $data_andamento->format('d/m/Y');
-                                        }else{
-                                            echo 'Não há andamento.';
-                                        }
-                                        @endphp
+                                        @if($processo->ultAndamento)
+                                        {{date('d/m/Y', strtotime($processo->ultAndamento))}}
+                                        @else
+                                            Não há andamento.
+                                        @endif
                                     </td>
                                     <td>
-                                        <form action="{{route('processo.destroy', $processo->id)}}" method="POST">
+                                        <form action="{{route('processo.destroy', $processo->id)}}" method="POST" class="desvincular_processo">
                                             @method('delete')
                                             @csrf
                                             <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
@@ -616,9 +606,6 @@
                                 @endforeach
                             </tbody>
                         </table><br>
-                        <div>
-                            {{ $processos->links() }}
-                        </div>
                         @else
                         <table class="table table-hover">
                             <thead>
@@ -643,11 +630,11 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="col-5">Pasta do serviço</th>
-                                    <th class="col-2">Contrato</th>
-                                    <th class="col-2">Data de abertura</th>
-                                    <th class="col-2">Situação</th>
-                                    <th class="col">Desvincular</th>
+                                    <th>Pasta do serviço</th>
+                                    <th>Contrato</th>
+                                    <th>Data de abertura</th>
+                                    <th>Situação</th>
+                                    <th>Desvincular</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -707,10 +694,21 @@
         </div>
     </div>
 
-
+@endsection
+@section('js')
     <script src="{{url('js/botao_pf_pj.js')}}"></script>
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
+    <script src="{{url('js/desvincular_processo.js')}}"></script>
+    <script src="{{url('js/atualizar_cliente.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('table.display').DataTable({
+                responsive: true
+                
+            });
+        });
+    </script>
 @endsection
 
 
