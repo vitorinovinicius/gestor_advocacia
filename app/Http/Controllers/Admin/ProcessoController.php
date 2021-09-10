@@ -30,7 +30,9 @@ class ProcessoController extends Controller
      */
     public function index()
     {
-        $processos = Processo::paginate(10);
+        $processos = Processo::orderBy('pasta', 'ASC')
+                                ->first()
+                                ->get();
         return view('admin.processos.index', [
             'processos' => $processos
         ]);
@@ -154,14 +156,10 @@ class ProcessoController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->processo()->sync($id);
 
         $processo = Processo::find($id);
-        $processo->cliente()->sync($id);
             return view('admin.processos.editar', [
-                'processo' => $processo,
-                'cliente' => $cliente
+                'processo' => $processo
             ]);
     }
     /**

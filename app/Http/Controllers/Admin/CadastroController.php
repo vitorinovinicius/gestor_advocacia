@@ -28,7 +28,10 @@ class CadastroController extends Controller
 {
     public function index()
     {
-        $clientes = Cliente::paginate(10);
+        $clientes = Cliente::orderBy('nome', 'ASC')
+                            ->orderBy('nome_empresa', 'DESC')
+                            ->first()
+                            ->get();
         return view('admin.clientes.index', [
             'clientes' => $clientes
         ]);
@@ -301,8 +304,10 @@ class CadastroController extends Controller
         $endereco->uf                               = $request['uf'];
         $endereco->cep                              = $request['cep'];
         $endereco->save();
-        
-        if($cliente->processo = $request['processo']){
+
+        if( empty($_POST['processo'])){
+
+        }elseif($cliente->processo = $request['processo']){
 
             if(isset($request->processo)){
                 $cliente->processo()->syncWithoutDetaching($request->processo);
@@ -312,13 +317,15 @@ class CadastroController extends Controller
 
             }
         } else{
-        //dd($request->processo);        
+        //dd($request->processo);
             if(isset($request->servico)){
                 $cliente->servico()->syncWithoutDetaching($request->servico);
+
             }else {
                 $cliente->servico()->sync();
             }
         }
+
             //dd($pessoa_fisica);
         return redirect()->route('cadastro.edit', $cliente->id);
     }
