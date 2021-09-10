@@ -305,7 +305,7 @@ class CadastroController extends Controller
         $endereco->cep                              = $request['cep'];
         $endereco->save();
 
-        if( empty($_POST['processo'])){
+        if( empty($_POST['processo' && 'servico'])){
 
         }elseif($cliente->processo = $request['processo']){
 
