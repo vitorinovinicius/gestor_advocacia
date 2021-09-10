@@ -119,7 +119,7 @@
                             <a class="nav-link active" href="#cliente" aria-controls="cliente" data-toggle="tab" role="tab">Cliente</a>
                         </li>
                     </ul>
-                    <div class="tab-content">
+                    <div class="tab-content table-responsive-sm">
                         <div role="tabpanel" class="tab-pane nav-link active tabela" id="cliente">
                             @if(count($processo->cliente) > 0)
                             <table class="table table-hover">

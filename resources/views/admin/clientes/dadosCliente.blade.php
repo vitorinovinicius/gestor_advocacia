@@ -402,7 +402,7 @@
     <!-- FIM DO CARD CONTATO -->
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 table-responsive-sm">
         <div class="row">
             <div class="card col-md-12" role="tabpanel">
                 <ul class="nav nav-tabs" role="tablist">

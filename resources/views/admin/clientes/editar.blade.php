@@ -418,7 +418,7 @@
                         <a class="nav-link" href="#servico_todos" aria-controls="servico_todos" data-toggle="tab" role="tab">Serviço</a>
                     </li>
                 </ul>
-                <div class="tab-content col-md-12">
+                <div class="tab-content col-md-12 table-responsive-sm">
                     <div role="tabpanel" class="tab-pane nav-link active" id="processo_todos">
                         @if(count($processos_todos) > 0)
                         <table class="table table-hover display" id="processos">
@@ -654,7 +654,7 @@
                                     </td>
                                     <td>{{$servico->situacao}}</td>
                                     <td>
-                                        <form action="{{route('servico.destroy', $servico->id)}}" method="POST">
+                                        <form action="{{route('servico.destroy', $servico->id)}}" method="POST" class="desvincular_servico">
                                             @method('delete')
                                             @csrf
                                             <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
@@ -700,12 +700,14 @@
     <script src="{{url('js/viacep_cliente.js')}}"></script>
     <script src="{{url('js/viacep_parte_contraria.js')}}"></script>
     <script src="{{url('js/desvincular_processo.js')}}"></script>
+    <script src="{{url('js/desvincular_servico.js')}}"></script>
     <script src="{{url('js/atualizar_cliente.js')}}"></script>
     <script>
         $(document).ready(function(){
             $('table.display').DataTable({
-                responsive: true
-                
+                responsive: true,
+                "info": false,
+                fixedHeader: true
             });
         });
     </script>

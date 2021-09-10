@@ -32,7 +32,7 @@
 </div>
 @else
 <div class="card col-12">
-    <div class="card-body">
+    <div class="card-body table-responsive-sm">
         <table id="clientes" class="table table-hover" style="width:100%">
             <thead>
                 <tr>
