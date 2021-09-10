@@ -4,6 +4,9 @@
 @section('title', 'Processos')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Meus processos
         <a href="{{route('processo.create')}}" class="btn btn-sm btn-success">
@@ -29,21 +32,37 @@
 @else
 <div class="card col-12">
     <div class="card-body">
-        <table class="table table-hover">
+        <table class="table table-striped" id="processos">
             <thead>
                 <tr>
-                    <th width="100px">Ordem</th>
-                    <th width="600px">@if(count($processos) <= 1)Processo @else Processos @endif</th>
-                    <th width="200px">Clientes</th>
-                    <th width="150px">Ações</th>
+                    <th class="col-5">@if(count($processos) <= 1)Processo @else Processos @endif</th>
+                    <th class="col-2">Número do processo</th>
+                    <th class="col-1">Andamento</th>
+                    <th class="col-2">Data de distribuição</th>
+                    <th class="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($processos as $processo)
                 <tr>
-                    <td>{{$processo->id}}</td>
-                    <td><a href="{{route('processo.show', [$processo->id])}}">{{$processo->pasta}}</a></td>
-                    <td>@if(isset($processo->cliente) > 0){{count($processo->cliente) > 0}} @if(count($processo->cliente) === 0)Não há cliente registrado. @endif @endif</td>
+                    <td>
+                        <a href="{{route('processo.show', [$processo->id])}}">
+                            {{$processo->pasta}}
+                        </a>
+                    </td>
+                    <td>
+                        @if(isset($processo->numProcesso))
+                            {{$processo->numProcesso}}
+                        @elseif(count(array($processo->numProcesso)) === 0)Não número registrado.
+                        @endif
+
+                    </td>
+                    <td>
+                        {{date('d/m/Y', strtotime($processo->ultAndamento))}}
+                    </td>
+                    <td>
+                        {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
+                    </td>
                     <td>
                         <a href="{{route('processo.edit', [$processo->id])}}" class="btn btn-sm btn-warning">Editar</a>
                         <form class="d-inline" method="POST" action="{{route('processo.destroy', $processo->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
@@ -56,8 +75,14 @@
                 @endforeach
             </tbody>
         </table>
-        {{$processos->links()}}
     </div>
 </div>
 @endif
+@endsection
+@section('js')
+    <script>
+    $(document).ready(function() {
+        $('#processos').DataTable();
+    });
+    </script>
 @endsection
