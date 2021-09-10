@@ -3,6 +3,9 @@
 @section('title', 'Processos')
 
 @section('content_header')
+@section('css')
+    <link rel="stylesheet" href="{{url('css/app.css')}}">
+@endsection
     <h1>
         Novo processo
         <a href="{{route('processo.index')}}" class="btn btn-sm btn-success">
@@ -105,6 +108,81 @@
         <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
             <div class="col-sm-12" align="right">
                 <input type="submit" class="btn btn-success" value="Cadastrar">
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="card col-md-12" role="tabpanel">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item" >
+                            <a class="nav-link active" href="#cliente" aria-controls="cliente" data-toggle="tab" role="tab">Cliente</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane nav-link active tabela" id="cliente">
+                            @if(count($processo->cliente) > 0)
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Nome completo</th>
+                                        <th class="col-2">CPF / CNPJ</th>
+                                        <th class="col-2">Andamento</th>
+                                        <th class="col-2">Data de distribuição</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($processo->cliente as $cliente)
+                                    <tr>
+                                        <td>
+                                            <a href="{{route('cadastro.show', $cliente->id)}}">
+                                                {{$cliente->nome}}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{$cliente->pessoaFisica->cpf}}
+                                        </td>
+                                        <td>
+                                            @php
+                                            if($cliente->ultAndamento > 0){
+                                                $data_andamento = new DateTime($cliente->ultAndamento);
+                                                echo $data_andamento->format('d/m/Y');
+                                            }else{
+                                                echo 'Não há andamento.';
+                                            }
+                                            @endphp
+                                        </td>
+                                        <td>
+                                            @php
+                                            $data_distribuicao = new DateTime($processo->dtDistribuicao);
+                                            //dd($cliente->dtDistribuicao);
+                                            echo $data_distribuicao->format('d/m/Y');
+                                            @endphp
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table><br>
+                            @else
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-5">Pasta do processo</th>
+                                        <th class="col-2">Número do processo</th>
+                                        <th class="col-2">Data de distribuição</th>
+                                        <th class="col-2">Andamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Não há dados. </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
