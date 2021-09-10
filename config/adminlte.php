@@ -64,12 +64,12 @@ return [
     |
     */
 
-    'usermenu_enabled' => false,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-light',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_enabled' => true,
+    'usermenu_header' => null,
+    'usermenu_header_class' => 'bg-dark',
+    'usermenu_image' => null,
+    'usermenu_desc' => null,
+    'usermenu_profile_url' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
