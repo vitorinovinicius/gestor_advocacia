@@ -17,12 +17,13 @@ class CreatePessoasFisicasTable extends Migration
             $table->increments('id');
             $table->integer('cliente_id')->unsigned()->nullable();
             $table->integer('parte_contraria_id')->unsigned()->nullable();
-            
+
             $table->integer('user_id')->unsigned()->nullable();
-            
+
             $table->string('cpf', 14)->unique()->nullable();
             $table->string('pis', 14)->unique()->nullable();
-            $table->string('profissao', 5)->nullable();
+            $table->string('profissao', 100)->nullable();
+            $table->string('estadoCivil', 30)->nullable();
             $table->enum('sexo', ['Masculino', 'Feminino'])->nullable();
             $table->string('tratamento', 50)->nullable();
             $table->string('numCtps', 7)->unique()->nullable();
@@ -33,6 +34,7 @@ class CreatePessoasFisicasTable extends Migration
             $table->date('dtNascimento')->nullable();
             $table->string('tituloEleitor', 19)->unique()->nullable();
             $table->string('idtCivil', 13)->unique()->nullable();
+            $table->string('orgExpeditor', 60)->nullable();
             $table->date('dtExpedicao')->nullable();
             $table->string('nomeMae', 150)->nullable();
             $table->timestamps();
@@ -41,10 +43,12 @@ class CreatePessoasFisicasTable extends Migration
             ->references('id')
             ->on('partes_contrarias')
             ->onDelete('cascade');
+
             $table->foreign('cliente_id')
             ->references('id')
             ->on('clientes')
             ->onDelete('cascade');
+            
             $table->foreign('user_id')
             ->references('id')
             ->on('users');

@@ -6,12 +6,9 @@
 @section('css')
     <link rel="stylesheet" href="{{url('css/app.css')}}">
 @endsection
-@section('script')
-    <script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/mascara_cadastro.js')}}"></script>
-@endsection
+<script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/mask_number.js')}}"></script>
 
     <h1>
             Editar dados do cliente
@@ -37,193 +34,186 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-6">
-                        <input type="text" name="nome"  value="{{$cliente->nome}}" class="form-control" maxlength="150">
+                        <input type="text" name="nome"  value="{{$cliente->nome}}" class="form-control" maxlength="150" aria-describedby="nome_cliente">
+                        <small id="nome_cliente" class="form-text text-muted">Insira o nome completo</small>
                     </div>
+
                     <div class="form-group col-sm-3">
-                        <input type="text" name="cpf"  value="@if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="14">
+                        <input type="text" name="cpf" id="cpf" value="
+                        @if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}
+                        @else Não há dados cadastrados.
+                        @endif"
+                        class="form-control" maxlength="14" aria-describedby="cpf_cliente">
+                        <small id="cpf_cliente" class="form-text text-muted">Insira o número do CPF</small>
                     </div>
 
                     @if(isset($cliente->pessoaFisica->pis) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis"  value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14">
+                            <input type="text" name="pis" id="pis"  value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14" aria-describedby="pis_cliente">
+                            <small id="pis_cliente" class="form-text text-muted">Insira o número do PIS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis"  value="PIS não informado." class="form-control" maxlength="14">
+                            <input type="text" name="pis" id="pis"  placeholder="PIS não informado." class="form-control" maxlength="14" aria-describedby="pis_cliente">
+                            <small id="pis_cliente" class="form-text text-muted">Insira o número do PIS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->numCtps) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps"  value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7">
+                            <input type="text" name="numCtps" id="numCtps"  value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7" aria-describedby="numCtps_cliente">
+                            <small id="numCtps_cliente" class="form-text text-muted">Insira o número da CTPS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps"  value="Número da CTPS não informado." class="form-control" maxlength="7">
+                            <input type="text" name="numCtps" id="numCtps" placeholder="Número da CTPS não informado." class="form-control" maxlength="7" aria-describedby="numCtps_cliente">
+                            <small id="numCtps_cliente" class="form-text text-muted">Insira o número da CTPS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->serieCtps) > 0)
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps"  value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5">
+                            <input type="text" name="serieCtps" id="serieCtps" value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5" aria-describedby="serieCtps_cliente">
+                            <small id="serieCtps_cliente" class="form-text text-muted">Insira a série da CTPS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps"  value="Série CTPS não informado." class="form-control" maxlength="5">
+                            <input type="text" name="serieCtps" id="serieCtps" placeholder="Série CTPS não informado." class="form-control" maxlength="5" aria-describedby="serieCtps_cliente">
+                            <small id="serieCtps_cliente" class="form-text text-muted">Insira a série da CTPS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->profissao) > 0)
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" for="profissao">Profissão</span>
-                            </div>
-                            <input type="text" name="profissao"  value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao">
+                        <div class="form-group col-sm-7">
+                            <input type="text" name="profissao"  value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao" aria-describedby="profissao_cliente">
+                            <small id="profissao_cliente" class="form-text text-muted">Selecione ou insira a profissão</small>
                         </div>
                     @else
-                        <div class="form-group input-group col-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" for="profissao">Profissão</span>
-                            </div>
-                            <input type="text" name="profissao"  value="Não informada."class="custom-select" id="profissao">
+                        <div class="form-group col-sm-7">
+                            <input type="text" name="profissao" placeholder="Não informada."class="custom-select" id="profissao" aria-describedby="profissao_cliente">
+                            <small id="profissao_cliente" class="form-text text-muted">Selecione ou insira a profissão</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->tituloEleitor) > 0)
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="tituloEleitor"  value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19">
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="tituloEleitor" id="titulo_eleitor" value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente">
+                        <small id="titulo_eleitor_cliente" class="form-text text-muted">Insira o número do título de eleitor</small>
                     </div>
                     @else
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="tituloEleitor"  value="Não informado." class="form-control" maxlength="19">
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="tituloEleitor" id="titulo_eleitor" placeholder="Não informado." class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente">
+                        <small id="titulo_eleitor_cliente" class="form-text text-muted">Insira o número do título de eleitor</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->idtCivil) > 0)
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="idtCivil"   value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13">
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="idtCivil" id="rg" value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13" aria-describedby="idtCivil_cliente">
+                        <small id="idtCivil_cliente" class="form-text text-muted">Insira o número da Identidade Civil </small>
                     </div>
                     @else
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="idtCivil"   value="Número do registro geral não informado." class="form-control" maxlength="13">
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="idtCivil" id="rg" placeholder="Número do registro geral não informado." class="form-control" maxlength="13" aria-describedby="idtCivil_cliente">
+                        <small id="idtCivil_cliente" class="form-text text-muted">Insira o número da Identidade Civil </small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->orgExpeditor) > 0)
-                    <div class="form-group input-group col-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
-                        </div>
-                        <input type="text" name="orgExpeditor"  value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor">
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="orgExpeditor"  value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor" aria-describedby="orgExpeditor_cliente">
+                        <small id="orgExpeditor_cliente" class="form-text text-muted">Selecione o órgão expeditor</small>
                     </div>
                     @else
-                    <div class="form-group input-group col-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="orgExpeditor">Orgão expeditor</span>
-                        </div>
-                        <input type="text" name="orgExpeditor"  value="Orgão não infomado."class="custom-select" id="orgExpeditor">
+                    <div class="form-group col-sm-4">
+                        <input type="text" name="orgExpeditor"  placeholder="Orgão não infomado." class="custom-select" id="orgExpeditor" aria-describedby="orgExpeditor_cliente">
+                        <small id="orgExpeditor_cliente" class="form-text text-muted">Selecione o órgão expeditor</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->dtExpedicao) > 0)
-                    <div class="form-group col-sm-2" align="right">
-                        <strong>Data de expedição </strong>
-                    </div>
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao"  class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}">
+                        <input type="date" name="dtExpedicao"  class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}" aria-describedby="orgExpeditor_cliente">
+                        <small id="dtExpedicao_cliente" class="form-text text-muted">Insira a data de expedição</small>
                     </div>
                     @else
-                    <div class="form-group col-sm-2" align="right">
-                        <strong>Data de expedição </strong>
-                    </div>
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao"  class="form-control" value="Não informado.">
+                        <input type="date" name="dtExpedicao"  class="form-control" placeholder="Não informado." aria-describedby="dtExpedicao_cliente">
+                        <small id="dtExpedicao_cliente" class="form-text text-muted">Insira a data de expedição</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->sexo) > 0)
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="sexo">Sexo</span>
-                        </div>
-                        <input type="text" name="sexo"  value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo">
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="sexo"  value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo" aria-describedby="sexo_cliente">
+                        <small id="sexo_cliente" class="form-text text-muted">Selecione o sexo</small>
                     </div>
                     @else
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="sexo">Sexo</span>
-                        </div>
-                        <input type="text" name="sexo"  value="Não informado"class="custom-select" id="sexo">
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="sexo"  placeholder="Não informado"class="custom-select" id="sexo" aria-describedby="sexo_cliente">
+                        <small id="sexo_cliente" class="form-text text-muted">Selecione o sexo</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->estadoCivil) > 0)
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="estadoCivil">Estado civil</span>
-                        </div>
-                        <input type="text" name="estadoCivil"  value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil">
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="estadoCivil"  value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil" aria-describedby="estado_civil_cliente">
+                        <small id="estado_civil_cliente" class="form-text text-muted">Selecione o estado civil</small>
                     </div>
                     @else
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="estadoCivil">Estado civil</span>
-                        </div>
-                        <input type="text" name="estadoCivil"  value="Não informado."class="custom-select" id="estadoCivil">
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="estadoCivil"  placeholder="Não informado."class="custom-select" id="estadoCivil" aria-describedby="estado_civil_cliente">
+                        <small id="estado_civil_cliente" class="form-text text-muted">Selecione o estado civil</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->tratamento) > 0)
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="tratamento">Tratamento</span>
-                        </div>
-                        <input type="text" name="tratamento"  value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento">
+                    <div class="form-group col-sm-2">
+                        <input type="text" name="tratamento" value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento" aria-describedby="tratamento_cliente">
+                        <small id="tratamento_cliente" class="form-text text-muted">Selecione o tratamento</small>
                     </div>
                     @else
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" for="tratamento">Tratamento</span>
-                        </div>
-                        <input type="text" name="tratamento"  value="Não informado."class="custom-select" id="tratamento">
+                    <div class="form-group col-2">
+                        <input type="text" name="tratamento"  placeholder="Não informado."class="custom-select" id="tratamento" aria-describedby="tratamento_cliente">
+                        <small id="tratamento_cliente" class="form-text text-muted">Selecione o tratamento</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->nacionalidade) > 0)
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Nacionalidade</span>
-                        </div>
-                        <input type="text" name="nacionalidade"  value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" >
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="nacionalidade"  value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" aria-describedby="nacionalidade_cliente">
+                        <small id="nacionalidade_cliente" class="form-text text-muted">Selecione a nacionalidade</small>
                     </div>
                     @else
-                    <div class="form-group input-group col-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Nacionalidade</span>
-                        </div>
-                        <input type="text" name="nacionalidade"  value="Não informado." class="custom-select" >
+                    <div class="form-group col-3">
+                        <input type="text" name="nacionalidade"  placeholder="Não informado." class="custom-select" aria-describedby="nacionalidade_cliente">
+                        <small id="nacionalidade_cliente" class="form-text text-muted">Selecione a nacionalidade</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->dtNascimento) > 0)
-                    <div class="form-group col-sm-2" align="right">
-                    <strong>Data de Nascimento </strong>
-                    </div>
-                    <div class="form-group col-sm-2">
-                        <input type="date" name="dtNascimento" class="form-control"  value="{{$cliente->pessoaFisica->dtNascimento}}">
+                    <div class="form-group col-sm-3">
+                        <input type="date" name="dtNascimento" value="{{$cliente->pessoaFisica->dtNascimento}}" class="form-control" aria-describedby="data_nascimento_cliente">
+                        <small id="data_nascimento_cliente" class="form-text text-muted">Insira a data de nascimento</small>
                     </div>
                     @else
-                    <div class="form-group col-sm-2" align="right">
-                    <strong>Data de Nascimento </strong>
-                    </div>
-                    <div class="form-group col-sm-2">
-                        <input type="text" name="dtNascimento" class="form-control"  value="Não informado.">
+                    <div class="form-group col-sm-3">
+                        <input type="text" name="dtNascimento" class="form-control"  placeholder="Não informado." aria-describedby="data_nascimento_cliente">
+                        <small id="data_nascimento_cliente" class="form-text text-muted">Insira a data de nascimento</small>
                     </div>
                     @endif
 
-                    <div class="form-group col-sm-4">
-                        <input type="text" name="nomeMae"  value="@if(isset($cliente->pessoaFisica->nomeMae)){{$cliente->pessoaFisica->nomeMae}}@else Não há dados cadastrados. @endif" class="form-control" maxlength="150">
+                    @if(isset($cliente->pessoaFisica->nomeMae) > 0)
+                    <div class="form-group col-sm-6">
+                        <input type="text" name="nomeMae" value="{{$cliente->pessoaFisica->nomeMae}}" class="form-control" maxlength="150" aria-describedby="nome_mae_cliente">
+                        <small id="nome_mae_cliente" class="form-text text-muted">Insira o nome completo da mãe</small>
                     </div>
+                    @else
+                    <div class="form-group col-sm-6">
+                        <input type="text" name="nomeMae" class="form-control"  placeholder="Não informado." aria-describedby="nome_mae_cliente">
+                        <small id="nome_mae_cliente" class="form-text text-muted">Insira a data de nascimento</small>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div><!-- FIM DO COLLAPSE PF -->
@@ -238,7 +228,8 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-9">
-                        <input type="text" name="nome_empresa"  value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror">
+                        <input type="text" name="nome_empresa"  value="{{$cliente->nome_empresa}}" class="form-control @error('nome_empresa') is-invalid @enderror" aria-describedby="nome_empresa_cliente">
+                        <small id="nome_empresa_cliente" class="form-text text-muted">Insira a razão social</small>
                             @error('nome_empresa')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -247,40 +238,48 @@
                     </div>
 
                     <div class="form-group col-sm-3">
-                        <input type="text" name="numero"  value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18">
+                        <input type="text" name="numero" id="cnpj"  value="{{$cliente->pessoaJuridica->numero}}" class="form-control" maxlength="18" aria-describedby="cnpj_cliente">
+                        <small id="cnpj_cliente" class="form-text text-muted">Insira o número do CNPJ</small>
                     </div>
 
                     @if($cliente->pessoaJuridica->inscMunicipal > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal"  value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control">
+                        <input type="text" name="inscMunicipal"  value="{{$cliente->pessoaJuridica->inscMunicipal}}" class="form-control" aria-describedby="inscMunicipal_cliente">
+                        <small id="inscMunicipal_cliente" class="form-text text-muted">Insira a inscrição municipal</small>
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal"  placeholder="Inscrição Municipal não informada." class="form-control">
+                        <input type="text" name="inscMunicipal"  placeholder="Inscrição Municipal não informada." class="form-control" aria-describedby="inscMunicipal_cliente">
+                        <small id="inscMunicipal_cliente" class="form-text text-muted">Insira a inscrição municipal</small>
                     </div>
                     @endif
 
                     @if($cliente->pessoaJuridica->insEstadual > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscMunicipal"  value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control">
+                        <input type="text" name="inscMunicipal"  value="{{$cliente->pessoaJuridica->insEstadual}}" class="form-control" aria-describedby="inscEstadual_cliente">
+                        <small id="inscEstadual_cliente" class="form-text text-muted">Insira a inscrição estadual</small>
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="inscEstadual"  placeholder="Inscrição Estadual não informada." class="form-control">
+                        <input type="text" name="inscEstadual"  placeholder="Inscrição Estadual não informada." class="form-control" aria-describedby="inscEstadual_cliente">
+                        <small id="inscEstadual_cliente" class="form-text text-muted">Insira a inscrição municipal</small>
                     </div>
                     @endif
 
                     @if($cliente->pessoaJuridica->codigo > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="codigo"  value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control">
+                        <input type="text" name="codigo"  value="{{$$cliente->pessoaJuridica->codigo}}" class="form-control" aria-describedby="codInscricao_cliente">
+                        <small id="codInscricao_cliente" class="form-text text-muted">Código</small>
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="codigo"  placeholder="Código não informado." class="form-control">
+                        <input type="text" name="codigo"  placeholder="Código não informado." class="form-control" aria-describedby="codInscricao_cliente">
+                        <small id="codInscricao_cliente" class="form-text text-muted">Código</small>
                     </div>
                     @endif
                     <div class="form-group col-sm-1">
-                        <input type="text" name="natureza_pj"  value="{{$cliente->pessoaJuridica->natureza_pj}}" class="form-control">
+                        <input type="text" name="natureza_pj"  value="{{$cliente->pessoaJuridica->natureza_pj}}" class="form-control" aria-describedby="natureza_cnpj">
+                        <small id="natureza_cnpj" class="form-text text-muted">Natureza</small>
                     </div>
                 </div>
             </div>
@@ -297,71 +296,85 @@
                     <div class="row">
                     @if(isset($cliente->endereco->cep) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep"  id="cep" class="form-control" maxlength="8">
+                            <input type="text"  value="{{$cliente->endereco->cep}}" name="cep"  id="cep" class="form-control" maxlength="8" aria-describedby="cep_cliente">
+                            <small id="cep_cliente" class="form-text text-muted">Insira o CEP do endereço</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text"  placeholder="CEP não informado" name="cep"  id="cep" class="form-control" maxlength="8">
+                            <input type="text"  placeholder="CEP não informado" name="cep"  id="cep" class="form-control" maxlength="8" aria-describedby="cep_cliente">
+                            <small id="cep_cliente" class="form-text text-muted">Insira o CEP do endereço</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->logradouro) > 0)
-                        <div class="form-group col-sm-4">
-                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro"  id="rua" class="form-control" maxlength="150">
+                        <div class="form-group col-sm-7">
+                            <input type="text" value="{{$cliente->endereco->logradouro}}" name="logradouro"  id="rua" class="form-control" maxlength="150" aria-describedby="logradouro_cliente">
+                            <small id="logradouro_cliente" class="form-text text-muted">Insira o logradouro do endereço</small>
                         </div>
                     @else
-                        <div class="form-group col-sm-4">
-                            <input type="text" value="Logradouro não informado." name="logradouro"  id="rua" class="form-control" maxlength="150">
+                        <div class="form-group col-sm-7">
+                            <input type="text" value="Logradouro não informado." name="logradouro"  id="rua" class="form-control" maxlength="150" aria-describedby="logradouro_cliente">
+                            <small id="logradouro_cliente" class="form-text text-muted">Insira o logradouro do endereço</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->numEndereco) > 0)
-                        <div class="form-group col-1">
-                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco"  class="form-control" maxlength="10">
+                        <div class="form-group col-2">
+                            <input value="{{$cliente->endereco->numEndereco}}" type="text" name="numEndereco"  class="form-control" maxlength="10" aria-describedby="numero_endereco_cliente">
+                            <small id="numero_endereco_cliente" class="form-text text-muted">Insira o número do logradouro</small>
                         </div>
                     @else
                         <div class="form-group col-2">
-                            <input value="Nº não informado" type="text" name="numEndereco"  class="form-control" maxlength="10">
+                            <input value="Nº não informado" type="text" name="numEndereco"  class="form-control" maxlength="10" aria-describedby="numero_endereco_cliente">
+                            <small id="numero_endereco_cliente" class="form-text text-muted">Insira o número do logradouro</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->complemento) > 0)
-                        <div class="form-group col-3">
-                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento"  class="form-control" maxlength="50">
+                        <div class="form-group col-5">
+                            <input value="{{$cliente->endereco->complemento}}"  type="text" name="complemento"  class="form-control" maxlength="50" aria-describedby="complemento_endereco_cliente">
+                            <small id="complemento_endereco_cliente" class="form-text text-muted">Insira o complemento exemplo: Andar;Apartamento;Bloco;Sobreloja</small>
                         </div>
                     @else
-                        <div class="form-group col-3">
-                            <input value="Complemento não informado."  type="text" name="complemento"  class="form-control" maxlength="50">
+                        <div class="form-group col-5">
+                            <input value="Complemento não informado."  type="text" name="complemento"  class="form-control" maxlength="50" aria-describedby="complemento_endereco_cliente">
+                            <small id="complemento_endereco_cliente" class="form-text text-muted">Insira o complemento do endereço. Exemplo: Andar;Apartamento;Bloco;Sobreloja</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->bairro) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro"  class="form-control" maxlength="60">
+                            <input type="text" value="{{$cliente->endereco->bairro}}" name="bairro" id="bairro"  class="form-control" maxlength="60" aria-describedby="bairro_cliente">
+                            <small id="bairro_cliente" class="form-text text-muted">Insira o bairro</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="Bairro não informado." name="bairro" id="bairro"  class="form-control" maxlength="60">
+                            <input type="text" value="Bairro não informado." name="bairro" id="bairro"  class="form-control" maxlength="60" aria-describedby="bairro_cliente">
+                            <small id="bairro_cliente" class="form-text text-muted">Insira o bairro</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->cidade) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade"  class="form-control" maxlength="60">
+                            <input type="text" value="{{$cliente->endereco->cidade}}" name="cidade" id="cidade"  class="form-control" maxlength="60" aria-describedby="cidade_cliente">
+                            <small id="cidade_cliente" class="form-text text-muted">Insira o cidade</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" value="Cidade não informada." name="cidade" id="cidade"  class="form-control" maxlength="60">
+                            <input type="text" value="Cidade não informada." name="cidade" id="cidade"  class="form-control" maxlength="60" aria-describedby="cidade_cliente">
+                            <small id="cidade_cliente" class="form-text text-muted">Insira o cidade</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->endereco->uf) > 0)
                         <div class="form-group col-sm-1">
-                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf"  class="form-control" maxlength="2">
+                            <input type="text" value="{{$cliente->endereco->uf}}" name="uf" id="uf"  class="form-control" maxlength="2" aria-describedby="uf_cliente">
+                            <small id="uf_cliente" class="form-text text-muted">UF</small>
                         </div>
                     @else
                         <div class="form-group col-sm-2">
-                            <input type="text" value="UF não informada." name="uf" id="uf"  class="form-control" maxlength="2">
+                            <input type="text" value="UF não informada." name="uf" id="uf"  class="form-control" maxlength="2" aria-describedby="uf_cliente">
+                            <small id="uf_cliente" class="form-text text-muted">UF</small>
                         </div>
                     @endif
                     </div>
@@ -378,26 +391,31 @@
                     <div class="row">
                         @foreach($cliente->contato as $contato)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->email}}" name="email"  class="form-control" maxlength="100">
+                            <input type="text" value="{{$contato->email}}" name="email"  class="form-control" maxlength="100" aria-describedby="email_cliente">
+                            <small id="email_cliente" class="form-text text-muted">Insira o e-mail - exemplo: seuemail@exemplo.com</small>
                         </div>
 
                         @if(isset($contato->telefone) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->telefone}}" name="telefone"  class="form-control" maxlength="13">
+                            <input type="text" value="{{$contato->telefone}}" name="telefone"  class="form-control" maxlength="13" aria-describedby="telefone_cliente">
+                            <small id="telefone_cliente" class="form-text text-muted">Insira o telefone - exemplo: (99) 9999-9999</small>
                         </div>
                         @else
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Telefone não informado." name="telefone"  class="form-control" maxlength="13">
+                            <input type="text" placeholder="Telefone não informado." name="telefone"  class="form-control" maxlength="13" aria-describedby="telefone_cliente">
+                            <small id="telefone_cliente" class="form-text text-muted">Insira o telefone - exemplo: (99) 9999-9999</small>
                         </div>
                         @endif
 
                         @if(isset($contato->celular) > 0)
                         <div class="form-group col-sm-4">
-                            <input type="text" value="{{$contato->celular}}" name="celular"  class="form-control" maxlength="14">
+                            <input type="text" value="{{$contato->celular}}" name="celular"  class="form-control" maxlength="14" aria-describedby="celular_cliente">
+                            <small id="telefone_cliente" class="form-text text-muted">Insira o celular - exemplo: (99) 99999-9999</small>
                         </div>
                         @else
                         <div class="form-group col-sm-4">
-                            <input type="text" placeholder="Celular não informado." name="celular"  class="form-control" maxlength="14">
+                            <input type="text" placeholder="Celular não informado." name="celular"  class="form-control" maxlength="14" aria-describedby="celular_cliente">
+                            <small id="telefone_cliente" class="form-text text-muted">Insira o celular - exemplo: (99) 99999-9999</small>
                         </div>
                         @endif
                         @endforeach
@@ -421,12 +439,11 @@
                 <div class="tab-content col-md-12 table-responsive-sm">
                     <div role="tabpanel" class="tab-pane nav-link active" id="processo_todos">
                         @if(count($processos_todos) > 0)
-                        <table class="table table-hover display" id="processos">
+                        <table class="table table-hover" id="processos">
                             <thead>
                                 <tr>
-                                    <th class="col-5">Pasta do processo</th>
-                                    <th class="col-2">Número do processo</th>
-                                    <th class="col-2">Data de distribuição</th>
+                                    <th class="col-6">Pasta do processo</th>
+                                    <th class="col-3">Data de distribuição</th>
                                     <th class="col-2">Andamento</th>
                                     <th class="col">Vincular</th>
                                 </tr>
@@ -437,7 +454,6 @@
                                     <td>
                                         {{$processo_cliente->pasta}}
                                     </td>
-                                    <td>{{$processo_cliente->numProcesso}}</td>
                                     <td>
                                         @if($processo_cliente->dtDistribuicao)
                                         {{date('d/m/Y', strtotime($processo_cliente->dtDistribuicao))}}
@@ -461,15 +477,14 @@
                                 @endforeach
                             </tbody>
                         </table><br>
-
                         @else
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="col-5">Pasta do processo</th>
-                                    <th class="col-2">Número do processo</th>
-                                    <th class="col-2">Data de distribuição</th>
+                                    <th class="col-6">Pasta do processo</th>
+                                    <th class="col-3">Data de distribuição</th>
                                     <th class="col-2">Andamento</th>
+                                    <th class="col">Vincular</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -483,7 +498,7 @@
 
                     <div role="tabpanel" class="tab-pane nav-link" id="servico_todos">
                         @if(count($servicos_todos) > 0)
-                        <table class="table table-hover display" id="servicos" width="100%">
+                        <table class="table table-hover" id="servicos">
                             <thead>
                                 <tr>
                                     <th>Pasta do serviço</th>
@@ -565,10 +580,9 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="col-5">Pasta do processo</th>
-                                    <th class="col-2">Número do processo</th>
+                                    <th class="col-6">Pasta do processo</th>
                                     <th class="col-2">Data de distribuição</th>
-                                    <th class="col-2">Andamento</th>
+                                    <th class="col-3">Andamento</th>
                                     <th class="col">Desvincular</th>
                                 </tr>
                             </thead>
@@ -580,7 +594,6 @@
                                             {{$processo->pasta}}
                                         </a>
                                     </td>
-                                    <td>{{$processo->numProcesso}}</td>
                                     <td>
                                         {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
                                     </td>
@@ -610,10 +623,9 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th class="col-5">Pasta do processo</th>
-                                    <th class="col-2">Número do processo</th>
-                                    <th class="col-2">Data de distribuição</th>
-                                    <th class="col-2">Andamento</th>
+                                    <th class="col-6">Pasta do processo</th>
+                                    <th class="col-3">Data de distribuição</th>
+                                    <th class="col-3">Andamento</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -704,9 +716,19 @@
     <script src="{{url('js/atualizar_cliente.js')}}"></script>
     <script>
         $(document).ready(function(){
-            $('table.display').DataTable({
+            $('#processos').DataTable({
                 responsive: true,
-                "info": false,
+                info: false,
+                fixedHeader: true
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#servicos').DataTable({
+                responsive: true,
+                info: false,
                 fixedHeader: true
             });
         });

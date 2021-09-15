@@ -28,10 +28,15 @@ class CadastroController extends Controller
 {
     public function index()
     {
-        $clientes = Cliente::orderBy('nome', 'ASC')
-                            ->orderBy('nome_empresa', 'DESC')
-                            ->first()
-                            ->get();
+
+        $clientes = Cliente::all();
+        if(isset($clientes) > 0){
+            $clientes = Cliente::orderBy('nome_empresa', 'DESC')->first()->get();
+        }else{
+            $clientes = Cliente::orderBy('nome_empresa', 'DESC');
+        }
+
+
         return view('admin.clientes.index', [
             'clientes' => $clientes
         ]);
@@ -44,7 +49,7 @@ class CadastroController extends Controller
         $nacionalidades             = Nacionalidade::all();
         $estadoscivis               = EstadoCivil::all();
         $sexos                      = PessoaFisica::all();
-        $orgexpeditores             = OrgaoExpeditor::all();
+        $orgExpeditores             = OrgaoExpeditor::all();
 
         $naturezas_juridicas        = NaturezaJuridica::all();
 
@@ -56,7 +61,7 @@ class CadastroController extends Controller
             'nacionalidades'        => $nacionalidades,
             'estadoscivis'          => $estadoscivis,
             'sexos'                 => $sexos,
-            'orgexpeditores'        => $orgexpeditores,
+            'orgExpeditores'        => $orgExpeditores,
             'estados'               => $estados,
             'cidades'               => $cidades,
             'naturezas_juridicas'   => $naturezas_juridicas
@@ -117,14 +122,18 @@ class CadastroController extends Controller
 
             $processo                   = new Processo;
             $processo->pasta            = $request->input('pasta');
+            $processo->instInicial      = $request->input('instInicial');
             $processo->numInicial       = $request->input('numInicial');
             $processo->numPrincipal     = $request->input('numPrincipal');
             $processo->numProcesso      = $request->input('numProcesso');
-            $processo->ultAndamento     = $request->input('ultAndamento');
-            $processo->compromisso      = $request->input('compromisso');
-            $processo->instInicial      = $request->input('instInicial');
             $processo->dtDistribuicao   = $request->input('dtDistribuicao');
+            $processo->acao             = $request->input('acao');
+            $processo->fase             = $request->input('fase');
+            $processo->natureza         = $request->input('natureza');
+            $processo->rito             = $request->input('rito');
+            $processo->parte_contraria  = $request->input('parte_contraria');
             $processo->advContrario     = $request->input('advContrario');
+            $processo->orgao_inicial    = $request->input('orgao_inicial');
             $processo->titulo           = $request->input('titulo');
             $processo->save();
             $processo                   = Processo::find($processo->id);
@@ -305,16 +314,19 @@ class CadastroController extends Controller
         $endereco->cep                              = $request['cep'];
         $endereco->save();
 
-        if( empty($_POST['processo' && 'servico'])){
+        if( empty($_POST['processo'])){
 
-        }elseif($cliente->processo = $request['processo']){
+        }elseif($cliente->processo){
 
             if(isset($request->processo)){
                 $cliente->processo()->syncWithoutDetaching($request->processo);
 
             } else {
-                $cliente->processo()->sync();
-
+                if($request->processo){
+                    $cliente->processo()->sync();
+                }else{
+                    return redirect()->route('cadastro.index');
+                }
             }
         } else{
         //dd($request->processo);

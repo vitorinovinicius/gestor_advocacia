@@ -16,19 +16,27 @@ class CreateContatosTable extends Migration
         Schema::create('contatos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')
-            ->references('id')
-            ->on('clientes')
-            ->onDelete('cascade');
+            $table->integer('parte_contraria_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users');
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('telefone', 14)->nullable();
             $table->string('celular', 15)->unique();
             $table->timestamps();
+
+            $table->foreign('cliente_id')
+            ->references('id')
+            ->on('clientes')
+            ->onDelete('cascade');
+
+            $table->foreign('parte_contraria_id')
+            ->references('id')
+            ->on('partes_contrarias')
+            ->onDelete('cascade');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
         });
     }
 

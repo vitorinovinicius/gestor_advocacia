@@ -31,8 +31,8 @@ class ProcessoController extends Controller
     public function index()
     {
         $processos = Processo::orderBy('pasta', 'ASC')
-                                ->first()
-                                ->get();
+                            ->first()
+                            ->get();
         return view('admin.processos.index', [
             'processos' => $processos
         ]);
@@ -45,7 +45,13 @@ class ProcessoController extends Controller
      */
     public function create()
     {
-        return view('admin.processos.adicionar');
+        $clientes = Cliente::all()->first();
+        $parte_contrarias = ParteContraria::all();
+
+        return view('admin.processos.adicionar', [
+            'clientes'          => $clientes,
+            'parte_contrarias'  => $parte_contrarias
+        ]);
     }
 
     /**
@@ -66,68 +72,23 @@ class ProcessoController extends Controller
         $parte_contraria->nome              = $request->input('nome');
         $parte_contraria->save();
 
-        /*if ($parte_contraria->nome = $request->input('nome')){
-
-        $pf->cpf            = $request->input('cpf');
-        $pf->pis            = $request->input('pis');
-        $pf->sexo           = $request->input('sexo');
-        $pf->profissao      = $request->input('profissao');
-        $pf->estadoCivil    = $request->input('estadoCivil');
-        $pf->tratamento     = $request->input('tratamento');
-        $pf->numCtps        = $request->input('numCtps');
-        $pf->serieCtps      = $request->input('serieCtps');
-        $pf->ufCtps         = $request->input('ufCtps');
-        $pf->nacionalidade  = $request->input('nacionalidade');
-        $pf->dtNascimento   = $request->input('dtNascimento');
-        $pf->tituloEleitor  = $request->input('tituloEleitor');
-        $pf->idtCivil       = $request->input('idtCivil');
-        $pf->dtExpedicao    = $request->input('dtExpedicao');
-        $pf->orgExpeditor   = $request->input('orgExpeditor');
-        $pf->nomeMae        = $request->input('nomeMae');
-        $pf->parteContraria()->associate($parte_contraria);
-        $pf->save();
-
-        }elseif($parte_contraria->nome_empresa = $request->input('nome_empresa')){
-
-        $pj->numero             = $request->input('numero');
-        $pj->inscMunicipal      = $request->input('inscMunicipal');
-        $pj->inscEstadual       = $request->input('inscEstadual');
-        $pj->codigo             = $request->input('codigo');
-        $pj->natureza_pj        = $request->input('natureza_pj');
-        $pj->parteContraria()->associate($parte_contraria);
-        $pj->save();
-    }*/
         $processo->pasta            = $request->input('pasta');
+        $processo->instInicial      = $request->input('instInicial');
         $processo->numInicial       = $request->input('numInicial');
         $processo->numPrincipal     = $request->input('numPrincipal');
         $processo->numProcesso      = $request->input('numProcesso');
-        $processo->ultAndamento     = $request->input('ultAndamento');
-        $processo->compromisso      = $request->input('compromisso');
-        $processo->instInicial      = $request->input('instInicial');
         $processo->dtDistribuicao   = $request->input('dtDistribuicao');
+        $processo->acao             = $request->input('acao');
+        $processo->fase             = $request->input('fase');
+        $processo->natureza         = $request->input('natureza');
+        $processo->rito             = $request->input('rito');
+        $processo->parte_contraria  = $request->input('parte_contraria');
         $processo->advContrario     = $request->input('advContrario');
+        $processo->orgao_inicial    = $request->input('orgao_inicial');
         $processo->titulo           = $request->input('titulo');
         $processo->save();
 
-        /*$contato->email         = $request->input('email');
-        $contato->telefone      = $request->input('telefone');
-        $contato->celular       = $request->input('celular');
-        $contato->parteContraria()->associate($parte_contraria);
-        $contato->save();*/
-
-
-        $endereco->logradouro   = $request->input('logradouro');
-        $endereco->complemento  = $request->input('complemento');
-        $endereco->numEndereco  = $request->input('numEndereco');
-        $endereco->bairro       = $request->input('bairro');
-        $endereco->cidade       = $request->input('cidade');
-        $endereco->uf           = $request->input('uf');
-        $endereco->cep          = $request->input('cep');
-        $endereco->parteContraria()->associate($parte_contraria);
-        $endereco->save();
-
-
-        return redirect()->route('processo.index');
+        return redirect()->route('processo.edit', $processo->id);
     }
 
     /**
@@ -171,13 +132,25 @@ class ProcessoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cliente = Cliente::find($id);
-        $cliente->processo()->sync($id);
+        $processo                   = Processo::find($id);
 
-        $processo = Processo::findOrFail($id);
-        $processo->cliente()->sync($id);
+        $processo->pasta            = $request['pasta'];
+        $processo->instInicial      = $request['instInicial'];
+        $processo->numInicial       = $request['numInicial'];
+        $processo->numPrincipal     = $request['numPrincipal'];
+        $processo->numProcesso      = $request['numProcesso'];
+        $processo->dtDistribuicao   = $request['dtDistribuicao'];
+        $processo->acao             = $request['acao'];
+        $processo->fase             = $request['fase'];
+        $processo->natureza         = $request['natureza'];
+        $processo->rito             = $request['rito'];
+        $processo->parte_contraria  = $request['parte_contraria'];
+        $processo->advContrario     = $request['advContrario'];
+        $processo->orgao_inicial    = $request['orgao_inicial'];
+        $processo->titulo           = $request['titulo'];
+        $processo->save();
 
-        return redirect()->route('Processo.index')->with('success', 'Processo vínculado ao'.$cliente->nome || $cliente->nome_empresa);
+        return redirect()->route('processo.index');
     }
 
     /**
@@ -189,7 +162,7 @@ class ProcessoController extends Controller
     public function destroy($id)
     {
         $processo   = Processo::find($id);
-        $processo->cliente()->detach();
+        $processo->cliente()->wherePivot('cliente_id', '!=', $id)->detach();
 
         return redirect()->route('cadastro.index');
     }

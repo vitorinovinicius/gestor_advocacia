@@ -24,10 +24,12 @@
                 <h3>@if(array($clientes) > 0){{count($clientes)}}@endif</h3>
                 <p>@if(count($clientes) <= 1) Cliente @else Clientes @endif</p>
             </div>
+            <a href="{{route('cadastro.index')}}">
             <div class="icon">
-                <i class=">@if(count($clientes) <= 1) fas fa-user @else fas fa-users @endif">
+                <i class=" @if(count($clientes) <= 1) fas fa-user @else fas fa-users @endif">
                 </i>
             </div>
+            </a>
         </div>
     </div>
 
@@ -37,10 +39,12 @@
                 <h3>@if(array($servicos) > 0){{count($servicos)}}@endif</h3>
                 <p>@if(count($servicos) <= 1) Serviço @else Serviços @endif</p>
             </div>
+            <a href="{{route('servico.index')}}">
             <div class="icon">
                 <i class="fas fa-hands-helping">
                 </i>
             </div>
+            </a>
         </div>
     </div>
 
@@ -50,10 +54,12 @@
                 <h3>@if(array($processos) > 0){{count($processos)}}@endif</h3>
                 <p>@if(count($processos) <= 1) Processo @else Processos @endif</p>
             </div>
+            <a href="{{route('processo.index')}}">
             <div class="icon">
                 <i class="fas fa-gavel">
                 </i>
             </div>
+            </a>
         </div>
     </div>
 </div>

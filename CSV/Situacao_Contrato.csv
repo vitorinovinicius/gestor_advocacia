@@ -1,0 +1,15 @@
+﻿id;tipo
+1;Aprovado
+2;Assinado
+3;Cancelado
+4;Concluído
+5;Em elaboração
+6;Em negociação
+7;Encerrado
+8;Fechado
+9;Não elaborado
+10;Não fechado
+11;Prazo findo
+12;Reprovado
+13;Suspenso
+14;Vigente

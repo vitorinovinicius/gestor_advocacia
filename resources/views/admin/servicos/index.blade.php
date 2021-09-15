@@ -15,7 +15,7 @@
     </h1>
 @endsection
 @section('content')
-@if(count(array($servicos)) <= 0)
+@if(!isset($servicos))
 <div align="center">
     <div class="col-lg-4 col-4">
         <div class="small-box bg-warning">
@@ -32,7 +32,7 @@
 @else
 <div class="card col-12">
     <div class="card-body table-responsive-sm">
-        <table class="table table-hover">
+        <table class="table table-hover" id="servicos">
             <thead>
                 <tr>
                     <th width="100px">Ordem</th>
@@ -62,4 +62,13 @@
     </div>
 </div>
 @endif
+@endsection
+@section('js')
+    <script>
+    $(document).ready(function() {
+        $('#servicos').DataTable({
+            info: false
+        });
+    });
+    </script>
 @endsection

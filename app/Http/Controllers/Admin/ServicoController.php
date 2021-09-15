@@ -4,7 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Cliente;
+use App\Models\PessoaFisica;
+use App\Models\ProfissaoPessoaFisica;
+use App\Models\Profissao;
+use App\Models\Tratamento;
+use App\Models\Nacionalidade;
+use App\Models\EstadoCivil;
+use App\Models\OrgaoExpeditor;
+use App\Models\PessoaJuridica;
+use App\Models\NaturezaJuridica;
+use App\Models\Contato;
+use App\Models\Endereco;
+use App\Models\Estado;
+use App\Models\Cidade;
+use App\Models\Processo;
 use App\Models\Servico;
 
 class ServicoController extends Controller
@@ -17,8 +31,7 @@ class ServicoController extends Controller
     public function index()
     {
         $servicos = Servico::orderBy('pasta_servico', 'ASC')
-                            ->first()
-                            ->get();
+                            ->first();
         return view('admin.servicos.index', [
             'servicos' => $servicos
         ]);
@@ -31,7 +44,29 @@ class ServicoController extends Controller
      */
     public function create()
     {
-        //
+        $profissoes                 = Profissao::all()->sortBy('tipo');
+        $tratamentos                = Tratamento::all();
+        $nacionalidades             = Nacionalidade::all();
+        $estadoscivis               = EstadoCivil::all();
+        $sexos                      = PessoaFisica::all();
+        $orgexpeditores             = OrgaoExpeditor::all();
+
+        $naturezas_juridicas        = NaturezaJuridica::all();
+
+        $estados                    = Estado::all();
+        $cidades                    = Cidade::all();
+        return view('admin.servicos.adicionar', [
+            'profissoes'            => $profissoes,
+            'tratamentos'           => $tratamentos,
+            'nacionalidades'        => $nacionalidades,
+            'estadoscivis'          => $estadoscivis,
+            'sexos'                 => $sexos,
+            'orgexpeditores'        => $orgexpeditores,
+            'estados'               => $estados,
+            'cidades'               => $cidades,
+            'naturezas_juridicas'   => $naturezas_juridicas
+
+        ]);
     }
 
     /**
@@ -88,7 +123,7 @@ class ServicoController extends Controller
     public function destroy($id)
     {
         $servico = Servico::find($id);
-        $servico->cliente()->detach();
+        $servico->cliente()->wherePivot('cliente_id', '!=', $id)->detach();
 
         return redirect()->route('cadastro.index');
     }

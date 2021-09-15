@@ -15,7 +15,7 @@
     </h1>
 @endsection
 @section('content')
-@if(count($processos) <= 0)
+@if(!isset($processos))
 <div align="center">
     <div class="col-lg-4 col-4">
         <div class="small-box bg-warning">
@@ -35,11 +35,10 @@
         <table class="table table-striped" id="processos">
             <thead>
                 <tr>
-                    <th class="col-5">@if(count($processos) <= 1)Processo @else Processos @endif</th>
+                    <th class="col-6">@if(count($processos) <= 1)Processo @else Processos @endif</th>
                     <th class="col-2">Número do processo</th>
-                    <th class="col-1">Andamento</th>
                     <th class="col-2">Data de distribuição</th>
-                    <th class="col">Ações</th>
+                    <th class="col-2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,12 +52,10 @@
                     <td>
                         @if(isset($processo->numProcesso))
                             {{$processo->numProcesso}}
-                        @elseif(count(array($processo->numProcesso)) === 0)Não número registrado.
+                        @else
+                        Não há registro.
                         @endif
 
-                    </td>
-                    <td>
-                        {{date('d/m/Y', strtotime($processo->ultAndamento))}}
                     </td>
                     <td>
                         {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
@@ -82,7 +79,9 @@
 @section('js')
     <script>
     $(document).ready(function() {
-        $('#processos').DataTable();
+        $('#processos').DataTable({
+            info: false
+        });
     });
     </script>
 @endsection

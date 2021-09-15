@@ -1,9 +1,9 @@
-$('.atualizar_cliente').submit(function(e){
+$('.atualizar_processo').submit(function(e){
     e.preventDefault();
 
     Swal.fire({
         title: 'Tem certeza que deseja atualizar os dados?',
-        text: 'Os dados do cliente será atualizado!',
+        text: 'Os dados do processo será atualizado!',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#50CB93',
@@ -15,7 +15,7 @@ $('.atualizar_cliente').submit(function(e){
         if (result.value) {
             Swal.fire(
             'Atualizado!',
-            'O cliente foi atualizado!',
+            'O processo foi atualizado!',
             'success'
         )
             this.submit();
