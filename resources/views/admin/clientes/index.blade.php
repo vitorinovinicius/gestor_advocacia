@@ -36,27 +36,32 @@
         <table id="clientes" class="table table-hover" style="width:100%">
             <thead>
                 <tr>
-                    <th class="col-1">#</th>
                     <th class="col-4">Nome / Razão social</th>
-                    <th class="col-3">CPF / CNPJ</th>
-                    <th class="col-3">Processo / Serviço</th>
-                    <th class="col-1">Ações</th>
+                    <th class="col-2">E-mail</th>
+                    <th class="col-2">Telefones</th>
+                    <th class="col-2">CPF / CNPJ</th>
+                    <th class="col-2">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($clientes as $cliente)
                 <tr>
                     <td>
-                        @if(isset($cliente->nome) > 0)<i class="fas fa-user"></i>
-                        @elseif(isset($cliente->nome_empresa) > 0)<i class="fas fa-building"></i>
-                        @endif
+                        <a href="{{route('cadastro.show', $cliente->id)}}">
+                            @if(isset($cliente->nome) > 0){{$cliente->nome}}
+                            @elseif (isset($cliente->nome_empresa) > 0) {{$cliente->nome_empresa}} ({{$cliente->pessoaJuridica->natureza_pj}})
+                            @endif
+                        </a>
                     </td>
                     <td>
-                        <a href="{{route('cadastro.show', $cliente->id)}}">
-                        @if(isset($cliente->nome) > 0){{$cliente->nome}}
-                        @elseif (isset($cliente->nome_empresa) > 0) {{$cliente->nome_empresa}} ({{$cliente->pessoaJuridica->natureza_pj}})
-                        @endif
-                        </a>
+                        @foreach ($cliente->contato as $contato)
+                        {{$contato->email}}
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($cliente->contato as $contato)
+                        {{$contato->celular}}
+                        @endforeach
                     </td>
                     @if(!empty($cliente->nome || $cliente->nome_empresa) > 0)
                     <td>
@@ -70,18 +75,12 @@
                     @endif
 
                     <td>
-                        @if (!empty($cliente->processo) > 0)
-                        {{'Processos: '.$cliente->processo->count('cliente_processo')}}
-                        @if ($cliente->servico)
-                        | {{'Serviços: '.$cliente->servico->count('servico_cliente')}}
-                        @else
-                        @endif
-                        @endif
-
-                    </td>
-
-                    <td>
                         <a href="{{route('cadastro.edit', $cliente->id)}}" class="btn btn-sm btn-warning">Editar</a>
+                        <form class="d-inline" method="POST" action="{{route('cadastro.destroy', $cliente->id)}}" onsubmit="return confirm('Isso irá excluir, deseja continuar?')" >
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-sm btn-danger">Excluir</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
