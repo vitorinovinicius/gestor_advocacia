@@ -32,12 +32,12 @@
 @else
 <div class="card col-12">
     <div class="card-body table-responsive-sm">
-        <table class="table table-striped" id="processos">
+        <table class="table table-hover" id="processos">
             <thead>
                 <tr>
-                    <th class="col-6">@if(count($processos) <= 1)Processo @else Processos @endif</th>
+                    <th class="col-6">@if(count($processos) <= 1)Pasta do processo @else Pastas dos processos @endif</th>
                     <th class="col-2">Número do processo</th>
-                    <th class="col-2">Data de distribuição</th>
+                    <th class="col-2">Último andamento</th>
                     <th class="col-2">Ações</th>
                 </tr>
             </thead>
@@ -46,7 +46,7 @@
                 <tr>
                     <td>
                         <a href="{{route('processo.show', [$processo->id])}}">
-                            {{$processo->pasta}}
+                            {{$processo->nome_processo}}
                         </a>
                     </td>
                     <td>
@@ -58,7 +58,7 @@
 
                     </td>
                     <td>
-                        {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
+                        {{date('d/m/Y', strtotime($processo->ultAndamento))}}
                     </td>
                     <td>
                         <a href="{{route('processo.edit', [$processo->id])}}" class="btn btn-sm btn-warning">Editar</a>
