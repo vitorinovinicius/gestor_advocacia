@@ -22,6 +22,11 @@ use App\Models\Estado;
 use App\Models\Cidade;
 use App\Models\Processo;
 use App\Models\Servico;
+use App\Models\InstanciaProcesso;
+use App\Models\Acao;
+use App\Models\Fase;
+use App\Models\Natureza;
+use App\Models\Rito;
 use Illuminate\Support\Facades\DB;
 
 class CadastroController extends Controller
@@ -30,12 +35,6 @@ class CadastroController extends Controller
     {
 
         $clientes = Cliente::all();
-        if(isset($clientes) > 0){
-            $clientes = Cliente::orderBy('nome_empresa', 'DESC')->first()->get();
-        }else{
-            $clientes = Cliente::orderBy('nome_empresa', 'DESC');
-        }
-
 
         return view('admin.clientes.index', [
             'clientes' => $clientes
@@ -50,6 +49,11 @@ class CadastroController extends Controller
         $estadoscivis               = EstadoCivil::all();
         $sexos                      = PessoaFisica::all();
         $orgExpeditores             = OrgaoExpeditor::all();
+        $instancias                 = InstanciaProcesso::all();
+        $acoes                      = Acao::all();
+        $fases                      = Fase::all();
+        $naturezas                  = Natureza::all();
+        $ritos                      = Rito::all();
 
         $naturezas_juridicas        = NaturezaJuridica::all();
 
@@ -64,7 +68,12 @@ class CadastroController extends Controller
             'orgExpeditores'        => $orgExpeditores,
             'estados'               => $estados,
             'cidades'               => $cidades,
-            'naturezas_juridicas'   => $naturezas_juridicas
+            'naturezas_juridicas'   => $naturezas_juridicas,
+            'instancias'            => $instancias,
+            'acoes'                 => $acoes,
+            'fases'                 => $fases,
+            'naturezas'             => $naturezas,
+            'ritos'                 => $ritos
 
         ]);
     }
@@ -118,10 +127,11 @@ class CadastroController extends Controller
             $pj->save();
         }
 
-        if($cliente->processo->pasta = $request->input('pasta')){
+        if($cliente->processo = $request->input('natureza')){
 
             $processo                   = new Processo;
             $processo->pasta            = $request->input('pasta');
+            $processo->nome_processo    = $request->input('nome_processo');
             $processo->instInicial      = $request->input('instInicial');
             $processo->numInicial       = $request->input('numInicial');
             $processo->numPrincipal     = $request->input('numPrincipal');
@@ -139,13 +149,13 @@ class CadastroController extends Controller
             $processo                   = Processo::find($processo->id);
             $processo->cliente()->sync($cliente);
 
-        }elseif($cliente->servico->pasta_servico = $request->input('pasta_servico')){
+        }elseif($cliente->servicoo = $request->input('abertura')){
 
             $servico                    = new Servico;
             $servico->pasta_servico     = $request->input('pasta_servico');
             $servico->assunto           = $request->input('assunto');
             $servico->contrato          = $request->input('contrato');
-            $servico->negociacao        = $request->input('negociacao');
+            $servico->natureza_servico  = $request->input('natureza_servico');
             $servico->abertura          = $request->input('abertura');
             $servico->situacao          = $request->input('situacao');
             $servico->save();
@@ -182,7 +192,7 @@ class CadastroController extends Controller
         $nacionalidades             = Nacionalidade::all();
         $estadoscivis               = EstadoCivil::all();
         $sexos                      = PessoaFisica::all();
-        $orgexpeditores             = OrgaoExpeditor::all();
+        $orgExpeditores             = OrgaoExpeditor::all();
 
         $naturezas_juridicas        = NaturezaJuridica::all();
 
@@ -202,7 +212,7 @@ class CadastroController extends Controller
                 'nacionalidades'        => $nacionalidades,
                 'estadoscivis'          => $estadoscivis,
                 'sexos'                 => $sexos,
-                'orgexpeditores'        => $orgexpeditores,
+                'orgExpeditores'        => $orgExpeditores,
                 'estados'               => $estados,
                 'cidades'               => $cidades,
                 'naturezas_juridicas'   => $naturezas_juridicas
@@ -220,7 +230,7 @@ class CadastroController extends Controller
         $nacionalidades             = Nacionalidade::all();
         $estadoscivis               = EstadoCivil::all();
         $sexos                      = PessoaFisica::all();
-        $orgexpeditores             = OrgaoExpeditor::all();
+        $orgExpeditores             = OrgaoExpeditor::all();
 
         $naturezas_juridicas        = NaturezaJuridica::all();
 
@@ -249,7 +259,7 @@ class CadastroController extends Controller
                 'nacionalidades'        => $nacionalidades,
                 'estadoscivis'          => $estadoscivis,
                 'sexos'                 => $sexos,
-                'orgexpeditores'        => $orgexpeditores,
+                'orgExpeditores'        => $orgExpeditores,
                 'estados'               => $estados,
                 'cidades'               => $cidades,
                 'naturezas_juridicas'   => $naturezas_juridicas
@@ -324,19 +334,17 @@ class CadastroController extends Controller
             } else {
                 if($request->processo){
                     $cliente->processo()->sync();
-                }else{
-                    return redirect()->route('cadastro.index');
                 }
             }
-        } else{
-        //dd($request->processo);
-            if(isset($request->servico)){
-                $cliente->servico()->syncWithoutDetaching($request->servico);
+        } elseif(empty($_POST['servico'])){
 
-            }else {
+        }if(isset($request->servico)){
+            $cliente->servico()->syncWithoutDetaching($request->servico);
+        }elseif($request->servico){
                 $cliente->servico()->sync();
             }
-        }
+
+
 
             //dd($pessoa_fisica);
         return redirect()->route('cadastro.edit', $cliente->id);
