@@ -1,7 +1,7 @@
 .tabela{
     overflow-y: 10%;
     overflow-x: hidden;
-    height: 200px;
+    height: 300px;
 }
 .tabela::-webkit-scrollbar{
     background-color: white;
