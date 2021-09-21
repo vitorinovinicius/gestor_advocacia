@@ -34,7 +34,7 @@
                 <p class="card-text">
                 <div class="row">
                     <div class="form-group col-6">
-                        <input type="text" name="nome"  value="{{$cliente->nome}}" class="form-control" maxlength="150" aria-describedby="nome_cliente">
+                        <input type="text" name="nome"  value="{{$cliente->nome}}" class="form-control" maxlength="150" aria-describedby="nome_cliente" autocomplete="off">
                         <small id="nome_cliente" class="form-text text-muted">Insira o nome completo</small>
                     </div>
 
@@ -43,174 +43,209 @@
                         @if(isset($cliente->pessoaFisica->cpf)){{$cliente->pessoaFisica->cpf}}
                         @else Não há dados cadastrados.
                         @endif"
-                        class="form-control" maxlength="14" aria-describedby="cpf_cliente">
+                        class="form-control" maxlength="14" aria-describedby="cpf_cliente" autocomplete="off">
                         <small id="cpf_cliente" class="form-text text-muted">Insira o número do CPF</small>
                     </div>
 
                     @if(isset($cliente->pessoaFisica->pis) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" id="pis"  value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14" aria-describedby="pis_cliente">
+                            <input type="text" name="pis" id="pis"  value="{{$cliente->pessoaFisica->pis}}" class="form-control" maxlength="14" aria-describedby="pis_cliente" autocomplete="off">
                             <small id="pis_cliente" class="form-text text-muted">Insira o número do PIS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="pis" id="pis"  placeholder="PIS não informado." class="form-control" maxlength="14" aria-describedby="pis_cliente">
+                            <input type="text" name="pis" id="pis"  placeholder="PIS não informado." class="form-control" maxlength="14" aria-describedby="pis_cliente" autocomplete="off">
                             <small id="pis_cliente" class="form-text text-muted">Insira o número do PIS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->numCtps) > 0)
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps" id="numCtps"  value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7" aria-describedby="numCtps_cliente">
+                            <input type="text" name="numCtps" id="numCtps"  value="{{$cliente->pessoaFisica->numCtps}}" class="form-control" maxlength="7" aria-describedby="numCtps_cliente" autocomplete="off">
                             <small id="numCtps_cliente" class="form-text text-muted">Insira o número da CTPS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-3">
-                            <input type="text" name="numCtps" id="numCtps" placeholder="Número da CTPS não informado." class="form-control" maxlength="7" aria-describedby="numCtps_cliente">
+                            <input type="text" name="numCtps" id="numCtps" placeholder="Número da CTPS não informado." class="form-control" maxlength="7" aria-describedby="numCtps_cliente" autocomplete="off">
                             <small id="numCtps_cliente" class="form-text text-muted">Insira o número da CTPS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->serieCtps) > 0)
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps" id="serieCtps" value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5" aria-describedby="serieCtps_cliente">
+                            <input type="text" name="serieCtps" id="serieCtps" value="{{$cliente->pessoaFisica->serieCtps}}" class="form-control" maxlength="5" aria-describedby="serieCtps_cliente" autocomplete="off">
                             <small id="serieCtps_cliente" class="form-text text-muted">Insira a série da CTPS</small>
                         </div>
                     @else
                         <div class="form-group col-sm-2">
-                            <input type="text" name="serieCtps" id="serieCtps" placeholder="Série CTPS não informado." class="form-control" maxlength="5" aria-describedby="serieCtps_cliente">
+                            <input type="text" name="serieCtps" id="serieCtps" placeholder="Série CTPS não informado." class="form-control" maxlength="5" aria-describedby="serieCtps_cliente" autocomplete="off">
                             <small id="serieCtps_cliente" class="form-text text-muted">Insira a série da CTPS</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->profissao) > 0)
                         <div class="form-group col-sm-7">
-                            <input type="text" name="profissao"  value="{{$cliente->pessoaFisica->profissao}}"class="custom-select" id="profissao" aria-describedby="profissao_cliente">
-                            <small id="profissao_cliente" class="form-text text-muted">Selecione ou insira a profissão</small>
+                            <input type="text" name="profissao" value="{{$cliente->pessoaFisica->profissao}}" class="custom-select" id="profissao" list="profissaoOptions" aria-describedby="profissao_cliente" autocomplete="off">
+                        <datalist id="profissaoOptions">
+                            <option selected></option>
+                            @foreach($profissoes as $profissao)
+                            <option>{{$profissao->tipo}}</option>
+                            @endforeach
+                        </datalist>
+                        <small id="profissao_cliente" class="form-text text-muted">Selecione ou insira a profissão</small>
                         </div>
                     @else
                         <div class="form-group col-sm-7">
-                            <input type="text" name="profissao" placeholder="Não informada."class="custom-select" id="profissao" aria-describedby="profissao_cliente">
+                            <input type="text" name="profissao" placeholder="Não informada."class="custom-select" id="profissao" aria-describedby="profissao_cliente" autocomplete="off">
                             <small id="profissao_cliente" class="form-text text-muted">Selecione ou insira a profissão</small>
                         </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->tituloEleitor) > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="tituloEleitor" id="titulo_eleitor" value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente">
+                        <input type="text" name="tituloEleitor" id="titulo_eleitor" value="{{$cliente->pessoaFisica->tituloEleitor}}" class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente" autocomplete="off">
                         <small id="titulo_eleitor_cliente" class="form-text text-muted">Insira o número do título de eleitor</small>
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="tituloEleitor" id="titulo_eleitor" placeholder="Não informado." class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente">
+                        <input type="text" name="tituloEleitor" id="titulo_eleitor" placeholder="Não informado." class="form-control" maxlength="19" aria-describedby="titulo_eleitor_cliente" autocomplete="off">
                         <small id="titulo_eleitor_cliente" class="form-text text-muted">Insira o número do título de eleitor</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->idtCivil) > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="idtCivil" id="rg" value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13" aria-describedby="idtCivil_cliente">
+                        <input type="text" name="idtCivil" id="rg" value="{{$cliente->pessoaFisica->idtCivil}}" class="form-control" maxlength="13" aria-describedby="idtCivil_cliente" autocomplete="off">
                         <small id="idtCivil_cliente" class="form-text text-muted">Insira o número da Identidade Civil </small>
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="idtCivil" id="rg" placeholder="Número do registro geral não informado." class="form-control" maxlength="13" aria-describedby="idtCivil_cliente">
+                        <input type="text" name="idtCivil" id="rg" placeholder="Número do registro geral não informado." class="form-control" maxlength="13" aria-describedby="idtCivil_cliente" autocomplete="off">
                         <small id="idtCivil_cliente" class="form-text text-muted">Insira o número da Identidade Civil </small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->orgExpeditor) > 0)
                     <div class="form-group col-sm-4">
-                        <input type="text" name="orgExpeditor"  value="{{$cliente->pessoaFisica->orgExpeditor}}"class="custom-select" id="orgExpeditor" aria-describedby="orgExpeditor_cliente">
+                        <input type="text" name="orgExpeditor" value="{{$cliente->pessoaFisica->orgExpeditor}}" class="custom-select" id="orgExpeditor" list="orgExpeditorOptions" aria-describedby="orgExpeditor_cliente" autocomplete="off">
+                        <datalist id="orgExpeditorOptions">
+                            <option selected></option>
+                            @foreach($orgExpeditores as $orgExpeditor)
+                            <option>{{$orgExpeditor->tipo}}</option>
+                            @endforeach
+                        </datalist>
                         <small id="orgExpeditor_cliente" class="form-text text-muted">Selecione o órgão expeditor</small>
                     </div>
                     @else
                     <div class="form-group col-sm-4">
-                        <input type="text" name="orgExpeditor"  placeholder="Orgão não infomado." class="custom-select" id="orgExpeditor" aria-describedby="orgExpeditor_cliente">
+                        <input type="text" name="orgExpeditor"  placeholder="Orgão não infomado." class="custom-select" id="orgExpeditor" aria-describedby="orgExpeditor_cliente" autocomplete="off">
                         <small id="orgExpeditor_cliente" class="form-text text-muted">Selecione o órgão expeditor</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->dtExpedicao) > 0)
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao"  class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}" aria-describedby="orgExpeditor_cliente">
+                        <input type="date" name="dtExpedicao"  class="form-control" value="{{$cliente->pessoaFisica->dtExpedicao}}" aria-describedby="dtExpeditor_cliente" autocomplete="off">
                         <small id="dtExpedicao_cliente" class="form-text text-muted">Insira a data de expedição</small>
                     </div>
                     @else
                     <div class="form-group col-sm-2">
-                        <input type="date" name="dtExpedicao"  class="form-control" placeholder="Não informado." aria-describedby="dtExpedicao_cliente">
+                        <input type="date" name="dtExpedicao"  class="form-control" placeholder="Não informado." aria-describedby="dtExpedicao_cliente" autocomplete="off">
                         <small id="dtExpedicao_cliente" class="form-text text-muted">Insira a data de expedição</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->sexo) > 0)
                     <div class="form-group col-sm-2">
-                        <input type="text" name="sexo"  value="{{$cliente->pessoaFisica->sexo}}"class="custom-select" id="sexo" aria-describedby="sexo_cliente">
+                        <input type="text" name="sexo" value="{{$cliente->pessoaFisica->sexo}}" class="custom-select" id="sexo" list="sexoOptions" aria-describedby="sexo_cliente" autocomplete="off">
+                        <datalist id="sexoOptions">
+                            <option selected></option>
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                        </datalist>
                         <small id="sexo_cliente" class="form-text text-muted">Selecione o sexo</small>
                     </div>
                     @else
                     <div class="form-group col-sm-2">
-                        <input type="text" name="sexo"  placeholder="Não informado"class="custom-select" id="sexo" aria-describedby="sexo_cliente">
+                        <input type="text" name="sexo"  placeholder="Não informado"class="custom-select" id="sexo" aria-describedby="sexo_cliente" autocomplete="off">
                         <small id="sexo_cliente" class="form-text text-muted">Selecione o sexo</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->estadoCivil) > 0)
                     <div class="form-group col-sm-2">
-                        <input type="text" name="estadoCivil"  value="{{$cliente->pessoaFisica->estadoCivil}}"class="custom-select" id="estadoCivil" aria-describedby="estado_civil_cliente">
+                        <input type="text" name="estadoCivil" value="{{$cliente->pessoaFisica->estadoCivil}}" class="custom-select" id="estadoCivil" list="estadoCivilOptions" aria-describedby="estado_civil_cliente" autocomplete="off">
+                        <datalist id="estadoCivilOptions">
+                            <option selected></option>
+                            @foreach($estadoscivis as $estadoscivil)
+                            <option>{{$estadoscivil->tipo}}</option>
+                            @endforeach
+                        </datalist>
                         <small id="estado_civil_cliente" class="form-text text-muted">Selecione o estado civil</small>
                     </div>
                     @else
                     <div class="form-group col-sm-2">
-                        <input type="text" name="estadoCivil"  placeholder="Não informado."class="custom-select" id="estadoCivil" aria-describedby="estado_civil_cliente">
+                        <input type="text" name="estadoCivil"  placeholder="Não informado."class="custom-select" id="estadoCivil" aria-describedby="estado_civil_cliente" autocomplete="off">
                         <small id="estado_civil_cliente" class="form-text text-muted">Selecione o estado civil</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->tratamento) > 0)
                     <div class="form-group col-sm-2">
-                        <input type="text" name="tratamento" value="{{$cliente->pessoaFisica->tratamento}}"class="custom-select" id="tratamento" aria-describedby="tratamento_cliente">
+                        <input type="text" name="tratamento" value="{{$cliente->pessoaFisica->tratamento}}" class="custom-select" id="tratamento" list="tratamentoOptions" aria-describedby="tratamento_cliente" autocomplete="off">
+                        <datalist id="tratamentoOptions">
+                            <option selected></option>
+                            @foreach($tratamentos as $tratamento)
+                            <option>{{$tratamento->tipo}}</option>
+                            @endforeach
+                        </datalist>
                         <small id="tratamento_cliente" class="form-text text-muted">Selecione o tratamento</small>
                     </div>
                     @else
                     <div class="form-group col-2">
-                        <input type="text" name="tratamento"  placeholder="Não informado."class="custom-select" id="tratamento" aria-describedby="tratamento_cliente">
+                        <input type="text" name="tratamento"  placeholder="Não informado."class="custom-select" id="tratamento" aria-describedby="tratamento_cliente" autocomplete="off">
                         <small id="tratamento_cliente" class="form-text text-muted">Selecione o tratamento</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->nacionalidade) > 0)
                     <div class="form-group col-sm-3">
-                        <input type="text" name="nacionalidade"  value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" aria-describedby="nacionalidade_cliente">
+                        <input type="text" name="nacionalidade" value="{{$cliente->pessoaFisica->nacionalidade}}" class="custom-select" id="nacionalidade" list="nacionalidadeOptions" aria-describedby="nacionalidade_cliente" autocomplete="off">
+                        <datalist id="nacionalidadeOptions">
+                            <option selected></option>
+                            @foreach($nacionalidades as $nacionalidade)
+                            <option>{{$nacionalidade->tipo}}</option>
+                            @endforeach
+                        </datalist>
                         <small id="nacionalidade_cliente" class="form-text text-muted">Selecione a nacionalidade</small>
                     </div>
                     @else
                     <div class="form-group col-3">
-                        <input type="text" name="nacionalidade"  placeholder="Não informado." class="custom-select" aria-describedby="nacionalidade_cliente">
+                        <input type="text" name="nacionalidade"  placeholder="Não informado." class="custom-select" aria-describedby="nacionalidade_cliente" autocomplete="off">
                         <small id="nacionalidade_cliente" class="form-text text-muted">Selecione a nacionalidade</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->dtNascimento) > 0)
                     <div class="form-group col-sm-3">
-                        <input type="date" name="dtNascimento" value="{{$cliente->pessoaFisica->dtNascimento}}" class="form-control" aria-describedby="data_nascimento_cliente">
+                        <input type="date" name="dtNascimento" value="{{$cliente->pessoaFisica->dtNascimento}}" class="form-control" aria-describedby="data_nascimento_cliente" autocomplete="off">
                         <small id="data_nascimento_cliente" class="form-text text-muted">Insira a data de nascimento</small>
                     </div>
                     @else
                     <div class="form-group col-sm-3">
-                        <input type="text" name="dtNascimento" class="form-control"  placeholder="Não informado." aria-describedby="data_nascimento_cliente">
+                        <input type="text" name="dtNascimento" class="form-control"  placeholder="Não informado." aria-describedby="data_nascimento_cliente" autocomplete="off">
                         <small id="data_nascimento_cliente" class="form-text text-muted">Insira a data de nascimento</small>
                     </div>
                     @endif
 
                     @if(isset($cliente->pessoaFisica->nomeMae) > 0)
                     <div class="form-group col-sm-6">
-                        <input type="text" name="nomeMae" value="{{$cliente->pessoaFisica->nomeMae}}" class="form-control" maxlength="150" aria-describedby="nome_mae_cliente">
+                        <input type="text" name="nomeMae" value="{{$cliente->pessoaFisica->nomeMae}}" class="form-control" maxlength="150" aria-describedby="nome_mae_cliente" autocomplete="off">
                         <small id="nome_mae_cliente" class="form-text text-muted">Insira o nome completo da mãe</small>
                     </div>
                     @else
                     <div class="form-group col-sm-6">
-                        <input type="text" name="nomeMae" class="form-control"  placeholder="Não informado." aria-describedby="nome_mae_cliente">
+                        <input type="text" name="nomeMae" class="form-control"  placeholder="Não informado." aria-describedby="nome_mae_cliente" autocomplete="off">
                         <small id="nome_mae_cliente" class="form-text text-muted">Insira a data de nascimento</small>
                     </div>
                     @endif
@@ -423,148 +458,10 @@
                 </p>
             </div>
         <!-- FIM DO CARD CONTATO -->
-                <div class="card-header bg-light">
-                    <strong>VINCULAR</strong>
-                </div>
-                <div class="card-body">
-                <ul class="nav nav-tabs col-md-12" role="tablist">
-                    <li role="presentation" class="nav-item" >
-                        <a class="nav-link active" href="#processo_todos" aria-controls="processo_todos" data-toggle="tab" role="tab">Processo</a>
-                    </li>
-
-                    <li role="presentation" class="nav-item" >
-                        <a class="nav-link" href="#servico_todos" aria-controls="servico_todos" data-toggle="tab" role="tab">Serviço</a>
-                    </li>
-                </ul>
-                <div class="tab-content col-md-12 table-responsive-sm">
-                    <div role="tabpanel" class="tab-pane nav-link active" id="processo_todos">
-                        @if(count($processos_todos) > 0)
-                        <table class="table table-hover" id="processos">
-                            <thead>
-                                <tr>
-                                    <th class="col-6">Pasta do processo</th>
-                                    <th class="col-3">Data de distribuição</th>
-                                    <th class="col-2">Andamento</th>
-                                    <th class="col">Vincular</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($processos_todos as $processo_cliente)
-                                <tr>
-                                    <td>
-                                        {{$processo_cliente->pasta}}
-                                    </td>
-                                    <td>
-                                        @if($processo_cliente->dtDistribuicao)
-                                        {{date('d/m/Y', strtotime($processo_cliente->dtDistribuicao))}}
-                                        @else
-                                            Em análise.
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if($processo_cliente->ultAndamento)
-                                        {{date('d/m/Y', strtotime($processo_cliente->ultAndamento))}}
-                                        @else
-                                            Não há andamento.
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="form-check" align="center">
-                                            <input class="form-check-input" name="processo[]" type="checkbox" value="{{$processo_cliente->id}}">
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table><br>
-                        @else
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="col-6">Pasta do processo</th>
-                                    <th class="col-3">Data de distribuição</th>
-                                    <th class="col-2">Andamento</th>
-                                    <th class="col">Vincular</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td> Não há dados. </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        @endif
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane nav-link" id="servico_todos">
-                        @if(count($servicos_todos) > 0)
-                        <table class="table table-hover" id="servicos">
-                            <thead>
-                                <tr>
-                                    <th>Pasta do serviço</th>
-                                    <th>Contrato</th>
-                                    <th>Data de abertura</th>
-                                    <th>Situação</th>
-                                    <th>Vincular</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($servicos_todos as $servico_cliente)
-                                <tr>
-                                    <td>
-                                        {{$servico_cliente->pasta_servico}}
-                                    </td>
-                                    <td>{{$servico_cliente->contrato}}</td>
-                                    <td>
-                                        @php
-                                        $data_abertura = new DateTime($servico_cliente->abertura);
-                                        echo $data_abertura->format('d/m/Y');
-                                        @endphp
-                                    </td>
-                                    <td>{{$servico_cliente->situacao}}</td>
-                                    <td>
-                                        <div class="form-check" align="center">
-                                            <input class="form-check-input" name="servico[]" type="checkbox" value="{{$servico_cliente->id}}">
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        @else
-                        <table class="table table">
-                            <thead>
-                                <tr>
-                                    <th class="col-5">Pasta do serviço</th>
-                                    <th class="col-2">Contrato</th>
-                                    <th class="col-2">Data de abertura</th>
-                                    <th class="col-2">Situação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td> Não há dados. </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        @endif
-                    </div>
-                </div><br>
-                <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
-                    <div class="col-sm-12" align="right">
-                        <input type="submit" class="btn btn-success" value="Atualizar">
-                    </div>
-                </div>
+            <div class="card-header bg-light">
+                <strong>VINCULADOS (PROCESSOS / SERVIÇOS)</strong>
             </div>
-        </div>
-    </form>
-
-    <div class="col-12">
-        <div class="row">
-            <div class="card-header bg-light col-md-12">
-                <strong>VINCULADOS</strong>
-            </div>
-            <div class="card col-md-12" role="tabpanel">
+            <div class="card-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item" >
                         <a class="nav-link active" href="#processo" aria-controls="processo" data-toggle="tab" role="tab">Processo</a>
@@ -575,24 +472,22 @@
                     </li>
                 </ul>
                 <div class="tab-content col-md-12">
-                    <div role="tabpanel" class="tab-pane nav-link active tabela" id="processo">
+                    <div role="tabpanel" class="tab-pane table-responsive nav-link active tabela" id="processo">
                         @if(count($cliente->processo) > 0)
-                        <table class="table table-hover">
+                        <table class="table table-head-fixed table-hover" id="processos_1">
                             <thead>
                                 <tr>
                                     <th class="col-6">Pasta do processo</th>
-                                    <th class="col-2">Data de distribuição</th>
+                                    <th class="col-3">Data de distribuição</th>
                                     <th class="col-3">Andamento</th>
                                     <th class="col">Desvincular</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($processos as $processo)
-                                <tr>
+                                <tr data-widget="expandable-table" aria-expanded="false">
                                     <td>
-                                        <a href="{{route('processo.show', $processo->id)}}">
-                                            {{$processo->pasta}}
-                                        </a>
+                                        {{$processo->nome_processo}}
                                     </td>
                                     <td>
                                         {{date('d/m/Y', strtotime($processo->dtDistribuicao))}}
@@ -616,11 +511,34 @@
                                         </form>
                                     </td>
                                 </tr>
+                                <tr class="expandable-body">
+                                    <td colspan="5">
+                                        <table class="table table-head-fixed table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-3">Data</th>
+                                                    <th class="col-3">Tipo</th>
+                                                    <th class="col-3">E-mail</th>
+                                                    <th class="col-3">Descrição</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>21/09/2021</td>
+                                                    <td>Trabalhista</td>
+                                                    <td>exemplo@email.com</td>
+                                                    <td>Em andamento</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table><br>
                         @else
-                        <table class="table table-hover">
+                        <table class="table table-head-fixed table-hover">
                             <thead>
                                 <tr>
                                     <th class="col-6">Pasta do processo</th>
@@ -639,7 +557,7 @@
 
                     <div role="tabpanel" class="tab-pane nav-link tabela" id="servico">
                         @if(count($servicos) > 0)
-                        <table class="table table-hover">
+                        <table class="table table-head-fixed table-hover" id="servicos_1">
                             <thead>
                                 <tr>
                                     <th>Pasta do serviço</th>
@@ -684,7 +602,7 @@
                             {{ $servicos->links() }}
                         </div>
                         @else
-                        <table class="table table">
+                        <table class="table table-head-fixed table-hover">
                             <thead>
                                 <tr>
                                     <th class="col-5">Pasta do serviço</th>
@@ -701,7 +619,168 @@
                         </table>
                         @endif
                     </div>
+                </div><br>
+                <div class="form-group"> <!-- BOTÃO SUBMIT DO FORM -->
+                    <div class="col-sm-12" align="right">
+                        <input type="submit" class="btn btn-success" value="Atualizar">
+                    </div>
                 </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="card col-12">
+        <div class="row">
+            <div class="card-header bg-light col-md-12">
+                <strong>VINCULAR</strong>
+            </div>
+            <div class="card-body" role="tabpanel">
+                <ul class="nav nav-tabs col-md-12" role="tablist">
+                    <li role="presentation" class="nav-item" >
+                        <a class="nav-link active" href="#processo_todos" aria-controls="processo_todos" data-toggle="tab" role="tab">Processo</a>
+                    </li>
+
+                    <li role="presentation" class="nav-item" >
+                        <a class="nav-link" href="#servico_todos" aria-controls="servico_todos" data-toggle="tab" role="tab">Serviço</a>
+                    </li>
+                </ul>
+                <div class="tab-content col-md-12 table-responsive-sm">
+                    <div role="tabpanel" class="tab-pane nav-link active" id="processo_todos">
+                        @if(count($processos_todos) > 0)
+                        <table class="table table-head-fixed table-hover" id="processos_2">
+                            <thead>
+                                <tr>
+                                    <th class="col-6">Pasta do processo</th>
+                                    <th class="col-3">Data de distribuição</th>
+                                    <th class="col-2">Andamento</th>
+                                    <th class="col-1">Vincular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($processos_todos as $processo_cliente)
+                                <tr data-widget="expandable-table" aria-expanded="false">
+                                    <td>
+                                        {{$processo_cliente->nome_processo}}
+                                    </td>
+                                    <td>
+                                        @if($processo_cliente->dtDistribuicao)
+                                        {{date('d/m/Y', strtotime($processo_cliente->dtDistribuicao))}}
+                                        @else
+                                            Em análise.
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($processo_cliente->ultAndamento)
+                                        {{date('d/m/Y', strtotime($processo_cliente->ultAndamento))}}
+                                        @else
+                                            Não há andamento.
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <div class="form-check" align="center">
+                                            <input class="form-check-input" name="processo[]" type="checkbox" value="{{$processo_cliente->id}}">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="expandable-body">
+                                    <td colspan="5">
+                                        <table class="table table-head-fixed table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-3">Data</th>
+                                                    <th class="col-3">Tipo</th>
+                                                    <th class="col-3">E-mail</th>
+                                                    <th class="col-3">Descrição</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>21/09/2021</td>
+                                                    <td>Trabalhista</td>
+                                                    <td>exemplo@email.com</td>
+                                                    <td>Em andamento</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table><br>
+                        @else
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-6">Pasta do processo</th>
+                                    <th class="col-3">Data de distribuição</th>
+                                    <th class="col-2">Andamento</th>
+                                    <th class="col-1">Vincular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Não há dados. </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @endif
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane nav-link" id="servico_todos">
+                        @if(count($servicos_todos) > 0)
+                        <table class="table table-hover" id="servicos_2">
+                            <thead>
+                                <tr>
+                                    <th class="col-4">Pasta do serviço</th>
+                                    <th class="col-3">Contrato</th>
+                                    <th class="col-2">Data de abertura</th>
+                                    <th class="col-2">Situação</th>
+                                    <th class="col-1">Vincular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($servicos_todos as $servico_cliente)
+                                <tr>
+                                    <td>
+                                        {{$servico_cliente->pasta_servico}}
+                                    </td>
+                                    <td>{{$servico_cliente->contrato}}</td>
+                                    <td>
+                                        @php
+                                        $data_abertura = new DateTime($servico_cliente->abertura);
+                                        echo $data_abertura->format('d/m/Y');
+                                        @endphp
+                                    </td>
+                                    <td>{{$servico_cliente->situacao}}</td>
+                                    <td>
+                                        <div class="form-check" align="center">
+                                            <input class="form-check-input" name="servico[]" type="checkbox" value="{{$servico_cliente->id}}">
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @else
+                        <table class="table table">
+                            <thead>
+                                <tr>
+                                    <th class="col-6">Pasta do serviço</th>
+                                    <th class="col-3">Contrato</th>
+                                    <th class="col-2">Data de abertura</th>
+                                    <th class="col-1">Situação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Não há dados. </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @endif
+                    </div>
+                </div><br>
             </div>
         </div>
     </div>
@@ -716,7 +795,7 @@
     <script src="{{url('js/atualizar_cliente.js')}}"></script>
     <script>
         $(document).ready(function(){
-            $('#processos').DataTable({
+            $('#processos_1').DataTable({
                 responsive: true,
                 info: false,
                 fixedHeader: true
@@ -726,7 +805,26 @@
 
     <script>
         $(document).ready(function(){
-            $('#servicos').DataTable({
+            $('#servicos_1').DataTable({
+                responsive: true,
+                info: false,
+                fixedHeader: true
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#processos_2').DataTable({
+                responsive: true,
+                info: false,
+                fixedHeader: true
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#servicos_2').DataTable({
                 responsive: true,
                 info: false,
                 fixedHeader: true
