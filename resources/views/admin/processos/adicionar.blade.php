@@ -1,3 +1,8 @@
+
+@php
+date_default_timezone_set('America/Sao_Paulo')
+@endphp
+
 @extends('adminlte::page')
 
 @section('title', 'Processos')
@@ -9,6 +14,7 @@
 <script type="text/javascript" src="{{url('js/jquery-3.3.1.min.js')}}"></script>
 <script type="text/javascript" src="{{url('js/jquery.mask.min.js')}}"></script>
 <script type="text/javascript" src="{{url('js/mascara_processo.js')}}"></script>
+
     <h1>
         Novo processo
         <a href="{{route('processo.index')}}" class="btn btn-sm btn-success">
@@ -20,9 +26,6 @@
 @section('content')
     <form action="{{ route('processo.store') }}" method="POST" onsubmit="return confirm('Verique todos os campos antes de salvar!')" >
         @csrf
-        @php
-            date_default_timezone_set('America/Sao_Paulo')
-        @endphp
             <div class="card cadastro parte_contraria">
                 <div class="card-header">
                     <strong>PASTA DO PROCESSO</strong>
@@ -30,9 +33,9 @@
                 <div class="card-body col-12">
                     <p class="card-text">
                         <div class="row">
-                            <div class="form-group col-sm-4">
-                                <input type="text"  placeholder="Número da pasta" name="pasta" class="form-control" value="{{'Proc - '.date('YmdHis', time())." "."-"." " }}">
-                                <small class="form-text text-muted col-md-12">Nome da pasta</small>
+                            <div class="form-group col-sm-3">
+                                <input type="text"  placeholder="Número da pasta" readonly name="pasta" class="form-control" value="{{'Proc - '.date('YmdHis', time()).rand(000001, 999999)}}">
+                                <small class="form-text text-muted col-md-12">Número da pasta</small>
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -130,5 +133,4 @@
         </div>
     </form>
 @endsection
-@section('footer')
-@endsection
+
