@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class UsuariosController extends Controller
-{public function __construct()
+{
+    public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('can:permissao_usuarios');
