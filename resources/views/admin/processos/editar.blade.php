@@ -27,58 +27,72 @@
                     <div class="row">
                         <div class="form-group col-sm-9">
                             <input type="text"  value="{{$processo->pasta}}" name="pasta" class="form-control">
+                            <small id="pasta_processo" class="form-text text-muted">Nome da pasta do processo</small>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$processo->instInicial}}" placeholder="Instância inicial" name="instInicial" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Grau de instância</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->numInicial}}" placeholder="Não há número da inicial cadastrado." name="numInicial" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Número do processo inicial</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->numPrincipal}}" placeholder="Não há número principal cadastrado." name="numPrincipal" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Número do processo principal</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->numProcesso}}" placeholder="Não há número de processo cadastrado." name="numProcesso" id="masc_processo" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Número do processo</small>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <input type="date" value="{{$processo->dtDistribuicao}}" name="dtDistribuicao" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Data de distribuição</small>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$processo->acao}}"  placeholder="Ação" name="acao" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Ação do processo</small>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$processo->fase}}"  placeholder="Fase" name="fase" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Fase do processo</small>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <input type="text" value="{{$processo->natureza}}"  placeholder="Natureza" name="natureza" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Natureza do processo</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->rito}}"  placeholder="Rito" name="rito" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Rito do processo</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->parte_contraria}}" placeholder="Parte contrária" name="parte_contraria" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Nome da parte contrária</small>
                         </div>
 
                         <div class="form-group col-sm-4">
                             <input type="text" value="{{$processo->advContrario}}" placeholder="Advogado da parte contrária" name="advContrario" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Nome do advogado da parte contrária</small>
                         </div>
 
                         <div class="form-group col-sm-6">
                             <input type="text" value="{{$processo->orgao_inicial}}" placeholder="Órgão Inicial" name="orgao_inicial" class="form-control">
+                            <small id="uf_cliente" class="form-text text-muted">Local do órgão inicial</small>
                         </div>
 
                         <div class="form-group col-sm-6">
                             <textarea type="text" placeholder="Título" name="titulo" class="form-control">{{$processo->titulo}}</textarea>
+                            <small id="uf_cliente" class="form-text text-muted">Descrição do processo</small>
                         </div>
                     </div>
                 </p>
