@@ -31,7 +31,8 @@ class ServicoController extends Controller
     public function index()
     {
         $servicos = Servico::orderBy('pasta_servico', 'ASC')
-                            ->first();
+                            ->first()
+                            ->get();
         return view('admin.servicos.index', [
             'servicos' => $servicos
         ]);
